@@ -1,0 +1,10 @@
+object fPlayers: TfPlayers
+  Left = 450
+  Height = 240
+  Top = 205
+  Width = 320
+  BorderStyle = bsDialog
+  Caption = 'Игроки'
+  Position = poDesktopCenter
+  LCLVersion = '2.0.10.0'
+end

@@ -12,12 +12,16 @@ type
   { TfSettings }
 
   TfSettings = class(TForm)
+    bSettingsSave: TButton;
+    TrueCredit: TCheckBox;
+    Label4: TLabel;
     ValueJackpot: TSpinEdit;
     TrueJackpot: TCheckBox;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     StartMoney: TSpinEdit;
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure StartMoneyChange(Sender: TObject);
     procedure TrueJackpotChange(Sender: TObject);
   private
@@ -28,8 +32,11 @@ type
 
 var
   fSettings: TfSettings;
+  // глобальные переменные:
+  money, jackpot: integer; // количество начальных денег и джекпот
 
 implementation
+uses Main;
 
 {$R *.lfm}
 
@@ -60,6 +67,13 @@ begin
       else
         ValueJackpot.Value:= (round(StartMoney.Value / k) div 10000 + 1) * 10000;
     end;
+end;
+
+procedure TfSettings.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  money:= StartMoney.Value;
+  jackpot:= ValueJackpot.Value;
+  fMain.Show;
 end;
 
 end.
