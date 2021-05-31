@@ -12,8 +12,26 @@ type
   { TfPlay }
 
   TfPlay = class(TForm)
+    ImCustoms: TImage;
     ImBackground: TImage;
+    ImCrypto: TImage;
+    ImVacation: TImage;
+    ImStart: TImage;
+    ImJackpot: TImage;
+    ImNewYork: TImage;
+    ImSeychelles: TImage;
+    ImDubai: TImage;
     ImBus: TImage;
+    ImBiology: TImage;
+    ImChemistry: TImage;
+    ImTenerife: TImage;
+    ImSocial: TImage;
+    ImNeiro: TImage;
+    ImMaldives: TImage;
+    ImWeapon: TImage;
+    ImCarFactory: TImage;
+    ImMetallurgy: TImage;
+    ImSearch: TImage;
     ImTaxi: TImage;
     ImCarsharing: TImage;
     ImTokyo: TImage;
@@ -25,10 +43,10 @@ type
     ImCar: TImage;
     ImZoo: TImage;
     ImCircus: TImage;
-    ImStart: TImage;
     ImCoffee: TImage;
     ImShaverma: TImage;
     ImConditer: TImage;
+    ImMedicine: TImage;
   private
 
   public
