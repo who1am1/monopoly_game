@@ -5,7 +5,8 @@ unit main;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Settings;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Settings,
+  Players;
 
 type
 
@@ -18,6 +19,7 @@ type
     bExit: TButton;
     bLoad: TButton;
     procedure bExitClick(Sender: TObject);
+    procedure bPlayClick(Sender: TObject);
     procedure bSettingsClick(Sender: TObject);
   private
 
@@ -43,6 +45,12 @@ end;
 procedure TfMain.bExitClick(Sender: TObject);
 begin
   close;
+end;
+
+procedure TfMain.bPlayClick(Sender: TObject);
+begin
+  fPlayers.Show;
+  fMain.Hide;
 end;
 
 end.

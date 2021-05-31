@@ -54,6 +54,7 @@
         <Filename Value="players.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="fPlayers"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit3>
     </Units>

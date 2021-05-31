@@ -16,6 +16,7 @@ object fMain: TfMain
     Top = 32
     Width = 75
     Caption = 'Играть'
+    OnClick = bPlayClick
     TabOrder = 0
   end
   object bStatistics: TButton

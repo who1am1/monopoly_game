@@ -3,6 +3,7 @@ object fMain: TfMain
   Height = 277
   Top = 203
   Width = 320
+  BorderStyle = bsDialog
   Caption = 'Монополия'
   ClientHeight = 277
   ClientWidth = 320
