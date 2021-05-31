@@ -6,13 +6,14 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
-  ColorBox;
+  ColorBox, Buttons;
 
 type
 
   { TfPlayers }
 
   TfPlayers = class(TForm)
+    bContinue: TBitBtn;
     GroupBox2: TGroupBox;
     GroupBox3: TGroupBox;
     GroupBox4: TGroupBox;
@@ -34,6 +35,7 @@ type
     PlayerName3: TEdit;
     PlayerName4: TEdit;
     PlayerName5: TEdit;
+    procedure bContinueClick(Sender: TObject);
   private
 
   public
@@ -53,8 +55,17 @@ var
   Player: array[1..5] of TPlayer; // массив записей игроков
 
 implementation
+uses Play;
 
 {$R *.lfm}
+
+{ TfPlayers }
+
+procedure TfPlayers.bContinueClick(Sender: TObject);
+begin
+  fPlay.Show;
+  fPlayers.Hide;
+end;
 
 end.
 

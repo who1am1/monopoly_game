@@ -4,7 +4,7 @@ object fMain: TfMain
   Top = 203
   Width = 320
   BorderStyle = bsDialog
-  Caption = 'Монополия'
+  Caption = 'Главное меню'
   ClientHeight = 277
   ClientWidth = 320
   Color = clWhite
