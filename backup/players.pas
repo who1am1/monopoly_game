@@ -23,12 +23,7 @@ type
     Image4: TImage;
     Image5: TImage;
     Image6: TImage;
-    PlayerColor1: TColorBox;
     Image2: TImage;
-    PlayerColor2: TColorBox;
-    PlayerColor3: TColorBox;
-    PlayerColor4: TColorBox;
-    PlayerColor5: TColorBox;
     PlayerName1: TEdit;
     GroupBox1: TGroupBox;
     PlayerName2: TEdit;
@@ -55,6 +50,7 @@ var
   Player: array[1..5] of TPlayer; // массив записей игроков
 
 implementation
+uses Play;
 
 {$R *.lfm}
 

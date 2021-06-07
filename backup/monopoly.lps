@@ -11,7 +11,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="4"/>
         <CursorPos Y="22"/>
-        <UsageCount Value="45"/>
+        <UsageCount Value="57"/>
       </Unit0>
       <Unit1>
         <Filename Value="main.pas"/>
@@ -20,7 +20,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <CursorPos X="10" Y="9"/>
-        <UsageCount Value="45"/>
+        <UsageCount Value="57"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -33,7 +33,7 @@
         <EditorIndex Value="3"/>
         <TopLine Value="61"/>
         <CursorPos X="28" Y="35"/>
-        <UsageCount Value="45"/>
+        <UsageCount Value="57"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit2>
@@ -44,9 +44,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="40"/>
-        <CursorPos X="11" Y="58"/>
-        <UsageCount Value="41"/>
+        <TopLine Value="35"/>
+        <CursorPos X="11" Y="53"/>
+        <UsageCount Value="53"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -58,9 +58,9 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="400"/>
-        <CursorPos X="27" Y="414"/>
-        <UsageCount Value="36"/>
+        <TopLine Value="457"/>
+        <CursorPos X="27" Y="473"/>
+        <UsageCount Value="48"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit4>
@@ -69,139 +69,143 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="143"/>
         <CursorPos Y="153"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
       </Unit5>
       <Unit6>
         <Filename Value="C:\lazarus\lcl\include\wincontrol.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="7425"/>
         <CursorPos Y="7435"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
       </Unit6>
       <Unit7>
         <Filename Value="C:\lazarus\lcl\include\customform.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="950"/>
         <CursorPos Y="960"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
       </Unit7>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="settings.pas"/>
-        <Caret Line="52" TopLine="41"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="451" Column="31" TopLine="436"/>
       </Position1>
       <Position2>
-        <Filename Value="settings.pas"/>
-        <Caret Line="44" Column="37" TopLine="33"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="452" Column="31" TopLine="437"/>
       </Position2>
       <Position3>
-        <Filename Value="settings.pas"/>
-        <Caret Line="51" Column="11" TopLine="47"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="453" Column="31" TopLine="438"/>
       </Position3>
       <Position4>
-        <Filename Value="settings.pas"/>
-        <Caret Line="52" Column="11" TopLine="48"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="454" Column="31" TopLine="439"/>
       </Position4>
       <Position5>
-        <Filename Value="settings.pas"/>
-        <Caret Line="53" Column="11" TopLine="49"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="455" Column="31" TopLine="440"/>
       </Position5>
       <Position6>
-        <Filename Value="main.pas"/>
-        <Caret Line="8" Column="71"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="456" Column="31" TopLine="441"/>
       </Position6>
       <Position7>
-        <Filename Value="main.pas"/>
-        <Caret Line="45" Column="9" TopLine="30"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="457" Column="31" TopLine="442"/>
       </Position7>
       <Position8>
-        <Filename Value="main.pas"/>
-        <Caret Line="45" Column="9" TopLine="30"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="458" Column="31" TopLine="443"/>
       </Position8>
       <Position9>
-        <Filename Value="settings.pas"/>
-        <Caret Line="55" Column="11" TopLine="36"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="459" Column="31" TopLine="444"/>
       </Position9>
       <Position10>
-        <Filename Value="settings.pas"/>
-        <Caret Line="71" Column="14" TopLine="56"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="460" Column="31" TopLine="445"/>
       </Position10>
       <Position11>
-        <Filename Value="settings.pas"/>
-        <Caret Line="73" TopLine="58"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="461" Column="31" TopLine="446"/>
       </Position11>
       <Position12>
-        <Filename Value="settings.pas"/>
-        <Caret Line="74" TopLine="58"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="462" Column="31" TopLine="447"/>
       </Position12>
       <Position13>
-        <Filename Value="settings.pas"/>
-        <Caret Line="75" TopLine="59"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="463" Column="31" TopLine="448"/>
       </Position13>
       <Position14>
-        <Filename Value="settings.pas"/>
-        <Caret Line="76" TopLine="60"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="464" Column="31" TopLine="449"/>
       </Position14>
       <Position15>
-        <Filename Value="settings.pas"/>
-        <Caret Line="73" TopLine="60"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="465" Column="31" TopLine="450"/>
       </Position15>
       <Position16>
-        <Filename Value="settings.pas"/>
-        <Caret Line="74" TopLine="60"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="466" Column="31" TopLine="451"/>
       </Position16>
       <Position17>
-        <Filename Value="players.pas"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="467" Column="31" TopLine="452"/>
       </Position17>
       <Position18>
-        <Filename Value="main.pas"/>
-        <Caret Line="41" Column="14" TopLine="22"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="468" Column="31" TopLine="453"/>
       </Position18>
       <Position19>
-        <Filename Value="players.pas"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="469" Column="31" TopLine="454"/>
       </Position19>
       <Position20>
-        <Filename Value="players.pas"/>
-        <Caret Line="45" Column="19" TopLine="32"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="470" Column="31" TopLine="455"/>
       </Position20>
       <Position21>
-        <Filename Value="players.pas"/>
-        <Caret Line="47" Column="9" TopLine="34"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="471" Column="31" TopLine="456"/>
       </Position21>
       <Position22>
         <Filename Value="players.pas"/>
-        <Caret Line="44" Column="77" TopLine="37"/>
+        <Caret Line="58" Column="11" TopLine="40"/>
       </Position22>
       <Position23>
-        <Filename Value="play.pas"/>
+        <Filename Value="players.pas"/>
+        <Caret Line="57" Column="11" TopLine="39"/>
       </Position23>
       <Position24>
         <Filename Value="players.pas"/>
-        <Caret Line="46" Column="77" TopLine="38"/>
+        <Caret Line="56" Column="11" TopLine="38"/>
       </Position24>
       <Position25>
         <Filename Value="players.pas"/>
-        <Caret Line="66" Column="17" TopLine="50"/>
+        <Caret Line="55" Column="11" TopLine="37"/>
       </Position25>
       <Position26>
-        <Filename Value="play.pas"/>
+        <Filename Value="players.pas"/>
+        <Caret Line="54" Column="11" TopLine="36"/>
       </Position26>
       <Position27>
-        <Filename Value="play.pas"/>
-        <Caret Line="104" Column="33" TopLine="92"/>
+        <Filename Value="players.pas"/>
+        <Caret Line="53" Column="11" TopLine="35"/>
       </Position27>
       <Position28>
         <Filename Value="play.pas"/>
-        <Caret Line="105" Column="25" TopLine="92"/>
+        <Caret Line="472" Column="31" TopLine="457"/>
       </Position28>
       <Position29>
         <Filename Value="play.pas"/>
-        <Caret Line="104" Column="36" TopLine="92"/>
+        <Caret Line="473" Column="31" TopLine="458"/>
       </Position29>
       <Position30>
         <Filename Value="play.pas"/>
-        <Caret Line="111" Column="76" TopLine="99"/>
+        <Caret Line="472" Column="31" TopLine="457"/>
       </Position30>
     </JumpHistory>
     <RunParams>

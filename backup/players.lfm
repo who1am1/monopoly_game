@@ -77,17 +77,6 @@ object fPlayers: TfPlayers
         E322747F389168FAC6F5FA1F59454A31085DCFA60000000049454E44AE426082
       }
     end
-    object PlayerColor1: TColorBox
-      Left = 104
-      Height = 22
-      Top = 9
-      Width = 40
-      DefaultColorColor = clMoneyGreen
-      Selected = clYellow
-      Style = [cbStandardColors, cbPrettyNames]
-      ItemHeight = 16
-      TabOrder = 1
-    end
   end
   object GroupBox2: TGroupBox
     Left = 56
@@ -156,17 +145,6 @@ object fPlayers: TfPlayers
         D8563FCF576DBB5384C40DA5CC5563748F0622466B0BA89C6A44BB0CEC03117E
         E322747F389168FAC6F5FA1F59454A31085DCFA60000000049454E44AE426082
       }
-    end
-    object PlayerColor2: TColorBox
-      Left = 104
-      Height = 22
-      Top = 9
-      Width = 40
-      DefaultColorColor = clMoneyGreen
-      Selected = clRed
-      Style = [cbStandardColors, cbPrettyNames]
-      ItemHeight = 16
-      TabOrder = 1
     end
   end
   object GroupBox3: TGroupBox
@@ -237,17 +215,6 @@ object fPlayers: TfPlayers
         E322747F389168FAC6F5FA1F59454A31085DCFA60000000049454E44AE426082
       }
     end
-    object PlayerColor3: TColorBox
-      Left = 104
-      Height = 22
-      Top = 9
-      Width = 40
-      DefaultColorColor = clMoneyGreen
-      Selected = clLime
-      Style = [cbStandardColors, cbPrettyNames]
-      ItemHeight = 16
-      TabOrder = 1
-    end
   end
   object GroupBox4: TGroupBox
     Left = 56
@@ -317,17 +284,6 @@ object fPlayers: TfPlayers
         E322747F389168FAC6F5FA1F59454A31085DCFA60000000049454E44AE426082
       }
     end
-    object PlayerColor4: TColorBox
-      Left = 104
-      Height = 22
-      Top = 9
-      Width = 40
-      DefaultColorColor = clMoneyGreen
-      Selected = clFuchsia
-      Style = [cbStandardColors, cbPrettyNames]
-      ItemHeight = 16
-      TabOrder = 1
-    end
   end
   object GroupBox5: TGroupBox
     Left = 56
@@ -396,17 +352,6 @@ object fPlayers: TfPlayers
         D8563FCF576DBB5384C40DA5CC5563748F0622466B0BA89C6A44BB0CEC03117E
         E322747F389168FAC6F5FA1F59454A31085DCFA60000000049454E44AE426082
       }
-    end
-    object PlayerColor5: TColorBox
-      Left = 104
-      Height = 22
-      Top = 9
-      Width = 40
-      DefaultColorColor = clMoneyGreen
-      Selected = clAqua
-      Style = [cbStandardColors, cbPrettyNames]
-      ItemHeight = 16
-      TabOrder = 1
     end
   end
   object Image1: TImage

@@ -9,7 +9,7 @@ object fPlayers: TfPlayers
   ClientWidth = 320
   Position = poDesktopCenter
   LCLVersion = '2.0.10.0'
-  object GroupBox1: TGroupBox
+  object Choose1: TGroupBox
     Left = 56
     Height = 56
     Top = 56
@@ -25,7 +25,7 @@ object fPlayers: TfPlayers
       TabOrder = 0
       Text = 'Игрок 1'
     end
-    object Image2: TImage
+    object ImClose1: TImage
       Left = 160
       Height = 32
       Top = 0
@@ -77,19 +77,8 @@ object fPlayers: TfPlayers
         E322747F389168FAC6F5FA1F59454A31085DCFA60000000049454E44AE426082
       }
     end
-    object PlayerColor1: TColorBox
-      Left = 104
-      Height = 22
-      Top = 9
-      Width = 40
-      DefaultColorColor = clMoneyGreen
-      Selected = clYellow
-      Style = [cbStandardColors, cbPrettyNames]
-      ItemHeight = 16
-      TabOrder = 1
-    end
   end
-  object GroupBox2: TGroupBox
+  object Choose2: TGroupBox
     Left = 56
     Height = 56
     Top = 120
@@ -105,7 +94,7 @@ object fPlayers: TfPlayers
       TabOrder = 0
       Text = 'Игрок 2'
     end
-    object Image3: TImage
+    object ImClose2: TImage
       Left = 160
       Height = 32
       Top = 0
@@ -157,19 +146,8 @@ object fPlayers: TfPlayers
         E322747F389168FAC6F5FA1F59454A31085DCFA60000000049454E44AE426082
       }
     end
-    object PlayerColor2: TColorBox
-      Left = 104
-      Height = 22
-      Top = 9
-      Width = 40
-      DefaultColorColor = clMoneyGreen
-      Selected = clRed
-      Style = [cbStandardColors, cbPrettyNames]
-      ItemHeight = 16
-      TabOrder = 1
-    end
   end
-  object GroupBox3: TGroupBox
+  object Choose3: TGroupBox
     Left = 56
     Height = 56
     Top = 184
@@ -177,6 +155,7 @@ object fPlayers: TfPlayers
     ClientHeight = 36
     ClientWidth = 213
     TabOrder = 2
+    Visible = False
     object PlayerName3: TEdit
       Left = 8
       Height = 23
@@ -185,7 +164,7 @@ object fPlayers: TfPlayers
       TabOrder = 0
       Text = 'Игрок 3'
     end
-    object Image4: TImage
+    object ImClose3: TImage
       Left = 160
       Height = 32
       Top = 0
@@ -237,19 +216,8 @@ object fPlayers: TfPlayers
         E322747F389168FAC6F5FA1F59454A31085DCFA60000000049454E44AE426082
       }
     end
-    object PlayerColor3: TColorBox
-      Left = 104
-      Height = 22
-      Top = 9
-      Width = 40
-      DefaultColorColor = clMoneyGreen
-      Selected = clLime
-      Style = [cbStandardColors, cbPrettyNames]
-      ItemHeight = 16
-      TabOrder = 1
-    end
   end
-  object GroupBox4: TGroupBox
+  object Choose4: TGroupBox
     Left = 56
     Height = 56
     Top = 248
@@ -257,6 +225,7 @@ object fPlayers: TfPlayers
     ClientHeight = 36
     ClientWidth = 213
     TabOrder = 3
+    Visible = False
     object PlayerName4: TEdit
       Left = 8
       Height = 23
@@ -265,7 +234,7 @@ object fPlayers: TfPlayers
       TabOrder = 0
       Text = 'Игрок 4'
     end
-    object Image5: TImage
+    object ImClose4: TImage
       Left = 160
       Height = 32
       Top = 0
@@ -317,19 +286,8 @@ object fPlayers: TfPlayers
         E322747F389168FAC6F5FA1F59454A31085DCFA60000000049454E44AE426082
       }
     end
-    object PlayerColor4: TColorBox
-      Left = 104
-      Height = 22
-      Top = 9
-      Width = 40
-      DefaultColorColor = clMoneyGreen
-      Selected = clFuchsia
-      Style = [cbStandardColors, cbPrettyNames]
-      ItemHeight = 16
-      TabOrder = 1
-    end
   end
-  object GroupBox5: TGroupBox
+  object Choose5: TGroupBox
     Left = 56
     Height = 56
     Top = 312
@@ -337,6 +295,7 @@ object fPlayers: TfPlayers
     ClientHeight = 36
     ClientWidth = 213
     TabOrder = 4
+    Visible = False
     object PlayerName5: TEdit
       Left = 8
       Height = 23
@@ -396,17 +355,6 @@ object fPlayers: TfPlayers
         D8563FCF576DBB5384C40DA5CC5563748F0622466B0BA89C6A44BB0CEC03117E
         E322747F389168FAC6F5FA1F59454A31085DCFA60000000049454E44AE426082
       }
-    end
-    object PlayerColor5: TColorBox
-      Left = 104
-      Height = 22
-      Top = 9
-      Width = 40
-      DefaultColorColor = clMoneyGreen
-      Selected = clAqua
-      Style = [cbStandardColors, cbPrettyNames]
-      ItemHeight = 16
-      TabOrder = 1
     end
   end
   object Image1: TImage

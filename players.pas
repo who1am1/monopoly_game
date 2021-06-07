@@ -14,23 +14,18 @@ type
 
   TfPlayers = class(TForm)
     bContinue: TBitBtn;
-    GroupBox2: TGroupBox;
-    GroupBox3: TGroupBox;
-    GroupBox4: TGroupBox;
-    GroupBox5: TGroupBox;
+    Choose2: TGroupBox;
+    Choose3: TGroupBox;
+    Choose4: TGroupBox;
+    Choose5: TGroupBox;
     Image1: TImage;
-    Image3: TImage;
-    Image4: TImage;
-    Image5: TImage;
+    ImClose2: TImage;
+    ImClose3: TImage;
+    ImClose4: TImage;
     Image6: TImage;
-    PlayerColor1: TColorBox;
-    Image2: TImage;
-    PlayerColor2: TColorBox;
-    PlayerColor3: TColorBox;
-    PlayerColor4: TColorBox;
-    PlayerColor5: TColorBox;
+    ImClose1: TImage;
     PlayerName1: TEdit;
-    GroupBox1: TGroupBox;
+    Choose1: TGroupBox;
     PlayerName2: TEdit;
     PlayerName3: TEdit;
     PlayerName4: TEdit;

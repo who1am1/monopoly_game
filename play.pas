@@ -5,7 +5,7 @@ unit play;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls;
 
 type
 
@@ -16,7 +16,41 @@ type
     Back2: TImage;
     Back3: TImage;
     Back4: TImage;
-    Image2: TImage;
+    Button1: TButton;
+    C102: TShape;
+    C103: TShape;
+    C112: TShape;
+    C24: TShape;
+    C12: TShape;
+    C13: TShape;
+    C21: TShape;
+    C101: TShape;
+    C111: TShape;
+    C81: TShape;
+    C31: TShape;
+    C32: TShape;
+    C33: TShape;
+    C41: TShape;
+    C42: TShape;
+    C71: TShape;
+    C51: TShape;
+    C52: TShape;
+    C53: TShape;
+    C22: TShape;
+    C62: TShape;
+    C72: TShape;
+    C73: TShape;
+    C23: TShape;
+    C82: TShape;
+    C83: TShape;
+    C91: TShape;
+    C92: TShape;
+    Lottery2: TShape;
+    C61: TShape;
+    ImShaverma: TImage;
+    Info: TMemo;
+    Lottery3: TShape;
+    Nalog3: TShape;
     Mon_biology2: TImage;
     Mon_biology3: TImage;
     Mon_crypto2: TImage;
@@ -68,7 +102,6 @@ type
     ImZoo: TImage;
     ImCircus: TImage;
     ImCoffee: TImage;
-    ImShaverma: TImage;
     ImConditer: TImage;
     ImMedicine: TImage;
     Mon_coffee2: TImage;
@@ -82,6 +115,13 @@ type
     Mon_zoo1: TImage;
     Mon_zoo2: TImage;
     Mon_biology1: TImage;
+    C11: TShape;
+    Nalog1: TShape;
+    Nalog2: TShape;
+    GoBack: TShape;
+    Skip: TShape;
+    Lottery1: TShape;
+    procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
 
@@ -424,6 +464,13 @@ begin
   kletka[42].mon3_rent:=2400000;
   kletka[42].mon4_rent:=3200000;
   kletka[42].gold_rent:=4500000;
+end;
+
+procedure TfPlay.Button1Click(Sender: TObject);
+begin
+  C11.brush.color:=$00DB5F00;
+  C11.brush.style:=bsBDiagonal;
+  ImCoffee.Visible:=False;
 end;
 
 end.
