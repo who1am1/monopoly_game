@@ -38,7 +38,9 @@ type
 var
   fSettings: TfSettings;
   // глобальные переменные:
-  StartMoney, jackpot: integer; // количество начальных денег и джекпот
+  StartMoney, jackpot,    // количество начальных денег и джекпот
+  credit: integer;        // размер кредита
+  nalog: byte;            // ставка налога
 
 implementation
 uses Main;

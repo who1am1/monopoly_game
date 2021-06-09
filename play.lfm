@@ -8,6 +8,7 @@ object fPlay: TfPlay
   ClientHeight = 693
   ClientWidth = 1036
   OnCreate = FormCreate
+  OnShow = FormShow
   Position = poDesktopCenter
   LCLVersion = '2.0.10.0'
   object ImBackground: TImage
@@ -17255,5 +17256,189 @@ object fPlay: TfPlay
     Proportional = True
     Stretch = True
     Visible = False
+  end
+  object Label1: TLabel
+    Left = 46
+    Height = 21
+    Top = 211
+    Width = 55
+    Caption = 'НАЛОГ'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Segoe UI Semibold'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 912
+    Height = 21
+    Top = 466
+    Width = 66
+    Caption = 'ЛОТЕРЕЯ'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Segoe UI Semibold'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 199
+    Height = 17
+    Top = 64
+    Width = 45
+    Caption = 'НАЛОГ'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label4: TLabel
+    Left = 387
+    Height = 13
+    Top = 68
+    Width = 52
+    Caption = 'ПРОПУСК'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label5: TLabel
+    Left = 646
+    Height = 13
+    Top = 68
+    Width = 48
+    Caption = 'ЛОТЕРЕЯ'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label6: TLabel
+    Left = 775
+    Height = 17
+    Top = 616
+    Width = 45
+    Caption = 'НАЛОГ'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label7: TLabel
+    Left = 325
+    Height = 13
+    Top = 620
+    Width = 48
+    Caption = 'ЛОТЕРЕЯ'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label8: TLabel
+    Left = 583
+    Height = 17
+    Top = 616
+    Width = 45
+    Caption = 'НАЗАД'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object ImFalse1: TImage
+    Left = 192
+    Height = 100
+    Top = 24
+    Width = 60
+    OnDblClick = ImFalse1DblClick
+  end
+  object ImFalse2: TImage
+    Left = 384
+    Height = 100
+    Top = 24
+    Width = 60
+    OnDblClick = ImFalse2DblClick
+  end
+  object ImFalse3: TImage
+    Left = 640
+    Height = 100
+    Top = 24
+    Width = 60
+    OnDblClick = ImFalse3DblClick
+  end
+  object ImFalse4: TImage
+    Left = 320
+    Height = 100
+    Top = 576
+    Width = 60
+    OnDblClick = ImFalse4DblClick
+  end
+  object ImFalse5: TImage
+    Left = 576
+    Height = 100
+    Top = 576
+    Width = 60
+    OnDblClick = ImFalse5DblClick
+  end
+  object ImFalse6: TImage
+    Left = 768
+    Height = 100
+    Top = 576
+    Width = 60
+    OnDblClick = ImFalse6DblClick
+  end
+  object ImFalse7: TImage
+    Left = 24
+    Height = 60
+    Top = 192
+    Width = 100
+    OnDblClick = ImFalse7DblClick
+  end
+  object ImFalse8: TImage
+    Left = 896
+    Height = 60
+    Top = 448
+    Width = 100
+    OnDblClick = ImFalse8DblClick
   end
 end

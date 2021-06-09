@@ -1,7 +1,7 @@
 object fSettings: TfSettings
-  Left = 538
+  Left = 788
   Height = 352
-  Top = 181
+  Top = 166
   Width = 320
   BorderStyle = bsDialog
   Caption = 'Настройки'
@@ -102,16 +102,6 @@ object fSettings: TfSettings
     Caption = 'Ставка налога, в %'
     ParentColor = False
   end
-  object TaxRateEdit: TSpinEdit
-    Left = 232
-    Height = 23
-    Top = 248
-    Width = 42
-    MaxValue = 50
-    MinValue = 5
-    TabOrder = 5
-    Value = 18
-  end
   object ValueCredit: TSpinEdit
     Left = 200
     Height = 23
@@ -120,9 +110,7 @@ object fSettings: TfSettings
     Enabled = False
     Increment = 1000000
     MaxValue = 5000000
-    MinValue = 1000000
-    TabOrder = 6
-    Value = 3000000
+    TabOrder = 5
   end
   object Label6: TLabel
     Left = 32
@@ -131,5 +119,15 @@ object fSettings: TfSettings
     Width = 86
     Caption = 'Размер кредита'
     ParentColor = False
+  end
+  object TaxRateEdit: TSpinEdit
+    Left = 232
+    Height = 23
+    Top = 248
+    Width = 42
+    MaxValue = 50
+    MinValue = 5
+    TabOrder = 6
+    Value = 18
   end
 end

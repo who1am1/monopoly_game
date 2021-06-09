@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  Players, InfoFirm;
+  Players, InfoFirm, Settings;
 
 type
 
@@ -76,6 +76,22 @@ type
     Gold83: TImage;
     Gold91: TImage;
     Gold92: TImage;
+    ImFalse1: TImage;
+    ImFalse2: TImage;
+    ImFalse3: TImage;
+    ImFalse4: TImage;
+    ImFalse5: TImage;
+    ImFalse6: TImage;
+    ImFalse7: TImage;
+    ImFalse8: TImage;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
     Mon10_1: TImage;
     Mon10_10: TImage;
     Mon10_11: TImage;
@@ -274,6 +290,7 @@ type
     Lottery1: TShape;
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
     procedure ImBilliardsDblClick(Sender: TObject);
     procedure ImBiologyDblClick(Sender: TObject);
     procedure ImBusDblClick(Sender: TObject);
@@ -288,6 +305,14 @@ type
     procedure ImCryptoDblClick(Sender: TObject);
     procedure ImCustomsDblClick(Sender: TObject);
     procedure ImDubaiDblClick(Sender: TObject);
+    procedure ImFalse1DblClick(Sender: TObject);
+    procedure ImFalse2DblClick(Sender: TObject);
+    procedure ImFalse3DblClick(Sender: TObject);
+    procedure ImFalse4DblClick(Sender: TObject);
+    procedure ImFalse5DblClick(Sender: TObject);
+    procedure ImFalse6DblClick(Sender: TObject);
+    procedure ImFalse7DblClick(Sender: TObject);
+    procedure ImFalse8DblClick(Sender: TObject);
     procedure ImGameDblClick(Sender: TObject);
     procedure ImJackpotDblClick(Sender: TObject);
     procedure ImMaldivesDblClick(Sender: TObject);
@@ -347,6 +372,9 @@ implementation
 
 procedure TfPlay.FormCreate(Sender: TObject);
 begin
+
+
+
   // описание клеток
 
   { kletka[i].mon_rent:=kletka[i].reg_rent * 2;
@@ -369,6 +397,11 @@ begin
   kletka[2].now_rent:=0;
 
   kletka[3].name:='Налог';
+  { Описание клетки находится в процедуре OnShow формы.
+    Это нужно для того, чтобы мы правильно брали значение
+    nalog, которому присвоено значение в той же процедуре (во время показа формы),
+    т.к. все формы создаются при запуске программы, и значение
+    nalog было бы неправильным }
 
   kletka[4].name:='Шаверма';
   kletka[4].price:=100000;
@@ -393,7 +426,7 @@ begin
   kletka[5].now_rent:=0;
 
   kletka[6].name:='Пропуск хода';
-  kletka[6].description:='Пропускаете следующий ход.';
+  kletka[6].description:='Попав на эту клетку, вы пропускаете следующий ход.';
 
   kletka[7].name:='Петербург';
   kletka[7].description:='Эта монополия не требует постройки. Чем больше у вас во владении фирм этой группы, тем выше аренда.';
@@ -541,6 +574,11 @@ begin
   kletka[23].now_rent:=0;
 
   kletka[24].name:='Налог';
+  { Описание клетки находится в процедуре OnShow формы.
+    Это нужно для того, чтобы мы правильно брали значение
+    nalog, которому присвоено значение в той же процедуре (во время показа формы),
+    т.к. все формы создаются при запуске программы, и значение
+    nalog было бы неправильным }
 
   kletka[25].name:='Медицинская промышленность';
   kletka[25].price:=320000;
@@ -685,6 +723,11 @@ begin
   kletka[40].now_rent:=0;
 
   kletka[41].name:='Налог';
+  { Описание клетки находится в процедуре OnShow формы.
+    Это нужно для того, чтобы мы правильно брали значение
+    nalog, которому присвоено значение в той же процедуре (во время показа формы),
+    т.к. все формы создаются при запуске программы, и значение
+    nalog было бы неправильным }
 
   kletka[42].name:='Криптовалюта';
   kletka[42].price:=550000;
@@ -696,6 +739,20 @@ begin
   kletka[42].mon4_rent:=3200000;
   kletka[42].gold_rent:=4500000;
   kletka[42].now_rent:=0;
+end;
+
+procedure TfPlay.FormShow(Sender: TObject);
+begin
+  StartMoney:=fSettings.StartMoneyEdit.Value;
+  Jackpot:=fSettings.ValueJackpot.Value;
+  Credit:=fSettings.ValueCredit.Value;
+  Nalog:=fSettings.TaxRateEdit.Value;
+
+  kletka[3].description:='Просто оплатите налог, '+inttostr(nalog)+'% от ваших наличных.';
+
+  kletka[24].description:='Просто оплатите налог, '+inttostr(nalog)+'% от ваших наличных.';
+
+  kletka[41].description:='Просто оплатите налог, '+inttostr(nalog)+'% от ваших наличных.';
 end;
 
 procedure TfPlay.ImBilliardsDblClick(Sender: TObject);
@@ -1000,6 +1057,214 @@ begin
   fInfoFirm.Height:=414;
   fInfoFirm.CopyInfoImage.Left:=34;
   fInfoFirm.CopyInfoImage.Top:=99;
+  fInfoFirm.ShowModal;
+end;
+
+procedure TfPlay.ImFalse1DblClick(Sender: TObject);
+begin
+  fInfoFirm.label1.caption:=kletka[3].name;
+  fInfoFirm.CopyInfoImage.Visible:=False;
+  fInfoFirm.CellDescription.Visible:=True;
+  fInfoFirm.CellDescription.Left:=88;
+  fInfoFirm.CellDescription.Lines.Add(kletka[3].description);
+  fInfoFirm.Label2.Visible:=False;
+  fInfoFirm.Label4.Visible:=False;
+  fInfoFirm.Label5.Visible:=False;
+  fInfoFirm.Label8.Visible:=False;
+  fInfoFirm.Label3.Visible:=False;
+  fInfoFirm.Holder.Visible:=False;
+  fInfoFirm.Buy.Visible:=False;
+  fInfoFirm.RegRent.Visible:=False;
+  fInfoFirm.NowRent.Visible:=False;
+  fInfoFirm.Filial.Visible:=False;
+  fInfoFirm.MonopoliesInfo.Visible:=False;
+  fInfoFirm.Label7.Visible:=False;
+  fInfoFirm.Sale.Visible:=False;
+  fInfoFirm.ImButton.Top:=200;
+  fInfoFirm.TextOK.Top:=205;
+  fInfoFirm.Height:=256;
+  fInfoFirm.ShowModal;
+end;
+
+procedure TfPlay.ImFalse2DblClick(Sender: TObject);
+begin
+  fInfoFirm.label1.caption:=kletka[6].name;
+  fInfoFirm.CopyInfoImage.Visible:=False;
+  fInfoFirm.CellDescription.Visible:=True;
+  fInfoFirm.CellDescription.Left:=88;
+  fInfoFirm.CellDescription.Lines.Add(kletka[6].description);
+  fInfoFirm.Label2.Visible:=False;
+  fInfoFirm.Label4.Visible:=False;
+  fInfoFirm.Label5.Visible:=False;
+  fInfoFirm.Label8.Visible:=False;
+  fInfoFirm.Label3.Visible:=False;
+  fInfoFirm.Holder.Visible:=False;
+  fInfoFirm.Buy.Visible:=False;
+  fInfoFirm.RegRent.Visible:=False;
+  fInfoFirm.NowRent.Visible:=False;
+  fInfoFirm.Filial.Visible:=False;
+  fInfoFirm.MonopoliesInfo.Visible:=False;
+  fInfoFirm.Label7.Visible:=False;
+  fInfoFirm.Sale.Visible:=False;
+  fInfoFirm.ImButton.Top:=200;
+  fInfoFirm.TextOK.Top:=205;
+  fInfoFirm.Height:=256;
+  fInfoFirm.ShowModal;
+end;
+
+procedure TfPlay.ImFalse3DblClick(Sender: TObject);
+begin
+  fInfoFirm.label1.caption:=kletka[10].name;
+  fInfoFirm.CopyInfoImage.Visible:=False;
+  fInfoFirm.CellDescription.Visible:=True;
+  fInfoFirm.CellDescription.Left:=88;
+  fInfoFirm.CellDescription.Lines.Add(kletka[10].description);
+  fInfoFirm.Label2.Visible:=False;
+  fInfoFirm.Label4.Visible:=False;
+  fInfoFirm.Label5.Visible:=False;
+  fInfoFirm.Label8.Visible:=False;
+  fInfoFirm.Label3.Visible:=False;
+  fInfoFirm.Holder.Visible:=False;
+  fInfoFirm.Buy.Visible:=False;
+  fInfoFirm.RegRent.Visible:=False;
+  fInfoFirm.NowRent.Visible:=False;
+  fInfoFirm.Filial.Visible:=False;
+  fInfoFirm.MonopoliesInfo.Visible:=False;
+  fInfoFirm.Label7.Visible:=False;
+  fInfoFirm.Sale.Visible:=False;
+  fInfoFirm.ImButton.Top:=200;
+  fInfoFirm.TextOK.Top:=205;
+  fInfoFirm.Height:=256;
+  fInfoFirm.ShowModal;
+end;
+
+procedure TfPlay.ImFalse4DblClick(Sender: TObject);
+begin
+  fInfoFirm.label1.caption:=kletka[31].name;
+  fInfoFirm.CopyInfoImage.Visible:=False;
+  fInfoFirm.CellDescription.Visible:=True;
+  fInfoFirm.CellDescription.Left:=88;
+  fInfoFirm.CellDescription.Lines.Add(kletka[31].description);
+  fInfoFirm.Label2.Visible:=False;
+  fInfoFirm.Label4.Visible:=False;
+  fInfoFirm.Label5.Visible:=False;
+  fInfoFirm.Label8.Visible:=False;
+  fInfoFirm.Label3.Visible:=False;
+  fInfoFirm.Holder.Visible:=False;
+  fInfoFirm.Buy.Visible:=False;
+  fInfoFirm.RegRent.Visible:=False;
+  fInfoFirm.NowRent.Visible:=False;
+  fInfoFirm.Filial.Visible:=False;
+  fInfoFirm.MonopoliesInfo.Visible:=False;
+  fInfoFirm.Label7.Visible:=False;
+  fInfoFirm.Sale.Visible:=False;
+  fInfoFirm.ImButton.Top:=200;
+  fInfoFirm.TextOK.Top:=205;
+  fInfoFirm.Height:=256;
+  fInfoFirm.ShowModal;
+end;
+
+procedure TfPlay.ImFalse5DblClick(Sender: TObject);
+begin
+  fInfoFirm.label1.caption:=kletka[27].name;
+  fInfoFirm.CopyInfoImage.Visible:=False;
+  fInfoFirm.CellDescription.Visible:=True;
+  fInfoFirm.CellDescription.Left:=88;
+  fInfoFirm.CellDescription.Lines.Add(kletka[27].description);
+  fInfoFirm.Label2.Visible:=False;
+  fInfoFirm.Label4.Visible:=False;
+  fInfoFirm.Label5.Visible:=False;
+  fInfoFirm.Label8.Visible:=False;
+  fInfoFirm.Label3.Visible:=False;
+  fInfoFirm.Holder.Visible:=False;
+  fInfoFirm.Buy.Visible:=False;
+  fInfoFirm.RegRent.Visible:=False;
+  fInfoFirm.NowRent.Visible:=False;
+  fInfoFirm.Filial.Visible:=False;
+  fInfoFirm.MonopoliesInfo.Visible:=False;
+  fInfoFirm.Label7.Visible:=False;
+  fInfoFirm.Sale.Visible:=False;
+  fInfoFirm.ImButton.Top:=200;
+  fInfoFirm.TextOK.Top:=205;
+  fInfoFirm.Height:=256;
+  fInfoFirm.ShowModal;
+end;
+
+procedure TfPlay.ImFalse6DblClick(Sender: TObject);
+begin
+  fInfoFirm.label1.caption:=kletka[24].name;
+  fInfoFirm.CopyInfoImage.Visible:=False;
+  fInfoFirm.CellDescription.Visible:=True;
+  fInfoFirm.CellDescription.Left:=88;
+  fInfoFirm.CellDescription.Lines.Add(kletka[24].description);
+  fInfoFirm.Label2.Visible:=False;
+  fInfoFirm.Label4.Visible:=False;
+  fInfoFirm.Label5.Visible:=False;
+  fInfoFirm.Label8.Visible:=False;
+  fInfoFirm.Label3.Visible:=False;
+  fInfoFirm.Holder.Visible:=False;
+  fInfoFirm.Buy.Visible:=False;
+  fInfoFirm.RegRent.Visible:=False;
+  fInfoFirm.NowRent.Visible:=False;
+  fInfoFirm.Filial.Visible:=False;
+  fInfoFirm.MonopoliesInfo.Visible:=False;
+  fInfoFirm.Label7.Visible:=False;
+  fInfoFirm.Sale.Visible:=False;
+  fInfoFirm.ImButton.Top:=200;
+  fInfoFirm.TextOK.Top:=205;
+  fInfoFirm.Height:=256;
+  fInfoFirm.ShowModal;
+end;
+
+procedure TfPlay.ImFalse7DblClick(Sender: TObject);
+begin
+  fInfoFirm.label1.caption:=kletka[41].name;
+  fInfoFirm.CopyInfoImage.Visible:=False;
+  fInfoFirm.CellDescription.Visible:=True;
+  fInfoFirm.CellDescription.Left:=88;
+  fInfoFirm.CellDescription.Lines.Add(kletka[41].description);
+  fInfoFirm.Label2.Visible:=False;
+  fInfoFirm.Label4.Visible:=False;
+  fInfoFirm.Label5.Visible:=False;
+  fInfoFirm.Label8.Visible:=False;
+  fInfoFirm.Label3.Visible:=False;
+  fInfoFirm.Holder.Visible:=False;
+  fInfoFirm.Buy.Visible:=False;
+  fInfoFirm.RegRent.Visible:=False;
+  fInfoFirm.NowRent.Visible:=False;
+  fInfoFirm.Filial.Visible:=False;
+  fInfoFirm.MonopoliesInfo.Visible:=False;
+  fInfoFirm.Label7.Visible:=False;
+  fInfoFirm.Sale.Visible:=False;
+  fInfoFirm.ImButton.Top:=200;
+  fInfoFirm.TextOK.Top:=205;
+  fInfoFirm.Height:=256;
+  fInfoFirm.ShowModal;
+end;
+
+procedure TfPlay.ImFalse8DblClick(Sender: TObject);
+begin
+  fInfoFirm.label1.caption:=kletka[20].name;
+  fInfoFirm.CopyInfoImage.Visible:=False;
+  fInfoFirm.CellDescription.Visible:=True;
+  fInfoFirm.CellDescription.Left:=88;
+  fInfoFirm.CellDescription.Lines.Add(kletka[20].description);
+  fInfoFirm.Label2.Visible:=False;
+  fInfoFirm.Label4.Visible:=False;
+  fInfoFirm.Label5.Visible:=False;
+  fInfoFirm.Label8.Visible:=False;
+  fInfoFirm.Label3.Visible:=False;
+  fInfoFirm.Holder.Visible:=False;
+  fInfoFirm.Buy.Visible:=False;
+  fInfoFirm.RegRent.Visible:=False;
+  fInfoFirm.NowRent.Visible:=False;
+  fInfoFirm.Filial.Visible:=False;
+  fInfoFirm.MonopoliesInfo.Visible:=False;
+  fInfoFirm.Label7.Visible:=False;
+  fInfoFirm.Sale.Visible:=False;
+  fInfoFirm.ImButton.Top:=200;
+  fInfoFirm.TextOK.Top:=205;
+  fInfoFirm.Height:=256;
   fInfoFirm.ShowModal;
 end;
 

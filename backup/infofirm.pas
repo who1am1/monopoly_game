@@ -70,6 +70,8 @@ procedure TfInfoFirm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   CellDescription.Clear;
   CellDescription.Visible:=False;
+  CellDescription.Left:=128;
+  CellDescription.Top:=80;
   CopyInfoImage.Visible:=True;
   fInfoFirm.Width:=356;
   fInfoFirm.Height:=626;
@@ -88,6 +90,7 @@ begin
   RegRent.Visible:=True;
   NowRent.Visible:=True;
   Filial.Visible:=True;
+  ImButton.Left:=136;
   ImButton.Top:=568;
   TextOK.Top:=573;
   CopyInfoImage.Left:=145;

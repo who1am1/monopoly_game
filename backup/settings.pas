@@ -38,7 +38,9 @@ type
 var
   fSettings: TfSettings;
   // глобальные переменные:
-  StartMoney, jackpot: integer; // количество начальных денег и джекпот
+  StartMoney, jackpot,    // количество начальных денег и джекпот
+  credit: integer;        // размер кредита
+  nalog: byte;            // ставка налога
 
 implementation
 uses Main;
@@ -91,6 +93,10 @@ end;
 
 procedure TfSettings.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
+  StartMoney:=StartMoneyEdit.Value;
+  Jackpot:=ValueJackpot.Value;
+  Credit:=ValueCredit.Value;
+  Nalog:=TaxRateEdit.Value;
   fMain.Show;
 end;
 
