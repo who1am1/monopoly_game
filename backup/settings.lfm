@@ -1,16 +1,16 @@
 object fSettings: TfSettings
-  Left = 516
-  Height = 268
-  Top = 209
+  Left = 538
+  Height = 352
+  Top = 181
   Width = 320
   BorderStyle = bsDialog
   Caption = 'Настройки'
-  ClientHeight = 268
+  ClientHeight = 352
   ClientWidth = 320
   OnClose = FormClose
   Position = poDesktopCenter
   LCLVersion = '2.0.10.0'
-  object StartMoney: TSpinEdit
+  object StartMoneyEdit: TSpinEdit
     Left = 200
     Height = 23
     Top = 32
@@ -18,7 +18,7 @@ object fSettings: TfSettings
     Increment = 100000
     MaxValue = 5000000
     MinValue = 500000
-    OnChange = StartMoneyChange
+    OnChange = StartMoneyEditChange
     TabOrder = 0
     Value = 2000000
   end
@@ -26,8 +26,8 @@ object fSettings: TfSettings
     Left = 32
     Height = 15
     Top = 32
-    Width = 91
-    Caption = '$ в начале игры:'
+    Width = 88
+    Caption = '$ в начале игры'
     ParentColor = False
   end
   object Label2: TLabel
@@ -83,14 +83,53 @@ object fSettings: TfSettings
     Height = 19
     Top = 176
     Width = 20
+    OnChange = TrueCreditChange
     TabOrder = 3
   end
   object bSettingsSave: TButton
-    Left = 128
+    Left = 120
     Height = 25
-    Top = 216
+    Top = 304
     Width = 75
     Caption = 'Сохранить'
     TabOrder = 4
+  end
+  object Label5: TLabel
+    Left = 32
+    Height = 15
+    Top = 256
+    Width = 103
+    Caption = 'Ставка налога, в %'
+    ParentColor = False
+  end
+  object TaxRateEdit: TSpinEdit
+    Left = 232
+    Height = 23
+    Top = 248
+    Width = 42
+    MaxValue = 50
+    MinValue = 5
+    TabOrder = 5
+    Value = 18
+  end
+  object ValueCredit: TSpinEdit
+    Left = 200
+    Height = 23
+    Top = 208
+    Width = 74
+    Enabled = False
+    Increment = 1000000
+    MaxValue = 5000000
+    MinValue = 1000000
+    TabOrder = 6
+    Value = 3000000
+  end
+  object Label6: TLabel
+    Left = 32
+    Height = 15
+    Top = 216
+    Width = 86
+    Caption = 'Размер кредита'
+    ParentColor = False
   end
 end

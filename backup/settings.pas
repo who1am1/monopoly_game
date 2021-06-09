@@ -13,6 +13,10 @@ type
 
   TfSettings = class(TForm)
     bSettingsSave: TButton;
+    Label5: TLabel;
+    Label6: TLabel;
+    TaxRateEdit: TSpinEdit;
+    ValueCredit: TSpinEdit;
     TrueCredit: TCheckBox;
     Label4: TLabel;
     ValueJackpot: TSpinEdit;
@@ -20,9 +24,10 @@ type
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
-    StartMoney: TSpinEdit;
+    StartMoneyEdit: TSpinEdit;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
-    procedure StartMoneyChange(Sender: TObject);
+    procedure StartMoneyEditChange(Sender: TObject);
+    procedure TrueCreditChange(Sender: TObject);
     procedure TrueJackpotChange(Sender: TObject);
   private
 
@@ -32,7 +37,8 @@ type
 
 var
   fSettings: TfSettings;
-  money, jackpot: integer; // количество начальных денег и джекпот
+  // глобальные переменные:
+  StartMoney, jackpot: integer; // количество начальных денег и джекпот
 
 implementation
 uses Main;
@@ -48,10 +54,10 @@ begin
   }
   ValueJackpot.Enabled:= not TrueJackpot.Checked;
   // если опять поставили галочку, считаем значение джекпота сами
-  StartMoneyChange(Sender);
+  StartMoneyEditChange(Sender);
 end;
 
-procedure TfSettings.StartMoneyChange(Sender: TObject);
+procedure TfSettings.StartMoneyEditChange(Sender: TObject);
 var
   k:real; // коэффициент джекпота
   m:byte; // цифра, отвечающая за тысячу в числе
@@ -60,18 +66,31 @@ begin
   if TrueJackpot.Checked then
     begin
       k:=2000000 / 350000;
-      m:=(round(StartMoney.Value / k) div 1000) mod 10;
+      m:=(round(StartMoneyEdit.Value / k) div 1000) mod 10;
       if (m = 0)or(m = 1)or(m = 2)or(m = 3)or(m = 4) then
-        ValueJackpot.Value:= round(StartMoney.Value / k) div 10000 * 10000
+        ValueJackpot.Value:= round(StartMoneyEdit.Value / k) div 10000 * 10000
       else
-        ValueJackpot.Value:= (round(StartMoney.Value / k) div 10000 + 1) * 10000;
+        ValueJackpot.Value:= (round(StartMoneyEdit.Value / k) div 10000 + 1) * 10000;
     end;
+end;
+
+procedure TfSettings.TrueCreditChange(Sender: TObject);
+begin
+  ValueCredit.Enabled:= TrueCredit.Checked;
+  if TrueCredit.Checked=False then
+    begin
+      ValueCredit.MinValue:=0;
+      ValueCredit.Value:=0;
+    end
+  else
+  begin
+    ValueCredit.MinValue:=1000000;
+    ValueCredit.Value:=3000000;
+  end;
 end;
 
 procedure TfSettings.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-  money:= StartMoney.Value;
-  jackpot:= ValueJackpot.Value;
   fMain.Show;
 end;
 

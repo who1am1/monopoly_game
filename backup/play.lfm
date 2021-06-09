@@ -1263,9 +1263,11 @@ object fPlay: TfPlay
   end
   object ImCoffee: TImage
     Left = 128
-    Height = 60
-    Top = 55
+    Height = 79
+    Top = 45
     Width = 60
+    Center = True
+    OnDblClick = ImCoffeeDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963511E000089504E47
       0D0A1A0A0000000D494844520000006F0000006E080600000029994DC5000000
@@ -1517,9 +1519,11 @@ object fPlay: TfPlay
   end
   object ImConditer: TImage
     Left = 320
-    Height = 60
-    Top = 55
+    Height = 79
+    Top = 45
     Width = 60
+    Center = True
+    OnDblClick = ImConditerDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869638429000089504E47
       0D0A1A0A0000000D494844520000006F0000006E080600000029994DC5000000
@@ -1860,9 +1864,11 @@ object fPlay: TfPlay
   end
   object ImPiter: TImage
     Left = 448
-    Height = 60
-    Top = 55
+    Height = 79
+    Top = 45
     Width = 60
+    Center = True
+    OnDblClick = ImPiterDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632A18000089504E47
       0D0A1A0A0000000D494844520000006F0000006E080600000029994DC5000000
@@ -2065,9 +2071,11 @@ object fPlay: TfPlay
   end
   object ImPaint: TImage
     Left = 512
-    Height = 60
-    Top = 55
+    Height = 79
+    Top = 45
     Width = 60
+    Center = True
+    OnDblClick = ImPaintDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636427000089504E47
       0D0A1A0A0000000D494844520000006F0000006E080600000029994DC5000000
@@ -2391,9 +2399,11 @@ object fPlay: TfPlay
   end
   object ImBilliards: TImage
     Left = 576
-    Height = 60
-    Top = 55
+    Height = 79
+    Top = 45
     Width = 60
+    Center = True
+    OnDblClick = ImBilliardsDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637129000089504E47
       0D0A1A0A0000000D49484452000000780000006E0806000000ECEBD754000000
@@ -2734,9 +2744,11 @@ object fPlay: TfPlay
   end
   object ImCar: TImage
     Left = 704
-    Height = 60
-    Top = 55
+    Height = 79
+    Top = 45
     Width = 60
+    Center = True
+    OnDblClick = ImCarDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869639E19000089504E47
       0D0A1A0A0000000D494844520000006F0000006E080600000029994DC5000000
@@ -2950,9 +2962,11 @@ object fPlay: TfPlay
   end
   object ImZoo: TImage
     Left = 768
-    Height = 60
-    Top = 55
+    Height = 79
+    Top = 45
     Width = 60
+    Center = True
+    OnDblClick = ImZooDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869633F2A000089504E47
       0D0A1A0A0000000D494844520000006F0000006E080600000029994DC5000000
@@ -3299,9 +3313,11 @@ object fPlay: TfPlay
   end
   object ImCircus: TImage
     Left = 832
-    Height = 60
-    Top = 55
+    Height = 79
+    Top = 45
     Width = 60
+    Center = True
+    OnDblClick = ImCircusDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869634128000089504E47
       0D0A1A0A0000000D494844520000006F0000006E080600000029994DC5000000
@@ -3631,10 +3647,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImBus: TImage
-    Left = 906
+    Left = 896
     Height = 60
     Top = 128
-    Width = 60
+    Width = 79
+    Center = True
+    OnDblClick = ImBusDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963691E000089504E47
       0D0A1A0A0000000D494844520000006F0000006E080600000029994DC5000000
@@ -3886,10 +3904,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImTaxi: TImage
-    Left = 906
+    Left = 896
     Height = 60
     Top = 192
-    Width = 60
+    Width = 79
+    Center = True
+    OnDblClick = ImTaxiDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963701F000089504E47
       0D0A1A0A0000000D494844520000006F0000006E080600000029994DC5000000
@@ -4149,10 +4169,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImCarsharing: TImage
-    Left = 906
+    Left = 896
     Height = 60
     Top = 256
-    Width = 60
+    Width = 79
+    Center = True
+    OnDblClick = ImCarsharingDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963C429000089504E47
       0D0A1A0A0000000D494844520000006E000000730806000000791337BE000000
@@ -4494,10 +4516,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImTokyo: TImage
-    Left = 906
+    Left = 896
     Height = 60
     Top = 320
-    Width = 60
+    Width = 79
+    Center = True
+    OnDblClick = ImTokyoDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963301B000089504E47
       0D0A1A0A0000000D494844520000006F0000006E080600000029994DC5000000
@@ -4723,10 +4747,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImCinema: TImage
-    Left = 906
+    Left = 896
     Height = 60
     Top = 384
-    Width = 60
+    Width = 79
+    Center = True
+    OnDblClick = ImCinemaDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869639A2B000089504E47
       0D0A1A0A0000000D494844520000006F0000006E080600000029994DC5000000
@@ -5083,10 +5109,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImGame: TImage
-    Left = 906
+    Left = 896
     Height = 60
     Top = 512
-    Width = 60
+    Width = 79
+    Center = True
+    OnDblClick = ImGameDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869638327000089504E47
       0D0A1A0A0000000D494844520000006F0000006E080600000029994DC5000000
@@ -5411,9 +5439,11 @@ object fPlay: TfPlay
   end
   object ImSocial: TImage
     Left = 128
-    Height = 60
-    Top = 586
+    Height = 79
+    Top = 576
     Width = 60
+    Center = True
+    OnDblClick = ImSocialDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869631A13000089504E47
       0D0A1A0A0000000D494844520000006F0000006E080600000029994DC5000000
@@ -5575,9 +5605,11 @@ object fPlay: TfPlay
   end
   object ImSearch: TImage
     Left = 192
-    Height = 60
-    Top = 586
+    Height = 79
+    Top = 576
     Width = 60
+    Center = True
+    OnDblClick = ImSearchDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869639620000089504E47
       0D0A1A0A0000000D494844520000006F0000006E080600000029994DC5000000
@@ -5847,9 +5879,11 @@ object fPlay: TfPlay
   end
   object ImWeapon: TImage
     Left = 256
-    Height = 60
-    Top = 586
+    Height = 79
+    Top = 576
     Width = 60
+    Center = True
+    OnDblClick = ImWeaponDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963AD17000089504E47
       0D0A1A0A0000000D494844520000006F0000006E080600000029994DC5000000
@@ -6048,9 +6082,11 @@ object fPlay: TfPlay
   end
   object ImCarFactory: TImage
     Left = 384
-    Height = 60
-    Top = 586
+    Height = 79
+    Top = 576
     Width = 60
+    Center = True
+    OnDblClick = ImCarFactoryDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636C1B000089504E47
       0D0A1A0A0000000D494844520000006E0000006E0806000000C65B26FB000000
@@ -6279,9 +6315,11 @@ object fPlay: TfPlay
   end
   object ImMetallurgy: TImage
     Left = 448
-    Height = 60
-    Top = 586
+    Height = 79
+    Top = 576
     Width = 60
+    Center = True
+    OnDblClick = ImMetallurgyDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869639217000089504E47
       0D0A1A0A0000000D494844520000006F0000006E080600000029994DC5000000
@@ -6479,9 +6517,11 @@ object fPlay: TfPlay
   end
   object ImDubai: TImage
     Left = 512
-    Height = 60
-    Top = 586
+    Height = 79
+    Top = 576
     Width = 60
+    Center = True
+    OnDblClick = ImDubaiDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963E017000089504E47
       0D0A1A0A0000000D494844520000006F0000006E080600000029994DC5000000
@@ -6681,9 +6721,11 @@ object fPlay: TfPlay
   end
   object ImBiology: TImage
     Left = 640
-    Height = 60
-    Top = 586
+    Height = 79
+    Top = 576
     Width = 60
+    Center = True
+    OnDblClick = ImBiologyDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869634625000089504E47
       0D0A1A0A0000000D494844520000006E000000750806000000AF4AD4A3000000
@@ -6991,9 +7033,11 @@ object fPlay: TfPlay
   end
   object ImMedicine: TImage
     Left = 704
-    Height = 60
-    Top = 586
+    Height = 79
+    Top = 576
     Width = 60
+    Center = True
+    OnDblClick = ImMedicineDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963A628000089504E47
       0D0A1A0A0000000D494844520000006F0000006E080600000029994DC5000000
@@ -7328,9 +7372,11 @@ object fPlay: TfPlay
   end
   object ImChemistry: TImage
     Left = 832
-    Height = 60
-    Top = 586
+    Height = 79
+    Top = 576
     Width = 60
+    Center = True
+    OnDblClick = ImChemistryDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637121000089504E47
       0D0A1A0A0000000D494844520000006F0000006E080600000029994DC5000000
@@ -7606,10 +7652,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImCrypto: TImage
-    Left = 55
+    Left = 45
     Height = 60
     Top = 128
-    Width = 60
+    Width = 79
+    Center = True
+    OnDblClick = ImCryptoDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869630626000089504E47
       0D0A1A0A0000000D494844520000006F0000006E080600000029994DC5000000
@@ -7922,10 +7970,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImNeiro: TImage
-    Left = 55
+    Left = 45
     Height = 60
     Top = 256
-    Width = 60
+    Width = 79
+    Center = True
+    OnDblClick = ImNeiroDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963AC34000089504E47
       0D0A1A0A0000000D494844520000006F0000006E080600000029994DC5000000
@@ -8355,10 +8405,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImNewYork: TImage
-    Left = 55
+    Left = 45
     Height = 60
     Top = 320
-    Width = 60
+    Width = 79
+    Center = True
+    OnDblClick = ImNewYorkDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963281D000089504E47
       0D0A1A0A0000000D494844520000006F0000006E080600000029994DC5000000
@@ -8600,10 +8652,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImMaldives: TImage
-    Left = 55
+    Left = 45
     Height = 60
     Top = 384
-    Width = 60
+    Width = 79
+    Center = True
+    OnDblClick = ImMaldivesDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869638F23000089504E47
       0D0A1A0A0000000D494844520000006F0000006E080600000029994DC5000000
@@ -8896,10 +8950,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImSeychelles: TImage
-    Left = 55
+    Left = 45
     Height = 60
     Top = 448
-    Width = 60
+    Width = 79
+    Center = True
+    OnDblClick = ImSeychellesDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963BB24000089504E47
       0D0A1A0A0000000D494844520000006F0000006E080600000029994DC5000000
@@ -9201,10 +9257,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImTenerife: TImage
-    Left = 55
+    Left = 45
     Height = 60
     Top = 512
-    Width = 60
+    Width = 79
+    Center = True
+    OnDblClick = ImTenerifeDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963052D000089504E47
       0D0A1A0A0000000D494844520000006F0000006E080600000029994DC5000000
@@ -9577,6 +9635,7 @@ object fPlay: TfPlay
     Height = 70
     Top = 40
     Width = 80
+    OnDblClick = ImCustomsDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869639C1C000089504E47
       0D0A1A0A0000000D49484452000000C1000000A108060000007EB6DBC6000000
@@ -9817,6 +9876,7 @@ object fPlay: TfPlay
     Height = 70
     Top = 592
     Width = 80
+    OnDblClick = ImJackpotDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632123000089504E47
       0D0A1A0A0000000D49484452000000C50000009608060000006E224CA9000000
@@ -10109,6 +10169,8 @@ object fPlay: TfPlay
     Height = 70
     Top = 40
     Width = 80
+    Center = True
+    OnDblClick = ImStartDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963EA37000089504E47
       0D0A1A0A0000000D49484452000000C8000000970806000000508014BC000000
@@ -10568,6 +10630,7 @@ object fPlay: TfPlay
     Height = 70
     Top = 592
     Width = 80
+    OnDblClick = ImVacationDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869639F59000089504E47
       0D0A1A0A0000000D49484452000000D8000000B60806000000BBDE43C7000000
@@ -12575,9 +12638,11 @@ object fPlay: TfPlay
   end
   object ImShaverma: TImage
     Left = 256
-    Height = 60
-    Top = 55
+    Height = 79
+    Top = 45
     Width = 60
+    Center = True
+    OnDblClick = ImShavermaDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869639826000089504E47
       0D0A1A0A0000000D494844520000006F0000006E080600000029994DC5000000
