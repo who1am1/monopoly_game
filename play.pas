@@ -46,6 +46,18 @@ type
     C83: TShape;
     C91: TShape;
     C92: TShape;
+    Capital1: TLabel;
+    Capital2: TLabel;
+    Capital3: TLabel;
+    Capital4: TLabel;
+    Capital5: TLabel;
+    Cash2: TLabel;
+    Cash3: TLabel;
+    Cash4: TLabel;
+    Cash5: TLabel;
+    Dollar3: TLabel;
+    Dollar4: TLabel;
+    Dollar5: TLabel;
     Gold102: TImage;
     Gold103: TImage;
     Gold111: TImage;
@@ -76,6 +88,9 @@ type
     Gold83: TImage;
     Gold91: TImage;
     Gold92: TImage;
+    House3: TLabel;
+    House4: TLabel;
+    House5: TLabel;
     ImFalse1: TImage;
     ImFalse2: TImage;
     ImFalse3: TImage;
@@ -85,6 +100,15 @@ type
     ImFalse7: TImage;
     ImFalse8: TImage;
     Label1: TLabel;
+    House2: TLabel;
+    Dollar2: TLabel;
+    Name2: TLabel;
+    Name3: TLabel;
+    Name4: TLabel;
+    Name5: TLabel;
+    House1: TLabel;
+    Dollar1: TLabel;
+    Cash1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
@@ -92,6 +116,7 @@ type
     Label6: TLabel;
     Label7: TLabel;
     Label8: TLabel;
+    Name1: TLabel;
     Mon10_1: TImage;
     Mon10_10: TImage;
     Mon10_11: TImage;
@@ -286,8 +311,10 @@ type
     Nalog1: TShape;
     Nalog2: TShape;
     GoBack: TShape;
+    Shape1: TShape;
     Skip: TShape;
     Lottery1: TShape;
+    Timer1: TTimer;
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -333,6 +360,7 @@ type
     procedure ImVacationDblClick(Sender: TObject);
     procedure ImWeaponDblClick(Sender: TObject);
     procedure ImZooDblClick(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
   private
 
   public
@@ -1721,10 +1749,17 @@ begin
   fInfoFirm.ShowModal;
 end;
 
+procedure TfPlay.Timer1Timer(Sender: TObject);
+begin
+  if Shape1.Left>=950 then Timer1.Enabled:=False;
+  Shape1.Left:=Shape1.Left+5;
+end;
+
 procedure TfPlay.Button1Click(Sender: TObject);
 begin
   C11.brush.color:=$00DB5F00;
   C11.brush.style:=bsBDiagonal;
+  Timer1.Enabled:=True;
 end;
 
 end.

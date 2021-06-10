@@ -991,10 +991,10 @@ object fInfoFirm: TfInfoFirm
     ParentFont = False
   end
   object Buy: TLabel
-    Left = 216
+    Left = 176
     Height = 23
     Top = 214
-    Width = 118
+    Width = 158
     Alignment = taRightJustify
     AutoSize = False
     Caption = '1'
@@ -1008,10 +1008,10 @@ object fInfoFirm: TfInfoFirm
     ParentFont = False
   end
   object RegRent: TLabel
-    Left = 216
+    Left = 176
     Height = 23
     Top = 244
-    Width = 118
+    Width = 158
     Alignment = taRightJustify
     AutoSize = False
     Caption = '1'
@@ -1025,10 +1025,10 @@ object fInfoFirm: TfInfoFirm
     ParentFont = False
   end
   object Filial: TLabel
-    Left = 216
+    Left = 176
     Height = 23
     Top = 304
-    Width = 118
+    Width = 158
     Alignment = taRightJustify
     AutoSize = False
     Caption = '1'
@@ -1042,13 +1042,13 @@ object fInfoFirm: TfInfoFirm
     ParentFont = False
   end
   object Holder: TLabel
-    Left = 216
+    Left = 104
     Height = 23
     Top = 184
-    Width = 118
+    Width = 230
     Alignment = taRightJustify
     AutoSize = False
-    Caption = '1'
+    Caption = 'КроликПитерВышелПогул'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
     Font.Height = -19
@@ -1075,10 +1075,10 @@ object fInfoFirm: TfInfoFirm
     ParentFont = False
   end
   object NowRent: TLabel
-    Left = 216
+    Left = 176
     Height = 23
     Top = 274
-    Width = 118
+    Width = 158
     Alignment = taRightJustify
     AutoSize = False
     Caption = '1'
@@ -1359,10 +1359,10 @@ object fInfoFirm: TfInfoFirm
       Stretch = True
     end
     object Rent6: TLabel
-      Left = 192
+      Left = 152
       Height = 23
       Top = 147
-      Width = 118
+      Width = 158
       Alignment = taRightJustify
       AutoSize = False
       Caption = '6'
@@ -1376,10 +1376,10 @@ object fInfoFirm: TfInfoFirm
       ParentFont = False
     end
     object Rent5: TLabel
-      Left = 192
+      Left = 152
       Height = 23
       Top = 122
-      Width = 118
+      Width = 158
       Alignment = taRightJustify
       AutoSize = False
       Caption = '5'
@@ -1393,10 +1393,10 @@ object fInfoFirm: TfInfoFirm
       ParentFont = False
     end
     object Rent4: TLabel
-      Left = 192
+      Left = 152
       Height = 23
       Top = 97
-      Width = 118
+      Width = 158
       Alignment = taRightJustify
       AutoSize = False
       Caption = '4'
@@ -1410,10 +1410,10 @@ object fInfoFirm: TfInfoFirm
       ParentFont = False
     end
     object Rent3: TLabel
-      Left = 192
+      Left = 152
       Height = 23
       Top = 72
-      Width = 118
+      Width = 158
       Alignment = taRightJustify
       AutoSize = False
       Caption = '3'
@@ -1427,10 +1427,10 @@ object fInfoFirm: TfInfoFirm
       ParentFont = False
     end
     object Rent2: TLabel
-      Left = 192
+      Left = 152
       Height = 23
       Top = 47
-      Width = 118
+      Width = 158
       Alignment = taRightJustify
       AutoSize = False
       Caption = '2'
@@ -1444,10 +1444,10 @@ object fInfoFirm: TfInfoFirm
       ParentFont = False
     end
     object Rent1: TLabel
-      Left = 192
+      Left = 152
       Height = 23
       Top = 22
-      Width = 118
+      Width = 158
       Alignment = taRightJustify
       AutoSize = False
       Caption = '1'

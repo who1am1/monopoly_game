@@ -1,7 +1,7 @@
 object fPlay: TfPlay
-  Left = 279
+  Left = 286
   Height = 693
-  Top = 5
+  Top = 7
   Width = 1036
   BorderStyle = bsDialog
   Caption = 'Монополия'
@@ -17,6 +17,7 @@ object fPlay: TfPlay
     Top = 0
     Width = 1036
     Align = alClient
+    AutoSize = True
     Picture.Data = {
       0A544A706567496D616765F7680000FFD8FFE1001845786966000049492A0008
       0000000000000000000000FFEC00114475636B79000100040000003E0000FFE1
@@ -17440,5 +17441,400 @@ object fPlay: TfPlay
     Top = 448
     Width = 100
     OnDblClick = ImFalse8DblClick
+  end
+  object Name1: TLabel
+    Left = 184
+    Height = 17
+    Top = 159
+    Width = 145
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'Игрок 1'
+    Color = clBlack
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = 2500293
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    Transparent = False
+  end
+  object Name2: TLabel
+    Left = 184
+    Height = 17
+    Top = 239
+    Width = 145
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'Игрок 2'
+    Color = clBlack
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = 14376704
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    Transparent = False
+  end
+  object Name3: TLabel
+    Left = 184
+    Height = 17
+    Top = 314
+    Width = 145
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'Игрок 3'
+    Color = clBlack
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = 1892082
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    Transparent = False
+  end
+  object Name4: TLabel
+    Left = 184
+    Height = 17
+    Top = 389
+    Width = 145
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'Игрок 4'
+    Color = clBlack
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = 1867297
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    Transparent = False
+  end
+  object Name5: TLabel
+    Left = 184
+    Height = 17
+    Top = 464
+    Width = 145
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'Игрок 5'
+    Color = clBlack
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = 12996083
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    Transparent = False
+  end
+  object House1: TLabel
+    Left = 180
+    Height = 21
+    Top = 208
+    Width = 21
+    Caption = '🏠'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clWhite
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Dollar1: TLabel
+    Left = 184
+    Height = 21
+    Top = 182
+    Width = 14
+    Caption = '💲'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clWhite
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Cash1: TLabel
+    Left = 216
+    Height = 15
+    Top = 184
+    Width = 112
+    Alignment = taRightJustify
+    AutoSize = False
+    Caption = '1234'
+    Font.Color = clWhite
+    ParentColor = False
+    ParentFont = False
+  end
+  object Capital1: TLabel
+    Left = 216
+    Height = 15
+    Top = 212
+    Width = 112
+    Alignment = taRightJustify
+    AutoSize = False
+    Caption = '1234'
+    Font.Color = clWhite
+    ParentColor = False
+    ParentFont = False
+  end
+  object House2: TLabel
+    Left = 180
+    Height = 21
+    Top = 288
+    Width = 21
+    Caption = '🏠'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clWhite
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Dollar2: TLabel
+    Left = 184
+    Height = 21
+    Top = 262
+    Width = 14
+    Caption = '💲'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clWhite
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Cash2: TLabel
+    Left = 216
+    Height = 15
+    Top = 264
+    Width = 112
+    Alignment = taRightJustify
+    AutoSize = False
+    Caption = '1234'
+    Font.Color = clWhite
+    ParentColor = False
+    ParentFont = False
+  end
+  object Capital2: TLabel
+    Left = 216
+    Height = 15
+    Top = 292
+    Width = 112
+    Alignment = taRightJustify
+    AutoSize = False
+    Caption = '1234'
+    Font.Color = clWhite
+    ParentColor = False
+    ParentFont = False
+  end
+  object Dollar3: TLabel
+    Left = 184
+    Height = 21
+    Top = 336
+    Width = 14
+    Caption = '💲'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clWhite
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object House3: TLabel
+    Left = 180
+    Height = 21
+    Top = 362
+    Width = 21
+    Caption = '🏠'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clWhite
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Cash3: TLabel
+    Left = 216
+    Height = 15
+    Top = 338
+    Width = 112
+    Alignment = taRightJustify
+    AutoSize = False
+    Caption = '1234'
+    Font.Color = clWhite
+    ParentColor = False
+    ParentFont = False
+  end
+  object Capital3: TLabel
+    Left = 216
+    Height = 15
+    Top = 366
+    Width = 112
+    Alignment = taRightJustify
+    AutoSize = False
+    Caption = '1234'
+    Font.Color = clWhite
+    ParentColor = False
+    ParentFont = False
+  end
+  object Dollar4: TLabel
+    Left = 184
+    Height = 21
+    Top = 411
+    Width = 14
+    Caption = '💲'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clWhite
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object House4: TLabel
+    Left = 180
+    Height = 21
+    Top = 437
+    Width = 21
+    Caption = '🏠'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clWhite
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Cash4: TLabel
+    Left = 216
+    Height = 15
+    Top = 413
+    Width = 112
+    Alignment = taRightJustify
+    AutoSize = False
+    Caption = '1234'
+    Font.Color = clWhite
+    ParentColor = False
+    ParentFont = False
+  end
+  object Capital4: TLabel
+    Left = 216
+    Height = 15
+    Top = 441
+    Width = 112
+    Alignment = taRightJustify
+    AutoSize = False
+    Caption = '1234'
+    Font.Color = clWhite
+    ParentColor = False
+    ParentFont = False
+  end
+  object Dollar5: TLabel
+    Left = 184
+    Height = 21
+    Top = 485
+    Width = 14
+    Caption = '💲'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clWhite
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object House5: TLabel
+    Left = 180
+    Height = 21
+    Top = 511
+    Width = 21
+    Caption = '🏠'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clWhite
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Cash5: TLabel
+    Left = 216
+    Height = 15
+    Top = 487
+    Width = 112
+    Alignment = taRightJustify
+    AutoSize = False
+    Caption = '1234'
+    Font.Color = clWhite
+    ParentColor = False
+    ParentFont = False
+  end
+  object Capital5: TLabel
+    Left = 216
+    Height = 15
+    Top = 515
+    Width = 112
+    Alignment = taRightJustify
+    AutoSize = False
+    Caption = '1234'
+    Font.Color = clWhite
+    ParentColor = False
+    ParentFont = False
+  end
+  object Shape1: TShape
+    Left = 88
+    Height = 31
+    Top = 64
+    Width = 25
+    Brush.Color = clFuchsia
+    Shape = stCircle
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 1
+    OnTimer = Timer1Timer
+    Left = 552
+    Top = 176
   end
 end

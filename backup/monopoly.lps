@@ -4,13 +4,13 @@
     <PathDelim Value="\"/>
     <Version Value="11"/>
     <BuildModes Active="Default"/>
-    <Units Count="9">
+    <Units Count="11">
       <Unit0>
         <Filename Value="monopoly.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="13" Y="3"/>
-        <UsageCount Value="111"/>
+        <CursorPos X="60" Y="10"/>
+        <UsageCount Value="120"/>
       </Unit0>
       <Unit1>
         <Filename Value="main.pas"/>
@@ -18,9 +18,8 @@
         <ComponentName Value="fMain"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="2"/>
         <CursorPos X="10" Y="9"/>
-        <UsageCount Value="111"/>
+        <UsageCount Value="120"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -30,10 +29,10 @@
         <ComponentName Value="fSettings"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="6"/>
         <TopLine Value="69"/>
         <CursorPos X="6" Y="95"/>
-        <UsageCount Value="111"/>
+        <UsageCount Value="120"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit2>
@@ -44,10 +43,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="43"/>
-        <CursorPos X="3" Y="9"/>
-        <UsageCount Value="107"/>
+        <TopLine Value="118"/>
+        <CursorPos X="19" Y="125"/>
+        <UsageCount Value="116"/>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="play.pas"/>
@@ -56,10 +56,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="572"/>
-        <CursorPos X="33" Y="581"/>
-        <UsageCount Value="102"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="1746"/>
+        <CursorPos X="29" Y="1755"/>
+        <UsageCount Value="111"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit4>
@@ -70,155 +70,178 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="InfoFirm"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="5"/>
         <TopLine Value="88"/>
         <CursorPos X="7" Y="101"/>
-        <UsageCount Value="60"/>
+        <UsageCount Value="69"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit5>
       <Unit6>
+        <Filename Value="nameerror.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fNameError"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="NameError"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="19"/>
+        <CursorPos X="9" Y="37"/>
+        <UsageCount Value="23"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit6>
+      <Unit7>
         <Filename Value="C:\lazarus\lcl\include\spinedit.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="143"/>
         <CursorPos Y="153"/>
         <UsageCount Value="4"/>
-      </Unit6>
-      <Unit7>
+      </Unit7>
+      <Unit8>
         <Filename Value="C:\lazarus\lcl\include\wincontrol.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="7425"/>
         <CursorPos Y="7435"/>
         <UsageCount Value="4"/>
-      </Unit7>
-      <Unit8>
+      </Unit8>
+      <Unit9>
         <Filename Value="C:\lazarus\lcl\include\customform.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="950"/>
         <CursorPos Y="960"/>
         <UsageCount Value="10"/>
-      </Unit8>
+      </Unit9>
+      <Unit10>
+        <Filename Value="C:\lazarus\lcl\customtimer.pas"/>
+        <UnitName Value="CustomTimer"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="177"/>
+        <CursorPos Y="192"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit10>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="play.pas"/>
-        <Caret Line="1123" Column="48" TopLine="1119"/>
+        <Caret Line="1763" TopLine="1750"/>
       </Position1>
       <Position2>
         <Filename Value="play.pas"/>
-        <Caret Line="375" Column="3" TopLine="369"/>
+        <Caret Line="1761" TopLine="1750"/>
       </Position2>
       <Position3>
         <Filename Value="play.pas"/>
-        <Caret Line="220" Column="10" TopLine="211"/>
+        <Caret Line="1763" TopLine="1750"/>
       </Position3>
       <Position4>
         <Filename Value="play.pas"/>
-        <Caret Line="286" Column="10" TopLine="270"/>
+        <Caret Line="1761" TopLine="1750"/>
       </Position4>
       <Position5>
         <Filename Value="play.pas"/>
-        <Caret Line="287" Column="10" TopLine="271"/>
+        <Caret Line="1763" TopLine="1750"/>
       </Position5>
       <Position6>
         <Filename Value="play.pas"/>
-        <Caret Line="399" Column="85" TopLine="383"/>
+        <Caret Line="1761" TopLine="1750"/>
       </Position6>
       <Position7>
         <Filename Value="play.pas"/>
-        <Caret Line="572" Column="86" TopLine="556"/>
+        <Caret Line="1763" TopLine="1750"/>
       </Position7>
       <Position8>
         <Filename Value="play.pas"/>
-        <Caret Line="717" Column="86" TopLine="701"/>
+        <Caret Line="1761" TopLine="1750"/>
       </Position8>
       <Position9>
-        <Filename Value="settings.pas"/>
-        <Caret Line="97" Column="7" TopLine="84"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="1763" TopLine="1750"/>
       </Position9>
       <Position10>
-        <Filename Value="settings.pas"/>
-        <Caret Line="42" Column="27" TopLine="42"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="1761" TopLine="1750"/>
       </Position10>
       <Position11>
-        <Filename Value="settings.pas"/>
-        <Caret Line="43" Column="27" TopLine="43"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="1763" TopLine="1750"/>
       </Position11>
       <Position12>
-        <Filename Value="settings.pas"/>
-        <Caret Line="99" Column="20" TopLine="85"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="1761" TopLine="1750"/>
       </Position12>
       <Position13>
-        <Filename Value="settings.pas"/>
-        <Caret Line="98" TopLine="85"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="1763" TopLine="1750"/>
       </Position13>
       <Position14>
-        <Filename Value="settings.pas"/>
-        <Caret Line="99" TopLine="85"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="1761" TopLine="1750"/>
       </Position14>
       <Position15>
-        <Filename Value="settings.pas"/>
-        <Caret Line="100" TopLine="85"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="1763" TopLine="1750"/>
       </Position15>
       <Position16>
-        <Filename Value="settings.pas"/>
-        <Caret Line="101" TopLine="85"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="1761" TopLine="1750"/>
       </Position16>
       <Position17>
-        <Filename Value="settings.pas"/>
-        <Caret Line="98" TopLine="85"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="1763" TopLine="1750"/>
       </Position17>
       <Position18>
-        <Filename Value="settings.pas"/>
-        <Caret Line="99" TopLine="85"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="1761" TopLine="1750"/>
       </Position18>
       <Position19>
-        <Filename Value="settings.pas"/>
-        <Caret Line="100" TopLine="85"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="1763" TopLine="1750"/>
       </Position19>
       <Position20>
-        <Filename Value="settings.pas"/>
-        <Caret Line="101" TopLine="85"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="1761" TopLine="1750"/>
       </Position20>
       <Position21>
-        <Filename Value="settings.pas"/>
-        <Caret Line="98" TopLine="85"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="1763" TopLine="1750"/>
       </Position21>
       <Position22>
-        <Filename Value="settings.pas"/>
-        <Caret Line="99" TopLine="85"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="1761" TopLine="1750"/>
       </Position22>
       <Position23>
-        <Filename Value="settings.pas"/>
-        <Caret Line="100" TopLine="85"/>
+        <Filename Value="play.pas"/>
+        <Caret Line="1763" TopLine="1750"/>
       </Position23>
       <Position24>
         <Filename Value="play.pas"/>
-        <Caret Line="399" Column="7" TopLine="391"/>
+        <Caret Line="1761" TopLine="1750"/>
       </Position24>
       <Position25>
         <Filename Value="play.pas"/>
-        <Caret Line="400" Column="5" TopLine="391"/>
+        <Caret Line="1763" TopLine="1750"/>
       </Position25>
       <Position26>
         <Filename Value="play.pas"/>
-        <Caret Line="573" Column="5" TopLine="563"/>
+        <Caret Line="1761" TopLine="1750"/>
       </Position26>
       <Position27>
         <Filename Value="play.pas"/>
-        <Caret Line="738" Column="3" TopLine="440"/>
+        <Caret Line="1763" TopLine="1750"/>
       </Position27>
       <Position28>
         <Filename Value="play.pas"/>
-        <Caret Line="718" Column="5" TopLine="709"/>
+        <Caret Line="1761" TopLine="1750"/>
       </Position28>
       <Position29>
         <Filename Value="play.pas"/>
-        <Caret Line="404" Column="51" TopLine="389"/>
+        <Caret Line="1763" TopLine="1750"/>
       </Position29>
       <Position30>
         <Filename Value="play.pas"/>
-        <Caret Line="750" Column="3" TopLine="743"/>
+        <Caret Line="1761" TopLine="1750"/>
       </Position30>
     </JumpHistory>
     <RunParams>
@@ -227,13 +250,10 @@
     </RunParams>
   </ProjectSession>
   <Debugging>
-    <Watches Count="2">
+    <Watches Count="1">
       <Item1>
-        <Expression Value="nalog"/>
+        <Expression Value="Shape1.Left"/>
       </Item1>
-      <Item2>
-        <Expression Value="fSettings.TaxRateEdit.Value"/>
-      </Item2>
     </Watches>
   </Debugging>
 </CONFIG>

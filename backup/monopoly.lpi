@@ -31,7 +31,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="6">
+    <Units Count="7">
       <Unit0>
         <Filename Value="monopoly.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -72,6 +72,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="InfoFirm"/>
       </Unit5>
+      <Unit6>
+        <Filename Value="nameerror.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fNameError"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="NameError"/>
+      </Unit6>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
