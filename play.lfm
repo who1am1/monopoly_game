@@ -12635,6 +12635,13 @@ object fPlay: TfPlay
     Height = 268
     Top = 240
     Width = 456
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
     ReadOnly = True
     TabOrder = 0
   end
@@ -17401,9 +17408,9 @@ object fPlay: TfPlay
     OnDblClick = ImFalse2DblClick
   end
   object ImFalse3: TImage
-    Left = 640
+    Left = 669
     Height = 100
-    Top = 24
+    Top = 15
     Width = 60
     OnDblClick = ImFalse3DblClick
   end
@@ -17443,10 +17450,10 @@ object fPlay: TfPlay
     OnDblClick = ImFalse8DblClick
   end
   object Name1: TLabel
-    Left = 170
+    Left = 157
     Height = 17
     Top = 159
-    Width = 190
+    Width = 216
     Alignment = taCenter
     AutoSize = False
     Caption = 'Игрок 1'
@@ -17463,10 +17470,10 @@ object fPlay: TfPlay
     Transparent = False
   end
   object Name2: TLabel
-    Left = 170
+    Left = 157
     Height = 17
     Top = 239
-    Width = 190
+    Width = 216
     Alignment = taCenter
     AutoSize = False
     Caption = 'Игрок 2'
@@ -17483,10 +17490,10 @@ object fPlay: TfPlay
     Transparent = False
   end
   object Name3: TLabel
-    Left = 170
+    Left = 157
     Height = 17
     Top = 314
-    Width = 190
+    Width = 216
     Alignment = taCenter
     AutoSize = False
     Caption = 'Игрок 3'
@@ -17503,10 +17510,10 @@ object fPlay: TfPlay
     Transparent = False
   end
   object Name4: TLabel
-    Left = 170
+    Left = 157
     Height = 17
     Top = 389
-    Width = 190
+    Width = 216
     Alignment = taCenter
     AutoSize = False
     Caption = 'Игрок 4'
@@ -17523,10 +17530,10 @@ object fPlay: TfPlay
     Transparent = False
   end
   object Name5: TLabel
-    Left = 170
+    Left = 157
     Height = 17
     Top = 464
-    Width = 190
+    Width = 216
     Alignment = taCenter
     AutoSize = False
     Caption = 'Игрок 5'
@@ -17543,9 +17550,9 @@ object fPlay: TfPlay
     Transparent = False
   end
   object House1: TLabel
-    Left = 180
+    Left = 192
     Height = 21
-    Top = 208
+    Top = 210
     Width = 21
     Caption = '🏠'
     Font.CharSet = RUSSIAN_CHARSET
@@ -17559,9 +17566,9 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Dollar1: TLabel
-    Left = 184
+    Left = 196
     Height = 21
-    Top = 182
+    Top = 184
     Width = 14
     Caption = '💲'
     Font.CharSet = RUSSIAN_CHARSET
@@ -17599,9 +17606,9 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object House2: TLabel
-    Left = 180
+    Left = 192
     Height = 21
-    Top = 288
+    Top = 290
     Width = 21
     Caption = '🏠'
     Font.CharSet = RUSSIAN_CHARSET
@@ -17615,9 +17622,9 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Dollar2: TLabel
-    Left = 184
+    Left = 196
     Height = 21
-    Top = 262
+    Top = 264
     Width = 14
     Caption = '💲'
     Font.CharSet = RUSSIAN_CHARSET
@@ -17655,9 +17662,9 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Dollar3: TLabel
-    Left = 184
+    Left = 196
     Height = 21
-    Top = 336
+    Top = 338
     Width = 14
     Caption = '💲'
     Font.CharSet = RUSSIAN_CHARSET
@@ -17671,9 +17678,9 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object House3: TLabel
-    Left = 180
+    Left = 192
     Height = 21
-    Top = 362
+    Top = 364
     Width = 21
     Caption = '🏠'
     Font.CharSet = RUSSIAN_CHARSET
@@ -17711,9 +17718,9 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Dollar4: TLabel
-    Left = 184
+    Left = 196
     Height = 21
-    Top = 411
+    Top = 413
     Width = 14
     Caption = '💲'
     Font.CharSet = RUSSIAN_CHARSET
@@ -17727,9 +17734,9 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object House4: TLabel
-    Left = 180
+    Left = 192
     Height = 21
-    Top = 437
+    Top = 439
     Width = 21
     Caption = '🏠'
     Font.CharSet = RUSSIAN_CHARSET
@@ -17767,9 +17774,9 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Dollar5: TLabel
-    Left = 184
+    Left = 196
     Height = 21
-    Top = 485
+    Top = 487
     Width = 14
     Caption = '💲'
     Font.CharSet = RUSSIAN_CHARSET
@@ -17783,9 +17790,9 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object House5: TLabel
-    Left = 180
+    Left = 192
     Height = 21
-    Top = 511
+    Top = 513
     Width = 21
     Caption = '🏠'
     Font.CharSet = RUSSIAN_CHARSET
@@ -17824,8 +17831,8 @@ object fPlay: TfPlay
   end
   object Token1: TShape
     Left = 88
-    Height = 31
-    Top = 86
+    Height = 25
+    Top = 90
     Width = 25
     Brush.Color = clFuchsia
     Pen.Width = 0
@@ -18018,6 +18025,8 @@ object fPlay: TfPlay
     Height = 27
     Top = 176
     Width = 72
+    Enabled = False
+    OnClick = ButtonText2Click
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963310F000089504E47
       0D0A1A0A0000000D49484452000000B6000000370806000000A11CB079000001
@@ -18144,7 +18153,7 @@ object fPlay: TfPlay
       ED0000000049454E44AE426082
     }
     Stretch = True
-    Visible = False
+    Transparent = True
   end
   object ButtonText2: TLabel
     Left = 533
@@ -18152,6 +18161,7 @@ object fPlay: TfPlay
     Top = 180
     Width = 44
     Caption = 'Купить'
+    Enabled = False
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = 5759
     Font.Height = -13
@@ -18161,13 +18171,14 @@ object fPlay: TfPlay
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
-    Visible = False
+    OnClick = ButtonText2Click
   end
   object ImButton3: TImage
     Left = 598
     Height = 27
     Top = 176
     Width = 60
+    Enabled = False
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963310F000089504E47
       0D0A1A0A0000000D49484452000000B6000000370806000000A11CB079000001
@@ -18294,7 +18305,7 @@ object fPlay: TfPlay
       ED0000000049454E44AE426082
     }
     Stretch = True
-    Visible = False
+    Transparent = True
   end
   object ButtonText3: TLabel
     Left = 610
@@ -18302,6 +18313,7 @@ object fPlay: TfPlay
     Top = 180
     Width = 36
     Caption = 'Отказ'
+    Enabled = False
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = 5759
     Font.Height = -13
@@ -18311,13 +18323,14 @@ object fPlay: TfPlay
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
-    Visible = False
+    OnClick = ButtonText3Click
   end
   object ImButton4: TImage
     Left = 662
     Height = 27
     Top = 176
     Width = 75
+    Enabled = False
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963310F000089504E47
       0D0A1A0A0000000D49484452000000B6000000370806000000A11CB079000001
@@ -18444,7 +18457,7 @@ object fPlay: TfPlay
       ED0000000049454E44AE426082
     }
     Stretch = True
-    Visible = False
+    Transparent = True
   end
   object ButtonText4: TLabel
     Left = 669
@@ -18452,6 +18465,7 @@ object fPlay: TfPlay
     Top = 180
     Width = 62
     Caption = 'Заложить'
+    Enabled = False
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = 5759
     Font.Height = -13
@@ -18461,13 +18475,13 @@ object fPlay: TfPlay
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
-    Visible = False
   end
   object ImButton5: TImage
     Left = 472
     Height = 27
     Top = 208
     Width = 72
+    Enabled = False
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963310F000089504E47
       0D0A1A0A0000000D49484452000000B6000000370806000000A11CB079000001
@@ -18594,7 +18608,7 @@ object fPlay: TfPlay
       ED0000000049454E44AE426082
     }
     Stretch = True
-    Visible = False
+    Transparent = True
   end
   object ButtonText5: TLabel
     Left = 480
@@ -18602,6 +18616,7 @@ object fPlay: TfPlay
     Top = 211
     Width = 51
     Caption = 'Строить'
+    Enabled = False
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = 5759
     Font.Height = -13
@@ -18611,13 +18626,13 @@ object fPlay: TfPlay
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
-    Visible = False
   end
   object ImButton6: TImage
     Left = 742
     Height = 27
     Top = 176
     Width = 75
+    Enabled = False
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963310F000089504E47
       0D0A1A0A0000000D49484452000000B6000000370806000000A11CB079000001
@@ -18744,7 +18759,7 @@ object fPlay: TfPlay
       ED0000000049454E44AE426082
     }
     Stretch = True
-    Visible = False
+    Transparent = True
   end
   object ButtonText6: TLabel
     Left = 749
@@ -18752,6 +18767,7 @@ object fPlay: TfPlay
     Top = 180
     Width = 62
     Caption = 'Выкупить'
+    Enabled = False
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = 5759
     Font.Height = -13
@@ -18761,13 +18777,13 @@ object fPlay: TfPlay
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
-    Visible = False
   end
   object ImButton7: TImage
     Left = 549
     Height = 27
     Top = 208
     Width = 75
+    Enabled = False
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963310F000089504E47
       0D0A1A0A0000000D49484452000000B6000000370806000000A11CB079000001
@@ -18894,7 +18910,7 @@ object fPlay: TfPlay
       ED0000000049454E44AE426082
     }
     Stretch = True
-    Visible = False
+    Transparent = True
   end
   object ButtonText7: TLabel
     Left = 558
@@ -18902,6 +18918,7 @@ object fPlay: TfPlay
     Top = 212
     Width = 54
     Caption = 'Продать'
+    Enabled = False
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = 5759
     Font.Height = -13
@@ -18911,13 +18928,13 @@ object fPlay: TfPlay
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
-    Visible = False
   end
   object ImButton8: TImage
     Left = 392
     Height = 27
     Top = 208
     Width = 75
+    Enabled = False
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963310F000089504E47
       0D0A1A0A0000000D49484452000000B6000000370806000000A11CB079000001
@@ -19044,7 +19061,7 @@ object fPlay: TfPlay
       ED0000000049454E44AE426082
     }
     Stretch = True
-    Visible = False
+    Transparent = True
   end
   object ButtonText8: TLabel
     Left = 399
@@ -19052,6 +19069,7 @@ object fPlay: TfPlay
     Top = 212
     Width = 60
     Caption = 'Оплатить'
+    Enabled = False
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = 5759
     Font.Height = -13
@@ -19061,13 +19079,13 @@ object fPlay: TfPlay
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
-    Visible = False
   end
   object ImButton9: TImage
     Left = 628
     Height = 27
     Top = 208
     Width = 99
+    Enabled = False
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963310F000089504E47
       0D0A1A0A0000000D49484452000000B6000000370806000000A11CB079000001
@@ -19194,7 +19212,7 @@ object fPlay: TfPlay
       ED0000000049454E44AE426082
     }
     Stretch = True
-    Visible = False
+    Transparent = True
   end
   object ButtonText9: TLabel
     Left = 635
@@ -19211,7 +19229,6 @@ object fPlay: TfPlay
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
-    Visible = False
   end
   object ImButton10: TImage
     Left = 730
@@ -19344,6 +19361,7 @@ object fPlay: TfPlay
       ED0000000049454E44AE426082
     }
     Stretch = True
+    Transparent = True
     Visible = False
   end
   object ButtonText10: TLabel
@@ -19494,6 +19512,7 @@ object fPlay: TfPlay
       ED0000000049454E44AE426082
     }
     Stretch = True
+    Transparent = True
   end
   object ButtonText11: TLabel
     Left = 757
@@ -19513,32 +19532,32 @@ object fPlay: TfPlay
   end
   object Token2: TShape
     Left = 88
-    Height = 31
-    Top = 73
+    Height = 25
+    Top = 80
     Width = 25
     Brush.Color = clFuchsia
     Shape = stCircle
   end
   object Token3: TShape
     Left = 88
-    Height = 31
-    Top = 59
+    Height = 25
+    Top = 68
     Width = 25
     Brush.Color = clFuchsia
     Shape = stCircle
   end
   object Token4: TShape
     Left = 88
-    Height = 31
-    Top = 47
+    Height = 25
+    Top = 56
     Width = 25
     Brush.Color = clFuchsia
     Shape = stCircle
   end
   object Token5: TShape
     Left = 88
-    Height = 31
-    Top = 34
+    Height = 25
+    Top = 45
     Width = 25
     Brush.Color = clFuchsia
     Shape = stCircle

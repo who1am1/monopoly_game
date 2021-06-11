@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  Players, InfoFirm, Settings;
+  Players, InfoFirm, Settings, NoMoney;
 
 type
 
@@ -350,6 +350,8 @@ type
     Token5: TShape;
     procedure Button1Click(Sender: TObject);
     procedure ButtonText1Click(Sender: TObject);
+    procedure ButtonText2Click(Sender: TObject);
+    procedure ButtonText3Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure ImBilliardsDblClick(Sender: TObject);
@@ -420,6 +422,8 @@ type
       reg_rent, mon_rent, mon1_rent, mon2_rent,
       mon3_rent, mon4_rent, gold_rent: integer;
       now_rent: integer;      // арендная плата в текущий момент игры
+      pledge: boolean;        // заложена ли фирма. Если True, то заложена
+      step_pledge: byte;      // сколько ходов осталось до потери заложенной фирмы
     end;
     kl = array[1..42] of TPolya;
 
@@ -430,6 +434,7 @@ var
                       (см функцию OnTimer компонента RollDice) }
   dice1, dice2: byte; // значения кубиков
   now_player: byte; // номер текущего игрока
+  dice_double: byte; // хранит количество выкинутых дублей
 
 implementation
 
@@ -439,8 +444,6 @@ implementation
 
 procedure TfPlay.FormCreate(Sender: TObject);
 begin
-
-
 
   // описание клеток
 
@@ -461,9 +464,10 @@ begin
   kletka[2].mon3_rent:=270000;
   kletka[2].mon4_rent:=540000;
   kletka[2].gold_rent:=810000;
-  kletka[2].now_rent:=0;
+  kletka[2].x1:=146;
 
   kletka[3].name:='Налог';
+  kletka[3].x1:=210;
   { Описание клетки находится в процедуре OnShow формы.
     Это нужно для того, чтобы мы правильно брали значение
     nalog, которому присвоено значение в той же процедуре (во время показа формы),
@@ -479,7 +483,7 @@ begin
   kletka[4].mon3_rent:=270000;
   kletka[4].mon4_rent:=540000;
   kletka[4].gold_rent:=810000;
-  kletka[4].now_rent:=0;
+  kletka[4].x1:=274;
 
   kletka[5].name:='Кондитерская лавка';
   kletka[5].price:=100000;
@@ -490,16 +494,17 @@ begin
   kletka[5].mon3_rent:=270000;
   kletka[5].mon4_rent:=540000;
   kletka[5].gold_rent:=810000;
-  kletka[5].now_rent:=0;
+  kletka[5].x1:=338;
 
   kletka[6].name:='Пропуск хода';
   kletka[6].description:='Попав на эту клетку, вы пропускаете следующий ход.';
+  kletka[6].x1:=402;
 
   kletka[7].name:='Петербург';
   kletka[7].description:='Эта монополия не требует постройки. Чем больше у вас во владении фирм этой группы, тем выше аренда.';
   kletka[7].price:=250000;
   kletka[7].reg_rent:=100000;
-  kletka[7].now_rent:=0;
+  kletka[7].x1:=466;
 
   kletka[8].name:='Пейнтбольный клуб';
   kletka[8].price:=130000;
@@ -510,7 +515,7 @@ begin
   kletka[8].mon3_rent:=450000;
   kletka[8].mon4_rent:=700000;
   kletka[8].gold_rent:=950000;
-  kletka[8].now_rent:=0;
+  kletka[8].x1:=530;
 
   kletka[9].name:='Бильярдная';
   kletka[9].price:=130000;
@@ -521,10 +526,11 @@ begin
   kletka[9].mon3_rent:=450000;
   kletka[9].mon4_rent:=700000;
   kletka[9].gold_rent:=950000;
-  kletka[9].now_rent:=0;
+  kletka[9].x1:=594;
 
   kletka[10].name:='Лотерея';
   kletka[10].description:='На лотерее вас может ожидать как радостное событие, так и несчастье.';
+  kletka[10].x1:=658;
 
   kletka[11].name:='Картодром';
   kletka[11].price:=130000;
@@ -535,7 +541,7 @@ begin
   kletka[11].mon3_rent:=450000;
   kletka[11].mon4_rent:=700000;
   kletka[11].gold_rent:=950000;
-  kletka[11].now_rent:=0;
+  kletka[11].x1:=722;
 
   kletka[12].name:='Зоопарк';
   kletka[12].price:=150000;
@@ -546,7 +552,7 @@ begin
   kletka[12].mon3_rent:=630000;
   kletka[12].mon4_rent:=800000;
   kletka[12].gold_rent:=1000000;
-  kletka[12].now_rent:=0;
+  kletka[12].x1:=786;
 
   kletka[13].name:='Цирк';
   kletka[13].price:=150000;
@@ -557,10 +563,11 @@ begin
   kletka[13].mon3_rent:=630000;
   kletka[13].mon4_rent:=800000;
   kletka[13].gold_rent:=1000000;
-  kletka[13].now_rent:=0;
+  kletka[13].x1:=850;
 
   kletka[14].name:='Таможня';
   kletka[14].description:='Таможня, тюрьма, называйте как хотите, смысл ясен.';
+  kletka[14].x1:=924;
 
   kletka[15].name:='Автобусный парк';
   kletka[15].price:=180000;
@@ -571,7 +578,12 @@ begin
   kletka[15].mon3_rent:=800000;
   kletka[15].mon4_rent:=1000000;
   kletka[15].gold_rent:=1400000;
-  kletka[15].now_rent:=0;
+  kletka[15].x1:=924;
+  kletka[15].y1:=161;
+  kletka[15].y2:=153;
+  kletka[15].y3:=146;
+  kletka[15].y4:=138;
+  kletka[15].y5:=130;
 
   kletka[16].name:='Таксопарк';
   kletka[16].price:=180000;
@@ -582,7 +594,12 @@ begin
   kletka[16].mon3_rent:=800000;
   kletka[16].mon4_rent:=1000000;
   kletka[16].gold_rent:=1400000;
-  kletka[16].now_rent:=0;
+  kletka[16].x1:=924;
+  kletka[16].y1:=225;
+  kletka[16].y2:=217;
+  kletka[16].y3:=210;
+  kletka[16].y4:=202;
+  kletka[16].y5:=194;
 
   kletka[17].name:='Каршеринговая компания';
   kletka[17].price:=180000;
@@ -593,13 +610,23 @@ begin
   kletka[17].mon3_rent:=800000;
   kletka[17].mon4_rent:=1000000;
   kletka[17].gold_rent:=1400000;
-  kletka[17].now_rent:=0;
+  kletka[17].x1:=924;
+  kletka[17].y1:=289;
+  kletka[17].y2:=281;
+  kletka[17].y3:=274;
+  kletka[17].y4:=266;
+  kletka[17].y5:=258;
 
   kletka[18].name:='Токио';
   kletka[18].description:='Эта монополия не требует постройки. Чем больше у вас во владении фирм этой группы, тем выше аренда.';
   kletka[18].price:=250000;
   kletka[18].reg_rent:=100000;
-  kletka[18].now_rent:=0;
+  kletka[18].x1:=924;
+  kletka[18].y1:=353;
+  kletka[18].y2:=345;
+  kletka[18].y3:=338;
+  kletka[18].y4:=330;
+  kletka[18].y5:=322;
 
   kletka[19].name:='Киноиндустрия';
   kletka[19].price:=260000;
@@ -610,10 +637,21 @@ begin
   kletka[19].mon3_rent:=1000000;
   kletka[19].mon4_rent:=1200000;
   kletka[19].gold_rent:=1600000;
-  kletka[19].now_rent:=0;
+  kletka[19].x1:=924;
+  kletka[19].y1:=417;
+  kletka[19].y2:=409;
+  kletka[19].y3:=402;
+  kletka[19].y4:=394;
+  kletka[19].y5:=386;
 
   kletka[20].name:='Лотерея';
   kletka[20].description:='На лотерее вас может ожидать как радостное событие, так и несчастье.';
+  kletka[20].x1:=924;
+  kletka[20].y1:=481;
+  kletka[20].y2:=473;
+  kletka[20].y3:=466;
+  kletka[20].y4:=458;
+  kletka[20].y5:=450;
 
   kletka[21].name:='Игроиндустрия';
   kletka[21].price:=260000;
@@ -624,10 +662,21 @@ begin
   kletka[21].mon3_rent:=1000000;
   kletka[21].mon4_rent:=1200000;
   kletka[21].gold_rent:=1600000;
-  kletka[21].now_rent:=0;
+  kletka[21].x1:=924;
+  kletka[21].y1:=545;
+  kletka[21].y2:=537;
+  kletka[21].y3:=530;
+  kletka[21].y4:=522;
+  kletka[21].y5:=514;
 
   kletka[22].name:='Джекпот';
   kletka[22].description:='Получите внезапный джекпот.';
+  kletka[22].x1:=924;
+  kletka[22].y1:=621;
+  kletka[22].y2:=611;
+  kletka[22].y3:=599;
+  kletka[22].y4:=587;
+  kletka[22].y5:=576;
 
   kletka[23].name:='Химическая промышленность';
   kletka[23].price:=320000;
@@ -638,7 +687,6 @@ begin
   kletka[23].mon3_rent:=1200000;
   kletka[23].mon4_rent:=1600000;
   kletka[23].gold_rent:=2000000;
-  kletka[23].now_rent:=0;
 
   kletka[24].name:='Налог';
   { Описание клетки находится в процедуре OnShow формы.
@@ -656,7 +704,6 @@ begin
   kletka[25].mon3_rent:=1200000;
   kletka[25].mon4_rent:=1600000;
   kletka[25].gold_rent:=2000000;
-  kletka[25].now_rent:=0;
 
   kletka[26].name:='Микробиологическая промышленность';
   kletka[26].price:=320000;
@@ -667,7 +714,6 @@ begin
   kletka[26].mon3_rent:=1200000;
   kletka[26].mon4_rent:=1600000;
   kletka[26].gold_rent:=2000000;
-  kletka[26].now_rent:=0;
 
   kletka[27].name:='Назад';
   kletka[27].description:='В свой следующий ход пойдете не вперед, а назад.';
@@ -676,7 +722,6 @@ begin
   kletka[28].description:='Эта монополия не требует постройки. Чем больше у вас во владении фирм этой группы, тем выше аренда.';
   kletka[28].price:=250000;
   kletka[28].reg_rent:=100000;
-  kletka[28].now_rent:=0;
 
   kletka[29].name:='Металлургический завод';
   kletka[29].price:=350000;
@@ -687,7 +732,6 @@ begin
   kletka[29].mon3_rent:=1500000;
   kletka[29].mon4_rent:=1800000;
   kletka[29].gold_rent:=2100000;
-  kletka[29].now_rent:=0;
 
   kletka[30].name:='Машиностроительный завод';
   kletka[30].price:=350000;
@@ -698,7 +742,6 @@ begin
   kletka[30].mon3_rent:=1500000;
   kletka[30].mon4_rent:=1800000;
   kletka[30].gold_rent:=2100000;
-  kletka[30].now_rent:=0;
 
   kletka[31].name:='Лотерея';
   kletka[31].description:='На лотерее вас может ожидать как радостное событие, так и несчастье.';
@@ -712,7 +755,6 @@ begin
   kletka[32].mon3_rent:=1500000;
   kletka[32].mon4_rent:=1800000;
   kletka[32].gold_rent:=2100000;
-  kletka[32].now_rent:=0;
 
   kletka[33].name:='Поисковая система';
   kletka[33].price:=400000;
@@ -723,7 +765,6 @@ begin
   kletka[33].mon3_rent:=1800000;
   kletka[33].mon4_rent:=2100000;
   kletka[33].gold_rent:=2400000;
-  kletka[33].now_rent:=0;
 
   kletka[34].name:='Социальная сеть';
   kletka[34].price:=400000;
@@ -734,7 +775,6 @@ begin
   kletka[34].mon3_rent:=1800000;
   kletka[34].mon4_rent:=2100000;
   kletka[34].gold_rent:=2400000;
-  kletka[34].now_rent:=0;
 
   kletka[35].name:='Отпуск';
   kletka[35].description:='Отправляйтесь в отпуск!';
@@ -748,7 +788,6 @@ begin
   kletka[36].mon3_rent:=2000000;
   kletka[36].mon4_rent:=2300000;
   kletka[36].gold_rent:=2800000;
-  kletka[36].now_rent:=0;
 
   kletka[37].name:='Сейшелы';
   kletka[37].price:=450000;
@@ -759,7 +798,6 @@ begin
   kletka[37].mon3_rent:=2000000;
   kletka[37].mon4_rent:=2300000;
   kletka[37].gold_rent:=2800000;
-  kletka[37].now_rent:=0;
 
   kletka[38].name:='Мальдивы';
   kletka[38].price:=450000;
@@ -770,13 +808,11 @@ begin
   kletka[38].mon3_rent:=2000000;
   kletka[38].mon4_rent:=2300000;
   kletka[38].gold_rent:=2800000;
-  kletka[38].now_rent:=0;
 
   kletka[39].name:='Нью-йорк';
   kletka[39].description:='Эта монополия не требует постройки. Чем больше у вас во владении фирм этой группы, тем выше аренда.';
   kletka[39].price:=250000;
   kletka[39].reg_rent:=100000;
-  kletka[39].now_rent:=0;
 
   kletka[40].name:='Нейросети';
   kletka[40].price:=550000;
@@ -787,7 +823,6 @@ begin
   kletka[40].mon3_rent:=2400000;
   kletka[40].mon4_rent:=3200000;
   kletka[40].gold_rent:=4500000;
-  kletka[40].now_rent:=0;
 
   kletka[41].name:='Налог';
   { Описание клетки находится в процедуре OnShow формы.
@@ -805,17 +840,22 @@ begin
   kletka[42].mon3_rent:=2400000;
   kletka[42].mon4_rent:=3200000;
   kletka[42].gold_rent:=4500000;
-  kletka[42].now_rent:=0;
 end;
 
 procedure TfPlay.FormShow(Sender: TObject);
+var i:byte; // просто счетчик
 begin
-  StartMoney:=fSettings.StartMoneyEdit.Value;
-  Jackpot:=fSettings.ValueJackpot.Value;
-  Credit:=fSettings.ValueCredit.Value;
-  Nalog:=fSettings.TaxRateEdit.Value;
 
-  now_player:=1;
+  for i:=1 to 42 do
+  begin
+    if (i=1) or (i=3) or (i=6) or (i=10) or (i=14) or (i=20) or (i=22) or (i=24)
+    or (i=27) or (i=31) or (i=35) or (i=41) then continue;
+    kletka[i].pledge:=False;
+    kletka[i].step_pledge:=50;
+    kletka[i].now_rent:=0;
+  end;
+
+  now_player:=2;
 
   Step.Caption:=inttostr(0);
 
@@ -958,7 +998,7 @@ begin
 
   kletka[41].description:='Просто оплатите налог, '+inttostr(nalog)+'% от ваших наличных.';
 
-  Info.Lines.Add('Первым ходит');
+  Info.Lines.Add('Ходит '+player[now_player].name+'.');
 end;
 
 procedure TfPlay.ImBilliardsDblClick(Sender: TObject);
@@ -1935,23 +1975,108 @@ begin
   begin
     CubeValue1.Caption:=inttostr(random(6)+1);
     CubeValue2.Caption:=inttostr(random(6)+1);
-    if changecube=20 then Info.Lines.Add('Игрок бросает кубики и выпадает '+
-    CubeValue1.Caption+':'+CubeValue2.Caption);
+    if changecube=20 then
+    begin
+      Dice1:=strtoint(CubeValue1.Caption);
+      Dice2:=strtoint(CubeValue2.Caption);
+      if dice1=dice2 then inc(dice_double)
+      else
+        dice_double:=0;
+      //занесли из другой процедуры для нормального функционирования:
+      player[now_player].buf:=player[now_player].kletka; //буфер
+      player[now_player].kletka:=player[now_player].kletka+dice1+dice2;
+      Info.Lines.Add(Player[now_player].name+' бросает кубики '+
+      CubeValue1.Caption+':'+CubeValue2.Caption+ ', и движется к '+
+      kletka[Player[now_player].kletka].name);
+      TimeMove.Enabled:=True;
+    end;
     inc(changecube);
   end;
 end;
 
 procedure TfPlay.TimeMoveTimer(Sender: TObject);
+var i,k,m: integer;
 begin
-  if Token1.Left>=950 then TimeMove.Enabled:=False;
-  Token1.Left:=Token1.Left+5;
-end;
+  case now_player of  // везде используется x1!!! Меняется только y.
+  1:
+    if (player[now_player].buf in [1..22]) and
+    (player[now_player].kletka in [1..22]) then
+    begin
+    i:=Token1.Left;
+    k:=Token1.Top;
+    m:=kletka[player[now_player].kletka].y1;
+    if (Token1.Left>=kletka[player[now_player].kletka].x1) and
+    (Token1.Top>=kletka[player[now_player].kletka].y1)
+    then TimeMove.Enabled:=False
+    else
+      begin
+        if (Token1.Left<kletka[player[now_player].kletka].x1) then
+        Token1.Left:=Token1.Left+5;
+        if (Token1.Top<kletka[player[now_player].kletka].y1) and
+        (Token1.Left>=kletka[player[now_player].kletka].x1) then
+        Token1.Top:=Token1.Top+5;
+      end;
+    end;
+  2:
+    if (player[now_player].buf in [1..22]) and
+    (player[now_player].kletka in [1..22]) then
+    begin
+    i:=Token2.Left;
+    k:=Token2.Top;
+    m:=kletka[player[now_player].kletka].y2;
+    if (Token2.Left>=kletka[player[now_player].kletka].x1) and
+    (Token2.Top>=kletka[player[now_player].kletka].y2)
+    then TimeMove.Enabled:=False
+    else
+      begin
+        if (Token2.Left<kletka[player[now_player].kletka].x1) then
+        Token2.Left:=Token2.Left+5;
+        if (Token2.Top<kletka[player[now_player].kletka].y2) and
+        (Token2.Left>=kletka[player[now_player].kletka].x1) then
+        Token2.Top:=Token2.Top+5;
+      end;
+    end;
+  3:
+    begin
+    i:=Token3.Left;
+    if Token3.Left>=kletka[player[now_player].kletka].x1 then TimeMove.Enabled:=False
+    else
+      Token3.Left:=Token3.Left+5;
+    end;
+  4:
+    begin
+    i:=Token4.Left;
+    if Token4.Left>=kletka[player[now_player].kletka].x1 then TimeMove.Enabled:=False
+    else
+      Token4.Left:=Token4.Left+5;
+    end;
+  5:
+    begin
+    i:=Token5.Left;
+    if Token5.Left>=kletka[player[now_player].kletka].x1 then TimeMove.Enabled:=False
+    else
+      Token5.Left:=Token5.Left+5;
+    end;
+  end; //case
+  if ((player[now_player].buf in [1..22]) and
+    (player[now_player].kletka in [1..22]) and
+    (i>=kletka[player[now_player].kletka].x1) and k>=m)) and
+    (kletka[player[now_player].kletka].kup=0) then
+  begin
+    ImButton2.Enabled:=True;
+    ButtonText2.Enabled:=True;
+    ImButton3.Enabled:=True;
+    ButtonText3.Enabled:=True;
+    Info.Lines.Add(Player[now_player].name+' раздумывает о покупке '+
+    kletka[player[now_player].kletka].name+ ' за '+
+    inttostr(kletka[player[now_player].kletka].price)+ '$');
+  end;
+end; //procedure
 
 procedure TfPlay.Button1Click(Sender: TObject);
 begin
   C11.brush.color:=$00DB5F00;
   C11.brush.style:=bsBDiagonal;
-  TimeMove.Enabled:=True;
 end;
 
 procedure TfPlay.ButtonText1Click(Sender: TObject);
@@ -1959,6 +2084,106 @@ begin
   step.caption:=inttostr(strtoint(step.caption)+1);
   changecube:=1;
   RollDice.Enabled:=True;
+  // занесли следующие строки в процедуру OnTime компонента RollDice
+  ImButton1.Enabled:=True;   //поменять на False!!!
+  ButtonText1.Enabled:=True; //поменять на False!!!
+  if player[now_player].firms>0 then
+  begin
+    ImButton4.Enabled:=True;
+    ButtonText4.Enabled:=True;
+  end;
+end;
+
+procedure TfPlay.ButtonText2Click(Sender: TObject);
+begin
+  if player[now_player].cash<kletka[player[now_player].kletka].price then
+  begin
+    fNoMoney.ShowModal;
+    exit;
+  end;
+  kletka[player[now_player].kletka].kup:=now_player;
+  dec(player[now_player].cash,kletka[player[now_player].kletka].price);
+  inc(player[now_player].capital, (kletka[player[now_player].kletka].price) div 2);
+  case now_player of
+  1:
+    begin
+    Cash1.Caption:=inttostr(player[now_player].cash);
+    Capital1.Caption:=inttostr(player[now_player].capital);
+    end;
+  2:
+    begin
+    Cash2.Caption:=inttostr(player[now_player].cash);
+    Capital2.Caption:=inttostr(player[now_player].capital);
+    end;
+  3:
+    begin
+    Cash3.Caption:=inttostr(player[now_player].cash);
+    Capital3.Caption:=inttostr(player[now_player].capital);
+    end;
+  4:
+    begin
+    Cash4.Caption:=inttostr(player[now_player].cash);
+    Capital4.Caption:=inttostr(player[now_player].capital);
+    end;
+  5:
+    begin
+    Cash5.Caption:=inttostr(player[now_player].cash);
+    Capital5.Caption:=inttostr(player[now_player].capital);
+    end;
+  end; //case
+  kletka[player[now_player].kletka].now_rent:=
+  kletka[player[now_player].kletka].reg_rent;
+  case player[now_player].kletka of
+  2: C11.brush.color:=player[now_player].color;
+  4: C12.brush.color:=player[now_player].color;
+  5: C13.brush.color:=player[now_player].color;
+  7: C21.brush.color:=player[now_player].color;
+  8: C31.brush.color:=player[now_player].color;
+  9: C32.brush.color:=player[now_player].color;
+  11: C33.brush.color:=player[now_player].color;
+  12: C41.brush.color:=player[now_player].color;
+  13: C42.brush.color:=player[now_player].color;
+  15: C51.brush.color:=player[now_player].color;
+  16: C52.brush.color:=player[now_player].color;
+  17: C53.brush.color:=player[now_player].color;
+  18: C22.brush.color:=player[now_player].color;
+  19: C61.brush.color:=player[now_player].color;
+  21: C62.brush.color:=player[now_player].color;
+  23: C71.brush.color:=player[now_player].color;
+  25: C72.brush.color:=player[now_player].color;
+  26: C73.brush.color:=player[now_player].color;
+  28: C23.brush.color:=player[now_player].color;
+  29: C81.brush.color:=player[now_player].color;
+  30: C82.brush.color:=player[now_player].color;
+  32: C83.brush.color:=player[now_player].color;
+  33: C91.brush.color:=player[now_player].color;
+  34: C92.brush.color:=player[now_player].color;
+  36: C101.brush.color:=player[now_player].color;
+  37: C102.brush.color:=player[now_player].color;
+  38: C103.brush.color:=player[now_player].color;
+  39: C24.brush.color:=player[now_player].color;
+  40: C111.brush.color:=player[now_player].color;
+  42: C112.brush.color:=player[now_player].color;
+  end; //case
+  Info.Lines.Add(Player[now_player].name+' покупает '+
+  kletka[player[now_player].kletka].name);
+  if dice_double>0 then
+  begin
+    Info.Lines.Add(player[now_player].name+' выкинул дубль и ходит ещё раз.');
+    ImButton1.Enabled:=True;
+    ButtonText1.Enabled:=True;
+  end;
+end; //procedure
+
+procedure TfPlay.ButtonText3Click(Sender: TObject);
+begin
+  Info.Lines.Add(player[now_player].name+' отказывается от покупки.');
+  if dice_double>0 then
+  begin
+    Info.Lines.Add(player[now_player].name+' выкинул дубль и ходит ещё раз.');
+    ImButton1.Enabled:=True;
+    ButtonText1.Enabled:=True;
+  end;
 end;
 
 end.

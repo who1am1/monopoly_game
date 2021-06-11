@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
-  Buttons, GraphType, LCLType, LazUTF8, NameError;
+  Buttons, GraphType, LCLType, LazUTF8, NameError, Settings;
 
 type
 
@@ -53,8 +53,10 @@ type
     TPlayer = record          // запись одного игрока
       name: string[100];      // имя игрока
       color: TGraphicsColor;  // цвет игрока
-      firms: integer;         // количество купленных фирм
-      kletka: integer;        // номер клетки, на которой находится игрок
+      firms: byte;            // количество купленных фирм
+      ban_firms: byte;        // количество заложенных фирм
+      kletka: byte;           // номер клетки, на которой находится игрок
+      buf: byte;              // хранит номер предыдущей клетки
       x,y: integer;           // расстояние до фишки
       cash: integer;          // количество денег игрока
       capital: integer;       //капитал игрока
@@ -75,6 +77,14 @@ uses Play, Main;
 procedure TfPlayers.bContinueClick(Sender: TObject);
 var a,b,c,d,e: string[100];
 begin
+
+  StartMoney:=fSettings.StartMoneyEdit.Value;
+  Jackpot:=fSettings.ValueJackpot.Value;
+  Credit:=fSettings.ValueCredit.Value;
+  Nalog:=fSettings.TaxRateEdit.Value;
+
+  dice_double:=0;
+
   a:=PlayerName1.Text;
   b:=PlayerName2.Text;
   c:=PlayerName3.Text;
@@ -127,16 +137,37 @@ begin
   Player[4].name:=d;
   Player[5].name:=e;
 
-  Player[1].cash:=0;
+  // начальные деньги и капитал
+  Player[1].cash:=startmoney;
   Player[1].capital:=0;
-  Player[2].cash:=0;
+  Player[2].cash:=startmoney;
   Player[2].capital:=0;
-  Player[3].cash:=0;
+  Player[3].cash:=startmoney;
   Player[3].capital:=0;
-  Player[4].cash:=0;
+  Player[4].cash:=startmoney;
   Player[4].capital:=0;
-  Player[5].cash:=0;
+  Player[5].cash:=startmoney;
   Player[5].capital:=0;
+
+  // купленные фирмы и заложенные фирмы
+
+  player[1].firms:=0;
+  player[2].firms:=0;
+  player[3].firms:=0;
+  player[4].firms:=0;
+  player[5].firms:=0;
+  player[1].ban_firms:=0;
+  player[2].ban_firms:=0;
+  player[3].ban_firms:=0;
+  player[4].ban_firms:=0;
+  player[5].ban_firms:=0;
+
+  // все начинат с первой клетки (если не загружается сохраненная игра)
+  Player[1].kletka:=1;
+  Player[2].kletka:=1;
+  Player[3].kletka:=1;
+  Player[4].kletka:=1;
+  Player[5].kletka:=1;
 
   bContinue.ModalResult:=mrOK;
   fPlay.Show;
