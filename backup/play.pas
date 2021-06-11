@@ -18,6 +18,15 @@ type
     Back3: TImage;
     Back4: TImage;
     Button1: TButton;
+    ButtonText10: TLabel;
+    ButtonText11: TLabel;
+    ButtonText3: TLabel;
+    ButtonText4: TLabel;
+    ButtonText5: TLabel;
+    ButtonText6: TLabel;
+    ButtonText7: TLabel;
+    ButtonText8: TLabel;
+    ButtonText9: TLabel;
     C102: TShape;
     C103: TShape;
     C112: TShape;
@@ -55,6 +64,8 @@ type
     Cash3: TLabel;
     Cash4: TLabel;
     Cash5: TLabel;
+    Cube2: TShape;
+    CubeValue2: TLabel;
     Dollar3: TLabel;
     Dollar4: TLabel;
     Dollar5: TLabel;
@@ -91,6 +102,17 @@ type
     House3: TLabel;
     House4: TLabel;
     House5: TLabel;
+    ImButton1: TImage;
+    ImButton10: TImage;
+    ImButton11: TImage;
+    ImButton2: TImage;
+    ImButton3: TImage;
+    ImButton4: TImage;
+    ImButton5: TImage;
+    ImButton6: TImage;
+    ImButton7: TImage;
+    ImButton8: TImage;
+    ImButton9: TImage;
     ImFalse1: TImage;
     ImFalse2: TImage;
     ImFalse3: TImage;
@@ -102,6 +124,13 @@ type
     Label1: TLabel;
     House2: TLabel;
     Dollar2: TLabel;
+    Label10: TLabel;
+    Cube1: TShape;
+    CubeValue1: TLabel;
+    RollDice: TTimer;
+    Token2: TShape;
+    Token3: TShape;
+    Step: TLabel;
     Name2: TLabel;
     Name3: TLabel;
     Name4: TLabel;
@@ -311,11 +340,16 @@ type
     Nalog1: TShape;
     Nalog2: TShape;
     GoBack: TShape;
-    Shape1: TShape;
+    Token1: TShape;
     Skip: TShape;
     Lottery1: TShape;
-    Timer1: TTimer;
+    ButtonText1: TLabel;
+    ButtonText2: TLabel;
+    TimeMove: TTimer;
+    Token4: TShape;
+    Token5: TShape;
     procedure Button1Click(Sender: TObject);
+    procedure ButtonText1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure ImBilliardsDblClick(Sender: TObject);
@@ -360,7 +394,8 @@ type
     procedure ImVacationDblClick(Sender: TObject);
     procedure ImWeaponDblClick(Sender: TObject);
     procedure ImZooDblClick(Sender: TObject);
-    procedure Timer1Timer(Sender: TObject);
+    procedure RollDiceTimer(Sender: TObject);
+    procedure TimeMoveTimer(Sender: TObject);
   private
 
   public
@@ -391,6 +426,10 @@ type
 var
   fPlay: TfPlay;
   kletka: kl; // массив записей полей
+  changecube: byte; { используется для счетчика отображения случайных чисел
+                      (см функцию OnTimer компонента RollDice) }
+  dice1, dice2: byte; // значения кубиков
+  now_player: byte; // номер текущего игрока
 
 implementation
 
@@ -776,11 +815,150 @@ begin
   Credit:=fSettings.ValueCredit.Value;
   Nalog:=fSettings.TaxRateEdit.Value;
 
+  now_player:=1;
+
+  Step.Caption:=inttostr(0);
+
+  if Credit>0 then
+  begin
+    ImButton9.Visible:=True;
+    ButtonText9.Visible:=True;
+  end
+  else
+  begin
+    ImButton9.Visible:=False;
+    ButtonText9.Visible:=False;
+  end;
+
+  Name1.Color:=Player[1].color;
+  Name2.Color:=Player[2].color;
+  Name3.Color:=Player[3].color;
+  Name4.Color:=Player[4].color;
+  Name5.Color:=Player[5].color;
+
+  Name1.Caption:=Player[1].name;
+  Name2.Caption:=Player[2].name;
+  Name3.Caption:=Player[3].name;
+  Name4.Caption:=Player[4].name;
+  Name5.Caption:=Player[5].name;
+
+  case PlayersNumber of
+  5:
+    begin
+      Token3.Visible:=True;
+      Token4.Visible:=True;
+      Token5.Visible:=True;
+
+      Name3.Visible:=True;
+      Dollar3.Visible:=True;
+      House3.Visible:=True;
+      Cash3.Visible:=True;
+      Capital3.Visible:=True;
+
+      Name4.Visible:=True;
+      Dollar4.Visible:=True;
+      House4.Visible:=True;
+      Cash4.Visible:=True;
+      Capital4.Visible:=True;
+
+      Name5.Visible:=True;
+      Dollar5.Visible:=True;
+      House5.Visible:=True;
+      Cash5.Visible:=True;
+      Capital5.Visible:=True;
+    end;
+  4:
+    begin
+      Token3.Visible:=True;
+      Token4.Visible:=True;
+      Token5.Visible:=False;
+
+      Name3.Visible:=True;
+      Dollar3.Visible:=True;
+      House3.Visible:=True;
+      Cash3.Visible:=True;
+      Capital3.Visible:=True;
+
+      Name4.Visible:=True;
+      Dollar4.Visible:=True;
+      House4.Visible:=True;
+      Cash4.Visible:=True;
+      Capital4.Visible:=True;
+
+      Name5.Visible:=False;
+      Dollar5.Visible:=False;
+      House5.Visible:=False;
+      Cash5.Visible:=False;
+      Capital5.Visible:=False;
+    end;
+  3:
+    begin
+      Token3.Visible:=True;
+      Token4.Visible:=False;
+      Token5.Visible:=False;
+
+      Name3.Visible:=True;
+      Dollar3.Visible:=True;
+      House3.Visible:=True;
+      Cash3.Visible:=True;
+      Capital3.Visible:=True;
+
+      Name4.Visible:=False;
+      Dollar4.Visible:=False;
+      House4.Visible:=False;
+      Cash4.Visible:=False;
+      Capital4.Visible:=False;
+
+      Name5.Visible:=False;
+      Dollar5.Visible:=False;
+      House5.Visible:=False;
+      Cash5.Visible:=False;
+      Capital5.Visible:=False;
+    end;
+  2:
+    begin
+      Token3.Visible:=False;
+      Token4.Visible:=False;
+      Token5.Visible:=False;
+
+      Name3.Visible:=False;
+      Dollar3.Visible:=False;
+      House3.Visible:=False;
+      Cash3.Visible:=False;
+      Capital3.Visible:=False;
+
+      Name4.Visible:=False;
+      Dollar4.Visible:=False;
+      House4.Visible:=False;
+      Cash4.Visible:=False;
+      Capital4.Visible:=False;
+
+      Name5.Visible:=False;
+      Dollar5.Visible:=False;
+      House5.Visible:=False;
+      Cash5.Visible:=False;
+      Capital5.Visible:=False;
+    end;
+  end;
+
+  Cash1.Caption:=inttostr(Player[1].cash);
+  Capital1.Caption:=inttostr(Player[1].capital);
+  Cash2.Caption:=inttostr(Player[2].cash);
+  Capital2.Caption:=inttostr(Player[2].capital);
+  Cash3.Caption:=inttostr(Player[3].cash);
+  Capital3.Caption:=inttostr(Player[3].capital);
+  Cash4.Caption:=inttostr(Player[4].cash);
+  Capital4.Caption:=inttostr(Player[4].capital);
+  Cash5.Caption:=inttostr(Player[5].cash);
+  Capital5.Caption:=inttostr(Player[5].capital);
+
   kletka[3].description:='Просто оплатите налог, '+inttostr(nalog)+'% от ваших наличных.';
 
   kletka[24].description:='Просто оплатите налог, '+inttostr(nalog)+'% от ваших наличных.';
 
   kletka[41].description:='Просто оплатите налог, '+inttostr(nalog)+'% от ваших наличных.';
+
+  Info.Lines.Add('Первым ходит');
 end;
 
 procedure TfPlay.ImBilliardsDblClick(Sender: TObject);
@@ -1749,17 +1927,38 @@ begin
   fInfoFirm.ShowModal;
 end;
 
-procedure TfPlay.Timer1Timer(Sender: TObject);
+procedure TfPlay.RollDiceTimer(Sender: TObject);
 begin
-  if Shape1.Left>=950 then Timer1.Enabled:=False;
-  Shape1.Left:=Shape1.Left+4;
+  randomize;
+  if changecube>20 then RollDice.Enabled:=False
+  else
+  begin
+    CubeValue1.Caption:=inttostr(random(6)+1);
+    CubeValue2.Caption:=inttostr(random(6)+1);
+    if changecube=20 then Info.Lines.Add('Игрок бросает кубики и выпадает '+
+    CubeValue1.Caption+':'+CubeValue2.Caption);
+    inc(changecube);
+  end;
+end;
+
+procedure TfPlay.TimeMoveTimer(Sender: TObject);
+begin
+  if Token1.Left>=950 then TimeMove.Enabled:=False;
+  Token1.Left:=Token1.Left+5;
 end;
 
 procedure TfPlay.Button1Click(Sender: TObject);
 begin
   C11.brush.color:=$00DB5F00;
   C11.brush.style:=bsBDiagonal;
-  Timer1.Enabled:=True;
+  TimeMove.Enabled:=True;
+end;
+
+procedure TfPlay.ButtonText1Click(Sender: TObject);
+begin
+  step.caption:=inttostr(strtoint(step.caption)+1);
+  changecube:=1;
+  RollDice.Enabled:=True;
 end;
 
 end.

@@ -1,7 +1,7 @@
 object fPlayers: TfPlayers
-  Left = 434
+  Left = 612
   Height = 429
-  Top = 126
+  Top = 129
   Width = 320
   BorderStyle = bsDialog
   Caption = 'Игроки'

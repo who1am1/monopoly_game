@@ -111,6 +111,33 @@ begin
   Player[3].color:=$001CDEF2; // желтый
   Player[4].color:=$001C7E21; // зеленый
   Player[5].color:=$00C64DF3; // розовый
+
+  // цвета фишек игроков
+  fPlay.Token1.Brush.Color:=player[1].color;
+  fPlay.Token2.Brush.Color:=player[2].color;
+  fPlay.Token3.Brush.Color:=player[3].color;
+  fPlay.Token4.Brush.Color:=player[4].color;
+  fPlay.Token5.Brush.Color:=player[5].color;
+
+  // имена игроков
+
+  Player[1].name:=a;
+  Player[2].name:=b;
+  Player[3].name:=c;
+  Player[4].name:=d;
+  Player[5].name:=e;
+
+  Player[1].cash:=0;
+  Player[1].capital:=0;
+  Player[2].cash:=0;
+  Player[2].capital:=0;
+  Player[3].cash:=0;
+  Player[3].capital:=0;
+  Player[4].cash:=0;
+  Player[4].capital:=0;
+  Player[5].cash:=0;
+  Player[5].capital:=0;
+
   bContinue.ModalResult:=mrOK;
   fPlay.Show;
   fPlayers.Hide;
@@ -122,7 +149,7 @@ begin
   PlayerName2.Text:='Игрок 2';
   PlayerName3.Text:='Игрок 3';
   PlayerName4.Text:='Игрок 4';
-  PlayerName4.Text:='Игрок 5';
+  PlayerName5.Text:='Игрок 5';
   PlayersNumber:=2;
   Choose3.Visible:=False;
   Choose4.Visible:=False;
