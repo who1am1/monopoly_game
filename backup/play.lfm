@@ -17830,7 +17830,7 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Token1: TShape
-    Left = 88
+    Left = 73
     Height = 25
     Top = 90
     Width = 25
@@ -19531,7 +19531,7 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Token2: TShape
-    Left = 88
+    Left = 73
     Height = 25
     Top = 80
     Width = 25
@@ -19539,7 +19539,7 @@ object fPlay: TfPlay
     Shape = stCircle
   end
   object Token3: TShape
-    Left = 88
+    Left = 73
     Height = 25
     Top = 68
     Width = 25
@@ -19547,7 +19547,7 @@ object fPlay: TfPlay
     Shape = stCircle
   end
   object Token4: TShape
-    Left = 88
+    Left = 73
     Height = 25
     Top = 56
     Width = 25
@@ -19555,7 +19555,7 @@ object fPlay: TfPlay
     Shape = stCircle
   end
   object Token5: TShape
-    Left = 88
+    Left = 73
     Height = 25
     Top = 45
     Width = 25
@@ -19615,7 +19615,7 @@ object fPlay: TfPlay
   end
   object RollDice: TTimer
     Enabled = False
-    Interval = 25
+    Interval = 100
     OnTimer = RollDiceTimer
     Left = 664
     Top = 520
