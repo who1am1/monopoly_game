@@ -352,6 +352,7 @@ type
     procedure ButtonText1Click(Sender: TObject);
     procedure ButtonText2Click(Sender: TObject);
     procedure ButtonText3Click(Sender: TObject);
+    procedure ButtonText8Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure ImBilliardsDblClick(Sender: TObject);
@@ -433,7 +434,8 @@ var
   changecube: byte; { используется для счетчика отображения случайных чисел
                       (см функцию OnTimer компонента RollDice) }
   dice1, dice2: byte; // значения кубиков
-  now_player: byte; // номер текущего игрока
+  now_player: byte;  // номер текущего игрока
+  next_player: byte; // номер следующего игрока
   dice_double: byte; // хранит количество выкинутых дублей
 
 implementation
@@ -448,7 +450,7 @@ begin
   // описание клеток
 
   { kletka[i].mon_rent:=kletka[i].reg_rent * 2;
-    Монопольная пренда в 2 раза больше обычной аренды
+    Монопольная аренда в 2 раза больше обычной аренды
     Не будем сейчас прописывать это у всех фирм, а сделаем это в процессе игры
   }
 
@@ -626,7 +628,7 @@ begin
   kletka[13].gold_rent:=1000000;
   kletka[13].x1:=850;
   kletka[13].y1:=90;
-  kletka[1].y2:=80;
+  kletka[13].y2:=80;
   kletka[13].y3:=68;
   kletka[13].y4:=56;
   kletka[13].y5:=45;
@@ -1188,7 +1190,6 @@ begin
   kletka[24].description:='Просто оплатите налог, '+inttostr(nalog)+'% от ваших наличных.';
 
   kletka[41].description:='Просто оплатите налог, '+inttostr(nalog)+'% от ваших наличных.';
-
   Info.Lines.Add('Ходит '+player[now_player].name+'.');
 end;
 
@@ -2159,6 +2160,7 @@ begin
 end;
 
 procedure TfPlay.RollDiceTimer(Sender: TObject);
+var i: byte;
 begin
   randomize;
   if changecube>20 then RollDice.Enabled:=False
@@ -2170,13 +2172,21 @@ begin
     begin
       Dice1:=strtoint(CubeValue1.Caption);
       Dice2:=strtoint(CubeValue2.Caption);
-      if dice1=dice2 then inc(dice_double)
+      if dice1=dice2 then
+      begin
+      inc(dice_double);
+      next_player:=now_player;
+      end
       else
+      begin
         dice_double:=0;
-      //занесли из другой процедуры для нормального функционирования:
+        next_player:=now_player+1;
+        if next_player>PlayersNumber then next_player:=next_player mod PlayersNumber;
+      end;
+
       player[now_player].buf:=player[now_player].kletka; //буфер
       player[now_player].kletka:=player[now_player].kletka+dice1+dice2;
-      // если число клетки больше 42
+      // если число клетки больше 42:
       if player[now_player].kletka>42 then
       player[now_player].kletka:=player[now_player].kletka mod 42;
 
@@ -2212,7 +2222,12 @@ begin
         end;
       end; //case
       TimeMove.Enabled:=False; // изначально было True
-      if (kletka[player[now_player].kletka].kup=0) then
+
+      i:=player[now_player].kletka;
+      if (kletka[player[now_player].kletka].kup=0)
+      and ((i=2)or(i in [4..5])or(i in [7..9])or(i in [11..13])or
+      (i in [15..19])or(i=21)or(i=23)or(i in [25..26])or (i in [28..30])or
+      (i in [32..34])or(i in [36..40])or (i=42)) then
       begin
         ImButton2.Enabled:=True;
         ButtonText2.Enabled:=True;
@@ -2222,6 +2237,21 @@ begin
         kletka[player[now_player].kletka].name+ ' за '+
         inttostr(kletka[player[now_player].kletka].price)+ '$');
       end;
+
+      if (i=3)or(i=24)or(i=41) then
+      begin
+        Info.Lines.Add(Player[now_player].name+
+        ' попадает на клетку налог. К оплате: '+
+        inttostr(round(player[now_player].cash /100 * nalog))+ '$');
+        ImButton8.Enabled:=True;
+        ButtonText8.Enabled:=True;
+      end;
+
+      if player[next_player].firms>0 then
+        begin
+          ImButton4.Enabled:=True;
+          ButtonText4.Enabled:=True;
+        end;
     end;
     inc(changecube);
   end;
@@ -2361,13 +2391,8 @@ begin
   changecube:=1;
   RollDice.Enabled:=True;
   // занесли следующие строки в процедуру OnTime компонента RollDice
-  ImButton1.Enabled:=True;   //поменять на False!!!
-  ButtonText1.Enabled:=True; //поменять на False!!!
-  if player[now_player].firms>0 then
-  begin
-    ImButton4.Enabled:=True;
-    ButtonText4.Enabled:=True;
-  end;
+  ImButton1.Enabled:=False;   //поменять на False!!!
+  ButtonText1.Enabled:=False; //поменять на False!!!
 end;
 
 procedure TfPlay.ButtonText2Click(Sender: TObject);
@@ -2380,6 +2405,7 @@ begin
   kletka[player[now_player].kletka].kup:=now_player;
   dec(player[now_player].cash,kletka[player[now_player].kletka].price);
   inc(player[now_player].capital, (kletka[player[now_player].kletka].price) div 2);
+  inc(player[now_player].firms);
   case now_player of
   1:
     begin
@@ -2443,24 +2469,113 @@ begin
   end; //case
   Info.Lines.Add(Player[now_player].name+' покупает '+
   kletka[player[now_player].kletka].name);
+
+  ImButton2.Enabled:=False;
+  ButtonText2.Enabled:=False;
+  ImButton3.Enabled:=False;
+  ButtonText3.Enabled:=False;
+  ImButton1.Enabled:=True;
+  ButtonText1.Enabled:=True;
+
+  if player[next_player].firms>0 then
+    begin
+      ImButton4.Enabled:=True;
+      ButtonText4.Enabled:=True;
+    end;
+  now_player:=next_player;
   if dice_double>0 then
   begin
     Info.Lines.Add(player[now_player].name+' выкинул дубль и ходит ещё раз.');
-    ImButton1.Enabled:=True;
-    ButtonText1.Enabled:=True;
-  end;
+  end
+  else
+    Info.Lines.Add('Ходит '+player[now_player].name+'.');
 end; //procedure
 
 procedure TfPlay.ButtonText3Click(Sender: TObject);
 begin
   Info.Lines.Add(player[now_player].name+' отказывается от покупки.');
+
+  ImButton2.Enabled:=False;
+  ButtonText2.Enabled:=False;
+  ImButton3.Enabled:=False;
+  ButtonText3.Enabled:=False;
+  ImButton1.Enabled:=True;
+  ButtonText1.Enabled:=True;
+
+  if player[next_player].firms>0 then
+    begin
+      ImButton4.Enabled:=True;
+      ButtonText4.Enabled:=True;
+    end;
+
+  now_player:=next_player;
+
   if dice_double>0 then
   begin
     Info.Lines.Add(player[now_player].name+' выкинул дубль и ходит ещё раз.');
-    ImButton1.Enabled:=True;
-    ButtonText1.Enabled:=True;
-  end;
+  end
+  else
+    Info.Lines.Add('Ходит '+player[now_player].name+'.');
 end;
+
+procedure TfPlay.ButtonText8Click(Sender: TObject);
+var i: byte;
+begin
+  i:=player[now_player].kletka;
+  if (i=2)or(i=24)or(i=41) then
+  begin
+    Info.Lines.Add(player[now_player].name+' оплачивает налог '+
+    inttostr(round(player[now_player].cash / 100 * nalog))+ '$');
+    dec(player[now_player].cash,round(player[now_player].cash / 100 * nalog));
+  end;
+  case now_player of
+  1:
+    begin
+    Cash1.Caption:=inttostr(player[now_player].cash);
+    Capital1.Caption:=inttostr(player[now_player].capital);
+    end;
+  2:
+    begin
+    Cash2.Caption:=inttostr(player[now_player].cash);
+    Capital2.Caption:=inttostr(player[now_player].capital);
+    end;
+  3:
+    begin
+    Cash3.Caption:=inttostr(player[now_player].cash);
+    Capital3.Caption:=inttostr(player[now_player].capital);
+    end;
+  4:
+    begin
+    Cash4.Caption:=inttostr(player[now_player].cash);
+    Capital4.Caption:=inttostr(player[now_player].capital);
+    end;
+  5:
+    begin
+    Cash5.Caption:=inttostr(player[now_player].cash);
+    Capital5.Caption:=inttostr(player[now_player].capital);
+    end;
+  end; //case
+
+  ImButton8.Enabled:=False;
+  ButtonText8.Enabled:=False;
+  ImButton1.Enabled:=True;
+  ButtonText1.Enabled:=True;
+
+  if player[next_player].firms>0 then
+    begin
+      ImButton4.Enabled:=True;
+      ButtonText4.Enabled:=True;
+    end;
+
+  now_player:=next_player;
+
+  if dice_double>0 then
+  begin
+    Info.Lines.Add(player[now_player].name+' выкинул дубль и ходит ещё раз.');
+  end
+  else
+    Info.Lines.Add('Ходит '+player[now_player].name+'.');
+end; //procedure
 
 end.
 

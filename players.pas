@@ -64,8 +64,8 @@ type
     pl = array[1..5] of TPlayer;
 var
   fPlayers: TfPlayers;
-  Player: pl; // массив записей игроков
-  PlayersNumber: byte;
+  Player: pl;          // массив записей игроков
+  PlayersNumber: byte; //количество игроков
 
 implementation
 uses Play, Main;

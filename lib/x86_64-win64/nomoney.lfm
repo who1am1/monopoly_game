@@ -866,7 +866,7 @@ object fNoMoney: TfNoMoney
     Width = 176
     Alignment = taCenter
     AutoSize = False
-    Caption = 'Не достаточно денег!'
+    Caption = 'Недостаточно денег!'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
     Font.Height = -24

@@ -3,9 +3,11 @@ object fNoMoney: TfNoMoney
   Height = 179
   Top = 213
   Width = 224
+  BorderStyle = bsDialog
   Caption = 'Ошибка'
   ClientHeight = 179
   ClientWidth = 224
+  Position = poMainFormCenter
   LCLVersion = '2.0.10.0'
   object BackgroundInfoFirm: TImage
     Left = 0
