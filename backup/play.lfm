@@ -18476,6 +18476,7 @@ object fPlay: TfPlay
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
+    OnClick = ButtonText4Click
   end
   object ImButton5: TImage
     Left = 472

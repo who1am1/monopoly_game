@@ -92,6 +92,7 @@
         <Filename Value="buildings.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="fBuildings"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit8>
     </Units>

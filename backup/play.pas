@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  Players, InfoFirm, Settings, NoMoney;
+  Players, InfoFirm, Settings, NoMoney, Buildings;
 
 type
 
@@ -351,6 +351,7 @@ type
     procedure ButtonText1Click(Sender: TObject);
     procedure ButtonText2Click(Sender: TObject);
     procedure ButtonText3Click(Sender: TObject);
+    procedure ButtonText4Click(Sender: TObject);
     procedure ButtonText8Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -397,9 +398,7 @@ type
     procedure ImWeaponDblClick(Sender: TObject);
     procedure ImZooDblClick(Sender: TObject);
     procedure RollDiceTimer(Sender: TObject);
-    procedure TimeMoveTimer(Sender: TObject);
   private
-
   public
     // процедура, в которой передвигается фишка:
     procedure MoveIt(var now_player:byte);
@@ -1050,7 +1049,7 @@ begin
     if (i=1) or (i=3) or (i=6) or (i=10) or (i=14) or (i=20) or (i=22) or (i=24)
     or (i=27) or (i=31) or (i=35) or (i=41) then continue;
     kletka[i].pledge:=False;
-    kletka[i].step_pledge:=50;
+    kletka[i].step_pledge:=12;
     kletka[i].now_rent:=0;
   end;
 
@@ -2470,128 +2469,6 @@ begin
   end; //else
 end; //procedure
 
-procedure TfPlay.TimeMoveTimer(Sender: TObject);
-var i,k,m: integer;
-begin
-  case now_player of  // везде используется x1!!! Меняется только y.
-  1:
-    begin
-      if player[now_player].kletka in [23..42] then
-      begin
-        if Token1.Left>kletka[player[now_player].kletka].x1 then
-        Token1.Left:=Token1.Left - 5;
-      end;
-      if player[now_player].kletka in [1..22] then
-      begin
-        if Token1.Left<kletka[player[now_player].kletka].x1 then
-        Token1.Left:=Token1.Left + 5;
-      end;
-      if player[now_player].kletka in [2..22] then
-      begin
-        if Token1.Top<kletka[player[now_player].kletka].y1 then
-        Token1.Top:=Token1.Top + 5;
-      end;
-      if (player[now_player].kletka in [23..42])
-      or (player[now_player].kletka=1) then
-      begin
-        if Token1.Top>kletka[player[now_player].kletka].y1 then
-        Token1.Top:=Token1.Top - 5;
-      end;
-      if ((player[now_player].kletka=1) and
-      (Token1.Left>=kletka[player[now_player].kletka].x1) and
-      (Token1.Top<=kletka[player[now_player].kletka].y1))
-      or
-      ((player[now_player].kletka in [2..22]) and
-      (Token1.Left>=kletka[player[now_player].kletka].x1) and
-      (Token1.Top>=kletka[player[now_player].kletka].y1))
-      or
-      ((player[now_player].kletka in [23..42]) and
-      (Token1.Left<=kletka[player[now_player].kletka].x1) and
-      (Token1.Top<=kletka[player[now_player].kletka].y1))
-      then
-      TimeMove.Enabled:=False;
-
-    end;
-    { begin
-      if (player[now_player].buf in [1..22]) and
-      (player[now_player].kletka in [1..22]) then
-      begin
-      i:=Token1.Left;
-      k:=Token1.Top;
-      m:=kletka[player[now_player].kletka].y1;
-      if (Token1.Left>=kletka[player[now_player].kletka].x1) and
-      (Token1.Top>=kletka[player[now_player].kletka].y1)
-      then TimeMove.Enabled:=False
-      else
-        begin
-          if (Token1.Left<kletka[player[now_player].kletka].x1) then
-          Token1.Left:=Token1.Left+5;
-          if (Token1.Top<kletka[player[now_player].kletka].y1) and
-          (Token1.Left>=kletka[player[now_player].kletka].x1) then
-          Token1.Top:=Token1.Top+5;
-        end; //else
-      end;
-    end; //1 }
-  2:
-    begin
-      if (player[now_player].buf in [1..22]) and
-      (player[now_player].kletka in [1..22]) then
-      begin
-      i:=Token2.Left;
-      k:=Token2.Top;
-      m:=kletka[player[now_player].kletka].y2;
-      if (Token2.Left>=kletka[player[now_player].kletka].x1) and
-      (Token2.Top>=kletka[player[now_player].kletka].y2)
-      then TimeMove.Enabled:=False
-      else
-        begin
-          if (Token2.Left<kletka[player[now_player].kletka].x1) then
-          Token2.Left:=Token2.Left+5;
-          if (Token2.Top<kletka[player[now_player].kletka].y2) and
-          (Token2.Left>=kletka[player[now_player].kletka].x1) then
-          Token2.Top:=Token2.Top+5;
-        end;
-      end;
-    end;
-  3:
-    begin
-    i:=Token3.Left;
-    if Token3.Left>=kletka[player[now_player].kletka].x1 then TimeMove.Enabled:=False
-    else
-      Token3.Left:=Token3.Left+5;
-    end;
-  4:
-    begin
-    i:=Token4.Left;
-    if Token4.Left>=kletka[player[now_player].kletka].x1 then TimeMove.Enabled:=False
-    else
-      Token4.Left:=Token4.Left+5;
-    end;
-  5:
-    begin
-    i:=Token5.Left;
-    if Token5.Left>=kletka[player[now_player].kletka].x1 then TimeMove.Enabled:=False
-    else
-      Token5.Left:=Token5.Left+5;
-    end;
-  end; //case
-  {
-  if ((player[now_player].buf in [1..22]) and
-    (player[now_player].kletka in [1..22]) and
-    (i>=kletka[player[now_player].kletka].x1) and (k>=m)) and
-    (kletka[player[now_player].kletka].kup=0) then
-  begin
-    ImButton2.Enabled:=True;
-    ButtonText2.Enabled:=True;
-    ImButton3.Enabled:=True;
-    ButtonText3.Enabled:=True;
-    Info.Lines.Add(Player[now_player].name+' раздумывает о покупке '+
-    kletka[player[now_player].kletka].name+ ' за '+
-    inttostr(kletka[player[now_player].kletka].price)+ '$');
-  end;
-  }
-end; //procedure
-
 procedure TfPlay.MoveIt(var now_player: byte);
 begin
   case now_player of  // везде используется x1!!! Меняется только y.
@@ -2656,6 +2533,7 @@ end;
 
 procedure TfPlay.ButtonChange;
 var b:boolean;
+  i:byte; // просто счетчик
 begin // изменять также похожее в кнопке Оплатить при выходе из тюрьмы!
   b:=True;
   ImButton2.Enabled:=False;
@@ -2669,7 +2547,7 @@ begin // изменять также похожее в кнопке Оплати
   ImButton1.Enabled:=True;
   ButtonText1.Enabled:=True;
 
-  if player[next_player].firms>0 then
+  if player[next_player].firms-player[next_player].ban_firms>0 then
     begin
       ImButton4.Enabled:=True;
       ButtonText4.Enabled:=True;
@@ -2725,6 +2603,61 @@ begin // изменять также похожее в кнопке Оплати
         ButtonText1.Enabled:=False;
       end;
     end;
+
+    for i:=1 to 42 do
+    begin
+      if (kletka[i].pledge)and(kletka[i].kup=now_player) then
+      dec(kletka[i].step_pledge);
+      if (kletka[i].pledge)and(kletka[i].step_pledge=0) then
+      begin
+        kletka[i].pledge:=False;
+        kletka[i].step_pledge:=50;
+        kletka[i].kup:=0;
+        case i of
+        2: begin C11.brush.color:=clWhite;   C11.brush.style:=bsSolid; end;
+        4: begin C12.brush.color:=clWhite;   C12.brush.style:=bsSolid; end;
+        5: begin C13.brush.color:=clWhite;   C13.brush.style:=bsSolid; end;
+        7: begin C21.brush.color:=clWhite;   C21.brush.style:=bsSolid; end;
+        8: begin C31.brush.color:=clWhite;   C31.brush.style:=bsSolid; end;
+        9: begin C32.brush.color:=clWhite;   C32.brush.style:=bsSolid; end;
+        11: begin C33.brush.color:=clWhite;  C33.brush.style:=bsSolid; end;
+        12: begin C41.brush.color:=clWhite;  C41.brush.style:=bsSolid; end;
+        13: begin C42.brush.color:=clWhite;  C42.brush.style:=bsSolid; end;
+        15: begin C51.brush.color:=clWhite;  C51.brush.style:=bsSolid; end;
+        16: begin C52.brush.color:=clWhite;  C52.brush.style:=bsSolid; end;
+        17: begin C53.brush.color:=clWhite;  C53.brush.style:=bsSolid; end;
+        18: begin C22.brush.color:=clWhite;  C22.brush.style:=bsSolid; end;
+        19: begin C61.brush.color:=clWhite;  C61.brush.style:=bsSolid; end;
+        21: begin C62.brush.color:=clWhite;  C62.brush.style:=bsSolid; end;
+        23: begin C71.brush.color:=clWhite;  C71.brush.style:=bsSolid; end;
+        25: begin C72.brush.color:=clWhite;  C72.brush.style:=bsSolid; end;
+        26: begin C73.brush.color:=clWhite;  C73.brush.style:=bsSolid; end;
+        28: begin C23.brush.color:=clWhite;  C23.brush.style:=bsSolid; end;
+        29: begin C81.brush.color:=clWhite;  C81.brush.style:=bsSolid; end;
+        30: begin C82.brush.color:=clWhite;  C82.brush.style:=bsSolid; end;
+        32: begin C83.brush.color:=clWhite;  C83.brush.style:=bsSolid; end;
+        33: begin C91.brush.color:=clWhite;  C91.brush.style:=bsSolid; end;
+        34: begin C92.brush.color:=clWhite;  C92.brush.style:=bsSolid; end;
+        36: begin C101.brush.color:=clWhite; C101.brush.style:=bsSolid; end;
+        37: begin C102.brush.color:=clWhite; C102.brush.style:=bsSolid; end;
+        38: begin C103.brush.color:=clWhite; C103.brush.style:=bsSolid; end;
+        39: begin C24.brush.color:=clWhite;  C24.brush.style:=bsSolid; end;
+        40: begin C111.brush.color:=clWhite; C111.brush.style:=bsSolid; end;
+        42: begin C112.brush.color:=clWhite; C112.brush.style:=bsSolid; end;
+        end; //case
+        Info.Lines.Add(player[now_player].name+' теряет '+ kletka[i].name);
+      end;
+
+      if (kletka[i].pledge) and (kletka[i].kup=now_player)and
+      (kletka[i].step_pledge=10) then
+      Info.Lines.Add('Через '+inttostr(kletka[i].step_pledge)+' ходов вы потеряете '
+      +kletka[i].name);
+      if (kletka[i].pledge) and (kletka[i].kup=now_player)and
+      (kletka[i].step_pledge<=5) then
+      Info.Lines.Add('Через '+inttostr(kletka[i].step_pledge)+' ходов вы потеряете '
+      +kletka[i].name);
+    end;
+
 end; //procedure
 
 procedure TfPlay.Button1Click(Sender: TObject);
@@ -2809,6 +2742,12 @@ begin
 
   ButtonChange;
 
+end;
+
+procedure TfPlay.ButtonText4Click(Sender: TObject);
+begin
+  fBuildings.ShowModal;
+  ChangeIt(now_player);
 end;
 
 procedure TfPlay.ButtonText8Click(Sender: TObject);

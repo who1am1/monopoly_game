@@ -99,7 +99,7 @@ begin
   dec(player[now_player].capital,kletka[strtoint(MainChoose.Text)].price div 2);
   inc(player[now_player].ban_firms);
   kletka[strtoint(MainChoose.Text)].pledge:=True;
-  fPlay.Info.Lines.Add(player[now_player].name+' закладывает '+
+  Info.Lines.Add(player[now_player].name+' закладывает '+
   kletka[strtoint(MainChoose.Text)].name+' на 50 ходов');
 
   { если мы дошли до сюда, значит можно было заложить как минимум одну фирму.

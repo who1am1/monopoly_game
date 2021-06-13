@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  Players, InfoFirm, Settings, NoMoney;
+  Players, InfoFirm, Settings, NoMoney, Buildings;
 
 type
 
@@ -351,6 +351,7 @@ type
     procedure ButtonText1Click(Sender: TObject);
     procedure ButtonText2Click(Sender: TObject);
     procedure ButtonText3Click(Sender: TObject);
+    procedure ButtonText4Click(Sender: TObject);
     procedure ButtonText8Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -398,7 +399,6 @@ type
     procedure ImZooDblClick(Sender: TObject);
     procedure RollDiceTimer(Sender: TObject);
   private
-
   public
     // процедура, в которой передвигается фишка:
     procedure MoveIt(var now_player:byte);
@@ -2533,6 +2533,7 @@ end;
 
 procedure TfPlay.ButtonChange;
 var b:boolean;
+  i:byte; // просто счетчик
 begin // изменять также похожее в кнопке Оплатить при выходе из тюрьмы!
   b:=True;
   ImButton2.Enabled:=False;
@@ -2546,7 +2547,7 @@ begin // изменять также похожее в кнопке Оплати
   ImButton1.Enabled:=True;
   ButtonText1.Enabled:=True;
 
-  if player[next_player].firms>0 then
+  if player[next_player].firms-player[next_player].ban_firms>0 then
     begin
       ImButton4.Enabled:=True;
       ButtonText4.Enabled:=True;
@@ -2602,6 +2603,61 @@ begin // изменять также похожее в кнопке Оплати
         ButtonText1.Enabled:=False;
       end;
     end;
+
+    for i:=1 to 42 do
+    begin
+      if (kletka[i].pledge)and(kletka[i].kup=now_player) then
+      dec(kletka[i].step_pledge);
+      if (kletka[i].pledge)and(kletka[i].step_pledge=0) then
+      begin
+        kletka[i].pledge:=False;
+        kletka[i].step_pledge:=50;
+        kletka[i].kup:=0;
+        case i of
+        2: begin C11.brush.color:=clWhite;   C11.brush.style:=bsSolid; end;
+        4: begin C12.brush.color:=clWhite;   C12.brush.style:=bsSolid; end;
+        5: begin C13.brush.color:=clWhite;   C13.brush.style:=bsSolid; end;
+        7: begin C21.brush.color:=clWhite;   C21.brush.style:=bsSolid; end;
+        8: begin C31.brush.color:=clWhite;   C31.brush.style:=bsSolid; end;
+        9: begin C32.brush.color:=clWhite;   C32.brush.style:=bsSolid; end;
+        11: begin C33.brush.color:=clWhite;  C33.brush.style:=bsSolid; end;
+        12: begin C41.brush.color:=clWhite;  C41.brush.style:=bsSolid; end;
+        13: begin C42.brush.color:=clWhite;  C42.brush.style:=bsSolid; end;
+        15: begin C51.brush.color:=clWhite;  C51.brush.style:=bsSolid; end;
+        16: begin C52.brush.color:=clWhite;  C52.brush.style:=bsSolid; end;
+        17: begin C53.brush.color:=clWhite;  C53.brush.style:=bsSolid; end;
+        18: begin C22.brush.color:=clWhite;  C22.brush.style:=bsSolid; end;
+        19: begin C61.brush.color:=clWhite;  C61.brush.style:=bsSolid; end;
+        21: begin C62.brush.color:=clWhite;  C62.brush.style:=bsSolid; end;
+        23: begin C71.brush.color:=clWhite;  C71.brush.style:=bsSolid; end;
+        25: begin C72.brush.color:=clWhite;  C72.brush.style:=bsSolid; end;
+        26: begin C73.brush.color:=clWhite;  C73.brush.style:=bsSolid; end;
+        28: begin C23.brush.color:=clWhite;  C23.brush.style:=bsSolid; end;
+        29: begin C81.brush.color:=clWhite;  C81.brush.style:=bsSolid; end;
+        30: begin C82.brush.color:=clWhite;  C82.brush.style:=bsSolid; end;
+        32: begin C83.brush.color:=clWhite;  C83.brush.style:=bsSolid; end;
+        33: begin C91.brush.color:=clWhite;  C91.brush.style:=bsSolid; end;
+        34: begin C92.brush.color:=clWhite;  C92.brush.style:=bsSolid; end;
+        36: begin C101.brush.color:=clWhite; C101.brush.style:=bsSolid; end;
+        37: begin C102.brush.color:=clWhite; C102.brush.style:=bsSolid; end;
+        38: begin C103.brush.color:=clWhite; C103.brush.style:=bsSolid; end;
+        39: begin C24.brush.color:=clWhite;  C24.brush.style:=bsSolid; end;
+        40: begin C111.brush.color:=clWhite; C111.brush.style:=bsSolid; end;
+        42: begin C112.brush.color:=clWhite; C112.brush.style:=bsSolid; end;
+        end; //case
+        Info.Lines.Add(player[now_player].name+' теряет '+ kletka[i].name);
+      end;
+
+      if (kletka[i].pledge) and (kletka[i].kup=now_player)and
+      (kletka[i].step_pledge=10) then
+      Info.Lines.Add('Через '+inttostr(kletka[i].step_pledge)+' ходов вы потеряете '
+      +kletka[i].name);
+      if (kletka[i].pledge) and (kletka[i].kup=now_player)and
+      (kletka[i].step_pledge<=5) then
+      Info.Lines.Add('Через '+inttostr(kletka[i].step_pledge)+' ходов вы потеряете '
+      +kletka[i].name);
+    end;
+
 end; //procedure
 
 procedure TfPlay.Button1Click(Sender: TObject);
@@ -2686,6 +2742,12 @@ begin
 
   ButtonChange;
 
+end;
+
+procedure TfPlay.ButtonText4Click(Sender: TObject);
+begin
+  fBuildings.ShowModal;
+  ChangeIt(now_player);
 end;
 
 procedure TfPlay.ButtonText8Click(Sender: TObject);
