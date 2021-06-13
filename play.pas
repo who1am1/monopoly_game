@@ -402,7 +402,12 @@ type
   private
 
   public
-
+    // процедура, в которой передвигается фишка:
+    procedure MoveIt(var now_player:byte);
+    // процедура, в которой меняются caption денег и капитала:
+    procedure ChangeIt(var now_player:byte);
+    // процедура, в которой ход передается следующему игроку и отображаюся кнопки
+    procedure ButtonChange;
   end;
 
   type
@@ -437,6 +442,7 @@ var
   now_player: byte;  // номер текущего игрока
   next_player: byte; // номер следующего игрока
   dice_double: byte; // хранит количество выкинутых дублей
+  gbuf: byte; // глобальный буфер
 
 implementation
 
@@ -2161,7 +2167,9 @@ end;
 
 procedure TfPlay.RollDiceTimer(Sender: TObject);
 var i: byte;
+  b: boolean;
 begin
+  b:=True;
   randomize;
   if changecube>20 then RollDice.Enabled:=False
   else
@@ -2172,20 +2180,53 @@ begin
     begin
       Dice1:=strtoint(CubeValue1.Caption);
       Dice2:=strtoint(CubeValue2.Caption);
+      if player[now_player].jail then inc(player[now_player].jail_step);
       if dice1=dice2 then
       begin
       inc(dice_double);
       next_player:=now_player;
-      end
+      if player[now_player].jail then // если игрок в тюрьме
+      begin
+        player[now_player].jail:=False;
+        player[now_player].jail_step:=0;
+        dice_double:=0;
+        Info.Lines.Add(player[now_player].name+' выбрасывает дубль и выходит из тюрьмы');
+        ButtonChange;
+        RollDice.Enabled:=False;
+        exit;
+      end;
+      end //dice1=dice2
       else
       begin
         dice_double:=0;
         next_player:=now_player+1;
-        if next_player>PlayersNumber then next_player:=next_player mod PlayersNumber;
+        while b do // проверяем, что след. игрок не банкрот
+        begin      // и что порядковый номер след. игрока не больше 5
+          if next_player>PlayersNumber then next_player:=next_player mod PlayersNumber;
+          if player[next_player].not_bankrot=False then inc(next_player)
+          else
+            b:=False;
+        end;
+        if player[now_player].jail then
+        begin
+          Info.Lines.Add(player[now_player].name+' выбрасывает '+CubeValue1.Caption+
+          ':'+CubeValue2.Caption+' и остается в тюрьме');
+          ButtonChange;
+          RollDice.Enabled:=False;
+          exit;
+        end;
       end;
 
       player[now_player].buf:=player[now_player].kletka; //буфер
-      player[now_player].kletka:=player[now_player].kletka+dice1+dice2;
+
+      if player[now_player].go_back=False then
+      player[now_player].kletka:=player[now_player].kletka+dice1+dice2
+      else
+      begin
+        player[now_player].kletka:=player[now_player].kletka-dice1-dice2;
+        player[now_player].go_back:=False;
+      end;
+
       // если число клетки больше 42:
       if player[now_player].kletka>42 then
       player[now_player].kletka:=player[now_player].kletka mod 42;
@@ -2194,36 +2235,20 @@ begin
       CubeValue1.Caption+':'+CubeValue2.Caption+ ', и движется от '+
       kletka[player[now_player].buf].name+' к '+
       kletka[Player[now_player].kletka].name);
-      case now_player of  // везде используется x1!!! Меняется только y.
-      1:
-        begin
-          Token1.Left:=kletka[player[now_player].kletka].x1;
-          Token1.Top:=kletka[player[now_player].kletka].y1;
-        end;
-      2:
-        begin
-          Token2.Left:=kletka[player[now_player].kletka].x1;
-          Token2.Top:=kletka[player[now_player].kletka].y2;
-        end;
-      3:
-        begin
-          Token3.Left:=kletka[player[now_player].kletka].x1;
-          Token3.Top:=kletka[player[now_player].kletka].y3;
-        end;
-      4:
-        begin
-          Token4.Left:=kletka[player[now_player].kletka].x1;
-          Token4.Top:=kletka[player[now_player].kletka].y4;
-        end;
-      5:
-        begin
-          Token5.Left:=kletka[player[now_player].kletka].x1;
-          Token5.Top:=kletka[player[now_player].kletka].y5;
-        end;
-      end; //case
+
+      MoveIt(now_player);
+
       TimeMove.Enabled:=False; // изначально было True
 
       i:=player[now_player].kletka;
+
+      if (i=6)or(i=10)or(i=20)or(i=27)or(i=31)or(i=1) then
+      begin
+        ImButton1.Enabled:=True;     // удалить этот if!!!
+        ButtonText1.Enabled:=True;   // т.к. он тут для проверки работоспособности
+      end;
+
+      // если клетка не куплена:
       if (kletka[player[now_player].kletka].kup=0)
       and ((i=2)or(i in [4..5])or(i in [7..9])or(i in [11..13])or
       (i in [15..19])or(i=21)or(i=23)or(i in [25..26])or (i in [28..30])or
@@ -2238,6 +2263,35 @@ begin
         inttostr(kletka[player[now_player].kletka].price)+ '$');
       end;
 
+      // если клетка уже кем-то куплена (не нами!!!) и не заложена:
+      if (kletka[player[now_player].kletka].kup<>0) and
+      (kletka[player[now_player].kletka].kup<>now_player) and
+      (kletka[player[now_player].kletka].pledge=False) and
+      ((i=2)or(i in [4..5])or(i in [7..9])or(i in [11..13])or
+      (i in [15..19])or(i=21)or(i=23)or(i in [25..26])or (i in [28..30])or
+      (i in [32..34])or(i in [36..40])or (i=42)) then
+      begin
+        ImButton8.Enabled:=True;
+        ButtonText8.Enabled:=True;
+        Info.Lines.Add(player[now_player].name+' должен оплатить игроку '+
+        player[kletka[player[now_player].kletka].kup].name+' аренду в размере '+
+        inttostr(kletka[player[now_player].kletka].now_rent)+'$');
+      end;
+
+      // если клетка уже куплена нами или заложена другим игроком:
+      if ((kletka[player[now_player].kletka].kup=now_player) or
+      (kletka[player[now_player].kletka].pledge=True)) and
+      ((i=2)or(i in [4..5])or(i in [7..9])or(i in [11..13])or
+      (i in [15..19])or(i=21)or(i=23)or(i in [25..26])or (i in [28..30])or
+      (i in [32..34])or(i in [36..40])or (i=42)) then
+      begin
+        if kletka[player[now_player].kletka].kup=now_player then
+        Info.Lines.Add(player[now_player].name+' попадает на свою фирму')
+        else
+          Info.Lines.Add(player[now_player].name+' попадает на заложенную фирму');
+        ButtonChange;
+      end;
+
       if (i=3)or(i=24)or(i=41) then
       begin
         Info.Lines.Add(Player[now_player].name+
@@ -2247,14 +2301,75 @@ begin
         ButtonText8.Enabled:=True;
       end;
 
-      if player[next_player].firms>0 then
-        begin
-          ImButton4.Enabled:=True;
-          ButtonText4.Enabled:=True;
+      // попадает на Таможню и уходит в отпуск:
+      if (i=14)and(player[now_player].jail=False) then
+      begin
+        player[now_player].kletka:=35;
+        MoveIt(now_player);
+        Info.Lines.Add(player[now_player].name+' уходит в отпуск');
+
+        ButtonChange;
+
+      end;
+
+      if i=22 then // попадает на клетку джекпот
+      begin
+        inc(player[now_player].cash,jackpot);
+        ChangeIt(now_player);
+        Info.Lines.Add(player[now_player].name+' срывает джекпот '+
+        inttostr(jackpot)+'$');
+
+        ButtonChange;
+
+      end;
+
+      if i=35 then // попадает на клетку Отпуск и попадает в тюрьму
+      begin
+        b:=True;
+        player[now_player].kletka:=14;
+        MoveIt(now_player);
+        player[now_player].jail:=True;
+        Info.Lines.Add(player[now_player].name+ ' попадает в тюрьму');
+
+        dice_double:=0;
+        next_player:=now_player+1;
+        while b do // проверяем, что след. игрок не банкрот
+        begin      // и что порядковый номер след. игрока не больше 5
+          if next_player>PlayersNumber then next_player:=next_player mod PlayersNumber;
+          if player[next_player].not_bankrot=False then inc(next_player)
+          else
+            b:=False;
         end;
-    end;
+        buttonchange;
+      end;
+
+      if i=6 then // попадает на Пропуск хода
+      begin
+        b:=true;
+        player[now_player].skip_step:=1;
+        dice_double:=0;
+        next_player:=now_player+1;
+        Info.Lines.Add(player[now_player].name+' пропустит следующий ход');
+        while b do // проверяем, что след. игрок не банкрот
+        begin      // и что порядковый номер след. игрока не больше 5
+          if next_player>PlayersNumber then next_player:=next_player mod PlayersNumber;
+          if player[next_player].not_bankrot=False then inc(next_player)
+          else
+            b:=False;
+        end;
+        ButtonChange;
+      end;
+
+      if i=27 then
+      begin
+        player[now_player].go_back:=True;
+        Info.Lines.Add(player[now_player].name+ ' при слудующем ходе будет ходить назад');
+        ButtonChange;
+      end;
+
+    end; //changecube=20
     inc(changecube);
-  end;
+  end; //else
 end; //procedure
 
 procedure TfPlay.TimeMoveTimer(Sender: TObject);
@@ -2379,33 +2494,39 @@ begin
   }
 end; //procedure
 
-procedure TfPlay.Button1Click(Sender: TObject);
+procedure TfPlay.MoveIt(var now_player: byte);
 begin
-  C11.brush.color:=$00DB5F00;
-  C11.brush.style:=bsBDiagonal;
+  case now_player of  // везде используется x1!!! Меняется только y.
+      1:
+        begin
+          Token1.Left:=kletka[player[now_player].kletka].x1;
+          Token1.Top:=kletka[player[now_player].kletka].y1;
+        end;
+      2:
+        begin
+          Token2.Left:=kletka[player[now_player].kletka].x1;
+          Token2.Top:=kletka[player[now_player].kletka].y2;
+        end;
+      3:
+        begin
+          Token3.Left:=kletka[player[now_player].kletka].x1;
+          Token3.Top:=kletka[player[now_player].kletka].y3;
+        end;
+      4:
+        begin
+          Token4.Left:=kletka[player[now_player].kletka].x1;
+          Token4.Top:=kletka[player[now_player].kletka].y4;
+        end;
+      5:
+        begin
+          Token5.Left:=kletka[player[now_player].kletka].x1;
+          Token5.Top:=kletka[player[now_player].kletka].y5;
+        end;
+      end; //case
 end;
 
-procedure TfPlay.ButtonText1Click(Sender: TObject);
+procedure TfPlay.ChangeIt(var now_player: byte);
 begin
-  step.caption:=inttostr(strtoint(step.caption)+1);
-  changecube:=1;
-  RollDice.Enabled:=True;
-  // занесли следующие строки в процедуру OnTime компонента RollDice
-  ImButton1.Enabled:=False;   //поменять на False!!!
-  ButtonText1.Enabled:=False; //поменять на False!!!
-end;
-
-procedure TfPlay.ButtonText2Click(Sender: TObject);
-begin
-  if player[now_player].cash<kletka[player[now_player].kletka].price then
-  begin
-    fNoMoney.ShowModal;
-    exit;
-  end;
-  kletka[player[now_player].kletka].kup:=now_player;
-  dec(player[now_player].cash,kletka[player[now_player].kletka].price);
-  inc(player[now_player].capital, (kletka[player[now_player].kletka].price) div 2);
-  inc(player[now_player].firms);
   case now_player of
   1:
     begin
@@ -2433,6 +2554,102 @@ begin
     Capital5.Caption:=inttostr(player[now_player].capital);
     end;
   end; //case
+end;
+
+procedure TfPlay.ButtonChange;
+var b:boolean;
+begin // изменять также похожее в кнопке Оплатить при выходе из тюрьмы!
+  b:=True;
+  ImButton2.Enabled:=False;
+  ButtonText2.Enabled:=False;
+  ImButton3.Enabled:=False;
+  ButtonText3.Enabled:=False;
+
+  ImButton8.Enabled:=False;
+  ButtonText8.Enabled:=False;
+
+  ImButton1.Enabled:=True;
+  ButtonText1.Enabled:=True;
+
+  if player[next_player].firms>0 then
+    begin
+      ImButton4.Enabled:=True;
+      ButtonText4.Enabled:=True;
+    end
+  else
+    begin
+      ImButton4.Enabled:=False;
+      ButtonText4.Enabled:=False;
+    end;
+
+  now_player:=next_player;
+
+  if player[now_player].skip_step>0 then
+  begin
+    dice_double:=0;
+    dec(player[now_player].skip_step);
+    Info.Lines.Add(player[now_player].name+' пропускает ход');
+    now_player:=now_player+1;
+    while b do // проверяем, что след. игрок не банкрот
+    begin      // и что порядковый номер след. игрока не больше 5
+      if now_player>PlayersNumber then now_player:=next_player mod PlayersNumber;
+      if player[now_player].not_bankrot=False then inc(now_player)
+    else
+      b:=False;
+    end;
+  end;
+  if dice_double>0 then
+  begin
+    Info.Lines.Add(player[now_player].name+' выкинул дубль и ходит ещё раз.');
+  end
+  else
+    begin
+    Info.Lines.Add('Ходит '+player[now_player].name+'.');
+    if player[now_player].jail then
+      begin
+        Info.Lines.Add('Чтобы выйти из тюрьмы, нужно выкинуть дубль или оплатить 200000$');
+        ImButton8.Enabled:=True;
+        ButtonText8.Enabled:=True;
+      end;
+    if player[now_player].jail_step=3 then
+      begin
+        Info.Lines.Add('Пора оплачивать выход из тюрьмы!');
+        ImButton1.Enabled:=False;
+        ButtonText1.Enabled:=False;
+      end;
+    end;
+end; //procedure
+
+procedure TfPlay.Button1Click(Sender: TObject);
+begin
+  C11.brush.color:=$00DB5F00;
+  C11.brush.style:=bsBDiagonal;
+end;
+
+procedure TfPlay.ButtonText1Click(Sender: TObject);
+begin
+  step.caption:=inttostr(strtoint(step.caption)+1);
+  changecube:=1;
+  RollDice.Enabled:=True;
+  // занесли следующие строки в процедуру OnTime компонента RollDice
+  ImButton1.Enabled:=False;   //поменять на False!!!
+  ButtonText1.Enabled:=False; //поменять на False!!!
+end;
+
+procedure TfPlay.ButtonText2Click(Sender: TObject);
+begin
+  if player[now_player].cash<kletka[player[now_player].kletka].price then
+  begin
+    fNoMoney.ShowModal;
+    exit;
+  end;
+  kletka[player[now_player].kletka].kup:=now_player;
+  dec(player[now_player].cash,kletka[player[now_player].kletka].price);
+  inc(player[now_player].capital, (kletka[player[now_player].kletka].price) div 2);
+  inc(player[now_player].firms);
+
+  ChangeIt(now_player);
+
   kletka[player[now_player].kletka].now_rent:=
   kletka[player[now_player].kletka].reg_rent;
   case player[now_player].kletka of
@@ -2470,25 +2687,8 @@ begin
   Info.Lines.Add(Player[now_player].name+' покупает '+
   kletka[player[now_player].kletka].name);
 
-  ImButton2.Enabled:=False;
-  ButtonText2.Enabled:=False;
-  ImButton3.Enabled:=False;
-  ButtonText3.Enabled:=False;
-  ImButton1.Enabled:=True;
-  ButtonText1.Enabled:=True;
+  ButtonChange;
 
-  if player[next_player].firms>0 then
-    begin
-      ImButton4.Enabled:=True;
-      ButtonText4.Enabled:=True;
-    end;
-  now_player:=next_player;
-  if dice_double>0 then
-  begin
-    Info.Lines.Add(player[now_player].name+' выкинул дубль и ходит ещё раз.');
-  end
-  else
-    Info.Lines.Add('Ходит '+player[now_player].name+'.');
 end; //procedure
 
 procedure TfPlay.ButtonText3Click(Sender: TObject);
@@ -2499,82 +2699,78 @@ begin
   ButtonText2.Enabled:=False;
   ImButton3.Enabled:=False;
   ButtonText3.Enabled:=False;
-  ImButton1.Enabled:=True;
-  ButtonText1.Enabled:=True;
 
-  if player[next_player].firms>0 then
-    begin
-      ImButton4.Enabled:=True;
-      ButtonText4.Enabled:=True;
-    end;
+  ButtonChange;
 
-  now_player:=next_player;
-
-  if dice_double>0 then
-  begin
-    Info.Lines.Add(player[now_player].name+' выкинул дубль и ходит ещё раз.');
-  end
-  else
-    Info.Lines.Add('Ходит '+player[now_player].name+'.');
 end;
 
 procedure TfPlay.ButtonText8Click(Sender: TObject);
 var i: byte;
 begin
   i:=player[now_player].kletka;
-  if (i=2)or(i=24)or(i=41) then
+  if (i=3)or(i=24)or(i=41) then
   begin
     Info.Lines.Add(player[now_player].name+' оплачивает налог '+
     inttostr(round(player[now_player].cash / 100 * nalog))+ '$');
     dec(player[now_player].cash,round(player[now_player].cash / 100 * nalog));
   end;
-  case now_player of
-  1:
-    begin
-    Cash1.Caption:=inttostr(player[now_player].cash);
-    Capital1.Caption:=inttostr(player[now_player].capital);
-    end;
-  2:
-    begin
-    Cash2.Caption:=inttostr(player[now_player].cash);
-    Capital2.Caption:=inttostr(player[now_player].capital);
-    end;
-  3:
-    begin
-    Cash3.Caption:=inttostr(player[now_player].cash);
-    Capital3.Caption:=inttostr(player[now_player].capital);
-    end;
-  4:
-    begin
-    Cash4.Caption:=inttostr(player[now_player].cash);
-    Capital4.Caption:=inttostr(player[now_player].capital);
-    end;
-  5:
-    begin
-    Cash5.Caption:=inttostr(player[now_player].cash);
-    Capital5.Caption:=inttostr(player[now_player].capital);
-    end;
-  end; //case
 
-  ImButton8.Enabled:=False;
-  ButtonText8.Enabled:=False;
-  ImButton1.Enabled:=True;
-  ButtonText1.Enabled:=True;
+  if (kletka[player[now_player].kletka].kup<>0) then
+  begin
+    if player[now_player].cash<kletka[player[now_player].kletka].now_rent then
+    begin
+      fNoMoney.ShowModal;
+      exit;
+    end;
+    dec(player[now_player].cash,kletka[player[now_player].kletka].now_rent);
+    inc(player[kletka[player[now_player].kletka].kup].cash,
+    kletka[player[now_player].kletka].now_rent);
+    Info.Lines.Add(player[now_player].name+' оплачивает игроку '+
+    player[kletka[player[now_player].kletka].kup].name+' аренду в размере '+
+    inttostr(kletka[player[now_player].kletka].now_rent)+'$');
+    ChangeIt(kletka[player[now_player].kletka].kup);
+  end;
 
-  if player[next_player].firms>0 then
+  if player[now_player].jail then
+  begin
+    if player[now_player].cash<200000 then
+    begin
+      fNoMoney.ShowModal;
+      exit;
+    end;
+    dec(player[now_player].cash,200000);
+    ChangeIt(now_player);
+    player[now_player].jail:=False;
+    player[now_player].jail_step:=0;
+    Info.Lines.Add(player[now_player].name+' оплачивает 200000$ за выход из тюрьмы');
+    // т.к. оплачивает, то он ходит еще раз. Нельзя вызывать функцию ButtonChange
+    ImButton2.Enabled:=False;
+    ButtonText2.Enabled:=False;
+    ImButton3.Enabled:=False;
+    ButtonText3.Enabled:=False;
+
+    ImButton8.Enabled:=False;
+    ButtonText8.Enabled:=False;
+
+    ImButton1.Enabled:=True;
+    ButtonText1.Enabled:=True;
+
+    if player[now_player].firms>0 then
     begin
       ImButton4.Enabled:=True;
       ButtonText4.Enabled:=True;
+    end
+    else
+    begin
+      ImButton4.Enabled:=False;
+      ButtonText4.Enabled:=False;
     end;
+  end;
 
-  now_player:=next_player;
+  ChangeIt(now_player);
 
-  if dice_double>0 then
-  begin
-    Info.Lines.Add(player[now_player].name+' выкинул дубль и ходит ещё раз.');
-  end
-  else
-    Info.Lines.Add('Ходит '+player[now_player].name+'.');
+  ButtonChange;
+
 end; //procedure
 
 end.

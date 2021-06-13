@@ -60,12 +60,17 @@ type
       x,y: integer;           // расстояние до фишки
       cash: integer;          // количество денег игрока
       capital: integer;       //капитал игрока
+      not_bankrot: boolean;   // True, если игрок не банкрот, False - если банкрот
+      jail: boolean;          // True, если игрок в тюрьме
+      jail_step: byte;        // сколько раз игрок бросил кубики, находясь в тюрьме
+      skip_step: byte;        // сколько раз игрок пропускает ход
+      go_back: boolean;       // True, если игрок ходит назад
     end;
     pl = array[1..5] of TPlayer;
 var
   fPlayers: TfPlayers;
-  Player: pl; // массив записей игроков
-  PlayersNumber: byte;
+  Player: pl;          // массив записей игроков
+  PlayersNumber: byte; //количество игроков
 
 implementation
 uses Play, Main;
@@ -161,6 +166,33 @@ begin
   player[3].ban_firms:=0;
   player[4].ban_firms:=0;
   player[5].ban_firms:=0;
+
+  // все игроки не банкроты:
+  player[1].not_bankrot:=True;
+  player[2].not_bankrot:=True;
+  player[3].not_bankrot:=True;
+  player[4].not_bankrot:=True;
+  player[5].not_bankrot:=True;
+
+  // никто не в тюрьме:
+  player[1].jail:=False;
+  player[2].jail:=False;
+  player[3].jail:=False;
+  player[4].jail:=False;
+  player[5].jail:=False;
+
+  player[1].jail_step:=0;
+  player[2].jail_step:=0;
+  player[3].jail_step:=0;
+  player[4].jail_step:=0;
+  player[5].jail_step:=0;
+
+  // никто не пропускает ход:
+  player[1].skip_step:=0;
+  player[2].skip_step:=0;
+  player[3].skip_step:=0;
+  player[4].skip_step:=0;
+  player[5].skip_step:=0;
 
   // все начинат с первой клетки (если не загружается сохраненная игра)
   Player[1].kletka:=1;

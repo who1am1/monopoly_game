@@ -17408,9 +17408,9 @@ object fPlay: TfPlay
     OnDblClick = ImFalse2DblClick
   end
   object ImFalse3: TImage
-    Left = 669
+    Left = 640
     Height = 100
-    Top = 15
+    Top = 24
     Width = 60
     OnDblClick = ImFalse3DblClick
   end
