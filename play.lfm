@@ -19609,13 +19609,6 @@ object fPlay: TfPlay
     ParentColor = False
     ParentFont = False
   end
-  object TimeMove: TTimer
-    Enabled = False
-    Interval = 1
-    OnTimer = TimeMoveTimer
-    Left = 712
-    Top = 16
-  end
   object RollDice: TTimer
     Enabled = False
     Interval = 50

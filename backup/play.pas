@@ -345,7 +345,6 @@ type
     Lottery1: TShape;
     ButtonText1: TLabel;
     ButtonText2: TLabel;
-    TimeMove: TTimer;
     Token4: TShape;
     Token5: TShape;
     procedure Button1Click(Sender: TObject);
@@ -443,6 +442,7 @@ var
   next_player: byte; // номер следующего игрока
   dice_double: byte; // хранит количество выкинутых дублей
   gbuf: byte; // глобальный буфер
+  lottery_result: byte; // хранит номер результата лотереи
 
 implementation
 
@@ -2178,12 +2178,34 @@ begin
     CubeValue2.Caption:=inttostr(random(6)+1);
     if changecube=20 then
     begin
+      b:=true;
       Dice1:=strtoint(CubeValue1.Caption);
       Dice2:=strtoint(CubeValue2.Caption);
       if player[now_player].jail then inc(player[now_player].jail_step);
       if dice1=dice2 then
       begin
       inc(dice_double);
+      if dice_double=3 then
+      begin
+        b:=True;
+        player[now_player].kletka:=14;
+        MoveIt(now_player);
+        player[now_player].jail:=True;
+        Info.Lines.Add(player[now_player].name+' выбрасывает три дубля подряд и за мошенничество попадает в тюрьму');
+
+        dice_double:=0;
+        next_player:=now_player+1;
+        while b do // проверяем, что след. игрок не банкрот
+        begin      // и что порядковый номер след. игрока не больше 5
+          if next_player>PlayersNumber then next_player:=next_player mod PlayersNumber;
+          if player[next_player].not_bankrot=False then inc(next_player)
+          else
+            b:=False;
+        end;
+        buttonchange;
+        exit;
+        RollDice.Enabled:=False;
+      end;
       next_player:=now_player;
       if player[now_player].jail then // если игрок в тюрьме
       begin
@@ -2238,15 +2260,22 @@ begin
 
       MoveIt(now_player);
 
-      TimeMove.Enabled:=False; // изначально было True
+      // получение денег за пройденный круг:
+      if (player[now_player].buf>player[now_player].kletka)and
+      (player[now_player].buf<>27)and(player[now_player].kletka<>1) then
+      begin
+        inc(player[now_player].cash,200000);
+        Info.Lines.Add(player[now_player].name+' получает 200000$ за пройденный круг');
+        ChangeIt(now_player);
+      end;
 
       i:=player[now_player].kletka;
 
-      if (i=6)or(i=10)or(i=20)or(i=27)or(i=31)or(i=1) then
+      { if (i=6)or(i=10)or(i=20)or(i=27)or(i=31)or(i=1) then
       begin
         ImButton1.Enabled:=True;     // удалить этот if!!!
         ButtonText1.Enabled:=True;   // т.к. он тут для проверки работоспособности
-      end;
+      end; }
 
       // если клетка не куплена:
       if (kletka[player[now_player].kletka].kup=0)
@@ -2292,7 +2321,7 @@ begin
         ButtonChange;
       end;
 
-      if (i=3)or(i=24)or(i=41) then
+      if (i=3)or(i=24)or(i=41) then // попадаем на клетку Налог
       begin
         Info.Lines.Add(Player[now_player].name+
         ' попадает на клетку налог. К оплате: '+
@@ -2340,11 +2369,12 @@ begin
           else
             b:=False;
         end;
+        buttonchange;
       end;
 
       if i=6 then // попадает на Пропуск хода
       begin
-        b:=True;
+        b:=true;
         player[now_player].skip_step:=1;
         dice_double:=0;
         next_player:=now_player+1;
@@ -2359,11 +2389,80 @@ begin
         ButtonChange;
       end;
 
-      if i=27 then
+      if i=27 then // попадаем на клетку Назад
       begin
         player[now_player].go_back:=True;
         Info.Lines.Add(player[now_player].name+ ' при слудующем ходе будет ходить назад');
         ButtonChange;
+      end;
+
+      if i=1 then // попадаем на Старт
+      begin
+        inc(player[now_player].cash,400000);
+        Info.Lines.Add(player[now_player].name+' за попадание на старт получает 400000$');
+        ChangeIt(now_player);
+        ButtonChange;
+      end;
+
+      if (i=10)or(i=20)or(i=31) then // попадаем на клетку Лотерея
+      begin
+        b:=True;
+        randomize;
+        case random(100)+1 of
+        1..10:
+          begin
+            Info.Lines.Add('У вас проблемы со здоровьем. Врачи выписали вам счет в размере 250000$');
+            lottery_result:=1;
+            ImButton8.Enabled:=True;
+            ButtonText8.Enabled:=True;
+          end;
+        11..50:
+          begin
+            Info.Lines.Add('Вам сделали подарок 200000$');
+            inc(player[now_player].cash,200000);
+            changeit(now_player);
+            lottery_result:=2;
+            ButtonChange;
+          end;
+        51..90:
+          begin
+            Info.Lines.Add('Оплатите штраф 100000$');
+            lottery_result:=3;
+            ImButton8.Enabled:=True;
+            ButtonText8.Enabled:=True;
+          end;
+        91..100:
+          begin
+            Info.Lines.Add('У вас День Рождения! Все игроки дарят часть своих наличных денег');
+            lottery_result:=4;
+            gbuf:=next_player; // записали в буфер номер следующего игрока
+            if next_player=now_player then inc(next_player);
+            while b do // проверяем, что след. игрок не банкрот
+            begin      // и что порядковый номер след. игрока не больше 5
+              if next_player>PlayersNumber then next_player:=next_player mod PlayersNumber;
+              if player[next_player].not_bankrot=False then inc(next_player)
+              else
+              begin
+                if next_player=now_player then
+                begin
+                  b:=False;
+                  next_player:=gbuf;
+                end
+                else
+                begin
+                  inc(player[now_player].cash,round(player[next_player].cash/100*8));
+                  Info.Lines.Add(player[next_player].name+' дарит '+
+                  inttostr(round(player[next_player].cash/100*8))+'$');
+                  dec(player[next_player].cash,round(player[next_player].cash/100*8));
+                  ChangeIt(next_player);
+                  ChangeIt(now_player);
+                  inc(next_player);
+                end;
+              end;
+            end;
+            ButtonChange;
+          end;
+        end; //case
       end;
 
     end; //changecube=20
@@ -2591,10 +2690,19 @@ begin // изменять также похожее в кнопке Оплати
     now_player:=now_player+1;
     while b do // проверяем, что след. игрок не банкрот
     begin      // и что порядковый номер след. игрока не больше 5
-      if now_player>PlayersNumber then now_player:=next_player mod PlayersNumber;
-      if player[now_player].not_bankrot=False then inc(now_player)
-    else
-      b:=False;
+      if now_player>PlayersNumber then now_player:=now_player mod PlayersNumber;
+      if (player[now_player].not_bankrot=False)or
+      (player[now_player].skip_step>0) then
+      begin
+      if player[now_player].skip_step>0 then
+      begin
+        dec(player[now_player].skip_step);
+        Info.Lines.Add(player[now_player].name+' пропускает ход');
+      end;
+      inc(now_player)
+      end
+      else
+        b:=False;
     end;
   end;
   if dice_double>0 then
@@ -2714,6 +2822,24 @@ begin
     dec(player[now_player].cash,round(player[now_player].cash / 100 * nalog));
   end;
 
+  if (i=10)or(i=20)or(i=31) then
+  begin
+    case lottery_result of
+    1:
+      begin
+        dec(player[now_player].cash,250000);
+        Info.Lines.Add(player[now_player].name+' оплачивает 250000$');
+        changeit(now_player);
+      end;
+    3:
+      begin
+        dec(player[now_player].cash,100000);
+        Info.Lines.Add(player[now_player].name+' оплачивает 100000$');
+        changeit(now_player);
+      end;
+    end; //case
+  end;
+
   if (kletka[player[now_player].kletka].kup<>0) then
   begin
     if player[now_player].cash<kletka[player[now_player].kletka].now_rent then
@@ -2742,7 +2868,8 @@ begin
     player[now_player].jail:=False;
     player[now_player].jail_step:=0;
     Info.Lines.Add(player[now_player].name+' оплачивает 200000$ за выход из тюрьмы');
-    // т.к. оплачивает, то он ходит еще раз. Нельзя вызывать функцию ButtonChange
+    next_player:=now_player;
+    { // т.к. оплачивает, то он ходит еще раз. Нельзя вызывать функцию ButtonChange
     ImButton2.Enabled:=False;
     ButtonText2.Enabled:=False;
     ImButton3.Enabled:=False;
@@ -2763,7 +2890,7 @@ begin
     begin
       ImButton4.Enabled:=False;
       ButtonText4.Enabled:=False;
-    end;
+    end; }
   end;
 
   ChangeIt(now_player);

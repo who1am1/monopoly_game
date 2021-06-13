@@ -1,0 +1,8 @@
+object fBuildings: TfBuildings
+  Left = 508
+  Height = 240
+  Top = 166
+  Width = 320
+  Caption = 'fBuildings'
+  LCLVersion = '2.0.10.0'
+end
