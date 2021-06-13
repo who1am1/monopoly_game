@@ -4,7 +4,7 @@ object fBuildings: TfBuildings
   Top = 170
   Width = 301
   BorderStyle = bsDialog
-  Caption = 'fBuildings'
+  Caption = 'Заложить'
   ClientHeight = 225
   ClientWidth = 301
   OnShow = FormShow

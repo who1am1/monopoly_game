@@ -18332,6 +18332,7 @@ object fPlay: TfPlay
     Top = 176
     Width = 75
     Enabled = False
+    OnClick = ButtonText4Click
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963310F000089504E47
       0D0A1A0A0000000D49484452000000B6000000370806000000A11CB079000001
@@ -18635,6 +18636,7 @@ object fPlay: TfPlay
     Top = 176
     Width = 75
     Enabled = False
+    OnClick = ButtonText6Click
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963310F000089504E47
       0D0A1A0A0000000D49484452000000B6000000370806000000A11CB079000001
@@ -18779,6 +18781,7 @@ object fPlay: TfPlay
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
+    OnClick = ButtonText6Click
   end
   object ImButton7: TImage
     Left = 549

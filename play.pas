@@ -352,6 +352,7 @@ type
     procedure ButtonText2Click(Sender: TObject);
     procedure ButtonText3Click(Sender: TObject);
     procedure ButtonText4Click(Sender: TObject);
+    procedure ButtonText6Click(Sender: TObject);
     procedure ButtonText8Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -412,20 +413,17 @@ type
     TPolya=record              // запись одного поля (клетки)
       name: string;            // название клетки
       description: string;     // описание клетки
-      // координата точки по оси Х и оси Y с которой начинается отрисовка метки,
-      // выставляемая на клетку при ее покупке игроком
-      px,py: integer;
       { хранит номер игрока, купившего клетку.
       Значение 0 соответствует клетке, которую еще не купили: }
       kup: byte;
       x1,x2,x3,x4,x5,
-      y1,y2,y3,y4,y5: integer; // координаты фишек
-      price: integer;          // цена покупки фирмы
-      mon_price: integer;      // цена покупки филиала (у городов нет такой возможности)
+      y1,y2,y3,y4,y5: word; // координаты фишек
+      price: longword;          // цена покупки фирмы
+      mon_price: longword;      // цена покупки филиала (у городов нет такой возможности)
       // цена аренды обычной фирмы, фирмы, если есть монополия, построен 1 филиал и т.д.
       reg_rent, mon_rent, mon1_rent, mon2_rent,
       mon3_rent, mon4_rent, gold_rent: integer;
-      now_rent: integer;      // арендная плата в текущий момент игры
+      now_rent: longword;      // арендная плата в текущий момент игры
       pledge: boolean;        // заложена ли фирма. Если True, то заложена
       step_pledge: byte;      // сколько ходов осталось до потери заложенной фирмы
     end;
@@ -442,6 +440,8 @@ var
   dice_double: byte; // хранит количество выкинутых дублей
   gbuf: byte; // глобальный буфер
   lottery_result: byte; // хранит номер результата лотереи
+  // Put In Pledge
+  pip: boolean; // если  True, то закладываем, если False - то выкупаем
 
 implementation
 
@@ -2583,6 +2583,30 @@ begin // изменять также похожее в кнопке Оплати
         b:=False;
     end;
   end;
+
+  // проверяем еще раз. НЕ удалять!
+  if player[now_player].firms-player[now_player].ban_firms>0 then
+    begin
+      ImButton4.Enabled:=True;
+      ButtonText4.Enabled:=True;
+    end
+  else
+    begin
+      ImButton4.Enabled:=False;
+      ButtonText4.Enabled:=False;
+    end;
+
+  if player[now_player].ban_firms>0 then
+    begin
+      ImButton6.Enabled:=True;
+      ButtonText6.Enabled:=True;
+    end
+  else
+    begin
+      ImButton6.Enabled:=False;
+      ButtonText6.Enabled:=False;
+    end;
+
   if dice_double>0 then
   begin
     Info.Lines.Add(player[now_player].name+' выкинул дубль и ходит ещё раз.');
@@ -2746,6 +2770,20 @@ end;
 
 procedure TfPlay.ButtonText4Click(Sender: TObject);
 begin
+  pip:=True;
+  fBuildings.Caption:='Заложить';
+  fBuildings.Label1.Caption:='Выберите фирму, которую хотите заложить:';
+  fBuildings.Label3.Caption:='Вы получите:';
+  fBuildings.ShowModal;
+  ChangeIt(now_player);
+end;
+
+procedure TfPlay.ButtonText6Click(Sender: TObject);
+begin
+  pip:=False;
+  fBuildings.Caption:='Выкупить';
+  fBuildings.Label1.Caption:='Выберите фирму, которую хотите выкупить:';
+  fBuildings.Label3.Caption:='Вы заплатите:';
   fBuildings.ShowModal;
   ChangeIt(now_player);
 end;

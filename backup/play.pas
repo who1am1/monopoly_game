@@ -352,6 +352,7 @@ type
     procedure ButtonText2Click(Sender: TObject);
     procedure ButtonText3Click(Sender: TObject);
     procedure ButtonText4Click(Sender: TObject);
+    procedure ButtonText6Click(Sender: TObject);
     procedure ButtonText8Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -442,6 +443,8 @@ var
   dice_double: byte; // хранит количество выкинутых дублей
   gbuf: byte; // глобальный буфер
   lottery_result: byte; // хранит номер результата лотереи
+  // Put In Pledge
+  pip: boolean; // если  True, то закладываем, если False - то выкупаем
 
 implementation
 
@@ -1049,7 +1052,7 @@ begin
     if (i=1) or (i=3) or (i=6) or (i=10) or (i=14) or (i=20) or (i=22) or (i=24)
     or (i=27) or (i=31) or (i=35) or (i=41) then continue;
     kletka[i].pledge:=False;
-    kletka[i].step_pledge:=12;
+    kletka[i].step_pledge:=50;
     kletka[i].now_rent:=0;
   end;
 
@@ -2583,6 +2586,30 @@ begin // изменять также похожее в кнопке Оплати
         b:=False;
     end;
   end;
+
+  // проверяем еще раз. НЕ удалять!
+  if player[now_player].firms-player[now_player].ban_firms>0 then
+    begin
+      ImButton4.Enabled:=True;
+      ButtonText4.Enabled:=True;
+    end
+  else
+    begin
+      ImButton4.Enabled:=False;
+      ButtonText4.Enabled:=False;
+    end;
+
+  if player[now_player].ban_firms>0 then
+    begin
+      ImButton6.Enabled:=True;
+      ButtonText6.Enabled:=True;
+    end
+  else
+    begin
+      ImButton6.Enabled:=False;
+      ButtonText6.Enabled:=False;
+    end;
+
   if dice_double>0 then
   begin
     Info.Lines.Add(player[now_player].name+' выкинул дубль и ходит ещё раз.');
@@ -2746,6 +2773,20 @@ end;
 
 procedure TfPlay.ButtonText4Click(Sender: TObject);
 begin
+  pip:=True;
+  fBuildings.Caption:='Заложить';
+  fBuildings.Label1.Caption:='Выберите фирму, которую хотите заложить:';
+  fBuildings.Label3.Caption:='Вы получите:';
+  fBuildings.ShowModal;
+  ChangeIt(now_player);
+end;
+
+procedure TfPlay.ButtonText6Click(Sender: TObject);
+begin
+  pip:=False;
+  fBuildings.Caption:='Выкупить';
+  fBuildings.Label1.Caption:='Выберите фирму, которую хотите выкупить:';
+  fBuildings.Label3.Caption:='Вы заплатите:';
   fBuildings.ShowModal;
   ChangeIt(now_player);
 end;

@@ -57,9 +57,8 @@ type
       ban_firms: byte;        // количество заложенных фирм
       kletka: byte;           // номер клетки, на которой находится игрок
       buf: byte;              // хранит номер предыдущей клетки
-      x,y: integer;           // расстояние до фишки
-      cash: integer;          // количество денег игрока
-      capital: integer;       //капитал игрока
+      cash: longword;         // количество денег игрока
+      capital: longword;      //капитал игрока
       not_bankrot: boolean;   // True, если игрок не банкрот, False - если банкрот
       jail: boolean;          // True, если игрок в тюрьме
       jail_step: byte;        // сколько раз игрок бросил кубики, находясь в тюрьме
