@@ -161,7 +161,8 @@ begin
     // никто не ходит назад
     player[i].go_back:=False;
     // все начинат с первой клетки
-    Player[i].kletka:=1;
+    player[i].kletka:=1;
+    player[i].monopolies:=0;
   end;
 
   bContinue.ModalResult:=mrOK;

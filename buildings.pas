@@ -49,7 +49,8 @@ begin
   begin
     if pip then
     begin
-      if (kletka[i].kup=now_player) and (kletka[i].pledge=False) then
+      if (kletka[i].kup=now_player) and (kletka[i].pledge=False)and
+      (kletka[i].filial_count=0) then
       begin
         MainChoose.Items.Add(inttostr(i));
         AuxiliaryChoose.Items.Add(kletka[i].name);
@@ -69,9 +70,9 @@ begin
     AuxiliaryChoose.ItemIndex:=0;
     MainChoose.ItemIndex:=0;
     if pip then
-      PledgeMoney.Caption:=inttostr(kletka[strtoint(MainChoose.Text)].price div 2)
+      PledgeMoney.Caption:=inttostr(kletka[strtoint(MainChoose.Text)].price div 2)+'$'
     else
-      PledgeMoney.Caption:=inttostr(kletka[strtoint(MainChoose.Text)].price);
+      PledgeMoney.Caption:=inttostr(kletka[strtoint(MainChoose.Text)].price)+'$';
   end;
 end; //procedure
 
@@ -197,9 +198,9 @@ procedure TfBuildings.AuxiliaryChooseChange(Sender: TObject);
 begin
   MainChoose.ItemIndex:=AuxiliaryChoose.ItemIndex;
   if pip then
-    PledgeMoney.Caption:=inttostr(kletka[strtoint(MainChoose.Text)].price div 2)
+    PledgeMoney.Caption:=inttostr(kletka[strtoint(MainChoose.Text)].price div 2)+'$'
   else
-    PledgeMoney.Caption:=inttostr(kletka[strtoint(MainChoose.Text)].price);
+    PledgeMoney.Caption:=inttostr(kletka[strtoint(MainChoose.Text)].price)+'$';
 end;
 
 end.

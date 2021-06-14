@@ -1,10 +1,10 @@
-object fBuildings: TfBuildings
-  Left = 619
+object fFilials: TfFilials
+  Left = 549
   Height = 225
-  Top = 170
+  Top = 218
   Width = 310
   BorderStyle = bsDialog
-  Caption = 'Заложить'
+  Caption = 'Построить'
   ClientHeight = 225
   ClientWidth = 310
   OnShow = FormShow
@@ -903,7 +903,7 @@ object fBuildings: TfBuildings
     Top = 34
     Width = 208
     AutoSize = False
-    Caption = 'Выберите фирму, которую хотите заложить:'
+    Caption = 'Выберите фирму, филиал которой хотите построить:'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
     Font.Height = -16
@@ -914,8 +914,8 @@ object fBuildings: TfBuildings
     ParentFont = False
     WordWrap = True
   end
-  object PledgeMoney: TLabel
-    Left = 166
+  object BranchMoney: TLabel
+    Left = 144
     Height = 21
     Top = 127
     Width = 112
@@ -935,8 +935,8 @@ object fBuildings: TfBuildings
     Left = 40
     Height = 21
     Top = 127
-    Width = 94
-    Caption = 'Вы получите:'
+    Width = 98
+    Caption = 'Вы заплатите:'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
     Font.Height = -16

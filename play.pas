@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  Players, InfoFirm, Settings, NoMoney, Buildings;
+  Players, InfoFirm, Settings, NoMoney, Buildings, Filials;
 
 type
 
@@ -99,6 +99,11 @@ type
     House3: TLabel;
     House4: TLabel;
     House5: TLabel;
+    ImBankrot1: TImage;
+    ImBankrot2: TImage;
+    ImBankrot3: TImage;
+    ImBankrot4: TImage;
+    ImBankrot5: TImage;
     ImButton1: TImage;
     ImButton11: TImage;
     ImButton2: TImage;
@@ -108,6 +113,7 @@ type
     ImButton6: TImage;
     ImButton7: TImage;
     ImButton8: TImage;
+    ImFon1: TImage;
     ImFalse1: TImage;
     ImFalse2: TImage;
     ImFalse3: TImage;
@@ -116,6 +122,10 @@ type
     ImFalse6: TImage;
     ImFalse7: TImage;
     ImFalse8: TImage;
+    ImFon2: TImage;
+    ImFon3: TImage;
+    ImFon4: TImage;
+    ImFon5: TImage;
     Label1: TLabel;
     House2: TLabel;
     Dollar2: TLabel;
@@ -342,11 +352,14 @@ type
     ButtonText2: TLabel;
     Token4: TShape;
     Token5: TShape;
+    procedure ButtonText11Click(Sender: TObject);
     procedure ButtonText1Click(Sender: TObject);
     procedure ButtonText2Click(Sender: TObject);
     procedure ButtonText3Click(Sender: TObject);
     procedure ButtonText4Click(Sender: TObject);
+    procedure ButtonText5Click(Sender: TObject);
     procedure ButtonText6Click(Sender: TObject);
+    procedure ButtonText7Click(Sender: TObject);
     procedure ButtonText8Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -401,8 +414,10 @@ type
     procedure ChangeIt(var now_player:byte);
     // процедура, в которой ход передается следующему игроку и отображаюся кнопки
     procedure ButtonChange;
-    //процедура, в которой проверяем, есть ли у кого-нибудь монополия:
+    // процедура, в которой проверяем, есть ли у кого-нибудь монополия:
     procedure CheckIt;
+    // процедрура, делающая игрока банкротом:
+    procedure Bankrupt(var now_player:byte);
   end;
 
   type
@@ -423,6 +438,7 @@ type
       pledge: boolean;        // заложена ли фирма. Если True, то заложена
       step_pledge: byte;      // сколько ходов осталось до потери заложенной фирмы
       checked: boolean;       // False, если у кого-то уже есть монополия на эту клетку
+      filial_count: byte;     // сколько монополий построено на клетке
     end;
     kl = array[1..42] of TPolya;
 
@@ -439,6 +455,9 @@ var
   lottery_result: byte; // хранит номер результата лотереи
   // Put In Pledge
   pip: boolean; // если  True, то закладываем, если False - то выкупаем
+  //Building A Branch
+  bab: boolean; // если  True, то строим, если False - то продаем
+  player_count: byte; // количество оставшихся, не обанкротившихся, игроков
 
 implementation
 
@@ -1040,7 +1059,7 @@ end;
 procedure TfPlay.FormShow(Sender: TObject);
 var i:byte; // просто счетчик
 begin
-
+  player_count:=PlayersNumber;
   for i:=1 to 42 do
   begin
     if (i=1) or (i=3) or (i=6) or (i=10) or (i=14) or (i=20) or (i=22) or (i=24)
@@ -2549,7 +2568,7 @@ begin
 end;
 
 procedure TfPlay.ButtonChange;
-var b:boolean;
+var b,m:boolean;
   i:byte; // просто счетчик
 begin // изменять также похожее в кнопке Оплатить при выходе из тюрьмы!
   b:=True;
@@ -2601,6 +2620,19 @@ begin // изменять также похожее в кнопке Оплати
     end;
   end;
 
+  b:=True;
+  if player[now_player].not_bankrot=False then
+  begin
+    now_player:=now_player+1;
+        while b do // проверяем, что след. игрок не банкрот
+        begin      // и что порядковый номер след. игрока не больше 5
+          if now_player>PlayersNumber then now_player:=now_player mod PlayersNumber;
+          if player[now_player].not_bankrot=False then inc(now_player)
+          else
+            b:=False;
+        end;
+  end;
+
   // проверяем еще раз. НЕ удалять!
   if player[now_player].firms-player[now_player].ban_firms>0 then
     begin
@@ -2623,6 +2655,126 @@ begin // изменять также похожее в кнопке Оплати
       ImButton6.Enabled:=False;
       ButtonText6.Enabled:=False;
     end;
+
+   // провермяем, отображать кнопку Строить или нет:
+   m:=False;
+
+
+      if (kletka[2].kup=now_player)and
+  (kletka[2].kup=kletka[4].kup)and(kletka[2].kup=kletka[5].kup)
+  and((kletka[2].filial_count<5)or(kletka[4].filial_count<5)or
+  (kletka[5].filial_count<5)) then
+  begin
+    m:=True;
+  end;
+
+
+  //8 9 11
+  if (kletka[8].kup=now_player)and
+  (kletka[8].kup=kletka[9].kup)and(kletka[8].kup=kletka[11].kup)
+  and((kletka[8].filial_count<5)or(kletka[9].filial_count<5)or
+  (kletka[11].filial_count<5)) then
+  begin
+    m:=True;
+  end;
+
+  // 12 13
+  if (kletka[12].kup=now_player)and
+  (kletka[12].kup=kletka[13].kup)
+  and((kletka[12].filial_count<5)or(kletka[13].filial_count<5))then
+  begin
+    m:=True;
+  end;
+
+  //15 16 17
+  if (kletka[15].kup=now_player)and
+  (kletka[15].kup=kletka[16].kup)and(kletka[15].kup=kletka[17].kup)
+  and((kletka[15].filial_count<5)or(kletka[16].filial_count<5)or
+  (kletka[17].filial_count<5)) then
+  begin
+    m:=True;
+  end;
+
+  //19 21
+  if (kletka[19].kup=now_player)and
+  (kletka[19].kup=kletka[21].kup)
+  and((kletka[19].filial_count<5)or(kletka[21].filial_count<5))then
+  begin
+    m:=True;
+  end;
+
+  //23 25 26
+  if (kletka[23].kup=now_player)and
+  (kletka[23].kup=kletka[25].kup)and(kletka[23].kup=kletka[26].kup)
+  and((kletka[23].filial_count<5)or(kletka[25].filial_count<5)or
+  (kletka[26].filial_count<5))then
+  begin
+    m:=True;
+  end;
+
+  //29 30 32
+  if (kletka[29].kup=now_player)and
+  (kletka[29].kup=kletka[30].kup)and(kletka[29].kup=kletka[32].kup)
+  and((kletka[29].filial_count<5)or(kletka[30].filial_count<5)or
+  (kletka[32].filial_count<5)) then
+  begin
+    m:=True;
+  end;
+
+  //33 34
+  if (kletka[33].kup=now_player)and
+  (kletka[33].kup=kletka[34].kup)
+  and((kletka[33].filial_count<5)or(kletka[34].filial_count<5)) then
+  begin
+    m:=True;
+  end;
+
+  //36 37 38
+  if (kletka[36].kup=now_player)and
+  (kletka[36].kup=kletka[37].kup)and(kletka[36].kup=kletka[38].kup)
+  and((kletka[36].filial_count<5)or(kletka[37].filial_count<5)or
+  (kletka[38].filial_count<5)) then
+  begin
+    m:=True;
+  end;
+
+  //40 42
+  if (kletka[40].kup=now_player)and
+  (kletka[40].kup=kletka[42].kup)
+  and((kletka[40].filial_count<5)or(kletka[42].filial_count<5))then
+  begin
+    m:=True;
+  end;
+
+    if m then
+    begin
+      ImButton5.Enabled:=True;
+      ButtonText5.Enabled:=True;
+    end
+    else
+    begin
+      ImButton5.Enabled:=False;
+      ButtonText5.Enabled:=False;
+    end;
+
+  m:=False;
+
+  for i:=1 to 42 do
+  begin
+    if (kletka[i].kup=now_player)and(kletka[i].filial_count>0) then
+      m:=True;
+  end;
+
+  if m then
+  begin
+    fPlay.ImButton7.Enabled:=True;
+    fPlay.ButtonText7.Enabled:=True;
+  end
+  else
+  begin
+    fPlay.ImButton7.Enabled:=False;
+    fPlay.ButtonText7.Enabled:=False;
+  end;
 
   CheckIt;
 
@@ -2840,32 +2992,412 @@ begin
       end;
     end; //case
   end;
-
-  { for i:=1 to 5 do
-  begin
-    if ((kletka[7].kup=i)and(kletka[18].kup=i)and(kletka[28].kup=i))or
-    ((kletka[18].kup=i)and(kletka[28].kup=i)and(kletka[39].kup=i))or
-    (
-    if (kletka[7].kup=i)and(kletka[18].kup=i)and(kletka[28].kup=i)and
-    (kletka[39].kup=i) then
-    begin
-      kletka[7].now_rent:=600000;
-      kletka[18].now_rent:=600000;
-      kletka[28].now_rent:=600000;
-      kletka[39].now_rent:=600000;
-    end;
-  end;}
-
 end;
+
+procedure TfPlay.Bankrupt(var now_player: byte);
+var i: byte;
+begin
+
+  player[now_player].not_bankrot:=False;
+  Info.Lines.Add(player[now_player].name+' объявляется банкротом');
+  dice_double:=0;
+  dec(player_count);
+
+  if player_count=1 then
+  begin
+
+  end;
+
+  case now_player of
+  1:
+    begin
+      Dollar1.Visible:=False;
+      House1.Visible:=False;
+      Cash1.Visible:=False;
+      Capital1.Visible:=False;
+      Token1.Visible:=False;
+      ImFon1.Visible:=True;
+      ImBankrot1.Visible:=True;
+    end;
+  2:
+    begin
+      Dollar2.Visible:=False;
+      House2.Visible:=False;
+      Cash2.Visible:=False;
+      Capital2.Visible:=False;
+      Token2.Visible:=False;
+      ImFon2.Visible:=True;
+      ImBankrot2.Visible:=True;
+    end;
+  3:
+    begin
+      Dollar3.Visible:=False;
+      House3.Visible:=False;
+      Cash3.Visible:=False;
+      Capital3.Visible:=False;
+      Token3.Visible:=False;
+      ImFon3.Visible:=True;
+      ImBankrot3.Visible:=True;
+    end;
+  4:
+    begin
+      Dollar4.Visible:=False;
+      House4.Visible:=False;
+      Cash4.Visible:=False;
+      Capital4.Visible:=False;
+      Token4.Visible:=False;
+      ImFon4.Visible:=True;
+      ImBankrot4.Visible:=True;
+    end;
+  5:
+    begin
+      Dollar5.Visible:=False;
+      House5.Visible:=False;
+      Cash5.Visible:=False;
+      Capital5.Visible:=False;
+      Token5.Visible:=False;
+      ImFon5.Visible:=True;
+      ImBankrot5.Visible:=True;
+    end;
+  end; //case
+
+
+  if (kletka[player[now_player].kletka].kup<>0)and
+  (kletka[player[now_player].kletka].kup<>now_player)and
+  (kletka[player[now_player].kletka].pledge=False) then
+  begin
+    if (player[now_player].cash+player[now_player].capital)>=
+    (kletka[player[now_player].kletka].now_rent) then
+    begin
+      inc(player[kletka[player[now_player].kletka].kup].cash,
+      kletka[player[now_player].kletka].now_rent);
+      Info.Lines.Add(player[now_player].name+' оплачивает аренду игрока '+
+      player[kletka[player[now_player].kletka].kup].name+' в полном объеме');
+    end
+    else
+    begin
+      inc(player[kletka[player[now_player].kletka].kup].cash,
+      player[now_player].cash+player[now_player].capital);
+      Info.Lines.Add(player[now_player].name+' оплачивает аренду игрока '+
+      player[kletka[player[now_player].kletka].kup].name+' в размере '+
+      inttostr((player[now_player].cash)+(player[now_player].capital))+'$');
+    end;
+    ChangeIt(kletka[player[now_player].kletka].kup);
+  end;
+
+
+  for i:=1 to 42 do
+  begin
+    if kletka[i].kup=now_player then
+    begin
+      kletka[i].kup:=0;
+      kletka[i].now_rent:=0;
+      kletka[i].pledge:=False;
+      kletka[i].step_pledge:=50;
+      kletka[i].filial_count:=0;
+      case i of
+        2:
+          begin
+            C11.brush.color:=clWhite;
+            C11.brush.style:=bsSolid;
+            fPlay.Mon1_1.Visible:=False;
+            fPlay.Mon1_2.Visible:=False;
+            fPlay.Mon1_3.Visible:=False;
+            fPlay.Mon1_4.Visible:=False;
+            fPlay.Gold11.Visible:=False;
+          end;
+        4:
+          begin
+            C12.brush.color:=clWhite;
+            C12.brush.style:=bsSolid;
+            fPlay.Mon1_5.Visible:=False;
+            fPlay.Mon1_6.Visible:=False;
+            fPlay.Mon1_7.Visible:=False;
+            fPlay.Mon1_8.Visible:=False;
+            fPlay.Gold12.Visible:=False;
+          end;
+        5:
+          begin
+            C13.brush.color:=clWhite;
+            C13.brush.style:=bsSolid;
+            fPlay.Mon1_9.Visible:=False;
+            fPlay.Mon1_10.Visible:=False;
+            fPlay.Mon1_11.Visible:=False;
+            fPlay.Mon1_12.Visible:=False;
+            fPlay.Gold13.Visible:=False;
+          end;
+        7:
+          begin
+            C21.brush.color:=clWhite;
+            C21.brush.style:=bsSolid;
+          end;
+        8:
+          begin
+            C31.brush.color:=clWhite;
+            C31.brush.style:=bsSolid;
+            fPlay.Mon3_1.Visible:=False;
+            fPlay.Mon3_2.Visible:=False;
+            fPlay.Mon3_3.Visible:=False;
+            fPlay.Mon3_4.Visible:=False;
+            fPlay.Gold31.Visible:=False;
+          end;
+        9:
+          begin
+            C32.brush.color:=clWhite;
+            C32.brush.style:=bsSolid;
+            fPlay.Mon3_5.Visible:=False;
+            fPlay.Mon3_6.Visible:=False;
+            fPlay.Mon3_7.Visible:=False;
+            fPlay.Mon3_8.Visible:=False;
+            fPlay.Gold32.Visible:=False;
+          end;
+        11:
+          begin
+            C33.brush.color:=clWhite;
+            C33.brush.style:=bsSolid;
+            fPlay.Mon3_9.Visible:=False;
+            fPlay.Mon3_10.Visible:=False;
+            fPlay.Mon3_11.Visible:=False;
+            fPlay.Mon3_12.Visible:=False;
+            fPlay.Gold33.Visible:=False;
+          end;
+        12:
+          begin
+            C41.brush.color:=clWhite;
+            C41.brush.style:=bsSolid;
+            fPlay.Mon4_1.Visible:=False;
+            fPlay.Mon4_2.Visible:=False;
+            fPlay.Mon4_3.Visible:=False;
+            fPlay.Mon4_4.Visible:=False;
+            fPlay.Gold41.Visible:=False;
+          end;
+        13:
+          begin
+            C42.brush.color:=clWhite;
+            C42.brush.style:=bsSolid;
+            fPlay.Mon4_5.Visible:=False;
+            fPlay.Mon4_6.Visible:=False;
+            fPlay.Mon4_7.Visible:=False;
+            fPlay.Mon4_8.Visible:=False;
+            fPlay.Gold42.Visible:=False;
+          end;
+        15:
+          begin
+          C51.brush.color:=clWhite;
+          C51.brush.style:=bsSolid;
+          fPlay.Mon5_1.Visible:=False;
+          fPlay.Mon5_2.Visible:=False;
+          fPlay.Mon5_3.Visible:=False;
+          fPlay.Mon5_4.Visible:=False;
+          fPlay.Gold51.Visible:=False;
+          end;
+        16:
+          begin
+            C52.brush.color:=clWhite;
+            C52.brush.style:=bsSolid;
+            fPlay.Mon5_5.Visible:=False;
+            fPlay.Mon5_6.Visible:=False;
+            fPlay.Mon5_7.Visible:=False;
+            fPlay.Mon5_8.Visible:=False;
+            fPlay.Gold52.Visible:=False;
+          end;
+        17:
+          begin
+            C53.brush.color:=clWhite;
+            C53.brush.style:=bsSolid;
+            fPlay.Mon5_9.Visible:=False;
+            fPlay.Mon5_10.Visible:=False;
+            fPlay.Mon5_11.Visible:=False;
+            fPlay.Mon5_12.Visible:=False;
+            fPlay.Gold53.Visible:=False;
+          end;
+        18:
+          begin
+            C22.brush.color:=clWhite;
+            C22.brush.style:=bsSolid;
+          end;
+        19:
+          begin
+            C61.brush.color:=clWhite;
+            C61.brush.style:=bsSolid;
+            fPlay.Mon6_1.Visible:=False;
+            fPlay.Mon6_2.Visible:=False;
+            fPlay.Mon6_3.Visible:=False;
+            fPlay.Mon6_4.Visible:=False;
+            fPlay.Gold61.Visible:=False;
+          end;
+        21:
+          begin
+            C62.brush.color:=clWhite;
+            C62.brush.style:=bsSolid;
+            fPlay.Mon6_5.Visible:=False;
+            fPlay.Mon6_6.Visible:=False;
+            fPlay.Mon6_7.Visible:=False;
+            fPlay.Mon6_8.Visible:=False;
+            fPlay.Gold62.Visible:=False;
+          end;
+        23:
+          begin
+            C71.brush.color:=clWhite;
+            C71.brush.style:=bsSolid;
+            fPlay.Mon7_1.Visible:=False;
+            fPlay.Mon7_2.Visible:=False;
+            fPlay.Mon7_3.Visible:=False;
+            fPlay.Mon7_4.Visible:=False;
+            fPlay.Gold71.Visible:=False;
+          end;
+        25:
+          begin
+            C72.brush.color:=clWhite;
+            C72.brush.style:=bsSolid;
+            fPlay.Mon7_5.Visible:=False;
+            fPlay.Mon7_6.Visible:=False;
+            fPlay.Mon7_7.Visible:=False;
+            fPlay.Mon7_8.Visible:=False;
+            fPlay.Gold72.Visible:=False;
+          end;
+        26:
+          begin
+            C73.brush.color:=clWhite;
+            C73.brush.style:=bsSolid;
+            fPlay.Mon7_9.Visible:=False;
+            fPlay.Mon7_10.Visible:=False;
+            fPlay.Mon7_11.Visible:=False;
+            fPlay.Mon7_12.Visible:=False;
+            fPlay.Gold73.Visible:=False;
+          end;
+        28:
+          begin
+            C23.brush.color:=clWhite;
+            C23.brush.style:=bsSolid;
+          end;
+        29:
+          begin
+            C81.brush.color:=clWhite;
+            C81.brush.style:=bsSolid;
+            fPlay.Mon8_1.Visible:=False;
+            fPlay.Mon8_2.Visible:=False;
+            fPlay.Mon8_3.Visible:=False;
+            fPlay.Mon8_4.Visible:=False;
+            fPlay.Gold81.Visible:=False;
+          end;
+        30:
+          begin
+            C82.brush.color:=clWhite;
+            C82.brush.style:=bsSolid;
+            fPlay.Mon8_5.Visible:=False;
+            fPlay.Mon8_6.Visible:=False;
+            fPlay.Mon8_7.Visible:=False;
+            fPlay.Mon8_8.Visible:=False;
+            fPlay.Gold82.Visible:=False;
+          end;
+        32:
+          begin
+            C83.brush.color:=clWhite;
+            C83.brush.style:=bsSolid;
+            fPlay.Mon8_9.Visible:=False;
+            fPlay.Mon8_10.Visible:=False;
+            fPlay.Mon8_11.Visible:=False;
+            fPlay.Mon8_12.Visible:=False;
+            fPlay.Gold83.Visible:=False;
+          end;
+        33:
+          begin
+            C91.brush.color:=clWhite;
+            C91.brush.style:=bsSolid;
+            fPlay.Mon9_1.Visible:=False;
+            fPlay.Mon9_2.Visible:=False;
+            fPlay.Mon9_3.Visible:=False;
+            fPlay.Mon9_4.Visible:=False;
+            fPlay.Gold91.Visible:=False;
+          end;
+        34:
+          begin
+            C92.brush.color:=clWhite;
+            C92.brush.style:=bsSolid;
+            fPlay.Mon9_5.Visible:=False;
+            fPlay.Mon9_6.Visible:=False;
+            fPlay.Mon9_7.Visible:=False;
+            fPlay.Mon9_8.Visible:=False;
+            fPlay.Gold92.Visible:=False;
+          end;
+        36:
+          begin
+            C101.brush.color:=clWhite;
+            C101.brush.style:=bsSolid;
+            fPlay.Mon10_1.Visible:=False;
+            fPlay.Mon10_2.Visible:=False;
+            fPlay.Mon10_3.Visible:=False;
+            fPlay.Mon10_4.Visible:=False;
+            fPlay.Gold101.Visible:=False;
+          end;
+        37:
+          begin
+            C102.brush.color:=clWhite;
+            C102.brush.style:=bsSolid;
+            fPlay.Mon10_5.Visible:=False;
+            fPlay.Mon10_6.Visible:=False;
+            fPlay.Mon10_7.Visible:=False;
+            fPlay.Mon10_8.Visible:=False;
+            fPlay.Gold102.Visible:=False;
+          end;
+        38:
+          begin
+            C103.brush.color:=clWhite;
+            C103.brush.style:=bsSolid;
+            fPlay.Mon10_9.Visible:=False;
+            fPlay.Mon10_10.Visible:=False;
+            fPlay.Mon10_11.Visible:=False;
+            fPlay.Mon10_12.Visible:=False;
+            fPlay.Gold103.Visible:=False;
+          end;
+        39:
+          begin
+            C24.brush.color:=clWhite;
+            C24.brush.style:=bsSolid;
+          end;
+        40:
+          begin
+            C111.brush.color:=clWhite;
+            C111.brush.style:=bsSolid;
+            fPlay.Mon11_1.Visible:=False;
+            fPlay.Mon11_2.Visible:=False;
+            fPlay.Mon11_3.Visible:=False;
+            fPlay.Mon11_4.Visible:=False;
+            fPlay.Gold111.Visible:=False;
+          end;
+        42:
+          begin
+            C112.brush.color:=clWhite;
+            C112.brush.style:=bsSolid;
+            fPlay.Mon11_5.Visible:=False;
+            fPlay.Mon11_6.Visible:=False;
+            fPlay.Mon11_7.Visible:=False;
+            fPlay.Mon11_8.Visible:=False;
+            fPlay.Gold112.Visible:=False;
+          end;
+        end; //case
+    end;
+  end;
+end; //procedure
 
 procedure TfPlay.ButtonText1Click(Sender: TObject);
 begin
   step.caption:=inttostr(strtoint(step.caption)+1);
   changecube:=1;
   RollDice.Enabled:=True;
+  ImButton11.Enabled:=True;
+  ButtonText11.Enabled:=True;
   // занесли следующие строки в процедуру OnTime компонента RollDice
   ImButton1.Enabled:=False;   //поменять на False!!!
   ButtonText1.Enabled:=False; //поменять на False!!!
+end;
+
+procedure TfPlay.ButtonText11Click(Sender: TObject);
+begin
+  Info.Lines.Add(player[now_player].name+' добровольно сдается');
+  Bankrupt(now_player);
+  ButtonChange;
 end;
 
 procedure TfPlay.ButtonText2Click(Sender: TObject);
@@ -2948,6 +3480,16 @@ begin
   ChangeIt(now_player);
 end;
 
+procedure TfPlay.ButtonText5Click(Sender: TObject);
+begin
+  bab:=True;
+  fFilials.Caption:='Построить';
+  fFilials.Label3.Caption:='Вы заплатите';
+  fFilials.Label1.Caption:='Выберите фирму, филиал которой хотите построить:';
+  fFilials.ShowModal;
+  ChangeIt(now_player);
+end;
+
 procedure TfPlay.ButtonText6Click(Sender: TObject);
 begin
   pip:=False;
@@ -2955,6 +3497,16 @@ begin
   fBuildings.Label1.Caption:='Выберите фирму, которую хотите выкупить:';
   fBuildings.Label3.Caption:='Вы заплатите:';
   fBuildings.ShowModal;
+  ChangeIt(now_player);
+end;
+
+procedure TfPlay.ButtonText7Click(Sender: TObject);
+begin
+  bab:=False;
+  fFilials.Caption:='Продать';
+  fFilials.Label3.Caption:='Вы получите';
+  fFilials.Label1.Caption:='Выберите фирму, филиал которой хотите продать:';
+  fFilials.ShowModal;
   ChangeIt(now_player);
 end;
 
@@ -2969,17 +3521,43 @@ begin
     dec(player[now_player].cash,round(player[now_player].cash / 100 * nalog));
   end;
 
-  if (i=10)or(i=20)or(i=31) then
+  if (i=10)or(i=20)or(i=31) then // лотерея
   begin
     case lottery_result of
     1:
       begin
+        if (player[now_player].cash+player[now_player].capital)<250000 then
+        begin
+          Bankrupt(now_player);
+          ImButton8.Enabled:=False;
+          ButtonText8.Enabled:=False;
+          ButtonChange;
+          Exit;
+        end;
+        if player[now_player].cash<250000 then
+        begin
+          fNoMoney.ShowModal;
+          exit;
+        end;
         dec(player[now_player].cash,250000);
         Info.Lines.Add(player[now_player].name+' оплачивает 250000$');
         changeit(now_player);
       end;
     3:
       begin
+        if (player[now_player].cash+player[now_player].capital)<100000 then
+        begin
+          Bankrupt(now_player);
+          ImButton8.Enabled:=False;
+          ButtonText8.Enabled:=False;
+          ButtonChange;
+          Exit;
+        end;
+        if player[now_player].cash<100000 then
+        begin
+          fNoMoney.ShowModal;
+          exit;
+        end;
         dec(player[now_player].cash,100000);
         Info.Lines.Add(player[now_player].name+' оплачивает 100000$');
         changeit(now_player);
@@ -2989,11 +3567,20 @@ begin
 
   if (kletka[player[now_player].kletka].kup<>0) then
   begin
-    if player[now_player].cash<kletka[player[now_player].kletka].now_rent then
-    begin
-      fNoMoney.ShowModal;
-      exit;
-    end;
+    if (player[now_player].cash+player[now_player].capital)<
+    kletka[player[now_player].kletka].now_rent then
+        begin
+          Bankrupt(now_player);
+          ImButton8.Enabled:=False;
+          ButtonText8.Enabled:=False;
+          ButtonChange;
+          Exit;
+        end;
+        if player[now_player].cash<kletka[player[now_player].kletka].now_rent then
+        begin
+          fNoMoney.ShowModal;
+          exit;
+        end;
     dec(player[now_player].cash,kletka[player[now_player].kletka].now_rent);
     inc(player[kletka[player[now_player].kletka].kup].cash,
     kletka[player[now_player].kletka].now_rent);
@@ -3005,39 +3592,26 @@ begin
 
   if player[now_player].jail then
   begin
-    if player[now_player].cash<200000 then
-    begin
-      fNoMoney.ShowModal;
-      exit;
-    end;
+    if ((player[now_player].cash+player[now_player].capital)<200000)and
+    (player[now_player].jail_step=3) then
+        begin
+          Bankrupt(now_player);
+          ImButton8.Enabled:=False;
+          ButtonText8.Enabled:=False;
+          ButtonChange;
+          Exit;
+        end;
+        if player[now_player].cash<200000 then
+        begin
+          fNoMoney.ShowModal;
+          exit;
+        end;
     dec(player[now_player].cash,200000);
     ChangeIt(now_player);
     player[now_player].jail:=False;
     player[now_player].jail_step:=0;
     Info.Lines.Add(player[now_player].name+' оплачивает 200000$ за выход из тюрьмы');
     next_player:=now_player;
-    { // т.к. оплачивает, то он ходит еще раз. Нельзя вызывать функцию ButtonChange
-    ImButton2.Enabled:=False;
-    ButtonText2.Enabled:=False;
-    ImButton3.Enabled:=False;
-    ButtonText3.Enabled:=False;
-
-    ImButton8.Enabled:=False;
-    ButtonText8.Enabled:=False;
-
-    ImButton1.Enabled:=True;
-    ButtonText1.Enabled:=True;
-
-    if player[now_player].firms>0 then
-    begin
-      ImButton4.Enabled:=True;
-      ButtonText4.Enabled:=True;
-    end
-    else
-    begin
-      ImButton4.Enabled:=False;
-      ButtonText4.Enabled:=False;
-    end; }
   end;
 
   ChangeIt(now_player);

@@ -2,11 +2,11 @@ object fBuildings: TfBuildings
   Left = 619
   Height = 225
   Top = 170
-  Width = 301
+  Width = 310
   BorderStyle = bsDialog
   Caption = 'Заложить'
   ClientHeight = 225
-  ClientWidth = 301
+  ClientWidth = 310
   OnShow = FormShow
   Position = poMainFormCenter
   LCLVersion = '2.0.10.0'
@@ -14,7 +14,7 @@ object fBuildings: TfBuildings
     Left = 0
     Height = 225
     Top = 0
-    Width = 301
+    Width = 310
     Align = alClient
     Picture.Data = {
       0A544A706567496D616765F7680000FFD8FFE1001845786966000049492A0008
@@ -915,7 +915,7 @@ object fBuildings: TfBuildings
     WordWrap = True
   end
   object PledgeMoney: TLabel
-    Left = 144
+    Left = 166
     Height = 21
     Top = 127
     Width = 112

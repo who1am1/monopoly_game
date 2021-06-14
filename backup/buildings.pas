@@ -69,9 +69,9 @@ begin
     AuxiliaryChoose.ItemIndex:=0;
     MainChoose.ItemIndex:=0;
     if pip then
-      PledgeMoney.Caption:=inttostr(kletka[strtoint(MainChoose.Text)].price div 2)
+      PledgeMoney.Caption:=inttostr(kletka[strtoint(MainChoose.Text)].price div 2)+'$'
     else
-      PledgeMoney.Caption:=inttostr(kletka[strtoint(MainChoose.Text)].price);
+      PledgeMoney.Caption:=inttostr(kletka[strtoint(MainChoose.Text)].price)+'$';
   end;
 end; //procedure
 
@@ -197,9 +197,9 @@ procedure TfBuildings.AuxiliaryChooseChange(Sender: TObject);
 begin
   MainChoose.ItemIndex:=AuxiliaryChoose.ItemIndex;
   if pip then
-    PledgeMoney.Caption:=inttostr(kletka[strtoint(MainChoose.Text)].price div 2)
+    PledgeMoney.Caption:=inttostr(kletka[strtoint(MainChoose.Text)].price div 2)+'$'
   else
-    PledgeMoney.Caption:=inttostr(kletka[strtoint(MainChoose.Text)].price);
+    PledgeMoney.Caption:=inttostr(kletka[strtoint(MainChoose.Text)].price)+'$';
 end;
 
 end.

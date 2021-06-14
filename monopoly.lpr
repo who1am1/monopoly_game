@@ -7,7 +7,8 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, main, settings, players, play, InfoFirm, NameError, NoMoney, buildings
+  Forms, main, settings, players, play, InfoFirm, NameError, NoMoney, buildings,
+  filials, winneris
   { you can add units after this };
 
 {$R *.res}
@@ -24,6 +25,8 @@ begin
   Application.CreateForm(TfNameError, fNameError);
   Application.CreateForm(TfNoMoney, fNoMoney);
   Application.CreateForm(TfBuildings, fBuildings);
+  Application.CreateForm(TfFilials, fFilials);
+  Application.CreateForm(TfWinnerIs, fWinnerIs);
   Application.Run;
 end.
 
