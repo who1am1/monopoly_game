@@ -21,7 +21,7 @@ type
     Image2: TImage;
     ImButton: TImage;
     Label1: TLabel;
-    Label2: TLabel;
+    WinnerName: TLabel;
     TextOK: TLabel;
     procedure ImButtonClick(Sender: TObject);
   private

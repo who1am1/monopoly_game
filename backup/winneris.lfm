@@ -1,17 +1,17 @@
 object fWinnerIs: TfWinnerIs
-  Left = 529
-  Height = 479
-  Top = 94
+  Left = 469
+  Height = 433
+  Top = 67
   Width = 333
   BorderStyle = bsDialog
   Caption = 'И победителем становится...'
-  ClientHeight = 479
+  ClientHeight = 433
   ClientWidth = 333
   Position = poMainFormCenter
   LCLVersion = '2.0.10.0'
   object BackgroundInfoFirm: TImage
     Left = 0
-    Height = 479
+    Height = 433
     Top = 0
     Width = 333
     Align = alClient
@@ -7179,7 +7179,7 @@ object fWinnerIs: TfWinnerIs
     ParentFont = False
   end
   object Label1: TLabel
-    Left = 107
+    Left = 108
     Height = 25
     Top = 22
     Width = 110
@@ -7195,9 +7195,9 @@ object fWinnerIs: TfWinnerIs
     ParentFont = False
   end
   object ImButton: TImage
-    Left = 120
+    Left = 119
     Height = 40
-    Top = 409
+    Top = 379
     Width = 96
     OnClick = ImButtonClick
     Picture.Data = {
@@ -7328,9 +7328,9 @@ object fWinnerIs: TfWinnerIs
     Stretch = True
   end
   object TextOK: TLabel
-    Left = 154
+    Left = 153
     Height = 25
-    Top = 414
+    Top = 384
     Width = 26
     Caption = 'ОК'
     Font.CharSet = RUSSIAN_CHARSET
@@ -7344,7 +7344,7 @@ object fWinnerIs: TfWinnerIs
     ParentFont = False
     OnClick = ImButtonClick
   end
-  object Label2: TLabel
+  object WinnerName: TLabel
     Left = 16
     Height = 48
     Top = 88
@@ -7354,7 +7354,7 @@ object fWinnerIs: TfWinnerIs
     Caption = 'Имя победителя'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
-    Font.Height = -16
+    Font.Height = -21
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft

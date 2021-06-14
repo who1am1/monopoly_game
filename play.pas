@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  Players, InfoFirm, Settings, NoMoney, Buildings, Filials;
+  Players, InfoFirm, Settings, NoMoney, Buildings, Filials, WinnerIs;
 
 type
 
@@ -361,6 +361,7 @@ type
     procedure ButtonText6Click(Sender: TObject);
     procedure ButtonText7Click(Sender: TObject);
     procedure ButtonText8Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure ImBilliardsDblClick(Sender: TObject);
@@ -460,6 +461,7 @@ var
   player_count: byte; // количество оставшихся, не обанкротившихся, игроков
 
 implementation
+uses Main;
 
 {$R *.lfm}
 
@@ -2996,17 +2998,13 @@ end;
 
 procedure TfPlay.Bankrupt(var now_player: byte);
 var i: byte;
+  b:boolean;
 begin
 
   player[now_player].not_bankrot:=False;
   Info.Lines.Add(player[now_player].name+' объявляется банкротом');
   dice_double:=0;
   dec(player_count);
-
-  if player_count=1 then
-  begin
-
-  end;
 
   case now_player of
   1:
@@ -3085,6 +3083,24 @@ begin
     ChangeIt(kletka[player[now_player].kletka].kup);
   end;
 
+  b:=True;
+  if player_count=1 then
+  begin
+    next_player:=now_player+1;
+    while b do // проверяем, что след. игрок не банкрот
+      begin      // и что порядковый номер след. игрока не больше 5
+        if next_player>PlayersNumber then next_player:=next_player mod PlayersNumber;
+        if player[next_player].not_bankrot=False then inc(next_player)
+        else
+          b:=False;
+        end;
+    fWinnerIs.WinnerName.Caption:=player[next_player].name;
+    fWinnerIs.Cash1.Caption:=inttostr(player[next_player].cash);
+    fWinnerIs.Capital1.Caption:=inttostr(player[next_player].capital);
+    fWinnerIs.ShowModal;
+    Close;
+    fMain.Close;
+  end;
 
   for i:=1 to 42 do
   begin
@@ -3619,6 +3635,11 @@ begin
   ButtonChange;
 
 end; //procedure
+
+procedure TfPlay.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  fMain.Show;
+end;
 
 end.
 

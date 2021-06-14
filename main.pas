@@ -5,18 +5,21 @@ unit main;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Settings,
-  Players;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
+  Settings, Players;
 
 type
 
   { TfMain }
 
   TfMain = class(TForm)
-    bPlay: TButton;
-    bSettings: TButton;
-    bExit: TButton;
-    bRules: TButton;
+    BackgroundInfoFirm: TImage;
+    ButtonText1: TLabel;
+    ButtonText2: TLabel;
+    ButtonText3: TLabel;
+    ImButton1: TImage;
+    ImButton2: TImage;
+    ImButton3: TImage;
     procedure bExitClick(Sender: TObject);
     procedure bPlayClick(Sender: TObject);
     procedure bSettingsClick(Sender: TObject);

@@ -18,7 +18,8 @@
         <ComponentName Value="fMain"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <CursorPos X="10" Y="9"/>
+        <TopLine Value="40"/>
+        <CursorPos X="55" Y="53"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -57,8 +58,8 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="2989"/>
-        <CursorPos X="5" Y="3008"/>
+        <TopLine Value="3088"/>
+        <CursorPos X="17" Y="3102"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -73,7 +74,7 @@
         <EditorIndex Value="8"/>
         <TopLine Value="13"/>
         <CursorPos X="7" Y="101"/>
-        <UsageCount Value="186"/>
+        <UsageCount Value="188"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit5>
@@ -86,7 +87,7 @@
         <UnitName Value="NameError"/>
         <EditorIndex Value="9"/>
         <CursorPos X="9" Y="37"/>
-        <UsageCount Value="140"/>
+        <UsageCount Value="142"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit6>
@@ -100,7 +101,7 @@
         <EditorIndex Value="6"/>
         <TopLine Value="22"/>
         <CursorPos X="9" Y="37"/>
-        <UsageCount Value="115"/>
+        <UsageCount Value="117"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit7>
@@ -111,214 +112,216 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="5"/>
-        <TopLine Value="84"/>
-        <CursorPos X="21" Y="89"/>
-        <UsageCount Value="62"/>
+        <TopLine Value="161"/>
+        <CursorPos Y="83"/>
+        <UsageCount Value="64"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit8>
       <Unit9>
+        <Filename Value="filials.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fFilials"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="898"/>
+        <CursorPos X="17" Y="905"/>
+        <UsageCount Value="48"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="winneris.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fWinnerIs"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="29"/>
+        <CursorPos X="9" Y="44"/>
+        <UsageCount Value="23"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit10>
+      <Unit11>
         <Filename Value="C:\lazarus\lcl\customtimer.pas"/>
         <UnitName Value="CustomTimer"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="165"/>
         <CursorPos Y="175"/>
         <UsageCount Value="6"/>
-      </Unit9>
-      <Unit10>
+      </Unit11>
+      <Unit12>
         <Filename Value="C:\lazarus\fpc\3.2.0\source\rtl\inc\systemh.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="844"/>
         <CursorPos X="17" Y="848"/>
-        <UsageCount Value="0"/>
-      </Unit10>
-      <Unit11>
+        <UsageCount Value="10"/>
+      </Unit12>
+      <Unit13>
         <Filename Value="C:\lazarus\lcl\interfaces\win32\win32memostrings.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="49"/>
         <CursorPos Y="62"/>
         <UsageCount Value="6"/>
-      </Unit11>
-      <Unit12>
+      </Unit13>
+      <Unit14>
         <Filename Value="C:\lazarus\lcl\include\control.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="3414"/>
         <CursorPos Y="3424"/>
         <UsageCount Value="9"/>
-      </Unit12>
-      <Unit13>
+      </Unit14>
+      <Unit15>
         <Filename Value="C:\lazarus\lcl\include\winapi.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="835"/>
         <CursorPos Y="845"/>
         <UsageCount Value="4"/>
-      </Unit13>
-      <Unit14>
+      </Unit15>
+      <Unit16>
         <Filename Value="C:\lazarus\lcl\interfaces\win32\win32winapi.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="3047"/>
         <CursorPos Y="3057"/>
         <UsageCount Value="4"/>
-      </Unit14>
-      <Unit15>
+      </Unit16>
+      <Unit17>
         <Filename Value="C:\lazarus\lcl\interfaces\win32\win32callback.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2837"/>
         <CursorPos Y="2850"/>
         <UsageCount Value="4"/>
-      </Unit15>
-      <Unit16>
+      </Unit17>
+      <Unit18>
         <Filename Value="C:\lazarus\lcl\interfaces\win32\win32object.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="391"/>
         <CursorPos Y="407"/>
         <UsageCount Value="4"/>
-      </Unit16>
-      <Unit17>
-        <Filename Value="filials.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="fFilials"/>
-        <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="4"/>
-        <TopLine Value="898"/>
-        <CursorPos X="17" Y="905"/>
-        <UsageCount Value="46"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
-      </Unit17>
-      <Unit18>
-        <Filename Value="winneris.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="fWinnerIs"/>
-        <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="3"/>
-        <TopLine Value="29"/>
-        <CursorPos X="9" Y="44"/>
-        <UsageCount Value="21"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit18>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="play.pas"/>
-        <Caret Line="3493" Column="15" TopLine="3483"/>
+        <Filename Value="winneris.pas"/>
+        <Caret Line="21" Column="29" TopLine="12"/>
       </Position1>
       <Position2>
-        <Filename Value="play.pas"/>
-        <Caret Line="3495" Column="31" TopLine="3483"/>
+        <Filename Value="winneris.pas"/>
+        <Caret Line="20" Column="29" TopLine="12"/>
       </Position2>
       <Position3>
-        <Filename Value="play.pas"/>
-        <Caret Line="3514" Column="31" TopLine="3498"/>
+        <Filename Value="winneris.pas"/>
+        <Caret Line="19" Column="29" TopLine="12"/>
       </Position3>
       <Position4>
-        <Filename Value="play.pas"/>
-        <Caret Line="3537" Column="31" TopLine="3521"/>
+        <Filename Value="winneris.pas"/>
+        <Caret Line="21" Column="29" TopLine="12"/>
       </Position4>
       <Position5>
-        <Filename Value="play.pas"/>
-        <Caret Line="3559" Column="31" TopLine="3546"/>
+        <Filename Value="winneris.pas"/>
+        <Caret Line="22" Column="29" TopLine="12"/>
       </Position5>
       <Position6>
-        <Filename Value="play.pas"/>
-        <Caret Line="3566" Column="37" TopLine="3556"/>
+        <Filename Value="winneris.pas"/>
+        <Caret Line="24" Column="29" TopLine="12"/>
       </Position6>
       <Position7>
-        <Filename Value="play.pas"/>
-        <Caret Line="3371" Column="81" TopLine="3364"/>
+        <Filename Value="winneris.pas"/>
+        <Caret Line="26" Column="55" TopLine="21"/>
       </Position7>
       <Position8>
         <Filename Value="play.pas"/>
-        <Caret Line="3037" Column="13" TopLine="3029"/>
+        <Caret Line="460" Column="120" TopLine="444"/>
       </Position8>
       <Position9>
         <Filename Value="play.pas"/>
-        <Caret Line="3007" Column="7" TopLine="2998"/>
+        <Caret Line="1062" Column="31" TopLine="1059"/>
       </Position9>
       <Position10>
         <Filename Value="play.pas"/>
-        <Caret Line="3017" Column="14" TopLine="3008"/>
+        <Caret Line="3008" Column="3" TopLine="2997"/>
       </Position10>
       <Position11>
         <Filename Value="play.pas"/>
-        <Caret Line="3027" Column="14" TopLine="3018"/>
+        <Caret Line="3098" Column="7" TopLine="3080"/>
       </Position11>
       <Position12>
         <Filename Value="play.pas"/>
-        <Caret Line="3037" Column="14" TopLine="3028"/>
+        <Caret Line="2999" Column="13" TopLine="3016"/>
       </Position12>
       <Position13>
         <Filename Value="play.pas"/>
-        <Caret Line="3375" Column="84" TopLine="3369"/>
+        <Caret Line="3001" Column="4" TopLine="2989"/>
       </Position13>
       <Position14>
         <Filename Value="play.pas"/>
-        <Caret Line="3369" Column="30" TopLine="443"/>
+        <Caret Line="3084" Column="11" TopLine="3077"/>
       </Position14>
       <Position15>
         <Filename Value="play.pas"/>
-        <Caret Line="2622" Column="9" TopLine="2602"/>
+        <Caret Line="3093" Column="22" TopLine="3087"/>
       </Position15>
       <Position16>
         <Filename Value="winneris.pas"/>
-        <Caret Line="11" Column="37"/>
+        <Caret Line="44" Column="9" TopLine="29"/>
       </Position16>
       <Position17>
-        <Filename Value="winneris.pas"/>
-        <Caret Line="15" Column="41"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="9" Column="20" TopLine="9"/>
       </Position17>
       <Position18>
-        <Filename Value="winneris.pas"/>
-        <Caret Line="17" Column="53"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="53" Column="3" TopLine="39"/>
       </Position18>
       <Position19>
-        <Filename Value="winneris.pas"/>
-        <Caret Line="16" Column="29" TopLine="12"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="52" Column="3" TopLine="38"/>
       </Position19>
       <Position20>
-        <Filename Value="winneris.pas"/>
-        <Caret Line="17" Column="29" TopLine="12"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="51" Column="3" TopLine="37"/>
       </Position20>
       <Position21>
-        <Filename Value="winneris.pas"/>
-        <Caret Line="19" Column="29" TopLine="12"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="40" Column="3" TopLine="37"/>
       </Position21>
       <Position22>
-        <Filename Value="winneris.pas"/>
-        <Caret Line="21" Column="29" TopLine="12"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="50" Column="47" TopLine="37"/>
       </Position22>
       <Position23>
-        <Filename Value="winneris.pas"/>
-        <Caret Line="20" Column="29" TopLine="12"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="52" Column="47" TopLine="39"/>
       </Position23>
       <Position24>
-        <Filename Value="winneris.pas"/>
-        <Caret Line="19" Column="29" TopLine="12"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="54" Column="47" TopLine="41"/>
       </Position24>
       <Position25>
-        <Filename Value="winneris.pas"/>
-        <Caret Line="21" Column="29" TopLine="12"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="56" Column="47" TopLine="43"/>
       </Position25>
       <Position26>
-        <Filename Value="winneris.pas"/>
-        <Caret Line="22" Column="29" TopLine="12"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="55" Column="47" TopLine="42"/>
       </Position26>
       <Position27>
-        <Filename Value="winneris.pas"/>
-        <Caret Line="24" Column="29" TopLine="12"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="54" Column="47" TopLine="41"/>
       </Position27>
       <Position28>
-        <Filename Value="winneris.pas"/>
-        <Caret Line="26" Column="55" TopLine="21"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="53" Column="55" TopLine="40"/>
       </Position28>
       <Position29>
         <Filename Value="play.pas"/>
-        <Caret Line="460" Column="120" TopLine="444"/>
+        <Caret Line="464" Column="11" TopLine="453"/>
       </Position29>
       <Position30>
         <Filename Value="play.pas"/>
-        <Caret Line="1062" Column="31" TopLine="1059"/>
+        <Caret Line="3531" Column="3" TopLine="3528"/>
       </Position30>
     </JumpHistory>
     <RunParams>
