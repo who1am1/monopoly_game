@@ -57,7 +57,6 @@ type
       ban_firms: byte;        // количество заложенных фирм
       kletka: byte;           // номер клетки, на которой находится игрок
       buf: byte;              // хранит номер предыдущей клетки
-      x,y: word;              // расстояние до фишки
       cash: longword;         // количество денег игрока
       capital: longword;      //капитал игрока
       not_bankrot: boolean;   // True, если игрок не банкрот, False - если банкрот
@@ -65,6 +64,8 @@ type
       jail_step: byte;        // сколько раз игрок бросил кубики, находясь в тюрьме
       skip_step: byte;        // сколько раз игрок пропускает ход
       go_back: boolean;       // True, если игрок ходит назад
+      monopolies: byte;       // количество монополий игрока (например, 3, если
+                              // у игрока монополия Кондитер)
     end;
     pl = array[1..5] of TPlayer;
 var
@@ -81,11 +82,11 @@ uses Play, Main;
 
 procedure TfPlayers.bContinueClick(Sender: TObject);
 var a,b,c,d,e: string[100];
+  i: byte; // просто счетчик
 begin
 
   StartMoney:=fSettings.StartMoneyEdit.Value;
   Jackpot:=fSettings.ValueJackpot.Value;
-  Credit:=fSettings.ValueCredit.Value;
   Nalog:=fSettings.TaxRateEdit.Value;
 
   dice_double:=0;
@@ -142,71 +143,26 @@ begin
   Player[4].name:=d;
   Player[5].name:=e;
 
-  // начальные деньги и капитал
-  Player[1].cash:=startmoney;
-  Player[1].capital:=0;
-  Player[2].cash:=startmoney;
-  Player[2].capital:=0;
-  Player[3].cash:=startmoney;
-  Player[3].capital:=0;
-  Player[4].cash:=startmoney;
-  Player[4].capital:=0;
-  Player[5].cash:=startmoney;
-  Player[5].capital:=0;
-
-  // купленные фирмы и заложенные фирмы
-
-  player[1].firms:=0;
-  player[2].firms:=0;
-  player[3].firms:=0;
-  player[4].firms:=0;
-  player[5].firms:=0;
-  player[1].ban_firms:=0;
-  player[2].ban_firms:=0;
-  player[3].ban_firms:=0;
-  player[4].ban_firms:=0;
-  player[5].ban_firms:=0;
-
-  // все игроки не банкроты:
-  player[1].not_bankrot:=True;
-  player[2].not_bankrot:=True;
-  player[3].not_bankrot:=True;
-  player[4].not_bankrot:=True;
-  player[5].not_bankrot:=True;
-
-  // никто не в тюрьме:
-  player[1].jail:=False;
-  player[2].jail:=False;
-  player[3].jail:=False;
-  player[4].jail:=False;
-  player[5].jail:=False;
-
-  player[1].jail_step:=0;
-  player[2].jail_step:=0;
-  player[3].jail_step:=0;
-  player[4].jail_step:=0;
-  player[5].jail_step:=0;
-
-  // никто не пропускает ход:
-  player[1].skip_step:=0;
-  player[2].skip_step:=0;
-  player[3].skip_step:=0;
-  player[4].skip_step:=0;
-  player[5].skip_step:=0;
-
-  // никто не ходит назад
-  player[1].go_back:=False;
-  player[2].go_back:=False;
-  player[3].go_back:=False;
-  player[4].go_back:=False;
-  player[5].go_back:=False;
-
-  // все начинат с первой клетки (если не загружается сохраненная игра)
-  Player[1].kletka:=1;
-  Player[2].kletka:=1;
-  Player[3].kletka:=1;
-  Player[4].kletka:=1;
-  Player[5].kletka:=1;
+  for i:=1 to 5 do
+  begin
+    // начальные деньги и капитал:
+    player[i].cash:=startmoney;
+    player[i].capital:=0;
+    // купленные фирмы и заложенные фирмы:
+    player[i].firms:=0;
+    player[i].ban_firms:=0;
+    // все игроки не банкроты:
+    player[i].not_bankrot:=True;
+    // никто не в тюрьме:
+    player[i].jail:=False;
+    player[i].jail_step:=0;
+    // никто не пропускает ход:
+    player[i].skip_step:=0;
+    // никто не ходит назад
+    player[i].go_back:=False;
+    // все начинат с первой клетки
+    Player[i].kletka:=1;
+  end;
 
   bContinue.ModalResult:=mrOK;
   fPlay.Show;
@@ -258,31 +214,31 @@ end;
 procedure TfPlayers.PlayerName1UTF8KeyPress(Sender: TObject;
   var UTF8Key: TUTF8Char);
 begin
-  if (UTF8Length(PlayerName1.Text)=21) and (UTF8Key<>#8) then UTF8Key:=#0;
+  if (UTF8Length(PlayerName1.Text)=18) and (UTF8Key<>#8) then UTF8Key:=#0;
 end;
 
 procedure TfPlayers.PlayerName2UTF8KeyPress(Sender: TObject;
   var UTF8Key: TUTF8Char);
 begin
-  if (UTF8Length(PlayerName2.Text)=21) and (UTF8Key<>#8) then UTF8Key:=#0;
+  if (UTF8Length(PlayerName2.Text)=18) and (UTF8Key<>#8) then UTF8Key:=#0;
 end;
 
 procedure TfPlayers.PlayerName3UTF8KeyPress(Sender: TObject;
   var UTF8Key: TUTF8Char);
 begin
-  if (UTF8Length(PlayerName3.Text)=21) and (UTF8Key<>#8) then UTF8Key:=#0;
+  if (UTF8Length(PlayerName3.Text)=18) and (UTF8Key<>#8) then UTF8Key:=#0;
 end;
 
 procedure TfPlayers.PlayerName4UTF8KeyPress(Sender: TObject;
   var UTF8Key: TUTF8Char);
 begin
-  if (UTF8Length(PlayerName4.Text)=21) and (UTF8Key<>#8) then UTF8Key:=#0;
+  if (UTF8Length(PlayerName4.Text)=18) and (UTF8Key<>#8) then UTF8Key:=#0;
 end;
 
 procedure TfPlayers.PlayerName5UTF8KeyPress(Sender: TObject;
   var UTF8Key: TUTF8Char);
 begin
-  if (UTF8Length(PlayerName5.Text)=21) and (UTF8Key<>#8) then UTF8Key:=#0;
+  if (UTF8Length(PlayerName5.Text)=18) and (UTF8Key<>#8) then UTF8Key:=#0;
 end;
 
 procedure TfPlayers.Plus1Click(Sender: TObject);

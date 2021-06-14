@@ -17,8 +17,6 @@ type
     Back2: TImage;
     Back3: TImage;
     Back4: TImage;
-    Button1: TButton;
-    ButtonText10: TLabel;
     ButtonText11: TLabel;
     ButtonText3: TLabel;
     ButtonText4: TLabel;
@@ -26,7 +24,6 @@ type
     ButtonText6: TLabel;
     ButtonText7: TLabel;
     ButtonText8: TLabel;
-    ButtonText9: TLabel;
     C102: TShape;
     C103: TShape;
     C112: TShape;
@@ -103,7 +100,6 @@ type
     House4: TLabel;
     House5: TLabel;
     ImButton1: TImage;
-    ImButton10: TImage;
     ImButton11: TImage;
     ImButton2: TImage;
     ImButton3: TImage;
@@ -112,7 +108,6 @@ type
     ImButton6: TImage;
     ImButton7: TImage;
     ImButton8: TImage;
-    ImButton9: TImage;
     ImFalse1: TImage;
     ImFalse2: TImage;
     ImFalse3: TImage;
@@ -347,7 +342,6 @@ type
     ButtonText2: TLabel;
     Token4: TShape;
     Token5: TShape;
-    procedure Button1Click(Sender: TObject);
     procedure ButtonText1Click(Sender: TObject);
     procedure ButtonText2Click(Sender: TObject);
     procedure ButtonText3Click(Sender: TObject);
@@ -407,28 +401,28 @@ type
     procedure ChangeIt(var now_player:byte);
     // процедура, в которой ход передается следующему игроку и отображаюся кнопки
     procedure ButtonChange;
+    //процедура, в которой проверяем, есть ли у кого-нибудь монополия:
+    procedure CheckIt;
   end;
 
   type
     TPolya=record              // запись одного поля (клетки)
       name: string;            // название клетки
       description: string;     // описание клетки
-      // координата точки по оси Х и оси Y с которой начинается отрисовка метки,
-      // выставляемая на клетку при ее покупке игроком
-      px,py: integer;
       { хранит номер игрока, купившего клетку.
       Значение 0 соответствует клетке, которую еще не купили: }
       kup: byte;
       x1,x2,x3,x4,x5,
-      y1,y2,y3,y4,y5: integer; // координаты фишек
-      price: integer;          // цена покупки фирмы
-      mon_price: integer;      // цена покупки филиала (у городов нет такой возможности)
+      y1,y2,y3,y4,y5: word; // координаты фишек
+      price: longword;          // цена покупки фирмы
+      mon_price: longword;      // цена покупки филиала (у городов нет такой возможности)
       // цена аренды обычной фирмы, фирмы, если есть монополия, построен 1 филиал и т.д.
       reg_rent, mon_rent, mon1_rent, mon2_rent,
       mon3_rent, mon4_rent, gold_rent: integer;
-      now_rent: integer;      // арендная плата в текущий момент игры
+      now_rent: longword;     // арендная плата в текущий момент игры
       pledge: boolean;        // заложена ли фирма. Если True, то заложена
       step_pledge: byte;      // сколько ходов осталось до потери заложенной фирмы
+      checked: boolean;       // False, если у кого-то уже есть монополия на эту клетку
     end;
     kl = array[1..42] of TPolya;
 
@@ -1054,22 +1048,12 @@ begin
     kletka[i].pledge:=False;
     kletka[i].step_pledge:=50;
     kletka[i].now_rent:=0;
+    kletka[i].checked:=True;
   end;
 
   now_player:=1;
 
   Step.Caption:=inttostr(0);
-
-  if Credit>0 then
-  begin
-    ImButton9.Visible:=True;
-    ButtonText9.Visible:=True;
-  end
-  else
-  begin
-    ImButton9.Visible:=False;
-    ButtonText9.Visible:=False;
-  end;
 
   Name1.Color:=Player[1].color;
   Name2.Color:=Player[2].color;
@@ -1211,6 +1195,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[9].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[9].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[9].now_rent)+' $';
+  if kletka[9].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Filial.Caption:=inttostr(kletka[9].mon_price)+' $';
   fInfoFirm.Rent1.Caption:=inttostr(kletka[9].reg_rent * 2)+' $';
   fInfoFirm.Rent2.Caption:=inttostr(kletka[9].mon1_rent)+' $';
@@ -1232,6 +1217,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[26].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[26].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[26].now_rent)+' $';
+  if kletka[26].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Filial.Caption:=inttostr(kletka[26].mon_price)+' $';
   fInfoFirm.Rent1.Caption:=inttostr(kletka[26].reg_rent * 2)+' $';
   fInfoFirm.Rent2.Caption:=inttostr(kletka[26].mon1_rent)+' $';
@@ -1253,6 +1239,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[15].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[15].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[15].now_rent)+' $';
+  if kletka[15].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Filial.Caption:=inttostr(kletka[15].mon_price)+' $';
   fInfoFirm.Rent1.Caption:=inttostr(kletka[15].reg_rent * 2)+' $';
   fInfoFirm.Rent2.Caption:=inttostr(kletka[15].mon1_rent)+' $';
@@ -1274,6 +1261,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[11].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[11].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[11].now_rent)+' $';
+  if kletka[11].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Filial.Caption:=inttostr(kletka[11].mon_price)+' $';
   fInfoFirm.Rent1.Caption:=inttostr(kletka[11].reg_rent * 2)+' $';
   fInfoFirm.Rent2.Caption:=inttostr(kletka[11].mon1_rent)+' $';
@@ -1295,6 +1283,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[30].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[30].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[30].now_rent)+' $';
+  if kletka[30].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Filial.Caption:=inttostr(kletka[30].mon_price)+' $';
   fInfoFirm.Rent1.Caption:=inttostr(kletka[30].reg_rent * 2)+' $';
   fInfoFirm.Rent2.Caption:=inttostr(kletka[30].mon1_rent)+' $';
@@ -1316,6 +1305,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[17].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[17].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[17].now_rent)+' $';
+  if kletka[17].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Filial.Caption:=inttostr(kletka[17].mon_price)+' $';
   fInfoFirm.Rent1.Caption:=inttostr(kletka[17].reg_rent * 2)+' $';
   fInfoFirm.Rent2.Caption:=inttostr(kletka[17].mon1_rent)+' $';
@@ -1337,6 +1327,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[23].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[23].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[23].now_rent)+' $';
+  if kletka[23].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Filial.Caption:=inttostr(kletka[23].mon_price)+' $';
   fInfoFirm.Rent1.Caption:=inttostr(kletka[23].reg_rent * 2)+' $';
   fInfoFirm.Rent2.Caption:=inttostr(kletka[23].mon1_rent)+' $';
@@ -1358,6 +1349,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[19].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[19].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[19].now_rent)+' $';
+  if kletka[19].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Filial.Caption:=inttostr(kletka[19].mon_price)+' $';
   fInfoFirm.Rent1.Caption:=inttostr(kletka[19].reg_rent * 2)+' $';
   fInfoFirm.Rent2.Caption:=inttostr(kletka[19].mon1_rent)+' $';
@@ -1379,6 +1371,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[13].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[13].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[13].now_rent)+' $';
+  if kletka[13].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Filial.Caption:=inttostr(kletka[13].mon_price)+' $';
   fInfoFirm.Rent1.Caption:=inttostr(kletka[13].reg_rent * 2)+' $';
   fInfoFirm.Rent2.Caption:=inttostr(kletka[13].mon1_rent)+' $';
@@ -1400,6 +1393,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[2].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[2].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[2].now_rent)+' $';
+  if kletka[2].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Filial.Caption:=inttostr(kletka[2].mon_price)+' $';
   fInfoFirm.Rent1.Caption:=inttostr(kletka[2].reg_rent * 2)+' $';
   fInfoFirm.Rent2.Caption:=inttostr(kletka[2].mon1_rent)+' $';
@@ -1421,6 +1415,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[5].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[5].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[5].now_rent)+' $';
+  if kletka[5].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Filial.Caption:=inttostr(kletka[5].mon_price)+' $';
   fInfoFirm.Rent1.Caption:=inttostr(kletka[5].reg_rent * 2)+' $';
   fInfoFirm.Rent2.Caption:=inttostr(kletka[5].mon1_rent)+' $';
@@ -1442,6 +1437,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[42].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[42].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[42].now_rent)+' $';
+  if kletka[42].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Filial.Caption:=inttostr(kletka[42].mon_price)+' $';
   fInfoFirm.Rent1.Caption:=inttostr(kletka[42].reg_rent * 2)+' $';
   fInfoFirm.Rent2.Caption:=inttostr(kletka[42].mon1_rent)+' $';
@@ -1492,6 +1488,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[28].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[28].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[28].now_rent)+' $';
+  if kletka[28].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Sale.Caption:=(inttostr(kletka[28].price div 2))+' $';
   fInfoFirm.MonopoliesInfo.Visible:=False;
   fInfoFirm.Label3.Visible:=False;
@@ -1724,6 +1721,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[21].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[21].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[21].now_rent)+' $';
+  if kletka[21].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Filial.Caption:=inttostr(kletka[21].mon_price)+' $';
   fInfoFirm.Rent1.Caption:=inttostr(kletka[21].reg_rent * 2)+' $';
   fInfoFirm.Rent2.Caption:=inttostr(kletka[21].mon1_rent)+' $';
@@ -1772,6 +1770,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[38].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[38].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[38].now_rent)+' $';
+  if kletka[38].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Filial.Caption:=inttostr(kletka[38].mon_price)+' $';
   fInfoFirm.Rent1.Caption:=inttostr(kletka[38].reg_rent * 2)+' $';
   fInfoFirm.Rent2.Caption:=inttostr(kletka[38].mon1_rent)+' $';
@@ -1793,6 +1792,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[25].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[25].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[25].now_rent)+' $';
+  if kletka[25].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Filial.Caption:=inttostr(kletka[25].mon_price)+' $';
   fInfoFirm.Rent1.Caption:=inttostr(kletka[25].reg_rent * 2)+' $';
   fInfoFirm.Rent2.Caption:=inttostr(kletka[25].mon1_rent)+' $';
@@ -1814,6 +1814,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[29].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[29].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[29].now_rent)+' $';
+  if kletka[29].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Filial.Caption:=inttostr(kletka[29].mon_price)+' $';
   fInfoFirm.Rent1.Caption:=inttostr(kletka[29].reg_rent * 2)+' $';
   fInfoFirm.Rent2.Caption:=inttostr(kletka[29].mon1_rent)+' $';
@@ -1835,6 +1836,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[40].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[40].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[40].now_rent)+' $';
+  if kletka[40].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Filial.Caption:=inttostr(kletka[40].mon_price)+' $';
   fInfoFirm.Rent1.Caption:=inttostr(kletka[40].reg_rent * 2)+' $';
   fInfoFirm.Rent2.Caption:=inttostr(kletka[40].mon1_rent)+' $';
@@ -1858,6 +1860,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[39].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[39].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[39].now_rent)+' $';
+  if kletka[39].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Sale.Caption:=(inttostr(kletka[39].price div 2))+' $';
   fInfoFirm.MonopoliesInfo.Visible:=False;
   fInfoFirm.Label3.Visible:=False;
@@ -1882,6 +1885,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[8].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[8].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[8].now_rent)+' $';
+  if kletka[8].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Filial.Caption:=inttostr(kletka[8].mon_price)+' $';
   fInfoFirm.Rent1.Caption:=inttostr(kletka[8].reg_rent * 2)+' $';
   fInfoFirm.Rent2.Caption:=inttostr(kletka[8].mon1_rent)+' $';
@@ -1905,6 +1909,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[7].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[7].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[7].now_rent)+' $';
+  if kletka[7].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Sale.Caption:=(inttostr(kletka[7].price div 2))+' $';
   fInfoFirm.MonopoliesInfo.Visible:=False;
   fInfoFirm.Label3.Visible:=False;
@@ -1929,6 +1934,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[33].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[33].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[33].now_rent)+' $';
+  if kletka[33].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Filial.Caption:=inttostr(kletka[33].mon_price)+' $';
   fInfoFirm.Rent1.Caption:=inttostr(kletka[33].reg_rent * 2)+' $';
   fInfoFirm.Rent2.Caption:=inttostr(kletka[33].mon1_rent)+' $';
@@ -1950,6 +1956,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[37].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[37].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[37].now_rent)+' $';
+  if kletka[37].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Filial.Caption:=inttostr(kletka[37].mon_price)+' $';
   fInfoFirm.Rent1.Caption:=inttostr(kletka[37].reg_rent * 2)+' $';
   fInfoFirm.Rent2.Caption:=inttostr(kletka[37].mon1_rent)+' $';
@@ -1971,6 +1978,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[4].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[4].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[4].now_rent)+' $';
+  if kletka[4].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Filial.Caption:=inttostr(kletka[4].mon_price)+' $';
   fInfoFirm.Rent1.Caption:=inttostr(kletka[4].reg_rent * 2)+' $';
   fInfoFirm.Rent2.Caption:=inttostr(kletka[4].mon1_rent)+' $';
@@ -1992,6 +2000,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[34].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[34].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[34].now_rent)+' $';
+  if kletka[34].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Filial.Caption:=inttostr(kletka[34].mon_price)+' $';
   fInfoFirm.Rent1.Caption:=inttostr(kletka[34].reg_rent * 2)+' $';
   fInfoFirm.Rent2.Caption:=inttostr(kletka[34].mon1_rent)+' $';
@@ -2040,6 +2049,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[16].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[16].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[16].now_rent)+' $';
+  if kletka[16].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Filial.Caption:=inttostr(kletka[16].mon_price)+' $';
   fInfoFirm.Rent1.Caption:=inttostr(kletka[16].reg_rent * 2)+' $';
   fInfoFirm.Rent2.Caption:=inttostr(kletka[16].mon1_rent)+' $';
@@ -2061,6 +2071,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[36].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[36].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[36].now_rent)+' $';
+  if kletka[36].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Filial.Caption:=inttostr(kletka[36].mon_price)+' $';
   fInfoFirm.Rent1.Caption:=inttostr(kletka[36].reg_rent * 2)+' $';
   fInfoFirm.Rent2.Caption:=inttostr(kletka[36].mon1_rent)+' $';
@@ -2084,6 +2095,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[18].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[18].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[18].now_rent)+' $';
+  if kletka[18].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Sale.Caption:=(inttostr(kletka[18].price div 2))+' $';
   fInfoFirm.MonopoliesInfo.Visible:=False;
   fInfoFirm.Label3.Visible:=False;
@@ -2135,6 +2147,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[32].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[32].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[32].now_rent)+' $';
+  if kletka[32].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Filial.Caption:=inttostr(kletka[32].mon_price)+' $';
   fInfoFirm.Rent1.Caption:=inttostr(kletka[32].reg_rent * 2)+' $';
   fInfoFirm.Rent2.Caption:=inttostr(kletka[32].mon1_rent)+' $';
@@ -2156,6 +2169,7 @@ begin
   fInfoFirm.Buy.Caption:=inttostr(kletka[12].price)+' $';
   fInfoFirm.RegRent.Caption:=inttostr(kletka[12].reg_rent)+' $';
   fInfoFirm.NowRent.Caption:=inttostr(kletka[12].now_rent)+' $';
+  if kletka[12].pledge then fInfoFirm.NowRent.Caption:='0 $';
   fInfoFirm.Filial.Caption:=inttostr(kletka[12].mon_price)+' $';
   fInfoFirm.Rent1.Caption:=inttostr(kletka[12].reg_rent * 2)+' $';
   fInfoFirm.Rent2.Caption:=inttostr(kletka[12].mon1_rent)+' $';
@@ -2610,6 +2624,8 @@ begin // изменять также похожее в кнопке Оплати
       ButtonText6.Enabled:=False;
     end;
 
+  CheckIt;
+
   if dice_double>0 then
   begin
     Info.Lines.Add(player[now_player].name+' выкинул дубль и ходит ещё раз.');
@@ -2687,10 +2703,159 @@ begin // изменять также похожее в кнопке Оплати
 
 end; //procedure
 
-procedure TfPlay.Button1Click(Sender: TObject);
+procedure TfPlay.CheckIt;
+var i,j,b:byte;
 begin
-  C11.brush.color:=$00DB5F00;
-  C11.brush.style:=bsBDiagonal;
+  if (kletka[2].kup>0)and(kletka[2].checked)and
+  (kletka[2].kup=kletka[4].kup)and(kletka[2].kup=kletka[5].kup) then
+  begin
+    kletka[2].now_rent:=kletka[2].reg_rent*2;
+    kletka[4].now_rent:=kletka[4].reg_rent*2;
+    kletka[5].now_rent:=kletka[5].reg_rent*2;
+    kletka[2].checked:=False;
+    inc(player[kletka[2].kup].monopolies,3);
+  end;
+
+  if (kletka[8].kup>0)and(kletka[8].checked)and
+  (kletka[8].kup=kletka[9].kup)and(kletka[8].kup=kletka[11].kup) then
+  begin
+    kletka[8].now_rent:=kletka[8].reg_rent*2;
+    kletka[9].now_rent:=kletka[9].reg_rent*2;
+    kletka[11].now_rent:=kletka[11].reg_rent*2;
+    kletka[8].checked:=False;
+    inc(player[kletka[8].kup].monopolies,3);
+  end;
+
+  if (kletka[12].kup>0)and(kletka[12].checked)and
+  (kletka[12].kup=kletka[13].kup) then
+  begin
+    kletka[12].now_rent:=kletka[12].reg_rent*2;
+    kletka[13].now_rent:=kletka[13].reg_rent*2;
+    kletka[12].checked:=False;
+    inc(player[kletka[12].kup].monopolies,2);
+  end;
+
+  if (kletka[15].kup>0)and(kletka[15].checked)and
+  (kletka[15].kup=kletka[16].kup)and(kletka[15].kup=kletka[17].kup) then
+  begin
+    kletka[15].now_rent:=kletka[15].reg_rent*2;
+    kletka[16].now_rent:=kletka[16].reg_rent*2;
+    kletka[17].now_rent:=kletka[17].reg_rent*2;
+    kletka[15].checked:=False;
+    inc(player[kletka[15].kup].monopolies,3);
+  end;
+
+  if (kletka[19].kup>0)and(kletka[19].checked)and
+  (kletka[19].kup=kletka[21].kup) then
+  begin
+    kletka[19].now_rent:=kletka[19].reg_rent*2;
+    kletka[21].now_rent:=kletka[21].reg_rent*2;
+    kletka[19].checked:=False;
+    inc(player[kletka[19].kup].monopolies,2);
+  end;
+
+  if (kletka[23].kup>0)and(kletka[23].checked)and
+  (kletka[23].kup=kletka[25].kup)and(kletka[23].kup=kletka[26].kup) then
+  begin
+    kletka[23].now_rent:=kletka[23].reg_rent*2;
+    kletka[25].now_rent:=kletka[25].reg_rent*2;
+    kletka[26].now_rent:=kletka[26].reg_rent*2;
+    kletka[23].checked:=False;
+    inc(player[kletka[23].kup].monopolies,3);
+  end;
+
+  if (kletka[29].kup>0)and(kletka[29].checked)and
+  (kletka[29].kup=kletka[30].kup)and(kletka[29].kup=kletka[32].kup) then
+  begin
+    kletka[29].now_rent:=kletka[29].reg_rent*2;
+    kletka[30].now_rent:=kletka[30].reg_rent*2;
+    kletka[32].now_rent:=kletka[32].reg_rent*2;
+    kletka[29].checked:=False;
+    inc(player[kletka[29].kup].monopolies,3);
+  end;
+
+  if (kletka[33].kup>0)and(kletka[33].checked)and
+  (kletka[33].kup=kletka[34].kup) then
+  begin
+    kletka[33].now_rent:=kletka[33].reg_rent*2;
+    kletka[34].now_rent:=kletka[34].reg_rent*2;
+    kletka[33].checked:=False;
+    inc(player[kletka[33].kup].monopolies,2);
+  end;
+
+  if (kletka[36].kup>0)and(kletka[36].checked)and
+  (kletka[36].kup=kletka[37].kup)and(kletka[36].kup=kletka[38].kup) then
+  begin
+    kletka[36].now_rent:=kletka[36].reg_rent*2;
+    kletka[37].now_rent:=kletka[37].reg_rent*2;
+    kletka[38].now_rent:=kletka[38].reg_rent*2;
+    kletka[36].checked:=False;
+    inc(player[kletka[36].kup].monopolies,3);
+  end;
+
+  if (kletka[40].kup>0)and(kletka[40].checked)and
+  (kletka[40].kup=kletka[42].kup) then
+  begin
+    kletka[40].now_rent:=kletka[40].reg_rent*2;
+    kletka[42].now_rent:=kletka[42].reg_rent*2;
+    kletka[40].checked:=False;
+    inc(player[kletka[40].kup].monopolies,2);
+  end;
+
+  for i:=1 to 5 do
+  begin
+    b:=0;
+    if kletka[7].kup=i then inc(b);
+    if kletka[18].kup=i then inc(b);
+    if kletka[28].kup=i then inc(b);
+    if kletka[39].kup=i then inc(b);
+    case b of
+    4:
+      begin
+        kletka[7].now_rent:=600000;
+        kletka[18].now_rent:=600000;
+        kletka[28].now_rent:=600000;
+        kletka[39].now_rent:=600000;
+      end;
+    3:
+      begin
+        if kletka[7].kup=i then kletka[7].now_rent:=300000;
+        if kletka[18].kup=i then kletka[18].now_rent:=300000;
+        if kletka[28].kup=i then kletka[28].now_rent:=300000;
+        if kletka[39].kup=i then kletka[39].now_rent:=300000;
+      end;
+    2:
+      begin
+        if kletka[7].kup=i then kletka[7].now_rent:=200000;
+        if kletka[18].kup=i then kletka[18].now_rent:=200000;
+        if kletka[28].kup=i then kletka[28].now_rent:=200000;
+        if kletka[39].kup=i then kletka[39].now_rent:=200000;
+      end;
+    1:
+      begin
+        if kletka[7].kup=i then kletka[7].now_rent:=100000;
+        if kletka[18].kup=i then kletka[18].now_rent:=100000;
+        if kletka[28].kup=i then kletka[28].now_rent:=100000;
+        if kletka[39].kup=i then kletka[39].now_rent:=100000;
+      end;
+    end; //case
+  end;
+
+  { for i:=1 to 5 do
+  begin
+    if ((kletka[7].kup=i)and(kletka[18].kup=i)and(kletka[28].kup=i))or
+    ((kletka[18].kup=i)and(kletka[28].kup=i)and(kletka[39].kup=i))or
+    (
+    if (kletka[7].kup=i)and(kletka[18].kup=i)and(kletka[28].kup=i)and
+    (kletka[39].kup=i) then
+    begin
+      kletka[7].now_rent:=600000;
+      kletka[18].now_rent:=600000;
+      kletka[28].now_rent:=600000;
+      kletka[39].now_rent:=600000;
+    end;
+  end;}
+
 end;
 
 procedure TfPlay.ButtonText1Click(Sender: TObject);
@@ -2753,6 +2918,8 @@ begin
   end; //case
   Info.Lines.Add(Player[now_player].name+' покупает '+
   kletka[player[now_player].kletka].name);
+
+  CheckIt;
 
   ButtonChange;
 

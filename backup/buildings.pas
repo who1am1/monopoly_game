@@ -121,7 +121,7 @@ begin
   else
     begin
       if player[now_player].cash<kletka[strtoint(MainChoose.Text)].price then
-      fNoMoney.ShowModal;
+      fNoMoney.ShowModal
       else
       begin
       case strtoint(MainChoose.Text) of

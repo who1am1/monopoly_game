@@ -14,10 +14,9 @@ type
 
   TfMain = class(TForm)
     bPlay: TButton;
-    bStatistics: TButton;
     bSettings: TButton;
     bExit: TButton;
-    bLoad: TButton;
+    bRules: TButton;
     procedure bExitClick(Sender: TObject);
     procedure bPlayClick(Sender: TObject);
     procedure bSettingsClick(Sender: TObject);

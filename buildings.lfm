@@ -881,7 +881,7 @@ object fBuildings: TfBuildings
     Left = 40
     Height = 23
     Top = 90
-    Width = 224
+    Width = 238
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clBlack
     Font.Height = -12

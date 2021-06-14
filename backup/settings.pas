@@ -5,20 +5,20 @@ unit settings;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Spin, StdCtrls;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Spin, StdCtrls,
+  ExtCtrls, IniPropStorage;
 
 type
 
   { TfSettings }
 
   TfSettings = class(TForm)
-    bSettingsSave: TButton;
+    BackgroundInfoFirm: TImage;
+    ImButton: TImage;
+    SaveSettings: TIniPropStorage;
     Label5: TLabel;
-    Label6: TLabel;
     TaxRateEdit: TSpinEdit;
-    ValueCredit: TSpinEdit;
-    TrueCredit: TCheckBox;
-    Label4: TLabel;
+    TextOK: TLabel;
     ValueJackpot: TSpinEdit;
     TrueJackpot: TCheckBox;
     Label1: TLabel;
@@ -26,8 +26,9 @@ type
     Label3: TLabel;
     StartMoneyEdit: TSpinEdit;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormShow(Sender: TObject);
     procedure StartMoneyEditChange(Sender: TObject);
-    procedure TrueCreditChange(Sender: TObject);
+    procedure TextOKClick(Sender: TObject);
     procedure TrueJackpotChange(Sender: TObject);
   private
 
@@ -76,28 +77,20 @@ begin
     end;
 end;
 
-procedure TfSettings.TrueCreditChange(Sender: TObject);
+procedure TfSettings.TextOKClick(Sender: TObject);
 begin
-  ValueCredit.Enabled:= TrueCredit.Checked;
-  if TrueCredit.Checked=False then
-    begin
-      ValueCredit.MinValue:=0;
-      ValueCredit.Value:=0;
-    end
-  else
-  begin
-    ValueCredit.MinValue:=1000000;
-    ValueCredit.Value:=3000000;
-  end;
+
+  Close;
 end;
 
 procedure TfSettings.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-  StartMoney:=StartMoneyEdit.Value;
-  Jackpot:=ValueJackpot.Value;
-  Credit:=ValueCredit.Value;
-  Nalog:=TaxRateEdit.Value;
   fMain.Show;
+end;
+
+procedure TfSettings.FormShow(Sender: TObject);
+begin
+
 end;
 
 end.
