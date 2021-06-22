@@ -1,7 +1,7 @@
 object fMain: TfMain
-  Left = 697
+  Left = 665
   Height = 231
-  Top = 190
+  Top = 189
   Width = 252
   BorderStyle = bsDialog
   Caption = 'Главное меню'

@@ -2211,8 +2211,8 @@ begin
   if changecube>20 then RollDice.Enabled:=False
   else
   begin
-    CubeValue1.Caption:=inttostr(random(6)+1);
-    CubeValue2.Caption:=inttostr(random(6)+1);
+    CubeValue1.Caption:=inttostr(random(1)+1);
+    CubeValue2.Caption:=inttostr(random(1)+1);
     if changecube=20 then
     begin
       b:=true;
@@ -2239,6 +2239,7 @@ begin
           else
             b:=False;
         end;
+
         buttonchange;
         exit;
         RollDice.Enabled:=False;
@@ -3099,6 +3100,7 @@ begin
     fWinnerIs.Capital1.Caption:=inttostr(player[next_player].capital);
     fWinnerIs.ShowModal;
     Close;
+    fMain.Close;
   end;
 
   for i:=1 to 42 do
@@ -3637,7 +3639,7 @@ end; //procedure
 
 procedure TfPlay.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-  fMain.Show;
+  fMain.Close;
 end;
 
 end.

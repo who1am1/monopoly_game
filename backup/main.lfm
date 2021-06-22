@@ -1,7 +1,7 @@
 object fMain: TfMain
-  Left = 644
+  Left = 697
   Height = 231
-  Top = 185
+  Top = 190
   Width = 252
   BorderStyle = bsDialog
   Caption = 'Главное меню'
@@ -865,6 +865,7 @@ object fMain: TfMain
     Height = 35
     Top = 32
     Width = 144
+    OnClick = bPlayClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963310F000089504E47
       0D0A1A0A0000000D49484452000000B6000000370806000000A11CB079000001
@@ -1007,12 +1008,14 @@ object fMain: TfMain
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
+    OnClick = bPlayClick
   end
   object ImButton2: TImage
     Left = 56
     Height = 35
     Top = 104
     Width = 144
+    OnClick = bSettingsClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963310F000089504E47
       0D0A1A0A0000000D49484452000000B6000000370806000000A11CB079000001
@@ -1155,12 +1158,14 @@ object fMain: TfMain
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
+    OnClick = bSettingsClick
   end
   object ImButton3: TImage
     Left = 56
     Height = 35
     Top = 176
     Width = 144
+    OnClick = bExitClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963310F000089504E47
       0D0A1A0A0000000D49484452000000B6000000370806000000A11CB079000001
@@ -1303,5 +1308,6 @@ object fMain: TfMain
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
+    OnClick = bExitClick
   end
 end

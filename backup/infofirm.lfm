@@ -1048,7 +1048,7 @@ object fInfoFirm: TfInfoFirm
     Width = 230
     Alignment = taRightJustify
     AutoSize = False
-    Caption = '1'
+    Caption = 'КроликПитерВышелПогул'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
     Font.Height = -19

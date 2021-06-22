@@ -2239,9 +2239,10 @@ begin
           else
             b:=False;
         end;
+        RollDice.Enabled:=False;
         buttonchange;
         exit;
-        RollDice.Enabled:=False;
+
       end;
       next_player:=now_player;
       if player[now_player].jail then // если игрок в тюрьме
@@ -3638,7 +3639,7 @@ end; //procedure
 
 procedure TfPlay.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-  fMain.Show;
+  fMain.Close;
 end;
 
 end.

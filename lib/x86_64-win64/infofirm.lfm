@@ -1,7 +1,7 @@
 object fInfoFirm: TfInfoFirm
-  Left = 563
+  Left = 545
   Height = 626
-  Top = 51
+  Top = 36
   Width = 356
   BorderStyle = bsDialog
   Caption = 'Информация о клетке'
