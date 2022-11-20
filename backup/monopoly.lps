@@ -19,7 +19,7 @@
         <ComponentName Value="fMain"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="40"/>
+        <TopLine Value="36"/>
         <CursorPos X="55" Y="53"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
@@ -32,7 +32,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="7"/>
-        <TopLine Value="57"/>
+        <TopLine Value="56"/>
         <CursorPos X="73" Y="28"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
@@ -45,8 +45,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="221"/>
-        <CursorPos X="2" Y="71"/>
+        <TopLine Value="56"/>
+        <CursorPos X="19" Y="163"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -59,8 +59,9 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="2186"/>
-        <CursorPos X="38" Y="2209"/>
+        <TopLine Value="1050"/>
+        <CursorPos X="3" Y="1067"/>
+        <ComponentState Value="1"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -73,8 +74,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="InfoFirm"/>
         <EditorIndex Value="8"/>
-        <TopLine Value="13"/>
-        <CursorPos X="7" Y="101"/>
+        <TopLine Value="59"/>
+        <CursorPos X="28" Y="68"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -88,7 +89,7 @@
         <UnitName Value="NameError"/>
         <EditorIndex Value="9"/>
         <CursorPos X="9" Y="37"/>
-        <UsageCount Value="161"/>
+        <UsageCount Value="170"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit6>
@@ -100,9 +101,9 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="NoMoney"/>
         <EditorIndex Value="6"/>
-        <TopLine Value="22"/>
+        <TopLine Value="18"/>
         <CursorPos X="9" Y="37"/>
-        <UsageCount Value="136"/>
+        <UsageCount Value="145"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit7>
@@ -113,9 +114,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="5"/>
-        <TopLine Value="160"/>
+        <TopLine Value="162"/>
         <CursorPos Y="83"/>
-        <UsageCount Value="83"/>
+        <UsageCount Value="92"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit8>
@@ -126,9 +127,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="898"/>
+        <TopLine Value="859"/>
         <CursorPos X="17" Y="905"/>
-        <UsageCount Value="67"/>
+        <UsageCount Value="76"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit9>
@@ -139,9 +140,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="29"/>
+        <TopLine Value="25"/>
         <CursorPos X="9" Y="44"/>
-        <UsageCount Value="42"/>
+        <UsageCount Value="51"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit10>
@@ -151,147 +152,179 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="141"/>
         <CursorPos Y="151"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
       </Unit11>
       <Unit12>
         <Filename Value="C:\lazarus\fpc\3.2.0\source\rtl\inc\systemh.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="844"/>
         <CursorPos X="17" Y="848"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
       </Unit12>
       <Unit13>
         <Filename Value="C:\lazarus\lcl\interfaces\win32\win32memostrings.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="49"/>
         <CursorPos Y="62"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="4"/>
       </Unit13>
       <Unit14>
         <Filename Value="C:\lazarus\lcl\include\control.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="4200"/>
         <CursorPos Y="4216"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
       </Unit14>
       <Unit15>
         <Filename Value="C:\lazarus\lcl\include\winapi.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="835"/>
         <CursorPos Y="845"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="2"/>
       </Unit15>
       <Unit16>
         <Filename Value="C:\lazarus\lcl\interfaces\win32\win32winapi.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="3047"/>
         <CursorPos Y="3057"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="2"/>
       </Unit16>
       <Unit17>
         <Filename Value="C:\lazarus\lcl\interfaces\win32\win32callback.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2837"/>
         <CursorPos Y="2850"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
       </Unit17>
       <Unit18>
         <Filename Value="C:\lazarus\lcl\interfaces\win32\win32object.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="391"/>
         <CursorPos Y="407"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
       </Unit18>
     </Units>
-    <JumpHistory Count="22" HistoryIndex="21">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="play.pas"/>
-        <Caret Line="2228" TopLine="2218"/>
+        <Caret Line="1777" Column="78" TopLine="1761"/>
       </Position1>
       <Position2>
         <Filename Value="play.pas"/>
-        <Caret Line="2229" TopLine="2218"/>
+        <Caret Line="2148" Column="78" TopLine="2129"/>
       </Position2>
       <Position3>
         <Filename Value="play.pas"/>
-        <Caret Line="2511" TopLine="2501"/>
+        <Caret Line="1765" Column="11" TopLine="1754"/>
       </Position3>
       <Position4>
         <Filename Value="play.pas"/>
-        <Caret Line="2512" TopLine="2501"/>
+        <Caret Line="1774" Column="40" TopLine="1756"/>
       </Position4>
       <Position5>
         <Filename Value="play.pas"/>
-        <Caret Line="2520" TopLine="2504"/>
+        <Caret Line="413" Column="21" TopLine="404"/>
       </Position5>
       <Position6>
         <Filename Value="play.pas"/>
-        <Caret Line="2521" TopLine="2505"/>
+        <Caret Line="2221" Column="15" TopLine="2202"/>
       </Position6>
       <Position7>
         <Filename Value="play.pas"/>
-        <Caret Line="2539" TopLine="2530"/>
+        <Caret Line="2291" Column="13" TopLine="2272"/>
       </Position7>
       <Position8>
         <Filename Value="play.pas"/>
-        <Caret Line="2230" TopLine="2221"/>
+        <Caret Line="2367" Column="15" TopLine="2348"/>
       </Position8>
       <Position9>
         <Filename Value="play.pas"/>
-        <Caret Line="2231" TopLine="2221"/>
+        <Caret Line="2389" Column="15" TopLine="2370"/>
       </Position9>
       <Position10>
         <Filename Value="play.pas"/>
-        <Caret Line="2233" TopLine="2221"/>
+        <Caret Line="480" Column="32" TopLine="473"/>
       </Position10>
       <Position11>
         <Filename Value="play.pas"/>
-        <Caret Line="2234" TopLine="2221"/>
+        <Caret Line="413" Column="21" TopLine="401"/>
       </Position11>
       <Position12>
         <Filename Value="play.pas"/>
-        <Caret Line="2235" TopLine="2221"/>
+        <Caret Line="2221" Column="15" TopLine="2202"/>
       </Position12>
       <Position13>
         <Filename Value="play.pas"/>
-        <Caret Line="2237" TopLine="2221"/>
+        <Caret Line="2291" Column="13" TopLine="2272"/>
       </Position13>
       <Position14>
         <Filename Value="play.pas"/>
-        <Caret Line="2238" TopLine="2222"/>
+        <Caret Line="2367" Column="15" TopLine="2348"/>
       </Position14>
       <Position15>
         <Filename Value="play.pas"/>
-        <Caret Line="2240" TopLine="2224"/>
+        <Caret Line="2389" Column="15" TopLine="2370"/>
       </Position15>
       <Position16>
         <Filename Value="play.pas"/>
-        <Caret Line="2235" TopLine="2224"/>
+        <Caret Line="489" Column="162" TopLine="469"/>
       </Position16>
       <Position17>
         <Filename Value="play.pas"/>
-        <Caret Line="2242" TopLine="2226"/>
+        <Caret Line="413" Column="21" TopLine="402"/>
       </Position17>
       <Position18>
         <Filename Value="play.pas"/>
-        <Caret Line="2243" TopLine="2227"/>
+        <Caret Line="2228" Column="15" TopLine="2209"/>
       </Position18>
       <Position19>
         <Filename Value="play.pas"/>
-        <Caret Line="2508" TopLine="2499"/>
+        <Caret Line="2298" Column="13" TopLine="2279"/>
       </Position19>
       <Position20>
         <Filename Value="play.pas"/>
-        <Caret Line="2208" TopLine="2198"/>
+        <Caret Line="2374" Column="15" TopLine="2355"/>
       </Position20>
       <Position21>
         <Filename Value="play.pas"/>
-        <Caret Line="2508" TopLine="2499"/>
+        <Caret Line="2396" Column="15" TopLine="2377"/>
       </Position21>
       <Position22>
         <Filename Value="play.pas"/>
-        <Caret Line="2215" Column="38" TopLine="2207"/>
+        <Caret Line="421" Column="23" TopLine="402"/>
       </Position22>
+      <Position23>
+        <Filename Value="play.pas"/>
+        <Caret Line="3415" Column="11" TopLine="3398"/>
+      </Position23>
+      <Position24>
+        <Filename Value="play.pas"/>
+        <Caret Line="3547" Column="19" TopLine="3534"/>
+      </Position24>
+      <Position25>
+        <Filename Value="play.pas"/>
+        <Caret Line="3566" Column="19" TopLine="3547"/>
+      </Position25>
+      <Position26>
+        <Filename Value="play.pas"/>
+        <Caret Line="3589" Column="19" TopLine="3570"/>
+      </Position26>
+      <Position27>
+        <Filename Value="play.pas"/>
+        <Caret Line="3614" Column="19" TopLine="3595"/>
+      </Position27>
+      <Position28>
+        <Filename Value="play.pas"/>
+        <Caret Line="421" Column="23" TopLine="409"/>
+      </Position28>
+      <Position29>
+        <Filename Value="play.pas"/>
+        <Caret Line="3010" Column="11" TopLine="3001"/>
+      </Position29>
+      <Position30>
+        <Filename Value="play.pas"/>
+        <Caret Line="1065" Column="36" TopLine="1038"/>
+      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

@@ -1,20 +1,21 @@
 object fInfoFirm: TfInfoFirm
-  Left = 545
-  Height = 626
-  Top = 36
-  Width = 356
+  Left = 1197
+  Height = 782
+  Top = 9
+  Width = 445
   BorderStyle = bsDialog
   Caption = 'Информация о клетке'
-  ClientHeight = 626
-  ClientWidth = 356
+  ClientHeight = 782
+  ClientWidth = 445
+  DesignTimePPI = 120
   OnClose = FormClose
   Position = poMainFormCenter
-  LCLVersion = '2.0.10.0'
+  LCLVersion = '2.2.2.0'
   object BackgroundInfoFirm: TImage
     Left = 0
-    Height = 626
+    Height = 782
     Top = 0
-    Width = 356
+    Width = 445
     Align = alClient
     Picture.Data = {
       0A544A706567496D616765F7680000FFD8FFE1001845786966000049492A0008
@@ -861,34 +862,46 @@ object fInfoFirm: TfInfoFirm
     }
   end
   object CellDescription: TMemo
-    Left = 128
-    Height = 90
-    Top = 80
-    Width = 192
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Label1
+    Left = 160
+    Height = 112
+    Top = 100
+    Width = 240
+    BorderSpacing.Left = 160
+    BorderSpacing.Top = 86
     Color = clNone
     ReadOnly = True
     TabOrder = 0
     Visible = False
   end
   object CopyInfoImage: TImage
-    Left = 145
-    Height = 60
-    Top = 99
-    Width = 60
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Label1
+    Left = 181
+    Height = 75
+    Top = 124
+    Width = 75
+    BorderSpacing.Left = 181
+    BorderSpacing.Top = 110
     Proportional = True
     Stretch = True
   end
   object Label1: TLabel
-    Left = 24
-    Height = 69
-    Top = 11
-    Width = 312
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    Left = 30
+    Height = 86
+    Top = 14
+    Width = 390
     Alignment = taCenter
     AutoSize = False
+    BorderSpacing.Left = 30
+    BorderSpacing.Top = 14
     Caption = 'Название клетки'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
-    Font.Height = 34
+    Font.Height = 43
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -899,14 +912,18 @@ object fInfoFirm: TfInfoFirm
     WordWrap = True
   end
   object Label2: TLabel
-    Left = 24
-    Height = 20
-    Top = 187
-    Width = 69
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = CopyInfoImage
+    Left = 30
+    Height = 25
+    Top = 234
+    Width = 86
+    BorderSpacing.Left = 30
+    BorderSpacing.Top = 110
     Caption = 'Владелец:'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
-    Font.Height = -15
+    Font.Height = -19
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -914,14 +931,18 @@ object fInfoFirm: TfInfoFirm
     ParentFont = False
   end
   object Label3: TLabel
-    Left = 24
-    Height = 20
-    Top = 307
-    Width = 133
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Label8
+    Left = 30
+    Height = 25
+    Top = 384
+    Width = 167
+    BorderSpacing.Left = 30
+    BorderSpacing.Top = 38
     Caption = 'Построить филиал:'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
-    Font.Height = -15
+    Font.Height = -19
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -929,14 +950,18 @@ object fInfoFirm: TfInfoFirm
     ParentFont = False
   end
   object Label4: TLabel
-    Left = 24
-    Height = 20
-    Top = 217
-    Width = 138
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Label2
+    Left = 30
+    Height = 25
+    Top = 271
+    Width = 173
+    BorderSpacing.Left = 30
+    BorderSpacing.Top = 37
     Caption = 'Стоимость покупки:'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
-    Font.Height = -15
+    Font.Height = -19
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -944,14 +969,18 @@ object fInfoFirm: TfInfoFirm
     ParentFont = False
   end
   object Label5: TLabel
-    Left = 24
-    Height = 20
-    Top = 247
-    Width = 114
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Label4
+    Left = 30
+    Height = 25
+    Top = 309
+    Width = 141
+    BorderSpacing.Left = 30
+    BorderSpacing.Top = 38
     Caption = 'Базовая аренда:'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
-    Font.Height = -15
+    Font.Height = -19
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -959,14 +988,18 @@ object fInfoFirm: TfInfoFirm
     ParentFont = False
   end
   object Label7: TLabel
-    Left = 24
-    Height = 20
-    Top = 532
-    Width = 70
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = MonopoliesInfo
+    Left = 30
+    Height = 25
+    Top = 665
+    Width = 88
+    BorderSpacing.Left = 30
+    BorderSpacing.Top = 255
     Caption = 'Заложить:'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
-    Font.Height = -15
+    Font.Height = -19
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -974,16 +1007,20 @@ object fInfoFirm: TfInfoFirm
     ParentFont = False
   end
   object Sale: TLabel
-    Left = 216
-    Height = 23
-    Top = 529
-    Width = 118
+    AnchorSideLeft.Control = Label7
+    AnchorSideTop.Control = MonopoliesInfo
+    Left = 270
+    Height = 29
+    Top = 661
+    Width = 148
     Alignment = taRightJustify
     AutoSize = False
+    BorderSpacing.Left = 240
+    BorderSpacing.Top = 251
     Caption = '0'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
-    Font.Height = -19
+    Font.Height = -24
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -991,16 +1028,20 @@ object fInfoFirm: TfInfoFirm
     ParentFont = False
   end
   object Buy: TLabel
-    Left = 176
-    Height = 23
-    Top = 214
-    Width = 158
+    AnchorSideLeft.Control = Label4
+    AnchorSideTop.Control = Holder
+    Left = 220
+    Height = 29
+    Top = 268
+    Width = 198
     Alignment = taRightJustify
     AutoSize = False
+    BorderSpacing.Left = 190
+    BorderSpacing.Top = 38
     Caption = '1'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
-    Font.Height = -19
+    Font.Height = -24
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -1008,16 +1049,20 @@ object fInfoFirm: TfInfoFirm
     ParentFont = False
   end
   object RegRent: TLabel
-    Left = 176
-    Height = 23
-    Top = 244
-    Width = 158
+    AnchorSideLeft.Control = Label5
+    AnchorSideTop.Control = Buy
+    Left = 220
+    Height = 29
+    Top = 305
+    Width = 198
     Alignment = taRightJustify
     AutoSize = False
+    BorderSpacing.Left = 190
+    BorderSpacing.Top = 37
     Caption = '1'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
-    Font.Height = -19
+    Font.Height = -24
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -1025,16 +1070,20 @@ object fInfoFirm: TfInfoFirm
     ParentFont = False
   end
   object Filial: TLabel
-    Left = 176
-    Height = 23
-    Top = 304
-    Width = 158
+    AnchorSideLeft.Control = Label3
+    AnchorSideTop.Control = NowRent
+    Left = 220
+    Height = 29
+    Top = 380
+    Width = 198
     Alignment = taRightJustify
     AutoSize = False
+    BorderSpacing.Left = 190
+    BorderSpacing.Top = 38
     Caption = '1'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
-    Font.Height = -19
+    Font.Height = -24
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -1042,16 +1091,22 @@ object fInfoFirm: TfInfoFirm
     ParentFont = False
   end
   object Holder: TLabel
-    Left = 104
-    Height = 23
-    Top = 184
-    Width = 230
+    AnchorSideLeft.Control = Label2
+    AnchorSideTop.Control = CopyInfoImage
+    AnchorSideBottom.Side = asrBottom
+    Left = 130
+    Height = 29
+    Top = 230
+    Width = 288
     Alignment = taRightJustify
     AutoSize = False
+    BorderSpacing.Left = 100
+    BorderSpacing.Top = 106
+    BorderSpacing.Bottom = 4
     Caption = 'КроликПитерВышелПогул'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
-    Font.Height = -19
+    Font.Height = -24
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -1059,14 +1114,18 @@ object fInfoFirm: TfInfoFirm
     ParentFont = False
   end
   object Label8: TLabel
-    Left = 24
-    Height = 20
-    Top = 277
-    Width = 115
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Label5
+    Left = 30
+    Height = 25
+    Top = 346
+    Width = 145
+    BorderSpacing.Left = 30
+    BorderSpacing.Top = 37
     Caption = 'Текущая аренда:'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
-    Font.Height = -15
+    Font.Height = -19
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -1075,16 +1134,20 @@ object fInfoFirm: TfInfoFirm
     ParentFont = False
   end
   object NowRent: TLabel
-    Left = 176
-    Height = 23
-    Top = 274
-    Width = 158
+    AnchorSideLeft.Control = Label8
+    AnchorSideTop.Control = RegRent
+    Left = 220
+    Height = 29
+    Top = 342
+    Width = 198
     Alignment = taRightJustify
     AutoSize = False
+    BorderSpacing.Left = 190
+    BorderSpacing.Top = 37
     Caption = '1'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
-    Font.Height = -19
+    Font.Height = -24
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -1093,18 +1156,28 @@ object fInfoFirm: TfInfoFirm
     ParentFont = False
   end
   object MonopoliesInfo: TGroupBox
-    Left = 24
-    Height = 198
-    Top = 328
-    Width = 320
-    ClientHeight = 178
-    ClientWidth = 316
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Filial
+    Left = 30
+    Height = 248
+    Top = 410
+    Width = 400
+    BorderSpacing.Left = 30
+    BorderSpacing.Top = 30
+    ClientHeight = 223
+    ClientWidth = 396
     TabOrder = 1
     object ImGold: TImage
-      Left = 96
-      Height = 15
-      Top = 155
-      Width = 18
+      AnchorSideTop.Control = ImMon4_4
+      AnchorSideRight.Control = Rent6
+      AnchorSideRight.Side = asrBottom
+      Left = 120
+      Height = 19
+      Top = 194
+      Width = 22
+      Anchors = [akTop, akRight]
+      BorderSpacing.Top = 24
+      BorderSpacing.Right = 246
       Picture.Data = {
         1754506F727461626C654E6574776F726B477261706869639D04000089504E47
         0D0A1A0A0000000D49484452000000120000000F0806000000E9869F12000000
@@ -1149,10 +1222,15 @@ object fInfoFirm: TfInfoFirm
       Stretch = True
     end
     object ImMon4_1: TImage
-      Left = 56
-      Height = 9
-      Top = 136
-      Width = 10
+      AnchorSideTop.Control = ImMon4_4
+      AnchorSideRight.Control = ImMon4_2
+      AnchorSideRight.Side = asrBottom
+      Left = 70
+      Height = 11
+      Top = 170
+      Width = 12
+      Anchors = [akTop, akRight]
+      BorderSpacing.Right = 20
       Picture.Data = {
         1754506F727461626C654E6574776F726B477261706869632F01000089504E47
         0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -1170,10 +1248,15 @@ object fInfoFirm: TfInfoFirm
       Stretch = True
     end
     object ImMon4_2: TImage
-      Left = 72
-      Height = 9
-      Top = 136
-      Width = 10
+      AnchorSideTop.Control = ImMon4_4
+      AnchorSideRight.Control = ImMon4_3
+      AnchorSideRight.Side = asrBottom
+      Left = 90
+      Height = 11
+      Top = 170
+      Width = 12
+      Anchors = [akTop, akRight]
+      BorderSpacing.Right = 20
       Picture.Data = {
         1754506F727461626C654E6574776F726B477261706869632F01000089504E47
         0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -1191,10 +1274,15 @@ object fInfoFirm: TfInfoFirm
       Stretch = True
     end
     object ImMon4_3: TImage
-      Left = 88
-      Height = 9
-      Top = 136
-      Width = 10
+      AnchorSideTop.Control = ImMon4_4
+      AnchorSideRight.Control = ImMon4_4
+      AnchorSideRight.Side = asrBottom
+      Left = 110
+      Height = 11
+      Top = 170
+      Width = 12
+      Anchors = [akTop, akRight]
+      BorderSpacing.Right = 20
       Picture.Data = {
         1754506F727461626C654E6574776F726B477261706869632F01000089504E47
         0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -1212,10 +1300,16 @@ object fInfoFirm: TfInfoFirm
       Stretch = True
     end
     object ImMon4_4: TImage
-      Left = 104
-      Height = 9
-      Top = 136
-      Width = 10
+      AnchorSideTop.Control = ImMon3_3
+      AnchorSideRight.Control = Rent5
+      AnchorSideRight.Side = asrBottom
+      Left = 130
+      Height = 11
+      Top = 170
+      Width = 12
+      Anchors = [akTop, akRight]
+      BorderSpacing.Top = 31
+      BorderSpacing.Right = 246
       Picture.Data = {
         1754506F727461626C654E6574776F726B477261706869632F01000089504E47
         0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -1233,10 +1327,15 @@ object fInfoFirm: TfInfoFirm
       Stretch = True
     end
     object ImMon3_1: TImage
-      Left = 72
-      Height = 9
-      Top = 111
-      Width = 10
+      AnchorSideTop.Control = ImMon3_3
+      AnchorSideRight.Control = ImMon3_2
+      AnchorSideRight.Side = asrBottom
+      Left = 90
+      Height = 11
+      Top = 139
+      Width = 12
+      Anchors = [akTop, akRight]
+      BorderSpacing.Right = 20
       Picture.Data = {
         1754506F727461626C654E6574776F726B477261706869632F01000089504E47
         0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -1254,10 +1353,15 @@ object fInfoFirm: TfInfoFirm
       Stretch = True
     end
     object ImMon3_2: TImage
-      Left = 88
-      Height = 9
-      Top = 111
-      Width = 10
+      AnchorSideTop.Control = ImMon3_3
+      AnchorSideRight.Control = ImMon3_3
+      AnchorSideRight.Side = asrBottom
+      Left = 110
+      Height = 11
+      Top = 139
+      Width = 12
+      Anchors = [akTop, akRight]
+      BorderSpacing.Right = 20
       Picture.Data = {
         1754506F727461626C654E6574776F726B477261706869632F01000089504E47
         0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -1275,10 +1379,16 @@ object fInfoFirm: TfInfoFirm
       Stretch = True
     end
     object ImMon3_3: TImage
-      Left = 104
-      Height = 9
-      Top = 111
-      Width = 10
+      AnchorSideTop.Control = ImMon2_2
+      AnchorSideRight.Control = Rent4
+      AnchorSideRight.Side = asrBottom
+      Left = 130
+      Height = 11
+      Top = 139
+      Width = 12
+      Anchors = [akTop, akRight]
+      BorderSpacing.Top = 31
+      BorderSpacing.Right = 246
       Picture.Data = {
         1754506F727461626C654E6574776F726B477261706869632F01000089504E47
         0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -1296,10 +1406,15 @@ object fInfoFirm: TfInfoFirm
       Stretch = True
     end
     object ImMon2_1: TImage
-      Left = 88
-      Height = 9
-      Top = 86
-      Width = 10
+      AnchorSideTop.Control = ImMon2_2
+      AnchorSideRight.Control = ImMon2_2
+      AnchorSideRight.Side = asrBottom
+      Left = 110
+      Height = 11
+      Top = 108
+      Width = 12
+      Anchors = [akTop, akRight]
+      BorderSpacing.Right = 20
       Picture.Data = {
         1754506F727461626C654E6574776F726B477261706869632F01000089504E47
         0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -1317,10 +1432,17 @@ object fInfoFirm: TfInfoFirm
       Stretch = True
     end
     object ImMon2_2: TImage
-      Left = 104
-      Height = 9
-      Top = 86
-      Width = 10
+      AnchorSideLeft.Control = ImMon2_1
+      AnchorSideTop.Control = ImMon1
+      AnchorSideRight.Control = Rent3
+      AnchorSideRight.Side = asrBottom
+      Left = 130
+      Height = 11
+      Top = 108
+      Width = 12
+      Anchors = [akTop, akRight]
+      BorderSpacing.Top = 31
+      BorderSpacing.Right = 246
       Picture.Data = {
         1754506F727461626C654E6574776F726B477261706869632F01000089504E47
         0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -1338,10 +1460,16 @@ object fInfoFirm: TfInfoFirm
       Stretch = True
     end
     object ImMon1: TImage
-      Left = 104
-      Height = 9
-      Top = 61
-      Width = 10
+      AnchorSideTop.Control = MonopoliesInfo
+      AnchorSideRight.Control = Rent2
+      AnchorSideRight.Side = asrBottom
+      Left = 130
+      Height = 11
+      Top = 77
+      Width = 12
+      Anchors = [akTop, akRight]
+      BorderSpacing.Top = 77
+      BorderSpacing.Right = 246
       Picture.Data = {
         1754506F727461626C654E6574776F726B477261706869632F01000089504E47
         0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -1359,16 +1487,20 @@ object fInfoFirm: TfInfoFirm
       Stretch = True
     end
     object Rent6: TLabel
-      Left = 152
-      Height = 23
-      Top = 147
-      Width = 158
+      AnchorSideLeft.Control = MonopoliesInfo
+      AnchorSideTop.Control = Rent5
+      Left = 190
+      Height = 29
+      Top = 184
+      Width = 198
       Alignment = taRightJustify
       AutoSize = False
+      BorderSpacing.Left = 190
+      BorderSpacing.Top = 32
       Caption = '6'
       Font.CharSet = RUSSIAN_CHARSET
       Font.Color = clWhite
-      Font.Height = -19
+      Font.Height = -24
       Font.Name = 'Segoe UI'
       Font.Pitch = fpVariable
       Font.Quality = fqDraft
@@ -1376,16 +1508,20 @@ object fInfoFirm: TfInfoFirm
       ParentFont = False
     end
     object Rent5: TLabel
-      Left = 152
-      Height = 23
-      Top = 122
-      Width = 158
+      AnchorSideLeft.Control = MonopoliesInfo
+      AnchorSideTop.Control = Rent4
+      Left = 190
+      Height = 29
+      Top = 152
+      Width = 198
       Alignment = taRightJustify
       AutoSize = False
+      BorderSpacing.Left = 190
+      BorderSpacing.Top = 31
       Caption = '5'
       Font.CharSet = RUSSIAN_CHARSET
       Font.Color = clWhite
-      Font.Height = -19
+      Font.Height = -24
       Font.Name = 'Segoe UI'
       Font.Pitch = fpVariable
       Font.Quality = fqDraft
@@ -1393,16 +1529,20 @@ object fInfoFirm: TfInfoFirm
       ParentFont = False
     end
     object Rent4: TLabel
-      Left = 152
-      Height = 23
-      Top = 97
-      Width = 158
+      AnchorSideLeft.Control = MonopoliesInfo
+      AnchorSideTop.Control = Rent3
+      Left = 190
+      Height = 29
+      Top = 121
+      Width = 198
       Alignment = taRightJustify
       AutoSize = False
+      BorderSpacing.Left = 190
+      BorderSpacing.Top = 31
       Caption = '4'
       Font.CharSet = RUSSIAN_CHARSET
       Font.Color = clWhite
-      Font.Height = -19
+      Font.Height = -24
       Font.Name = 'Segoe UI'
       Font.Pitch = fpVariable
       Font.Quality = fqDraft
@@ -1410,16 +1550,20 @@ object fInfoFirm: TfInfoFirm
       ParentFont = False
     end
     object Rent3: TLabel
-      Left = 152
-      Height = 23
-      Top = 72
-      Width = 158
+      AnchorSideLeft.Control = MonopoliesInfo
+      AnchorSideTop.Control = Rent2
+      Left = 190
+      Height = 29
+      Top = 90
+      Width = 198
       Alignment = taRightJustify
       AutoSize = False
+      BorderSpacing.Left = 190
+      BorderSpacing.Top = 31
       Caption = '3'
       Font.CharSet = RUSSIAN_CHARSET
       Font.Color = clWhite
-      Font.Height = -19
+      Font.Height = -24
       Font.Name = 'Segoe UI'
       Font.Pitch = fpVariable
       Font.Quality = fqDraft
@@ -1427,16 +1571,20 @@ object fInfoFirm: TfInfoFirm
       ParentFont = False
     end
     object Rent2: TLabel
-      Left = 152
-      Height = 23
-      Top = 47
-      Width = 158
+      AnchorSideLeft.Control = MonopoliesInfo
+      AnchorSideTop.Control = Rent1
+      Left = 190
+      Height = 29
+      Top = 59
+      Width = 198
       Alignment = taRightJustify
       AutoSize = False
+      BorderSpacing.Left = 190
+      BorderSpacing.Top = 31
       Caption = '2'
       Font.CharSet = RUSSIAN_CHARSET
       Font.Color = clWhite
-      Font.Height = -19
+      Font.Height = -24
       Font.Name = 'Segoe UI'
       Font.Pitch = fpVariable
       Font.Quality = fqDraft
@@ -1444,16 +1592,20 @@ object fInfoFirm: TfInfoFirm
       ParentFont = False
     end
     object Rent1: TLabel
-      Left = 152
-      Height = 23
-      Top = 22
-      Width = 158
+      AnchorSideLeft.Control = MonopoliesInfo
+      AnchorSideTop.Control = Label6
+      Left = 190
+      Height = 29
+      Top = 28
+      Width = 198
       Alignment = taRightJustify
       AutoSize = False
+      BorderSpacing.Left = 190
+      BorderSpacing.Top = 28
       Caption = '1'
       Font.CharSet = RUSSIAN_CHARSET
       Font.Color = clWhite
-      Font.Height = -19
+      Font.Height = -24
       Font.Name = 'Segoe UI'
       Font.Pitch = fpVariable
       Font.Quality = fqDraft
@@ -1461,15 +1613,18 @@ object fInfoFirm: TfInfoFirm
       ParentFont = False
     end
     object Label6: TLabel
-      Left = 186
-      Height = 17
+      AnchorSideLeft.Control = MonopoliesInfo
+      AnchorSideTop.Control = MonopoliesInfo
+      Left = 232
+      Height = 21
       Top = 0
-      Width = 119
+      Width = 149
       AutoSize = False
+      BorderSpacing.Left = 232
       Caption = 'Аренда монополии:'
       Font.CharSet = RUSSIAN_CHARSET
       Font.Color = clWhite
-      Font.Height = -13
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Pitch = fpVariable
       Font.Quality = fqDraft
@@ -1478,10 +1633,14 @@ object fInfoFirm: TfInfoFirm
     end
   end
   object ImButton: TImage
-    Left = 136
-    Height = 40
-    Top = 568
-    Width = 96
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Label7
+    Left = 170
+    Height = 50
+    Top = 710
+    Width = 120
+    BorderSpacing.Left = 170
+    BorderSpacing.Top = 45
     OnClick = ImButtonClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963310F000089504E47
@@ -1611,14 +1770,18 @@ object fInfoFirm: TfInfoFirm
     Stretch = True
   end
   object TextOK: TLabel
-    Left = 170
-    Height = 25
-    Top = 573
-    Width = 26
+    AnchorSideLeft.Control = ImButton
+    AnchorSideTop.Control = ImButton
+    Left = 212
+    Height = 32
+    Top = 716
+    Width = 34
+    BorderSpacing.Left = 42
+    BorderSpacing.Top = 6
     Caption = 'ОК'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = 5759
-    Font.Height = -19
+    Font.Height = -24
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft

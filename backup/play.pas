@@ -470,21 +470,29 @@ uses Main;
 procedure TfPlay.FormCreate(Sender: TObject);
 begin
 
-  // описание клеток
+end;
 
-  { kletka[i].mon_rent:=kletka[i].reg_rent * 2;
-    Монопольная аренда в 2 раза больше обычной аренды
-    Не будем сейчас прописывать это у всех фирм, а сделаем это в процессе игры
-  }
+procedure TfPlay.FormShow(Sender: TObject);
+var i:byte; // просто счетчик
+begin
+
+  // когда данный блок находился в создании формы, он не работал должным образом
+  // описание клеток
+  // удаляем якоря фишек, чтобы свободно менять их координаты
+  Token1.Anchors:= [];
+  Token2.Anchors:= [];
+  Token3.Anchors:= [];
+  Token4.Anchors:= [];
+  Token5.Anchors:= [];
 
   kletka[1].name:='Старт';
   kletka[1].description:='С этой клетки начинается игра! Пройдя целый круг и вернувшись сюда - вы получите бонус.';
-  kletka[1].x1:=73;
-  kletka[1].y1:=90;
-  kletka[1].y2:=80;
-  kletka[1].y3:=68;
-  kletka[1].y4:=56;
-  kletka[1].y5:=45;
+  kletka[1].x1:=Token1.Left; // При запуске фишки встанут ровно в старт на свои места благодаря якорям
+  kletka[1].y1:=Token1.Top;
+  kletka[1].y2:=Token2.Top;
+  kletka[1].y3:=Token3.Top;
+  kletka[1].y4:=Token4.Top;
+  kletka[1].y5:=Token5.Top;
 
   kletka[2].name:='Кофейня';
   kletka[2].price:=100000;
@@ -495,25 +503,25 @@ begin
   kletka[2].mon3_rent:=270000;
   kletka[2].mon4_rent:=540000;
   kletka[2].gold_rent:=810000;
-  kletka[2].x1:=146;
-  kletka[2].y1:=90;
-  kletka[2].y2:=80;
-  kletka[2].y3:=68;
-  kletka[2].y4:=56;
-  kletka[2].y5:=45;
+  kletka[2].x1:=ImCoffee.Left + 15;
+  kletka[2].y1:=Token1.Top;
+  kletka[2].y2:=Token2.Top;
+  kletka[2].y3:=Token3.Top;
+  kletka[2].y4:=Token4.Top;
+  kletka[2].y5:=Token5.Top;
 
   kletka[3].name:='Налог';
-  kletka[3].x1:=210;
+  kletka[3].x1:=ImFalse1.Left + 15;
   { Описание клетки находится в процедуре OnShow формы.
     Это нужно для того, чтобы мы правильно брали значение
     nalog, которому присвоено значение в той же процедуре (во время показа формы),
     т.к. все формы создаются при запуске программы, и значение
     nalog было бы неправильным }
-  kletka[3].y1:=90;
-  kletka[3].y2:=80;
-  kletka[3].y3:=68;
-  kletka[3].y4:=56;
-  kletka[3].y5:=45;
+  kletka[3].y1:=Token1.Top;
+  kletka[3].y2:=Token2.Top;
+  kletka[3].y3:=Token3.Top;
+  kletka[3].y4:=Token4.Top;
+  kletka[3].y5:=Token5.Top;
 
   kletka[4].name:='Шаверма';
   kletka[4].price:=100000;
@@ -524,12 +532,12 @@ begin
   kletka[4].mon3_rent:=270000;
   kletka[4].mon4_rent:=540000;
   kletka[4].gold_rent:=810000;
-  kletka[4].x1:=274;
-  kletka[4].y1:=90;
-  kletka[4].y2:=80;
-  kletka[4].y3:=68;
-  kletka[4].y4:=56;
-  kletka[4].y5:=45;
+  kletka[4].x1:=ImShaverma.Left + 15;
+  kletka[4].y1:=Token1.Top;
+  kletka[4].y2:=Token2.Top;
+  kletka[4].y3:=Token3.Top;
+  kletka[4].y4:=Token4.Top;
+  kletka[4].y5:=Token5.Top;
 
   kletka[5].name:='Кондитерская лавка';
   kletka[5].price:=100000;
@@ -540,32 +548,32 @@ begin
   kletka[5].mon3_rent:=270000;
   kletka[5].mon4_rent:=540000;
   kletka[5].gold_rent:=810000;
-  kletka[5].x1:=338;
-  kletka[5].y1:=90;
-  kletka[5].y2:=80;
-  kletka[5].y3:=68;
-  kletka[5].y4:=56;
-  kletka[5].y5:=45;
+  kletka[5].x1:=ImConditer.Left + 15;
+  kletka[5].y1:=Token1.Top;
+  kletka[5].y2:=Token2.Top;
+  kletka[5].y3:=Token3.Top;
+  kletka[5].y4:=Token4.Top;
+  kletka[5].y5:=Token5.Top;
 
   kletka[6].name:='Пропуск хода';
   kletka[6].description:='Попав на эту клетку, вы пропускаете следующий ход.';
-  kletka[6].x1:=402;
-  kletka[6].y1:=90;
-  kletka[6].y2:=80;
-  kletka[6].y3:=68;
-  kletka[6].y4:=56;
-  kletka[6].y5:=45;
+  kletka[6].x1:=ImFalse2.Left + 15;
+  kletka[6].y1:=Token1.Top;
+  kletka[6].y2:=Token2.Top;
+  kletka[6].y3:=Token3.Top;
+  kletka[6].y4:=Token4.Top;
+  kletka[6].y5:=Token5.Top;
 
   kletka[7].name:='Петербург';
   kletka[7].description:='Эта монополия не требует постройки. Чем больше у вас во владении фирм этой группы, тем выше аренда.';
   kletka[7].price:=250000;
   kletka[7].reg_rent:=100000;
-  kletka[7].x1:=466;
-  kletka[7].y1:=90;
-  kletka[7].y2:=80;
-  kletka[7].y3:=68;
-  kletka[7].y4:=56;
-  kletka[7].y5:=45;
+  kletka[7].x1:=ImPiter.Left + 15;
+  kletka[7].y1:=Token1.Top;
+  kletka[7].y2:=Token2.Top;
+  kletka[7].y3:=Token3.Top;
+  kletka[7].y4:=Token4.Top;
+  kletka[7].y5:=Token5.Top;
 
   kletka[8].name:='Пейнтбольный клуб';
   kletka[8].price:=130000;
@@ -576,12 +584,12 @@ begin
   kletka[8].mon3_rent:=450000;
   kletka[8].mon4_rent:=700000;
   kletka[8].gold_rent:=950000;
-  kletka[8].x1:=530;
-  kletka[8].y1:=90;
-  kletka[8].y2:=80;
-  kletka[8].y3:=68;
-  kletka[8].y4:=56;
-  kletka[8].y5:=45;
+  kletka[8].x1:=ImPaint.Left + 15;
+  kletka[8].y1:=Token1.Top;
+  kletka[8].y2:=Token2.Top;
+  kletka[8].y3:=Token3.Top;
+  kletka[8].y4:=Token4.Top;
+  kletka[8].y5:=Token5.Top;
 
   kletka[9].name:='Бильярдная';
   kletka[9].price:=130000;
@@ -592,21 +600,21 @@ begin
   kletka[9].mon3_rent:=450000;
   kletka[9].mon4_rent:=700000;
   kletka[9].gold_rent:=950000;
-  kletka[9].x1:=594;
-  kletka[9].y1:=90;
-  kletka[9].y2:=80;
-  kletka[9].y3:=68;
-  kletka[9].y4:=56;
-  kletka[9].y5:=45;
+  kletka[9].x1:=ImBilliards.Left + 15;
+  kletka[9].y1:=Token1.Top;
+  kletka[9].y2:=Token2.Top;
+  kletka[9].y3:=Token3.Top;
+  kletka[9].y4:=Token4.Top;
+  kletka[9].y5:=Token5.Top;
 
   kletka[10].name:='Лотерея';
   kletka[10].description:='На лотерее вас может ожидать как радостное событие, так и несчастье.';
-  kletka[10].x1:=658;
-  kletka[10].y1:=90;
-  kletka[10].y2:=80;
-  kletka[10].y3:=68;
-  kletka[10].y4:=56;
-  kletka[10].y5:=45;
+  kletka[10].x1:=ImFalse3.Left + 15;
+  kletka[10].y1:=Token1.Top;
+  kletka[10].y2:=Token2.Top;
+  kletka[10].y3:=Token3.Top;
+  kletka[10].y4:=Token4.Top;
+  kletka[10].y5:=Token5.Top;
 
   kletka[11].name:='Картодром';
   kletka[11].price:=130000;
@@ -617,12 +625,12 @@ begin
   kletka[11].mon3_rent:=450000;
   kletka[11].mon4_rent:=700000;
   kletka[11].gold_rent:=950000;
-  kletka[11].x1:=722;
-  kletka[11].y1:=90;
-  kletka[11].y2:=80;
-  kletka[11].y3:=68;
-  kletka[11].y4:=56;
-  kletka[11].y5:=45;
+  kletka[11].x1:=ImCar.Left + 15;
+  kletka[11].y1:=Token1.Top;
+  kletka[11].y2:=Token2.Top;
+  kletka[11].y3:=Token3.Top;
+  kletka[11].y4:=Token4.Top;
+  kletka[11].y5:=Token5.Top;
 
   kletka[12].name:='Зоопарк';
   kletka[12].price:=150000;
@@ -633,12 +641,12 @@ begin
   kletka[12].mon3_rent:=630000;
   kletka[12].mon4_rent:=800000;
   kletka[12].gold_rent:=1000000;
-  kletka[12].x1:=786;
-  kletka[12].y1:=90;
-  kletka[12].y2:=80;
-  kletka[12].y3:=68;
-  kletka[12].y4:=56;
-  kletka[12].y5:=45;
+  kletka[12].x1:=ImZoo.Left + 15;
+  kletka[12].y1:=Token1.Top;
+  kletka[12].y2:=Token2.Top;
+  kletka[12].y3:=Token3.Top;
+  kletka[12].y4:=Token4.Top;
+  kletka[12].y5:=Token5.Top;
 
   kletka[13].name:='Цирк';
   kletka[13].price:=150000;
@@ -649,21 +657,21 @@ begin
   kletka[13].mon3_rent:=630000;
   kletka[13].mon4_rent:=800000;
   kletka[13].gold_rent:=1000000;
-  kletka[13].x1:=850;
-  kletka[13].y1:=90;
-  kletka[13].y2:=80;
-  kletka[13].y3:=68;
-  kletka[13].y4:=56;
-  kletka[13].y5:=45;
+  kletka[13].x1:=ImCircus.Left + 15;
+  kletka[13].y1:=Token1.Top;
+  kletka[13].y2:=Token2.Top;
+  kletka[13].y3:=Token3.Top;
+  kletka[13].y4:=Token4.Top;
+  kletka[13].y5:=Token5.Top;
 
   kletka[14].name:='Таможня';
   kletka[14].description:='Таможня, тюрьма, называйте как хотите, смысл ясен.';
-  kletka[14].x1:=924;
-  kletka[14].y1:=90;
-  kletka[14].y2:=80;
-  kletka[14].y3:=68;
-  kletka[14].y4:=56;
-  kletka[14].y5:=45;
+  kletka[14].x1:=ImCustoms.Left + 15;
+  kletka[14].y1:=Token1.Top;
+  kletka[14].y2:=Token2.Top;
+  kletka[14].y3:=Token3.Top;
+  kletka[14].y4:=Token4.Top;
+  kletka[14].y5:=Token5.Top;
 
   kletka[15].name:='Автобусный парк';
   kletka[15].price:=180000;
@@ -674,12 +682,12 @@ begin
   kletka[15].mon3_rent:=800000;
   kletka[15].mon4_rent:=1000000;
   kletka[15].gold_rent:=1400000;
-  kletka[15].x1:=924;
-  kletka[15].y1:=161;
-  kletka[15].y2:=153;
-  kletka[15].y3:=146;
-  kletka[15].y4:=138;
-  kletka[15].y5:=130;
+  kletka[15].x1:=ImBus.Left + 15;
+  kletka[15].y1:=ImBus.Top + 1;
+  kletka[15].y2:=Imbus.Top + 9;
+  kletka[15].y3:=Imbus.Top + 16;
+  kletka[15].y4:=Imbus.Top + 24;
+  kletka[15].y5:=Imbus.Top + 32;
 
   kletka[16].name:='Таксопарк';
   kletka[16].price:=180000;
@@ -690,12 +698,12 @@ begin
   kletka[16].mon3_rent:=800000;
   kletka[16].mon4_rent:=1000000;
   kletka[16].gold_rent:=1400000;
-  kletka[16].x1:=924;
-  kletka[16].y1:=225;
-  kletka[16].y2:=217;
-  kletka[16].y3:=210;
-  kletka[16].y4:=202;
-  kletka[16].y5:=194;
+  kletka[16].x1:=ImTaxi.Left + 15;
+  kletka[16].y1:=ImTaxi.Top + 1;
+  kletka[16].y2:=ImTaxi.Top + 9;
+  kletka[16].y3:=ImTaxi.Top + 16;
+  kletka[16].y4:=ImTaxi.Top + 24;
+  kletka[16].y5:=ImTaxi.Top + 32;
 
   kletka[17].name:='Каршеринговая компания';
   kletka[17].price:=180000;
@@ -706,23 +714,23 @@ begin
   kletka[17].mon3_rent:=800000;
   kletka[17].mon4_rent:=1000000;
   kletka[17].gold_rent:=1400000;
-  kletka[17].x1:=924;
-  kletka[17].y1:=289;
-  kletka[17].y2:=281;
-  kletka[17].y3:=274;
-  kletka[17].y4:=266;
-  kletka[17].y5:=258;
+  kletka[17].x1:=ImCarSharing.Left + 15;
+  kletka[17].y1:=ImCarSharing.Top + 1;
+  kletka[17].y2:=ImCarSharing.Top + 9;
+  kletka[17].y3:=ImCarSharing.Top + 16;
+  kletka[17].y4:=ImCarSharing.Top + 24;
+  kletka[17].y5:=ImCarSharing.Top + 32;
 
   kletka[18].name:='Токио';
   kletka[18].description:='Эта монополия не требует постройки. Чем больше у вас во владении фирм этой группы, тем выше аренда.';
   kletka[18].price:=250000;
   kletka[18].reg_rent:=100000;
-  kletka[18].x1:=924;
-  kletka[18].y1:=353;
-  kletka[18].y2:=345;
-  kletka[18].y3:=338;
-  kletka[18].y4:=330;
-  kletka[18].y5:=322;
+  kletka[18].x1:=ImTokyo.Left + 15;
+  kletka[18].y1:=ImTokyo.Top + 1;
+  kletka[18].y2:=ImTokyo.Top + 9;
+  kletka[18].y3:=ImTokyo.Top + 16;
+  kletka[18].y4:=ImTokyo.Top + 24;
+  kletka[18].y5:=ImTokyo.Top + 32;
 
   kletka[19].name:='Киноиндустрия';
   kletka[19].price:=260000;
@@ -733,21 +741,21 @@ begin
   kletka[19].mon3_rent:=1000000;
   kletka[19].mon4_rent:=1200000;
   kletka[19].gold_rent:=1600000;
-  kletka[19].x1:=924;
-  kletka[19].y1:=417;
-  kletka[19].y2:=409;
-  kletka[19].y3:=402;
-  kletka[19].y4:=394;
-  kletka[19].y5:=386;
+  kletka[19].x1:=ImCinema.Left + 15;
+  kletka[19].y1:=ImCinema.Top + 1;
+  kletka[19].y2:=ImCinema.Top + 9;
+  kletka[19].y3:=ImCinema.Top + 16;
+  kletka[19].y4:=ImCinema.Top + 24;
+  kletka[19].y5:=ImCinema.Top + 32;
 
   kletka[20].name:='Лотерея';
   kletka[20].description:='На лотерее вас может ожидать как радостное событие, так и несчастье.';
-  kletka[20].x1:=924;
-  kletka[20].y1:=481;
-  kletka[20].y2:=473;
-  kletka[20].y3:=466;
-  kletka[20].y4:=458;
-  kletka[20].y5:=450;
+  kletka[20].x1:=ImFalse8.Left + 15;
+  kletka[20].y1:=ImFalse8.Top + 1;
+  kletka[20].y2:=ImFalse8.Top + 9;
+  kletka[20].y3:=ImFalse8.Top + 16;
+  kletka[20].y4:=ImFalse8.Top + 24;
+  kletka[20].y5:=ImFalse8.Top + 32;
 
   kletka[21].name:='Игроиндустрия';
   kletka[21].price:=260000;
@@ -758,21 +766,21 @@ begin
   kletka[21].mon3_rent:=1000000;
   kletka[21].mon4_rent:=1200000;
   kletka[21].gold_rent:=1600000;
-  kletka[21].x1:=924;
-  kletka[21].y1:=545;
-  kletka[21].y2:=537;
-  kletka[21].y3:=530;
-  kletka[21].y4:=522;
-  kletka[21].y5:=514;
+  kletka[21].x1:=ImGame.Left + 15;
+  kletka[21].y1:=ImGame.Top + 1;
+  kletka[21].y2:=ImGame.Top + 9;
+  kletka[21].y3:=ImGame.Top + 16;
+  kletka[21].y4:=ImGame.Top + 24;
+  kletka[21].y5:=ImGame.Top + 32;
 
   kletka[22].name:='Джекпот';
   kletka[22].description:='Получите внезапный джекпот.';
-  kletka[22].x1:=924;
-  kletka[22].y1:=621;
-  kletka[22].y2:=611;
-  kletka[22].y3:=599;
-  kletka[22].y4:=587;
-  kletka[22].y5:=576;
+  kletka[22].x1:=ImJackpot.Left + 15;
+  kletka[22].y1:=ImJackpot.Top + 1;
+  kletka[22].y2:=ImJackpot.Top + 9;
+  kletka[22].y3:=ImJackpot.Top + 16;
+  kletka[22].y4:=ImJackpot.Top + 24;
+  kletka[22].y5:=ImJackpot.Top + 32;
 
   kletka[23].name:='Химическая промышленность';
   kletka[23].price:=320000;
@@ -783,12 +791,12 @@ begin
   kletka[23].mon3_rent:=1200000;
   kletka[23].mon4_rent:=1600000;
   kletka[23].gold_rent:=2000000;
-  kletka[23].x1:=850;
-  kletka[23].y1:=621;
-  kletka[23].y2:=611;
-  kletka[23].y3:=599;
-  kletka[23].y4:=587;
-  kletka[23].y5:=576;
+  kletka[23].x1:=ImChemistry.Left + 15;
+  kletka[23].y1:=ImChemistry.Top + 1;
+  kletka[23].y2:=ImChemistry.Top + 9;
+  kletka[23].y3:=ImChemistry.Top + 16;
+  kletka[23].y4:=ImChemistry.Top + 24;
+  kletka[23].y5:=ImChemistry.Top + 32;
 
   kletka[24].name:='Налог';
   { Описание клетки находится в процедуре OnShow формы.
@@ -796,12 +804,12 @@ begin
     nalog, которому присвоено значение в той же процедуре (во время показа формы),
     т.к. все формы создаются при запуске программы, и значение
     nalog было бы неправильным }
-  kletka[24].x1:=786;
-  kletka[24].y1:=621;
-  kletka[24].y2:=611;
-  kletka[24].y3:=599;
-  kletka[24].y4:=587;
-  kletka[24].y5:=576;
+  kletka[24].x1:=ImFalse6.Left + 15;
+  kletka[24].y1:=ImFalse6.Top + 1;
+  kletka[24].y2:=ImFalse6.Top + 9;
+  kletka[24].y3:=ImFalse6.Top + 16;
+  kletka[24].y4:=ImFalse6.Top + 24;
+  kletka[24].y5:=ImFalse6.Top + 32;
 
   kletka[25].name:='Медицинская промышленность';
   kletka[25].price:=320000;
@@ -812,12 +820,12 @@ begin
   kletka[25].mon3_rent:=1200000;
   kletka[25].mon4_rent:=1600000;
   kletka[25].gold_rent:=2000000;
-  kletka[25].x1:=722;
-  kletka[25].y1:=621;
-  kletka[25].y2:=611;
-  kletka[25].y3:=599;
-  kletka[25].y4:=587;
-  kletka[25].y5:=576;
+  kletka[25].x1:=ImMedicine.Left + 15;
+  kletka[25].y1:=ImMedicine.Top + 1;
+  kletka[25].y2:=ImMedicine.Top + 9;
+  kletka[25].y3:=ImMedicine.Top + 16;
+  kletka[25].y4:=ImMedicine.Top + 24;
+  kletka[25].y5:=ImMedicine.Top + 32;
 
   kletka[26].name:='Микробиологическая промышленность';
   kletka[26].price:=320000;
@@ -828,32 +836,32 @@ begin
   kletka[26].mon3_rent:=1200000;
   kletka[26].mon4_rent:=1600000;
   kletka[26].gold_rent:=2000000;
-  kletka[26].x1:=658;
-  kletka[26].y1:=621;
-  kletka[26].y2:=611;
-  kletka[26].y3:=599;
-  kletka[26].y4:=587;
-  kletka[26].y5:=576;
+  kletka[26].x1:=ImBiology.Left + 15;
+  kletka[26].y1:=ImBiology.Top + 1;
+  kletka[26].y2:=ImBiology.Top + 9;
+  kletka[26].y3:=ImBiology.Top + 16;
+  kletka[26].y4:=ImBiology.Top + 24;
+  kletka[26].y5:=ImBiology.Top + 32;
 
   kletka[27].name:='Назад';
   kletka[27].description:='В свой следующий ход пойдете не вперед, а назад.';
-  kletka[27].x1:=594;
-  kletka[27].y1:=621;
-  kletka[27].y2:=611;
-  kletka[27].y3:=599;
-  kletka[27].y4:=587;
-  kletka[27].y5:=576;
+  kletka[27].x1:=ImFalse5.Left + 15;
+  kletka[27].y1:=ImFalse5.Top + 1;
+  kletka[27].y2:=ImFalse5.Top + 9;
+  kletka[27].y3:=ImFalse5.Top + 16;
+  kletka[27].y4:=ImFalse5.Top + 24;
+  kletka[27].y5:=ImFalse5.Top + 32;
 
   kletka[28].name:='Дубаи';
   kletka[28].description:='Эта монополия не требует постройки. Чем больше у вас во владении фирм этой группы, тем выше аренда.';
   kletka[28].price:=250000;
   kletka[28].reg_rent:=100000;
-  kletka[28].x1:=530;
-  kletka[28].y1:=621;
-  kletka[28].y2:=611;
-  kletka[28].y3:=599;
-  kletka[28].y4:=587;
-  kletka[28].y5:=576;
+  kletka[28].x1:=ImDubai.Left + 15;
+  kletka[28].y1:=ImDubai.Top + 1;
+  kletka[28].y2:=ImDubai.Top + 9;;
+  kletka[28].y3:=ImDubai.Top + 16;;
+  kletka[28].y4:=ImDubai.Top + 24;;
+  kletka[28].y5:=ImDubai.Top + 32;;
 
   kletka[29].name:='Металлургический завод';
   kletka[29].price:=350000;
@@ -864,12 +872,12 @@ begin
   kletka[29].mon3_rent:=1500000;
   kletka[29].mon4_rent:=1800000;
   kletka[29].gold_rent:=2100000;
-  kletka[29].x1:=466;
-  kletka[29].y1:=621;
-  kletka[29].y2:=611;
-  kletka[29].y3:=599;
-  kletka[29].y4:=587;
-  kletka[29].y5:=576;
+  kletka[29].x1:=ImMetallurgy.Left + 15;
+  kletka[29].y1:=ImMetallurgy.Top + 1;
+  kletka[29].y2:=ImMetallurgy.Top + 9;
+  kletka[29].y3:=ImMetallurgy.Top + 16;
+  kletka[29].y4:=ImMetallurgy.Top + 24;
+  kletka[29].y5:=ImMetallurgy.Top + 32;
 
   kletka[30].name:='Машиностроительный завод';
   kletka[30].price:=350000;
@@ -880,21 +888,21 @@ begin
   kletka[30].mon3_rent:=1500000;
   kletka[30].mon4_rent:=1800000;
   kletka[30].gold_rent:=2100000;
-  kletka[30].x1:=402;
-  kletka[30].y1:=621;
-  kletka[30].y2:=611;
-  kletka[30].y3:=599;
-  kletka[30].y4:=587;
-  kletka[30].y5:=576;
+  kletka[30].x1:=ImCarFactory.Left + 15;
+  kletka[30].y1:=ImCarFactory.Top + 1;
+  kletka[30].y2:=ImCarFactory.Top + 9;
+  kletka[30].y3:=ImCarFactory.Top + 16;
+  kletka[30].y4:=ImCarFactory.Top + 24;
+  kletka[30].y5:=ImCarFactory.Top + 32;
 
   kletka[31].name:='Лотерея';
   kletka[31].description:='На лотерее вас может ожидать как радостное событие, так и несчастье.';
-  kletka[31].x1:=338;
-  kletka[31].y1:=621;
-  kletka[31].y2:=611;
-  kletka[31].y3:=599;
-  kletka[31].y4:=587;
-  kletka[31].y5:=576;
+  kletka[31].x1:=ImFalse4.Left + 15;
+  kletka[31].y1:=ImFalse4.Top + 1;
+  kletka[31].y2:=ImFalse4.Top + 9;
+  kletka[31].y3:=ImFalse4.Top + 16;
+  kletka[31].y4:=ImFalse4.Top + 24;
+  kletka[31].y5:=ImFalse4.Top + 32;
 
   kletka[32].name:='Оружейный завод';
   kletka[32].price:=350000;
@@ -905,12 +913,12 @@ begin
   kletka[32].mon3_rent:=1500000;
   kletka[32].mon4_rent:=1800000;
   kletka[32].gold_rent:=2100000;
-  kletka[32].x1:=274;
-  kletka[32].y1:=621;
-  kletka[32].y2:=611;
-  kletka[32].y3:=599;
-  kletka[32].y4:=587;
-  kletka[32].y5:=576;
+  kletka[32].x1:=ImWeapon.Left + 15;
+  kletka[32].y1:=ImWeapon.Top + 1;
+  kletka[32].y2:=ImWeapon.Top + 9;
+  kletka[32].y3:=ImWeapon.Top + 16;
+  kletka[32].y4:=ImWeapon.Top + 24;
+  kletka[32].y5:=ImWeapon.Top + 32;
 
   kletka[33].name:='Поисковая система';
   kletka[33].price:=400000;
@@ -921,12 +929,12 @@ begin
   kletka[33].mon3_rent:=1800000;
   kletka[33].mon4_rent:=2100000;
   kletka[33].gold_rent:=2400000;
-  kletka[33].x1:=210;
-  kletka[33].y1:=621;
-  kletka[33].y2:=611;
-  kletka[33].y3:=599;
-  kletka[33].y4:=587;
-  kletka[33].y5:=576;
+  kletka[33].x1:=ImSearch.Left + 15;
+  kletka[33].y1:=ImSearch.Top + 1;
+  kletka[33].y2:=ImSearch.Top + 9;
+  kletka[33].y3:=ImSearch.Top + 16;
+  kletka[33].y4:=ImSearch.Top + 24;
+  kletka[33].y5:=ImSearch.Top + 32;
 
   kletka[34].name:='Социальная сеть';
   kletka[34].price:=400000;
@@ -937,21 +945,21 @@ begin
   kletka[34].mon3_rent:=1800000;
   kletka[34].mon4_rent:=2100000;
   kletka[34].gold_rent:=2400000;
-  kletka[34].x1:=146;
-  kletka[34].y1:=621;
-  kletka[34].y2:=611;
-  kletka[34].y3:=599;
-  kletka[34].y4:=587;
-  kletka[34].y5:=576;
+  kletka[34].x1:=ImSocial.Left + 15;
+  kletka[34].y1:=ImSocial. Top + 1;
+  kletka[34].y2:=ImSocial. Top + 9;
+  kletka[34].y3:=ImSocial. Top + 16;
+  kletka[34].y4:=ImSocial. Top + 24;
+  kletka[34].y5:=ImSocial. Top + 32;
 
   kletka[35].name:='Отпуск';
   kletka[35].description:='Отправляйтесь в отпуск!';
-  kletka[35].x1:=73;
-  kletka[35].y1:=621;
-  kletka[35].y2:=611;
-  kletka[35].y3:=599;
-  kletka[35].y4:=587;
-  kletka[35].y5:=576;
+  kletka[35].x1:=ImVacation.Left + 15;
+  kletka[35].y1:=ImVacation.Top + 1;
+  kletka[35].y2:=ImVacation.Top + 9;
+  kletka[35].y3:=ImVacation.Top + 16;
+  kletka[35].y4:=ImVacation.Top + 24;
+  kletka[35].y5:=ImVacation.Top + 32;
 
   kletka[36].name:='Тенерифе';
   kletka[36].price:=450000;
@@ -962,12 +970,12 @@ begin
   kletka[36].mon3_rent:=2000000;
   kletka[36].mon4_rent:=2300000;
   kletka[36].gold_rent:=2800000;
-  kletka[36].x1:=73;
-  kletka[36].y1:=545;
-  kletka[36].y2:=537;
-  kletka[36].y3:=530;
-  kletka[36].y4:=522;
-  kletka[36].y5:=514;
+  kletka[36].x1:=ImTenerife.Left + 15;
+  kletka[36].y1:=ImTenerife.Top + 1;
+  kletka[36].y2:=ImTenerife.Top + 9;
+  kletka[36].y3:=ImTenerife.Top + 16;
+  kletka[36].y4:=ImTenerife.Top + 24;
+  kletka[36].y5:=ImTenerife.Top + 32;
 
   kletka[37].name:='Сейшелы';
   kletka[37].price:=450000;
@@ -978,12 +986,12 @@ begin
   kletka[37].mon3_rent:=2000000;
   kletka[37].mon4_rent:=2300000;
   kletka[37].gold_rent:=2800000;
-  kletka[37].x1:=73;
-  kletka[37].y1:=481;
-  kletka[37].y2:=473;
-  kletka[37].y3:=466;
-  kletka[37].y4:=458;
-  kletka[37].y5:=450;
+  kletka[37].x1:=ImSeychelles.Left + 15;
+  kletka[37].y1:=ImSeychelles.Top + 1;
+  kletka[37].y2:=ImSeychelles.Top + 9;
+  kletka[37].y3:=ImSeychelles.Top + 16;
+  kletka[37].y4:=ImSeychelles.Top + 24;
+  kletka[37].y5:=ImSeychelles.Top + 32;
 
   kletka[38].name:='Мальдивы';
   kletka[38].price:=450000;
@@ -994,23 +1002,23 @@ begin
   kletka[38].mon3_rent:=2000000;
   kletka[38].mon4_rent:=2300000;
   kletka[38].gold_rent:=2800000;
-  kletka[38].x1:=73;
-  kletka[38].y1:=417;
-  kletka[38].y2:=409;
-  kletka[38].y3:=402;
-  kletka[38].y4:=394;
-  kletka[38].y5:=386;
+  kletka[38].x1:=ImMaldives.Left + 15;
+  kletka[38].y1:=ImMaldives.Top + 1;
+  kletka[38].y2:=ImMaldives.Top + 9;
+  kletka[38].y3:=ImMaldives.Top + 16;
+  kletka[38].y4:=ImMaldives.Top + 24;
+  kletka[38].y5:=ImMaldives.Top + 32;
 
   kletka[39].name:='Нью-йорк';
   kletka[39].description:='Эта монополия не требует постройки. Чем больше у вас во владении фирм этой группы, тем выше аренда.';
   kletka[39].price:=250000;
   kletka[39].reg_rent:=100000;
-  kletka[39].x1:=73;
-  kletka[39].y1:=353;
-  kletka[39].y2:=345;
-  kletka[39].y3:=338;
-  kletka[39].y4:=330;
-  kletka[39].y5:=322;
+  kletka[39].x1:=ImNewYork.Left + 15;
+  kletka[39].y1:=ImNewYork.Top + 1;
+  kletka[39].y2:=ImNewYork.Top + 9;
+  kletka[39].y3:=ImNewYork.Top + 16;
+  kletka[39].y4:=ImNewYork.Top + 24;
+  kletka[39].y5:=ImNewYork.Top + 32;
 
   kletka[40].name:='Нейросети';
   kletka[40].price:=550000;
@@ -1021,12 +1029,12 @@ begin
   kletka[40].mon3_rent:=2400000;
   kletka[40].mon4_rent:=3200000;
   kletka[40].gold_rent:=4500000;
-  kletka[40].x1:=73;
-  kletka[40].y1:=289;
-  kletka[40].y2:=281;
-  kletka[40].y3:=274;
-  kletka[40].y4:=266;
-  kletka[40].y5:=258;
+  kletka[40].x1:=ImNeiro.Left + 15;
+  kletka[40].y1:=ImNeiro.Top + 1;
+  kletka[40].y2:=ImNeiro.Top + 9;
+  kletka[40].y3:=ImNeiro.Top + 16;
+  kletka[40].y4:=ImNeiro.Top + 24;
+  kletka[40].y5:=ImNeiro.Top + 32;
 
   kletka[41].name:='Налог';
   { Описание клетки находится в процедуре OnShow формы.
@@ -1034,12 +1042,12 @@ begin
     nalog, которому присвоено значение в той же процедуре (во время показа формы),
     т.к. все формы создаются при запуске программы, и значение
     nalog было бы неправильным }
-  kletka[41].x1:=73;
-  kletka[41].y1:=225;
-  kletka[41].y2:=217;
-  kletka[41].y3:=210;
-  kletka[41].y4:=202;
-  kletka[41].y5:=194;
+  kletka[41].x1:=ImFalse7.Left + 15;
+  kletka[41].y1:=ImFalse7.Top + 1;
+  kletka[41].y2:=ImFalse7.Top + 9;
+  kletka[41].y3:=ImFalse7.Top + 16;
+  kletka[41].y4:=ImFalse7.Top + 24;
+  kletka[41].y5:=ImFalse7.Top + 32;
 
   kletka[42].name:='Криптовалюта';
   kletka[42].price:=550000;
@@ -1050,17 +1058,14 @@ begin
   kletka[42].mon3_rent:=2400000;
   kletka[42].mon4_rent:=3200000;
   kletka[42].gold_rent:=4500000;
-  kletka[42].x1:=73;
-  kletka[42].y1:=161;
-  kletka[42].y2:=153;
-  kletka[42].y3:=146;
-  kletka[42].y4:=138;
-  kletka[42].y5:=130;
-end;
+  kletka[42].x1:=ImCrypto.Left + 15;
+  kletka[42].y1:=ImCrypto.Top + 1;
+  kletka[42].y2:=ImCrypto.Top + 9;
+  kletka[42].y3:=ImCrypto.Top + 16;
+  kletka[42].y4:=ImCrypto.Top + 24;
+  kletka[42].y5:=ImCrypto.Top + 32;
+  //конец повтора
 
-procedure TfPlay.FormShow(Sender: TObject);
-var i:byte; // просто счетчик
-begin
   player_count:=PlayersNumber;
   for i:=1 to 42 do
   begin
@@ -1088,7 +1093,7 @@ begin
   Name4.Caption:=Player[4].name;
   Name5.Caption:=Player[5].name;
 
-  case PlayersNumber of
+  case PlayersNumber of  // показываем и скрываем фишки
   5:
     begin
       Token3.Visible:=True;
@@ -1489,11 +1494,11 @@ begin
   fInfoFirm.MonopoliesInfo.Visible:=False;
   fInfoFirm.Label7.Visible:=False;
   fInfoFirm.Sale.Visible:=False;
-  fInfoFirm.CopyInfoImage.Left:=34;
-  fInfoFirm.CopyInfoImage.Top:=99;
-  fInfoFirm.ImButton.Top:=200;
-  fInfoFirm.TextOK.Top:=205;
-  fInfoFirm.Height:=256;
+
+  fInfoFirm.CopyInfoImage.BorderSpacing.Left := 50;
+  fInfoFirm.CellDescription.BorderSpacing.Left := 160;
+  fInfoFirm.ImButton.AnchorToNeighbour(akTop, 20, fInfoFirm.CellDescription);
+
   fInfoFirm.ShowModal;
 end;
 
@@ -1514,13 +1519,11 @@ begin
   fInfoFirm.MonopoliesInfo.Visible:=False;
   fInfoFirm.Label3.Visible:=False;
   fInfoFirm.Filial.Visible:=False;
-  fInfoFirm.Label7.Top:=307;
-  fInfoFirm.Sale.Top:=304;
-  fInfoFirm.ImButton.Top:=360;
-  fInfoFirm.TextOK.Top:=365;
-  fInfoFirm.Height:=414;
-  fInfoFirm.CopyInfoImage.Left:=34;
-  fInfoFirm.CopyInfoImage.Top:=99;
+
+  fInfoFirm.CopyInfoImage.BorderSpacing.Left := 50;
+  fInfoFirm.Label7.AnchorToNeighbour(akTop, 12, fInfoFirm.Label8);
+  fInfoFirm.Sale.AnchorToNeighbour(akTop, 9, fInfoFirm.NowRent);
+
   fInfoFirm.ShowModal;
 end;
 
@@ -1529,7 +1532,6 @@ begin
   fInfoFirm.label1.caption:=kletka[3].name;
   fInfoFirm.CopyInfoImage.Visible:=False;
   fInfoFirm.CellDescription.Visible:=True;
-  fInfoFirm.CellDescription.Left:=88;
   fInfoFirm.CellDescription.Lines.Add(kletka[3].description);
   fInfoFirm.Label2.Visible:=False;
   fInfoFirm.Label4.Visible:=False;
@@ -1544,9 +1546,10 @@ begin
   fInfoFirm.MonopoliesInfo.Visible:=False;
   fInfoFirm.Label7.Visible:=False;
   fInfoFirm.Sale.Visible:=False;
-  fInfoFirm.ImButton.Top:=200;
-  fInfoFirm.TextOK.Top:=205;
-  fInfoFirm.Height:=256;
+
+  fInfoFirm.ImButton.AnchorToNeighbour(akTop, 20, fInfoFirm.CellDescription);
+  fInfoFirm.CellDescription.BorderSpacing.Left := 105;
+
   fInfoFirm.ShowModal;
 end;
 
@@ -1555,7 +1558,6 @@ begin
   fInfoFirm.label1.caption:=kletka[6].name;
   fInfoFirm.CopyInfoImage.Visible:=False;
   fInfoFirm.CellDescription.Visible:=True;
-  fInfoFirm.CellDescription.Left:=88;
   fInfoFirm.CellDescription.Lines.Add(kletka[6].description);
   fInfoFirm.Label2.Visible:=False;
   fInfoFirm.Label4.Visible:=False;
@@ -1570,9 +1572,10 @@ begin
   fInfoFirm.MonopoliesInfo.Visible:=False;
   fInfoFirm.Label7.Visible:=False;
   fInfoFirm.Sale.Visible:=False;
-  fInfoFirm.ImButton.Top:=200;
-  fInfoFirm.TextOK.Top:=205;
-  fInfoFirm.Height:=256;
+
+  fInfoFirm.ImButton.AnchorToNeighbour(akTop, 20, fInfoFirm.CellDescription);
+  fInfoFirm.CellDescription.BorderSpacing.Left := 105;
+
   fInfoFirm.ShowModal;
 end;
 
@@ -1581,7 +1584,6 @@ begin
   fInfoFirm.label1.caption:=kletka[10].name;
   fInfoFirm.CopyInfoImage.Visible:=False;
   fInfoFirm.CellDescription.Visible:=True;
-  fInfoFirm.CellDescription.Left:=88;
   fInfoFirm.CellDescription.Lines.Add(kletka[10].description);
   fInfoFirm.Label2.Visible:=False;
   fInfoFirm.Label4.Visible:=False;
@@ -1596,9 +1598,10 @@ begin
   fInfoFirm.MonopoliesInfo.Visible:=False;
   fInfoFirm.Label7.Visible:=False;
   fInfoFirm.Sale.Visible:=False;
-  fInfoFirm.ImButton.Top:=200;
-  fInfoFirm.TextOK.Top:=205;
-  fInfoFirm.Height:=256;
+
+  fInfoFirm.ImButton.AnchorToNeighbour(akTop, 20, fInfoFirm.CellDescription);
+  fInfoFirm.CellDescription.BorderSpacing.Left := 105;
+
   fInfoFirm.ShowModal;
 end;
 
@@ -1607,7 +1610,6 @@ begin
   fInfoFirm.label1.caption:=kletka[31].name;
   fInfoFirm.CopyInfoImage.Visible:=False;
   fInfoFirm.CellDescription.Visible:=True;
-  fInfoFirm.CellDescription.Left:=88;
   fInfoFirm.CellDescription.Lines.Add(kletka[31].description);
   fInfoFirm.Label2.Visible:=False;
   fInfoFirm.Label4.Visible:=False;
@@ -1622,9 +1624,10 @@ begin
   fInfoFirm.MonopoliesInfo.Visible:=False;
   fInfoFirm.Label7.Visible:=False;
   fInfoFirm.Sale.Visible:=False;
-  fInfoFirm.ImButton.Top:=200;
-  fInfoFirm.TextOK.Top:=205;
-  fInfoFirm.Height:=256;
+
+  fInfoFirm.ImButton.AnchorToNeighbour(akTop, 20, fInfoFirm.CellDescription);
+  fInfoFirm.CellDescription.BorderSpacing.Left := 105;
+
   fInfoFirm.ShowModal;
 end;
 
@@ -1633,7 +1636,6 @@ begin
   fInfoFirm.label1.caption:=kletka[27].name;
   fInfoFirm.CopyInfoImage.Visible:=False;
   fInfoFirm.CellDescription.Visible:=True;
-  fInfoFirm.CellDescription.Left:=88;
   fInfoFirm.CellDescription.Lines.Add(kletka[27].description);
   fInfoFirm.Label2.Visible:=False;
   fInfoFirm.Label4.Visible:=False;
@@ -1648,9 +1650,10 @@ begin
   fInfoFirm.MonopoliesInfo.Visible:=False;
   fInfoFirm.Label7.Visible:=False;
   fInfoFirm.Sale.Visible:=False;
-  fInfoFirm.ImButton.Top:=200;
-  fInfoFirm.TextOK.Top:=205;
-  fInfoFirm.Height:=256;
+
+  fInfoFirm.ImButton.AnchorToNeighbour(akTop, 20, fInfoFirm.CellDescription);
+  fInfoFirm.CellDescription.BorderSpacing.Left := 105;
+
   fInfoFirm.ShowModal;
 end;
 
@@ -1659,7 +1662,6 @@ begin
   fInfoFirm.label1.caption:=kletka[24].name;
   fInfoFirm.CopyInfoImage.Visible:=False;
   fInfoFirm.CellDescription.Visible:=True;
-  fInfoFirm.CellDescription.Left:=88;
   fInfoFirm.CellDescription.Lines.Add(kletka[24].description);
   fInfoFirm.Label2.Visible:=False;
   fInfoFirm.Label4.Visible:=False;
@@ -1674,9 +1676,10 @@ begin
   fInfoFirm.MonopoliesInfo.Visible:=False;
   fInfoFirm.Label7.Visible:=False;
   fInfoFirm.Sale.Visible:=False;
-  fInfoFirm.ImButton.Top:=200;
-  fInfoFirm.TextOK.Top:=205;
-  fInfoFirm.Height:=256;
+
+  fInfoFirm.ImButton.AnchorToNeighbour(akTop, 20, fInfoFirm.CellDescription);
+  fInfoFirm.CellDescription.BorderSpacing.Left := 105;
+
   fInfoFirm.ShowModal;
 end;
 
@@ -1685,7 +1688,6 @@ begin
   fInfoFirm.label1.caption:=kletka[41].name;
   fInfoFirm.CopyInfoImage.Visible:=False;
   fInfoFirm.CellDescription.Visible:=True;
-  fInfoFirm.CellDescription.Left:=88;
   fInfoFirm.CellDescription.Lines.Add(kletka[41].description);
   fInfoFirm.Label2.Visible:=False;
   fInfoFirm.Label4.Visible:=False;
@@ -1700,9 +1702,10 @@ begin
   fInfoFirm.MonopoliesInfo.Visible:=False;
   fInfoFirm.Label7.Visible:=False;
   fInfoFirm.Sale.Visible:=False;
-  fInfoFirm.ImButton.Top:=200;
-  fInfoFirm.TextOK.Top:=205;
-  fInfoFirm.Height:=256;
+
+  fInfoFirm.ImButton.AnchorToNeighbour(akTop, 20, fInfoFirm.CellDescription);
+  fInfoFirm.CellDescription.BorderSpacing.Left := 105;
+
   fInfoFirm.ShowModal;
 end;
 
@@ -1711,7 +1714,6 @@ begin
   fInfoFirm.label1.caption:=kletka[20].name;
   fInfoFirm.CopyInfoImage.Visible:=False;
   fInfoFirm.CellDescription.Visible:=True;
-  fInfoFirm.CellDescription.Left:=88;
   fInfoFirm.CellDescription.Lines.Add(kletka[20].description);
   fInfoFirm.Label2.Visible:=False;
   fInfoFirm.Label4.Visible:=False;
@@ -1726,9 +1728,10 @@ begin
   fInfoFirm.MonopoliesInfo.Visible:=False;
   fInfoFirm.Label7.Visible:=False;
   fInfoFirm.Sale.Visible:=False;
-  fInfoFirm.ImButton.Top:=200;
-  fInfoFirm.TextOK.Top:=205;
-  fInfoFirm.Height:=256;
+
+  fInfoFirm.ImButton.AnchorToNeighbour(akTop, 20, fInfoFirm.CellDescription);
+  fInfoFirm.CellDescription.BorderSpacing.Left := 105;
+
   fInfoFirm.ShowModal;
 end;
 
@@ -1773,11 +1776,11 @@ begin
   fInfoFirm.MonopoliesInfo.Visible:=False;
   fInfoFirm.Label7.Visible:=False;
   fInfoFirm.Sale.Visible:=False;
-  fInfoFirm.CopyInfoImage.Left:=34;
-  fInfoFirm.CopyInfoImage.Top:=99;
-  fInfoFirm.ImButton.Top:=200;
-  fInfoFirm.TextOK.Top:=205;
-  fInfoFirm.Height:=256;
+
+  fInfoFirm.CopyInfoImage.BorderSpacing.Left := 50;
+  fInfoFirm.CellDescription.BorderSpacing.Left := 160;
+  fInfoFirm.ImButton.AnchorToNeighbour(akTop, 20, fInfoFirm.CellDescription);
+
   fInfoFirm.ShowModal;
 end;
 
@@ -1886,13 +1889,11 @@ begin
   fInfoFirm.MonopoliesInfo.Visible:=False;
   fInfoFirm.Label3.Visible:=False;
   fInfoFirm.Filial.Visible:=False;
-  fInfoFirm.Label7.Top:=307;
-  fInfoFirm.Sale.Top:=304;
-  fInfoFirm.ImButton.Top:=360;
-  fInfoFirm.TextOK.Top:=365;
-  fInfoFirm.Height:=414;
-  fInfoFirm.CopyInfoImage.Left:=34;
-  fInfoFirm.CopyInfoImage.Top:=99;
+
+  fInfoFirm.CopyInfoImage.BorderSpacing.Left := 50;
+  fInfoFirm.Label7.AnchorToNeighbour(akTop, 12, fInfoFirm.Label8);
+  fInfoFirm.Sale.AnchorToNeighbour(akTop, 9, fInfoFirm.NowRent);
+
   fInfoFirm.ShowModal;
 end;
 
@@ -1935,13 +1936,11 @@ begin
   fInfoFirm.MonopoliesInfo.Visible:=False;
   fInfoFirm.Label3.Visible:=False;
   fInfoFirm.Filial.Visible:=False;
-  fInfoFirm.Label7.Top:=307;
-  fInfoFirm.Sale.Top:=304;
-  fInfoFirm.ImButton.Top:=360;
-  fInfoFirm.TextOK.Top:=365;
-  fInfoFirm.Height:=414;
-  fInfoFirm.CopyInfoImage.Left:=34;
-  fInfoFirm.CopyInfoImage.Top:=99;
+
+  fInfoFirm.CopyInfoImage.BorderSpacing.Left := 50;
+  fInfoFirm.Label7.AnchorToNeighbour(akTop, 12, fInfoFirm.Label8);
+  fInfoFirm.Sale.AnchorToNeighbour(akTop, 9, fInfoFirm.NowRent);
+
   fInfoFirm.ShowModal;
 end;
 
@@ -2052,11 +2051,11 @@ begin
   fInfoFirm.MonopoliesInfo.Visible:=False;
   fInfoFirm.Label7.Visible:=False;
   fInfoFirm.Sale.Visible:=False;
-  fInfoFirm.CopyInfoImage.Left:=34;
-  fInfoFirm.CopyInfoImage.Top:=99;
-  fInfoFirm.ImButton.Top:=200;
-  fInfoFirm.TextOK.Top:=205;
-  fInfoFirm.Height:=256;
+
+  fInfoFirm.CopyInfoImage.BorderSpacing.Left := 50;
+  fInfoFirm.CellDescription.BorderSpacing.Left := 160;
+  fInfoFirm.ImButton.AnchorToNeighbour(akTop, 20, fInfoFirm.CellDescription);
+
   fInfoFirm.ShowModal;
 end;
 
@@ -2121,13 +2120,11 @@ begin
   fInfoFirm.MonopoliesInfo.Visible:=False;
   fInfoFirm.Label3.Visible:=False;
   fInfoFirm.Filial.Visible:=False;
-  fInfoFirm.Label7.Top:=307;
-  fInfoFirm.Sale.Top:=304;
-  fInfoFirm.ImButton.Top:=360;
-  fInfoFirm.TextOK.Top:=365;
-  fInfoFirm.Height:=414;
-  fInfoFirm.CopyInfoImage.Left:=34;
-  fInfoFirm.CopyInfoImage.Top:=99;
+
+  fInfoFirm.CopyInfoImage.BorderSpacing.Left := 50;
+  fInfoFirm.Label7.AnchorToNeighbour(akTop, 12, fInfoFirm.Label8);
+  fInfoFirm.Sale.AnchorToNeighbour(akTop, 9, fInfoFirm.NowRent);
+
   fInfoFirm.ShowModal;
 end;
 
@@ -2150,11 +2147,11 @@ begin
   fInfoFirm.MonopoliesInfo.Visible:=False;
   fInfoFirm.Label7.Visible:=False;
   fInfoFirm.Sale.Visible:=False;
-  fInfoFirm.CopyInfoImage.Left:=34;
-  fInfoFirm.CopyInfoImage.Top:=99;
-  fInfoFirm.ImButton.Top:=200;
-  fInfoFirm.TextOK.Top:=205;
-  fInfoFirm.Height:=256;
+
+  fInfoFirm.CopyInfoImage.BorderSpacing.Left := 50;
+  fInfoFirm.CellDescription.BorderSpacing.Left := 160;
+  fInfoFirm.ImButton.AnchorToNeighbour(akTop, 20, fInfoFirm.CellDescription);
+
   fInfoFirm.ShowModal;
 end;
 

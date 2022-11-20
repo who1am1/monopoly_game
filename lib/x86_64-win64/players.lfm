@@ -1,21 +1,22 @@
 object fPlayers: TfPlayers
   Left = 612
-  Height = 429
+  Height = 536
   Top = 129
-  Width = 320
+  Width = 400
   BorderStyle = bsDialog
   Caption = 'Игроки'
-  ClientHeight = 429
-  ClientWidth = 320
+  ClientHeight = 536
+  ClientWidth = 400
+  DesignTimePPI = 120
   OnClose = FormClose
   OnCreate = FormCreate
   Position = poDesktopCenter
-  LCLVersion = '2.0.10.0'
+  LCLVersion = '2.2.2.0'
   object BackgroundPlayers: TImage
     Left = 0
-    Height = 429
+    Height = 536
     Top = 0
-    Width = 320
+    Width = 400
     Align = alClient
     Picture.Data = {
       0A544A706567496D616765F7680000FFD8FFE1001845786966000049492A0008
@@ -862,27 +863,27 @@ object fPlayers: TfPlayers
     }
   end
   object Choose1: TGroupBox
-    Left = 36
-    Height = 56
-    Top = 56
-    Width = 252
-    ClientHeight = 36
-    ClientWidth = 248
+    Left = 45
+    Height = 70
+    Top = 70
+    Width = 315
+    ClientHeight = 45
+    ClientWidth = 311
     TabOrder = 0
     object PlayerName1: TEdit
-      Left = 8
-      Height = 23
-      Top = 3
-      Width = 196
+      Left = 10
+      Height = 28
+      Top = 4
+      Width = 245
       OnUTF8KeyPress = PlayerName1UTF8KeyPress
       TabOrder = 0
       Text = 'Игрок 1'
     end
     object Minus1: TImage
-      Left = 214
-      Height = 27
+      Left = 268
+      Height = 34
       Top = 2
-      Width = 25
+      Width = 31
       Picture.Data = {
         1754506F727461626C654E6574776F726B477261706869635506000089504E47
         0D0A1A0A0000000D494844520000001A0000001C08060000007F13AFD3000001
@@ -943,19 +944,19 @@ object fPlayers: TfPlayers
     end
   end
   object bContinue: TBitBtn
-    Left = 120
-    Height = 30
-    Top = 383
-    Width = 88
+    Left = 150
+    Height = 38
+    Top = 479
+    Width = 110
     Caption = 'Продолжить'
     OnClick = bContinueClick
     TabOrder = 1
   end
   object Plus1: TImage
-    Left = 144
-    Height = 34
-    Top = 16
-    Width = 32
+    Left = 180
+    Height = 42
+    Top = 20
+    Width = 40
     OnClick = Plus1Click
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869639305000089504E47
@@ -1009,27 +1010,27 @@ object fPlayers: TfPlayers
     Stretch = True
   end
   object Choose2: TGroupBox
-    Left = 36
-    Height = 56
-    Top = 120
-    Width = 252
-    ClientHeight = 36
-    ClientWidth = 248
+    Left = 45
+    Height = 70
+    Top = 150
+    Width = 315
+    ClientHeight = 45
+    ClientWidth = 311
     TabOrder = 2
     object PlayerName2: TEdit
-      Left = 8
-      Height = 23
-      Top = 3
-      Width = 196
+      Left = 10
+      Height = 28
+      Top = 4
+      Width = 245
       OnUTF8KeyPress = PlayerName2UTF8KeyPress
       TabOrder = 0
       Text = 'Игрок 2'
     end
     object Minus2: TImage
-      Left = 214
-      Height = 27
+      Left = 268
+      Height = 34
       Top = 2
-      Width = 25
+      Width = 31
       Picture.Data = {
         1754506F727461626C654E6574776F726B477261706869635506000089504E47
         0D0A1A0A0000000D494844520000001A0000001C08060000007F13AFD3000001
@@ -1090,28 +1091,28 @@ object fPlayers: TfPlayers
     end
   end
   object Choose3: TGroupBox
-    Left = 36
-    Height = 56
-    Top = 184
-    Width = 252
-    ClientHeight = 36
-    ClientWidth = 248
+    Left = 45
+    Height = 70
+    Top = 230
+    Width = 315
+    ClientHeight = 45
+    ClientWidth = 311
     TabOrder = 3
     Visible = False
     object PlayerName3: TEdit
-      Left = 8
-      Height = 23
-      Top = 3
-      Width = 196
+      Left = 10
+      Height = 28
+      Top = 4
+      Width = 245
       OnUTF8KeyPress = PlayerName3UTF8KeyPress
       TabOrder = 0
       Text = 'Игрок 3'
     end
     object Minus3: TImage
-      Left = 214
-      Height = 27
+      Left = 268
+      Height = 34
       Top = 2
-      Width = 25
+      Width = 31
       OnClick = Minus3Click
       Picture.Data = {
         1754506F727461626C654E6574776F726B477261706869635506000089504E47
@@ -1172,28 +1173,28 @@ object fPlayers: TfPlayers
     end
   end
   object Choose4: TGroupBox
-    Left = 36
-    Height = 56
-    Top = 248
-    Width = 252
-    ClientHeight = 36
-    ClientWidth = 248
+    Left = 45
+    Height = 70
+    Top = 310
+    Width = 315
+    ClientHeight = 45
+    ClientWidth = 311
     TabOrder = 4
     Visible = False
     object PlayerName4: TEdit
-      Left = 8
-      Height = 23
-      Top = 3
-      Width = 196
+      Left = 10
+      Height = 28
+      Top = 4
+      Width = 245
       OnUTF8KeyPress = PlayerName4UTF8KeyPress
       TabOrder = 0
       Text = 'Игрок 4'
     end
     object Minus4: TImage
-      Left = 214
-      Height = 27
+      Left = 268
+      Height = 34
       Top = 2
-      Width = 25
+      Width = 31
       OnClick = Minus4Click
       Picture.Data = {
         1754506F727461626C654E6574776F726B477261706869635506000089504E47
@@ -1254,28 +1255,28 @@ object fPlayers: TfPlayers
     end
   end
   object Choose5: TGroupBox
-    Left = 36
-    Height = 56
-    Top = 312
-    Width = 252
-    ClientHeight = 36
-    ClientWidth = 248
+    Left = 45
+    Height = 70
+    Top = 390
+    Width = 315
+    ClientHeight = 45
+    ClientWidth = 311
     TabOrder = 5
     Visible = False
     object PlayerName5: TEdit
-      Left = 8
-      Height = 23
-      Top = 3
-      Width = 196
+      Left = 10
+      Height = 28
+      Top = 4
+      Width = 245
       OnUTF8KeyPress = PlayerName5UTF8KeyPress
       TabOrder = 0
       Text = 'Игрок 5'
     end
     object Minus5: TImage
-      Left = 214
-      Height = 27
+      Left = 268
+      Height = 34
       Top = 2
-      Width = 25
+      Width = 31
       OnClick = Minus5Click
       Picture.Data = {
         1754506F727461626C654E6574776F726B477261706869635506000089504E47

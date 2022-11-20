@@ -70,14 +70,8 @@ procedure TfInfoFirm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   CellDescription.Clear;
   CellDescription.Visible:=False;
-  CellDescription.Left:=128;
-  CellDescription.Top:=80;
   CopyInfoImage.Visible:=True;
-  fInfoFirm.Width:=356;
-  fInfoFirm.Height:=626;
   MonopoliesInfo.Visible:=True;
-  Label7.Top:=532;
-  Sale.Top:=529;
   Label2.Visible:=True;
   Label4.Visible:=True;
   Label5.Visible:=True;
@@ -90,11 +84,12 @@ begin
   RegRent.Visible:=True;
   NowRent.Visible:=True;
   Filial.Visible:=True;
-  ImButton.Left:=136;
-  ImButton.Top:=568;
-  TextOK.Top:=573;
-  CopyInfoImage.Left:=145;
-  CopyInfoImage.Top:=99;
+
+  CopyInfoImage.BorderSpacing.Left := 181;
+  Label7.AnchorToNeighbour(akTop, 7, MonopoliesInfo);
+  Sale.AnchorToNeighbour(akTop, 3, MonopoliesInfo);
+  ImButton.AnchorToNeighbour(akTop, 20, Label7);
+  CellDescription.BorderSpacing.Left := 160;
 end;
 
 procedure TfInfoFirm.ImButtonClick(Sender: TObject);

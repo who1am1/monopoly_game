@@ -1,12 +1,12 @@
 object fPlay: TfPlay
-  Left = 286
+  Left = 607
   Height = 866
-  Top = 7
+  Top = 0
   Width = 1295
   BorderStyle = bsDialog
   Caption = 'Монополия'
-  ClientHeight = 866
-  ClientWidth = 1295
+  ClientHeight = 0
+  ClientWidth = 0
   DesignTimePPI = 120
   OnClose = FormClose
   OnCreate = FormCreate
@@ -1175,6 +1175,7 @@ object fPlay: TfPlay
     Top = 720
     Width = 125
     BorderSpacing.Top = 80
+    OnDblClick = ImJackpotDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869638E05000089504E47
       0D0A1A0A0000000D49484452000000C8000001F40802000000F7F5F5AB000001
@@ -1234,6 +1235,7 @@ object fPlay: TfPlay
     Width = 125
     Anchors = [akTop, akRight]
     BorderSpacing.Right = 5
+    OnDblClick = ImVacationDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869638E05000089504E47
       0D0A1A0A0000000D49484452000000C8000001F40802000000F7F5F5AB000001
@@ -1292,6 +1294,7 @@ object fPlay: TfPlay
     Top = 30
     Width = 125
     BorderSpacing.Left = 80
+    OnDblClick = ImCustomsDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869638E05000089504E47
       0D0A1A0A0000000D49484452000000C8000001F40802000000F7F5F5AB000001
@@ -1347,6 +1350,7 @@ object fPlay: TfPlay
     Height = 125
     Top = 30
     Width = 125
+    OnDblClick = ImStartDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869638E05000089504E47
       0D0A1A0A0000000D49484452000000C8000001F40802000000F7F5F5AB000001
@@ -18746,7 +18750,7 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Cash2: TLabel
-    AnchorSideLeft.Control = Dollar1
+    AnchorSideLeft.Control = Dollar2
     AnchorSideTop.Control = Dollar2
     Left = 264
     Height = 19
@@ -18761,7 +18765,7 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Capital2: TLabel
-    AnchorSideLeft.Control = House1
+    AnchorSideLeft.Control = House2
     AnchorSideTop.Control = House2
     Left = 264
     Height = 19
@@ -18817,7 +18821,7 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Cash3: TLabel
-    AnchorSideLeft.Control = Dollar1
+    AnchorSideLeft.Control = Dollar3
     AnchorSideTop.Control = Dollar3
     Left = 264
     Height = 19
@@ -18832,7 +18836,7 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Capital3: TLabel
-    AnchorSideLeft.Control = House1
+    AnchorSideLeft.Control = House3
     AnchorSideTop.Control = House3
     Left = 264
     Height = 19
@@ -18888,7 +18892,7 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Cash4: TLabel
-    AnchorSideLeft.Control = Dollar1
+    AnchorSideLeft.Control = Dollar4
     AnchorSideTop.Control = Dollar4
     Left = 264
     Height = 19
@@ -18903,7 +18907,7 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Capital4: TLabel
-    AnchorSideLeft.Control = House1
+    AnchorSideLeft.Control = House4
     AnchorSideTop.Control = House4
     Left = 264
     Height = 19
@@ -18959,7 +18963,7 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Cash5: TLabel
-    AnchorSideLeft.Control = Dollar1
+    AnchorSideLeft.Control = Dollar5
     AnchorSideTop.Control = Dollar5
     Left = 264
     Height = 19
@@ -18974,7 +18978,7 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Capital5: TLabel
-    AnchorSideLeft.Control = House1
+    AnchorSideLeft.Control = House5
     AnchorSideTop.Control = House5
     Left = 264
     Height = 19
@@ -21016,7 +21020,7 @@ object fPlay: TfPlay
     Visible = False
   end
   object ImBankrot2: TImage
-    AnchorSideLeft.Control = ImFon1
+    AnchorSideLeft.Control = ImFon2
     AnchorSideTop.Control = ImFon2
     Left = 280
     Height = 32
@@ -21289,7 +21293,7 @@ object fPlay: TfPlay
     Visible = False
   end
   object ImBankrot3: TImage
-    AnchorSideLeft.Control = ImFon1
+    AnchorSideLeft.Control = ImFon3
     AnchorSideTop.Control = ImFon3
     Left = 280
     Height = 32
@@ -21562,7 +21566,7 @@ object fPlay: TfPlay
     Visible = False
   end
   object ImBankrot4: TImage
-    AnchorSideLeft.Control = ImFon1
+    AnchorSideLeft.Control = ImFon4
     AnchorSideTop.Control = ImFon4
     Left = 280
     Height = 32
@@ -21835,7 +21839,7 @@ object fPlay: TfPlay
     Visible = False
   end
   object ImBankrot5: TImage
-    AnchorSideLeft.Control = ImFon1
+    AnchorSideLeft.Control = ImFon5
     AnchorSideTop.Control = ImFon5
     Left = 280
     Height = 32

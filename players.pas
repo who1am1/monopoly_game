@@ -160,7 +160,7 @@ begin
     player[i].skip_step:=0;
     // никто не ходит назад
     player[i].go_back:=False;
-    // все начинат с первой клетки
+    // все начинают с первой клетки
     player[i].kletka:=1;
     player[i].monopolies:=0;
   end;
