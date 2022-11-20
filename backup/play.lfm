@@ -1,22 +1,23 @@
 object fPlay: TfPlay
   Left = 286
-  Height = 693
+  Height = 866
   Top = 7
-  Width = 1036
+  Width = 1295
   BorderStyle = bsDialog
   Caption = 'Монополия'
-  ClientHeight = 693
-  ClientWidth = 1036
+  ClientHeight = 866
+  ClientWidth = 1295
+  DesignTimePPI = 120
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poDesktopCenter
-  LCLVersion = '2.0.10.0'
+  LCLVersion = '2.2.2.0'
   object ImBackground: TImage
     Left = 0
-    Height = 693
+    Height = 866
     Top = 0
-    Width = 1036
+    Width = 1295
     Align = alClient
     AutoSize = True
     Picture.Data = {
@@ -865,190 +866,315 @@ object fPlay: TfPlay
     Stretch = True
   end
   object C112: TShape
-    Left = 45
-    Height = 60
-    Top = 128
-    Width = 79
+    AnchorSideLeft.Control = Back3
+    AnchorSideTop.Control = Back1
+    AnchorSideBottom.Control = Nalog3
+    Left = 56
+    Height = 75
+    Top = 160
+    Width = 99
+    Anchors = [akTop, akLeft, akBottom]
+    BorderSpacing.Left = 26
+    BorderSpacing.Top = 130
+    BorderSpacing.Bottom = 5
   end
   object C111: TShape
-    Left = 45
-    Height = 60
-    Top = 256
-    Width = 79
+    AnchorSideLeft.Control = Back3
+    AnchorSideBottom.Control = C24
+    Left = 56
+    Height = 75
+    Top = 320
+    Width = 99
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 26
+    BorderSpacing.Bottom = 5
   end
   object C24: TShape
-    Left = 45
-    Height = 60
-    Top = 320
-    Width = 79
+    AnchorSideLeft.Control = Back3
+    AnchorSideBottom.Control = C103
+    Left = 56
+    Height = 75
+    Top = 400
+    Width = 99
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 26
+    BorderSpacing.Bottom = 5
   end
   object C103: TShape
-    Left = 45
-    Height = 60
-    Top = 384
-    Width = 79
+    AnchorSideLeft.Control = Back3
+    AnchorSideBottom.Control = C102
+    Left = 56
+    Height = 75
+    Top = 480
+    Width = 99
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 26
+    BorderSpacing.Bottom = 5
   end
   object C102: TShape
-    Left = 45
-    Height = 60
-    Top = 448
-    Width = 79
+    AnchorSideLeft.Control = Back3
+    AnchorSideBottom.Control = C101
+    Left = 56
+    Height = 75
+    Top = 560
+    Width = 99
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 26
+    BorderSpacing.Bottom = 5
   end
   object C101: TShape
-    Left = 45
-    Height = 60
-    Top = 512
-    Width = 79
+    AnchorSideLeft.Control = Back3
+    AnchorSideBottom.Control = Back3
+    Left = 56
+    Height = 75
+    Top = 640
+    Width = 99
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 26
+    BorderSpacing.Bottom = 5
   end
   object C92: TShape
-    Left = 128
-    Height = 79
-    Top = 576
-    Width = 60
+    AnchorSideTop.Control = Back4
+    AnchorSideRight.Control = C91
+    Left = 160
+    Height = 99
+    Top = 720
+    Width = 75
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 5
   end
   object C91: TShape
-    Left = 192
-    Height = 79
-    Top = 576
-    Width = 60
+    AnchorSideTop.Control = Back4
+    AnchorSideRight.Control = C83
+    Left = 240
+    Height = 99
+    Top = 720
+    Width = 75
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 5
   end
   object C83: TShape
-    Left = 256
-    Height = 79
-    Top = 576
-    Width = 60
+    AnchorSideTop.Control = Back4
+    AnchorSideRight.Control = Lottery3
+    Left = 320
+    Height = 99
+    Top = 720
+    Width = 75
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 5
   end
   object C82: TShape
-    Left = 384
-    Height = 79
-    Top = 576
-    Width = 60
+    AnchorSideTop.Control = Back4
+    AnchorSideRight.Control = C81
+    Left = 480
+    Height = 99
+    Top = 720
+    Width = 75
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 5
   end
   object C81: TShape
-    Left = 448
-    Height = 79
-    Top = 576
-    Width = 60
+    AnchorSideTop.Control = Back4
+    AnchorSideRight.Control = C23
+    Left = 560
+    Height = 99
+    Top = 720
+    Width = 75
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 5
   end
   object C23: TShape
-    Left = 512
-    Height = 79
-    Top = 576
-    Width = 60
+    AnchorSideTop.Control = Back4
+    AnchorSideRight.Control = GoBack
+    Left = 640
+    Height = 99
+    Top = 720
+    Width = 75
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 5
   end
   object C73: TShape
-    Left = 640
-    Height = 79
-    Top = 576
-    Width = 60
+    AnchorSideTop.Control = Back4
+    AnchorSideRight.Control = C72
+    Left = 800
+    Height = 99
+    Top = 720
+    Width = 75
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 5
   end
   object C72: TShape
-    Left = 704
-    Height = 79
-    Top = 576
-    Width = 60
+    AnchorSideTop.Control = Back4
+    AnchorSideRight.Control = Nalog2
+    Left = 880
+    Height = 99
+    Top = 720
+    Width = 75
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 5
   end
   object C71: TShape
-    Left = 832
-    Height = 79
-    Top = 576
-    Width = 60
+    AnchorSideTop.Control = Back4
+    AnchorSideRight.Control = Back4
+    Left = 1040
+    Height = 99
+    Top = 720
+    Width = 75
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 5
   end
   object C62: TShape
-    Left = 896
-    Height = 60
-    Top = 512
-    Width = 79
+    AnchorSideLeft.Control = Lottery2
+    AnchorSideTop.Control = Lottery2
+    Left = 1120
+    Height = 75
+    Top = 640
+    Width = 99
+    BorderSpacing.Top = 80
   end
   object C61: TShape
-    Left = 896
-    Height = 60
-    Top = 384
-    Width = 79
+    AnchorSideLeft.Control = C22
+    AnchorSideTop.Control = C22
+    Left = 1120
+    Height = 75
+    Top = 480
+    Width = 99
+    BorderSpacing.Top = 80
   end
   object C22: TShape
-    Left = 896
-    Height = 60
-    Top = 320
-    Width = 79
+    AnchorSideLeft.Control = C53
+    AnchorSideTop.Control = C53
+    Left = 1120
+    Height = 75
+    Top = 400
+    Width = 99
+    BorderSpacing.Top = 80
   end
   object C53: TShape
-    Left = 896
-    Height = 60
-    Top = 256
-    Width = 79
+    AnchorSideLeft.Control = C52
+    AnchorSideTop.Control = C52
+    Left = 1120
+    Height = 75
+    Top = 320
+    Width = 99
+    BorderSpacing.Top = 80
   end
   object C52: TShape
-    Left = 896
-    Height = 60
-    Top = 192
-    Width = 79
+    AnchorSideLeft.Control = C51
+    AnchorSideTop.Control = C51
+    Left = 1120
+    Height = 75
+    Top = 240
+    Width = 99
+    BorderSpacing.Top = 80
   end
   object C51: TShape
-    Left = 896
-    Height = 60
-    Top = 128
-    Width = 79
+    AnchorSideLeft.Control = Back2
+    AnchorSideTop.Control = Back2
+    Left = 1120
+    Height = 75
+    Top = 160
+    Width = 99
+    BorderSpacing.Top = 130
   end
   object C42: TShape
-    Left = 832
-    Height = 79
-    Top = 45
-    Width = 60
+    AnchorSideLeft.Control = C41
+    AnchorSideTop.Control = Back1
+    Left = 1040
+    Height = 99
+    Top = 56
+    Width = 75
+    BorderSpacing.Left = 80
+    BorderSpacing.Top = 26
   end
   object C41: TShape
-    Left = 768
-    Height = 79
-    Top = 45
-    Width = 60
+    AnchorSideLeft.Control = C33
+    AnchorSideTop.Control = Back1
+    Left = 960
+    Height = 99
+    Top = 56
+    Width = 75
+    BorderSpacing.Left = 80
+    BorderSpacing.Top = 26
   end
   object C33: TShape
-    Left = 704
-    Height = 79
-    Top = 45
-    Width = 60
+    AnchorSideLeft.Control = Lottery1
+    AnchorSideTop.Control = Back1
+    Left = 880
+    Height = 99
+    Top = 56
+    Width = 75
+    BorderSpacing.Left = 80
+    BorderSpacing.Top = 26
   end
   object C32: TShape
-    Left = 576
-    Height = 79
-    Top = 45
-    Width = 60
+    AnchorSideLeft.Control = C31
+    AnchorSideTop.Control = Back1
+    Left = 720
+    Height = 99
+    Top = 56
+    Width = 75
+    BorderSpacing.Left = 80
+    BorderSpacing.Top = 26
   end
   object C31: TShape
-    Left = 512
-    Height = 79
-    Top = 45
-    Width = 60
+    AnchorSideLeft.Control = C21
+    AnchorSideTop.Control = Back1
+    Left = 640
+    Height = 99
+    Top = 56
+    Width = 75
+    BorderSpacing.Left = 80
+    BorderSpacing.Top = 26
   end
   object C21: TShape
-    Left = 448
-    Height = 79
-    Top = 45
-    Width = 60
+    AnchorSideLeft.Control = Skip
+    AnchorSideTop.Control = Back1
+    Left = 560
+    Height = 99
+    Top = 56
+    Width = 75
+    BorderSpacing.Left = 80
+    BorderSpacing.Top = 26
   end
   object C13: TShape
-    Left = 320
-    Height = 79
-    Top = 45
-    Width = 60
+    AnchorSideLeft.Control = C12
+    AnchorSideTop.Control = Back1
+    Left = 400
+    Height = 99
+    Top = 56
+    Width = 75
+    BorderSpacing.Left = 80
+    BorderSpacing.Top = 26
   end
   object C12: TShape
-    Left = 256
-    Height = 79
-    Top = 45
-    Width = 60
+    AnchorSideLeft.Control = Nalog1
+    AnchorSideTop.Control = Back1
+    Left = 320
+    Height = 99
+    Top = 56
+    Width = 75
+    BorderSpacing.Left = 80
+    BorderSpacing.Top = 26
   end
   object C11: TShape
-    Left = 128
-    Height = 79
-    Top = 45
-    Width = 60
+    AnchorSideLeft.Control = Back1
+    AnchorSideTop.Control = Back1
+    Left = 160
+    Height = 99
+    Top = 56
+    Width = 75
+    BorderSpacing.Left = 130
+    BorderSpacing.Top = 26
   end
   object Back4: TImage
-    Left = 896
-    Height = 100
-    Top = 576
-    Width = 100
+    AnchorSideLeft.Control = C62
+    AnchorSideTop.Control = C62
+    Left = 1120
+    Height = 125
+    Top = 720
+    Width = 125
+    BorderSpacing.Top = 80
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869638E05000089504E47
       0D0A1A0A0000000D49484452000000C8000001F40802000000F7F5F5AB000001
@@ -1100,10 +1226,14 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Back3: TImage
-    Left = 24
-    Height = 100
-    Top = 576
-    Width = 100
+    AnchorSideTop.Control = Back4
+    AnchorSideRight.Control = C92
+    Left = 30
+    Height = 125
+    Top = 720
+    Width = 125
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 5
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869638E05000089504E47
       0D0A1A0A0000000D49484452000000C8000001F40802000000F7F5F5AB000001
@@ -1155,10 +1285,13 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Back2: TImage
-    Left = 896
-    Height = 100
-    Top = 24
-    Width = 100
+    AnchorSideLeft.Control = C42
+    AnchorSideTop.Control = Back1
+    Left = 1120
+    Height = 125
+    Top = 30
+    Width = 125
+    BorderSpacing.Left = 80
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869638E05000089504E47
       0D0A1A0A0000000D49484452000000C8000001F40802000000F7F5F5AB000001
@@ -1210,10 +1343,10 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Back1: TImage
-    Left = 24
-    Height = 100
-    Top = 24
-    Width = 100
+    Left = 30
+    Height = 125
+    Top = 30
+    Width = 125
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869638E05000089504E47
       0D0A1A0A0000000D49484452000000C8000001F40802000000F7F5F5AB000001
@@ -1265,10 +1398,13 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImCoffee: TImage
-    Left = 128
-    Height = 79
-    Top = 45
-    Width = 60
+    AnchorSideLeft.Control = Back1
+    AnchorSideTop.Control = C11
+    Left = 160
+    Height = 99
+    Top = 56
+    Width = 75
+    BorderSpacing.Left = 130
     Center = True
     OnDblClick = ImCoffeeDblClick
     Picture.Data = {
@@ -1521,10 +1657,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImConditer: TImage
-    Left = 320
-    Height = 79
-    Top = 45
-    Width = 60
+    AnchorSideLeft.Control = C13
+    AnchorSideTop.Control = C13
+    Left = 400
+    Height = 99
+    Top = 56
+    Width = 75
     Center = True
     OnDblClick = ImConditerDblClick
     Picture.Data = {
@@ -1866,10 +2004,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImPiter: TImage
-    Left = 448
-    Height = 79
-    Top = 45
-    Width = 60
+    AnchorSideLeft.Control = C21
+    AnchorSideTop.Control = C21
+    Left = 560
+    Height = 99
+    Top = 56
+    Width = 75
     Center = True
     OnDblClick = ImPiterDblClick
     Picture.Data = {
@@ -2073,10 +2213,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImPaint: TImage
-    Left = 512
-    Height = 79
-    Top = 45
-    Width = 60
+    AnchorSideLeft.Control = C31
+    AnchorSideTop.Control = C31
+    Left = 640
+    Height = 99
+    Top = 56
+    Width = 75
     Center = True
     OnDblClick = ImPaintDblClick
     Picture.Data = {
@@ -2401,10 +2543,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImBilliards: TImage
-    Left = 576
-    Height = 79
-    Top = 45
-    Width = 60
+    AnchorSideLeft.Control = C32
+    AnchorSideTop.Control = C32
+    Left = 720
+    Height = 99
+    Top = 56
+    Width = 75
     Center = True
     OnDblClick = ImBilliardsDblClick
     Picture.Data = {
@@ -2746,10 +2890,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImCar: TImage
-    Left = 704
-    Height = 79
-    Top = 45
-    Width = 60
+    AnchorSideLeft.Control = C33
+    AnchorSideTop.Control = C33
+    Left = 880
+    Height = 99
+    Top = 56
+    Width = 75
     Center = True
     OnDblClick = ImCarDblClick
     Picture.Data = {
@@ -2964,10 +3110,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImZoo: TImage
-    Left = 768
-    Height = 79
-    Top = 45
-    Width = 60
+    AnchorSideLeft.Control = C41
+    AnchorSideTop.Control = C41
+    Left = 960
+    Height = 99
+    Top = 56
+    Width = 75
     Center = True
     OnDblClick = ImZooDblClick
     Picture.Data = {
@@ -3315,10 +3463,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImCircus: TImage
-    Left = 832
-    Height = 79
-    Top = 45
-    Width = 60
+    AnchorSideLeft.Control = C42
+    AnchorSideTop.Control = C42
+    Left = 1040
+    Height = 99
+    Top = 56
+    Width = 75
     Center = True
     OnDblClick = ImCircusDblClick
     Picture.Data = {
@@ -3650,10 +3800,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImBus: TImage
-    Left = 896
-    Height = 60
-    Top = 128
-    Width = 79
+    AnchorSideLeft.Control = C51
+    AnchorSideTop.Control = C51
+    Left = 1120
+    Height = 75
+    Top = 160
+    Width = 99
     Center = True
     OnDblClick = ImBusDblClick
     Picture.Data = {
@@ -3907,10 +4059,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImTaxi: TImage
-    Left = 896
-    Height = 60
-    Top = 192
-    Width = 79
+    AnchorSideLeft.Control = C52
+    AnchorSideTop.Control = C52
+    Left = 1120
+    Height = 75
+    Top = 240
+    Width = 99
     Center = True
     OnDblClick = ImTaxiDblClick
     Picture.Data = {
@@ -4172,10 +4326,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImCarsharing: TImage
-    Left = 896
-    Height = 60
-    Top = 256
-    Width = 79
+    AnchorSideLeft.Control = C53
+    AnchorSideTop.Control = C53
+    Left = 1120
+    Height = 75
+    Top = 320
+    Width = 99
     Center = True
     OnDblClick = ImCarsharingDblClick
     Picture.Data = {
@@ -4519,10 +4675,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImTokyo: TImage
-    Left = 896
-    Height = 60
-    Top = 320
-    Width = 79
+    AnchorSideLeft.Control = C22
+    AnchorSideTop.Control = C22
+    Left = 1120
+    Height = 75
+    Top = 400
+    Width = 99
     Center = True
     OnDblClick = ImTokyoDblClick
     Picture.Data = {
@@ -4750,10 +4908,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImCinema: TImage
-    Left = 896
-    Height = 60
-    Top = 384
-    Width = 79
+    AnchorSideLeft.Control = C61
+    AnchorSideTop.Control = C61
+    Left = 1120
+    Height = 75
+    Top = 480
+    Width = 99
     Center = True
     OnDblClick = ImCinemaDblClick
     Picture.Data = {
@@ -5112,10 +5272,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImGame: TImage
-    Left = 896
-    Height = 60
-    Top = 512
-    Width = 79
+    AnchorSideLeft.Control = C62
+    AnchorSideTop.Control = C62
+    Left = 1120
+    Height = 75
+    Top = 640
+    Width = 99
     Center = True
     OnDblClick = ImGameDblClick
     Picture.Data = {
@@ -5441,10 +5603,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImSocial: TImage
-    Left = 128
-    Height = 79
-    Top = 576
-    Width = 60
+    AnchorSideLeft.Control = C92
+    AnchorSideTop.Control = C92
+    Left = 160
+    Height = 99
+    Top = 720
+    Width = 75
     Center = True
     OnDblClick = ImSocialDblClick
     Picture.Data = {
@@ -5607,10 +5771,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImSearch: TImage
-    Left = 192
-    Height = 79
-    Top = 576
-    Width = 60
+    AnchorSideLeft.Control = C91
+    AnchorSideTop.Control = C91
+    Left = 240
+    Height = 99
+    Top = 720
+    Width = 75
     Center = True
     OnDblClick = ImSearchDblClick
     Picture.Data = {
@@ -5881,10 +6047,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImWeapon: TImage
-    Left = 256
-    Height = 79
-    Top = 576
-    Width = 60
+    AnchorSideLeft.Control = C83
+    AnchorSideTop.Control = C83
+    Left = 320
+    Height = 99
+    Top = 720
+    Width = 75
     Center = True
     OnDblClick = ImWeaponDblClick
     Picture.Data = {
@@ -6084,10 +6252,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImCarFactory: TImage
-    Left = 384
-    Height = 79
-    Top = 576
-    Width = 60
+    AnchorSideLeft.Control = C82
+    AnchorSideTop.Control = C82
+    Left = 480
+    Height = 99
+    Top = 720
+    Width = 75
     Center = True
     OnDblClick = ImCarFactoryDblClick
     Picture.Data = {
@@ -6317,10 +6487,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImMetallurgy: TImage
-    Left = 448
-    Height = 79
-    Top = 576
-    Width = 60
+    AnchorSideLeft.Control = C81
+    AnchorSideTop.Control = C81
+    Left = 560
+    Height = 99
+    Top = 720
+    Width = 75
     Center = True
     OnDblClick = ImMetallurgyDblClick
     Picture.Data = {
@@ -6519,10 +6691,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImDubai: TImage
-    Left = 512
-    Height = 79
-    Top = 576
-    Width = 60
+    AnchorSideLeft.Control = C23
+    AnchorSideTop.Control = C23
+    Left = 640
+    Height = 99
+    Top = 720
+    Width = 75
     Center = True
     OnDblClick = ImDubaiDblClick
     Picture.Data = {
@@ -6723,10 +6897,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImBiology: TImage
-    Left = 640
-    Height = 79
-    Top = 576
-    Width = 60
+    AnchorSideLeft.Control = C73
+    AnchorSideTop.Control = C73
+    Left = 800
+    Height = 99
+    Top = 720
+    Width = 75
     Center = True
     OnDblClick = ImBiologyDblClick
     Picture.Data = {
@@ -7035,10 +7211,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImMedicine: TImage
-    Left = 704
-    Height = 79
-    Top = 576
-    Width = 60
+    AnchorSideLeft.Control = C72
+    AnchorSideTop.Control = C72
+    Left = 880
+    Height = 99
+    Top = 720
+    Width = 75
     Center = True
     OnDblClick = ImMedicineDblClick
     Picture.Data = {
@@ -7374,10 +7552,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImChemistry: TImage
-    Left = 832
-    Height = 79
-    Top = 576
-    Width = 60
+    AnchorSideLeft.Control = C71
+    AnchorSideTop.Control = C71
+    Left = 1040
+    Height = 99
+    Top = 720
+    Width = 75
     Center = True
     OnDblClick = ImChemistryDblClick
     Picture.Data = {
@@ -7655,10 +7835,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImCrypto: TImage
-    Left = 45
-    Height = 60
-    Top = 128
-    Width = 79
+    AnchorSideLeft.Control = C112
+    AnchorSideTop.Control = C112
+    Left = 56
+    Height = 75
+    Top = 160
+    Width = 99
     Center = True
     OnDblClick = ImCryptoDblClick
     Picture.Data = {
@@ -7973,10 +8155,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImNeiro: TImage
-    Left = 45
-    Height = 60
-    Top = 256
-    Width = 79
+    AnchorSideLeft.Control = C111
+    AnchorSideTop.Control = C111
+    Left = 56
+    Height = 75
+    Top = 320
+    Width = 99
     Center = True
     OnDblClick = ImNeiroDblClick
     Picture.Data = {
@@ -8408,10 +8592,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImNewYork: TImage
-    Left = 45
-    Height = 60
-    Top = 320
-    Width = 79
+    AnchorSideLeft.Control = C24
+    AnchorSideTop.Control = C24
+    Left = 56
+    Height = 75
+    Top = 400
+    Width = 99
     Center = True
     OnDblClick = ImNewYorkDblClick
     Picture.Data = {
@@ -8655,10 +8841,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImMaldives: TImage
-    Left = 45
-    Height = 60
-    Top = 384
-    Width = 79
+    AnchorSideLeft.Control = C103
+    AnchorSideTop.Control = C103
+    Left = 56
+    Height = 75
+    Top = 480
+    Width = 99
     Center = True
     OnDblClick = ImMaldivesDblClick
     Picture.Data = {
@@ -8953,10 +9141,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImSeychelles: TImage
-    Left = 45
-    Height = 60
-    Top = 448
-    Width = 79
+    AnchorSideLeft.Control = C102
+    AnchorSideTop.Control = C102
+    Left = 56
+    Height = 75
+    Top = 560
+    Width = 99
     Center = True
     OnDblClick = ImSeychellesDblClick
     Picture.Data = {
@@ -9260,10 +9450,12 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImTenerife: TImage
-    Left = 45
-    Height = 60
-    Top = 512
-    Width = 79
+    AnchorSideLeft.Control = C101
+    AnchorSideTop.Control = C101
+    Left = 56
+    Height = 75
+    Top = 640
+    Width = 99
     Center = True
     OnDblClick = ImTenerifeDblClick
     Picture.Data = {
@@ -9634,10 +9826,14 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImCustoms: TImage
-    Left = 906
-    Height = 70
-    Top = 40
-    Width = 80
+    AnchorSideLeft.Control = Back2
+    AnchorSideTop.Control = Back2
+    Left = 1132
+    Height = 88
+    Top = 50
+    Width = 100
+    BorderSpacing.Left = 12
+    BorderSpacing.Top = 20
     OnDblClick = ImCustomsDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869639C1C000089504E47
@@ -9875,10 +10071,14 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImJackpot: TImage
-    Left = 906
-    Height = 70
-    Top = 592
-    Width = 80
+    AnchorSideLeft.Control = Back4
+    AnchorSideTop.Control = Back4
+    Left = 1132
+    Height = 88
+    Top = 740
+    Width = 100
+    BorderSpacing.Left = 12
+    BorderSpacing.Top = 20
     OnDblClick = ImJackpotDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632123000089504E47
@@ -10168,10 +10368,14 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImStart: TImage
-    Left = 35
-    Height = 70
-    Top = 40
-    Width = 80
+    AnchorSideLeft.Control = Back1
+    AnchorSideTop.Control = Back1
+    Left = 44
+    Height = 88
+    Top = 50
+    Width = 100
+    BorderSpacing.Left = 14
+    BorderSpacing.Top = 20
     Center = True
     OnDblClick = ImStartDblClick
     Picture.Data = {
@@ -10629,10 +10833,14 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ImVacation: TImage
-    Left = 35
-    Height = 70
-    Top = 592
-    Width = 80
+    AnchorSideLeft.Control = Back3
+    AnchorSideTop.Control = Back3
+    Left = 44
+    Height = 88
+    Top = 740
+    Width = 100
+    BorderSpacing.Left = 14
+    BorderSpacing.Top = 20
     OnDblClick = ImVacationDblClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869639F59000089504E47
@@ -11358,10 +11566,16 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_coffee1: TImage
-    Left = 128
-    Height = 18
-    Top = 24
-    Width = 60
+    AnchorSideLeft.Control = Back1
+    AnchorSideTop.Control = Back1
+    AnchorSideBottom.Control = ImCoffee
+    Left = 160
+    Height = 22
+    Top = 30
+    Width = 75
+    Anchors = [akTop, akLeft, akBottom]
+    BorderSpacing.Left = 130
+    BorderSpacing.Bottom = 4
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637603000089504E47
       0D0A1A0A0000000D49484452000001F4000000640802000000FFA5552A000001
@@ -11396,10 +11610,14 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_coffee2: TImage
-    Left = 256
-    Height = 18
-    Top = 24
-    Width = 60
+    AnchorSideLeft.Control = ImShaverma
+    AnchorSideBottom.Control = ImShaverma
+    Left = 320
+    Height = 22
+    Top = 30
+    Width = 75
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Bottom = 4
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637603000089504E47
       0D0A1A0A0000000D49484452000001F4000000640802000000FFA5552A000001
@@ -11434,10 +11652,14 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_coffee3: TImage
-    Left = 320
-    Height = 18
-    Top = 24
-    Width = 60
+    AnchorSideLeft.Control = ImConditer
+    AnchorSideBottom.Control = ImConditer
+    Left = 400
+    Height = 22
+    Top = 30
+    Width = 75
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Bottom = 4
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637603000089504E47
       0D0A1A0A0000000D49484452000001F4000000640802000000FFA5552A000001
@@ -11472,10 +11694,14 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_city1: TImage
-    Left = 448
-    Height = 18
-    Top = 24
-    Width = 60
+    AnchorSideLeft.Control = ImPiter
+    AnchorSideBottom.Control = ImPiter
+    Left = 560
+    Height = 22
+    Top = 30
+    Width = 75
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Bottom = 4
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D03000089504E47
       0D0A1A0A0000000D49484452000001F4000000640802000000FFA5552A000001
@@ -11510,10 +11736,13 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_city2: TImage
-    Left = 512
-    Height = 18
-    Top = 658
-    Width = 60
+    AnchorSideLeft.Control = ImDubai
+    AnchorSideTop.Control = ImDubai
+    Left = 640
+    Height = 22
+    Top = 822
+    Width = 75
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D03000089504E47
       0D0A1A0A0000000D49484452000001F4000000640802000000FFA5552A000001
@@ -11548,10 +11777,14 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_city3: TImage
-    Left = 24
-    Height = 60
-    Top = 320
-    Width = 18
+    AnchorSideTop.Control = ImNewYork
+    AnchorSideRight.Control = ImNewYork
+    Left = 30
+    Height = 75
+    Top = 400
+    Width = 22
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 4
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869638805000089504E47
       0D0A1A0A0000000D4948445200000064000001F40806000000CBF388A3000001
@@ -11603,10 +11836,13 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_city4: TImage
-    Left = 978
-    Height = 60
-    Top = 320
-    Width = 18
+    AnchorSideLeft.Control = ImTokyo
+    AnchorSideTop.Control = ImTokyo
+    Left = 1222
+    Height = 75
+    Top = 400
+    Width = 22
+    BorderSpacing.Left = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869638805000089504E47
       0D0A1A0A0000000D4948445200000064000001F40806000000CBF388A3000001
@@ -11658,10 +11894,14 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_paint1: TImage
-    Left = 512
-    Height = 18
-    Top = 24
-    Width = 60
+    AnchorSideLeft.Control = ImPaint
+    AnchorSideBottom.Control = ImPaint
+    Left = 640
+    Height = 22
+    Top = 30
+    Width = 75
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Bottom = 4
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636703000089504E47
       0D0A1A0A0000000D49484452000001F4000000640802000000FFA5552A000001
@@ -11696,10 +11936,14 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_paint2: TImage
-    Left = 576
-    Height = 18
-    Top = 24
-    Width = 60
+    AnchorSideLeft.Control = ImBilliards
+    AnchorSideBottom.Control = ImBilliards
+    Left = 720
+    Height = 22
+    Top = 30
+    Width = 75
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Bottom = 4
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636703000089504E47
       0D0A1A0A0000000D49484452000001F4000000640802000000FFA5552A000001
@@ -11734,10 +11978,14 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_paint3: TImage
-    Left = 704
-    Height = 18
-    Top = 24
-    Width = 60
+    AnchorSideLeft.Control = ImCar
+    AnchorSideBottom.Control = ImCar
+    Left = 880
+    Height = 22
+    Top = 30
+    Width = 75
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Bottom = 4
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636703000089504E47
       0D0A1A0A0000000D49484452000001F4000000640802000000FFA5552A000001
@@ -11772,10 +12020,14 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_zoo1: TImage
-    Left = 768
-    Height = 18
-    Top = 24
-    Width = 60
+    AnchorSideLeft.Control = ImZoo
+    AnchorSideBottom.Control = ImZoo
+    Left = 960
+    Height = 22
+    Top = 30
+    Width = 75
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Bottom = 4
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636A03000089504E47
       0D0A1A0A0000000D49484452000001F4000000640802000000FFA5552A000001
@@ -11810,10 +12062,14 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_zoo2: TImage
-    Left = 832
-    Height = 18
-    Top = 24
-    Width = 60
+    AnchorSideLeft.Control = ImCircus
+    AnchorSideBottom.Control = ImCircus
+    Left = 1040
+    Height = 22
+    Top = 30
+    Width = 75
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Bottom = 4
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636A03000089504E47
       0D0A1A0A0000000D49484452000001F4000000640802000000FFA5552A000001
@@ -11848,10 +12104,13 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_biology1: TImage
-    Left = 640
-    Height = 18
-    Top = 658
-    Width = 60
+    AnchorSideLeft.Control = ImBiology
+    AnchorSideTop.Control = ImBiology
+    Left = 800
+    Height = 22
+    Top = 822
+    Width = 75
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D03000089504E47
       0D0A1A0A0000000D49484452000001F4000000640802000000FFA5552A000001
@@ -11886,10 +12145,13 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_biology2: TImage
-    Left = 704
-    Height = 18
-    Top = 658
-    Width = 60
+    AnchorSideLeft.Control = ImMedicine
+    AnchorSideTop.Control = ImMedicine
+    Left = 880
+    Height = 22
+    Top = 822
+    Width = 75
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D03000089504E47
       0D0A1A0A0000000D49484452000001F4000000640802000000FFA5552A000001
@@ -11924,10 +12186,13 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_biology3: TImage
-    Left = 832
-    Height = 18
-    Top = 658
-    Width = 60
+    AnchorSideLeft.Control = ImChemistry
+    AnchorSideTop.Control = ImChemistry
+    Left = 1040
+    Height = 22
+    Top = 822
+    Width = 75
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D03000089504E47
       0D0A1A0A0000000D49484452000001F4000000640802000000FFA5552A000001
@@ -11962,10 +12227,13 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_weapon1: TImage
-    Left = 256
-    Height = 18
-    Top = 658
-    Width = 60
+    AnchorSideLeft.Control = ImWeapon
+    AnchorSideTop.Control = ImWeapon
+    Left = 320
+    Height = 22
+    Top = 822
+    Width = 75
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636A03000089504E47
       0D0A1A0A0000000D49484452000001F4000000640802000000FFA5552A000001
@@ -12000,10 +12268,13 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_weapon2: TImage
-    Left = 384
-    Height = 18
-    Top = 658
-    Width = 60
+    AnchorSideLeft.Control = ImCarFactory
+    AnchorSideTop.Control = ImCarFactory
+    Left = 480
+    Height = 22
+    Top = 822
+    Width = 75
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636A03000089504E47
       0D0A1A0A0000000D49484452000001F4000000640802000000FFA5552A000001
@@ -12038,10 +12309,13 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_weapon3: TImage
-    Left = 448
-    Height = 18
-    Top = 658
-    Width = 60
+    AnchorSideLeft.Control = ImMetallurgy
+    AnchorSideTop.Control = ImMetallurgy
+    Left = 560
+    Height = 22
+    Top = 822
+    Width = 75
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636A03000089504E47
       0D0A1A0A0000000D49484452000001F4000000640802000000FFA5552A000001
@@ -12076,10 +12350,13 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_search1: TImage
-    Left = 192
-    Height = 18
-    Top = 658
-    Width = 60
+    AnchorSideLeft.Control = ImSearch
+    AnchorSideTop.Control = ImSearch
+    Left = 240
+    Height = 22
+    Top = 822
+    Width = 75
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636903000089504E47
       0D0A1A0A0000000D49484452000001F4000000640802000000FFA5552A000001
@@ -12114,10 +12391,13 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_search2: TImage
-    Left = 128
-    Height = 18
-    Top = 658
-    Width = 60
+    AnchorSideLeft.Control = ImSocial
+    AnchorSideTop.Control = ImSocial
+    Left = 160
+    Height = 22
+    Top = 822
+    Width = 75
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636903000089504E47
       0D0A1A0A0000000D49484452000001F4000000640802000000FFA5552A000001
@@ -12152,10 +12432,14 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_tenerife1: TImage
-    Left = 24
-    Height = 60
-    Top = 512
-    Width = 18
+    AnchorSideTop.Control = ImTenerife
+    AnchorSideRight.Control = ImTenerife
+    Left = 30
+    Height = 75
+    Top = 640
+    Width = 22
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 4
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963AF04000089504E47
       0D0A1A0A0000000D4948445200000064000001F4080200000044911FF4000001
@@ -12200,10 +12484,14 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_tenerife2: TImage
-    Left = 24
-    Height = 60
-    Top = 448
-    Width = 18
+    AnchorSideTop.Control = ImSeychelles
+    AnchorSideRight.Control = ImSeychelles
+    Left = 30
+    Height = 75
+    Top = 560
+    Width = 22
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 4
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963AF04000089504E47
       0D0A1A0A0000000D4948445200000064000001F4080200000044911FF4000001
@@ -12248,10 +12536,14 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_tenerife3: TImage
-    Left = 24
-    Height = 60
-    Top = 384
-    Width = 18
+    AnchorSideTop.Control = ImMaldives
+    AnchorSideRight.Control = ImMaldives
+    Left = 30
+    Height = 75
+    Top = 480
+    Width = 22
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 4
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963AF04000089504E47
       0D0A1A0A0000000D4948445200000064000001F4080200000044911FF4000001
@@ -12296,10 +12588,14 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_crypto1: TImage
-    Left = 24
-    Height = 60
-    Top = 256
-    Width = 18
+    AnchorSideTop.Control = ImNeiro
+    AnchorSideRight.Control = ImNeiro
+    Left = 30
+    Height = 75
+    Top = 320
+    Width = 22
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 4
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963B104000089504E47
       0D0A1A0A0000000D4948445200000064000001F4080200000044911FF4000001
@@ -12344,10 +12640,14 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_crypto2: TImage
-    Left = 24
-    Height = 60
-    Top = 128
-    Width = 18
+    AnchorSideTop.Control = ImCrypto
+    AnchorSideRight.Control = ImCrypto
+    Left = 30
+    Height = 75
+    Top = 160
+    Width = 22
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 4
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963B104000089504E47
       0D0A1A0A0000000D4948445200000064000001F4080200000044911FF4000001
@@ -12392,10 +12692,13 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_taxi1: TImage
-    Left = 978
-    Height = 60
-    Top = 128
-    Width = 18
+    AnchorSideLeft.Control = ImBus
+    AnchorSideTop.Control = ImBus
+    Left = 1222
+    Height = 75
+    Top = 160
+    Width = 22
+    BorderSpacing.Left = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963B104000089504E47
       0D0A1A0A0000000D4948445200000064000001F4080200000044911FF4000001
@@ -12440,10 +12743,13 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_taxi2: TImage
-    Left = 978
-    Height = 60
-    Top = 192
-    Width = 18
+    AnchorSideLeft.Control = ImTaxi
+    AnchorSideTop.Control = ImTaxi
+    Left = 1222
+    Height = 75
+    Top = 240
+    Width = 22
+    BorderSpacing.Left = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963B104000089504E47
       0D0A1A0A0000000D4948445200000064000001F4080200000044911FF4000001
@@ -12488,10 +12794,13 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_taxi3: TImage
-    Left = 978
-    Height = 60
-    Top = 256
-    Width = 18
+    AnchorSideLeft.Control = ImCarsharing
+    AnchorSideTop.Control = ImCarsharing
+    Left = 1222
+    Height = 75
+    Top = 320
+    Width = 22
+    BorderSpacing.Left = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963B104000089504E47
       0D0A1A0A0000000D4948445200000064000001F4080200000044911FF4000001
@@ -12536,10 +12845,13 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_game1: TImage
-    Left = 978
-    Height = 60
-    Top = 384
-    Width = 18
+    AnchorSideLeft.Control = ImCinema
+    AnchorSideTop.Control = ImCinema
+    Left = 1222
+    Height = 75
+    Top = 480
+    Width = 22
+    BorderSpacing.Left = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963B304000089504E47
       0D0A1A0A0000000D4948445200000064000001F4080200000044911FF4000001
@@ -12584,10 +12896,13 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Mon_game2: TImage
-    Left = 978
-    Height = 60
-    Top = 512
-    Width = 18
+    AnchorSideLeft.Control = ImGame
+    AnchorSideTop.Control = ImGame
+    Left = 1222
+    Height = 75
+    Top = 640
+    Width = 22
+    BorderSpacing.Left = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963B304000089504E47
       0D0A1A0A0000000D4948445200000064000001F4080200000044911FF4000001
@@ -12632,13 +12947,17 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Info: TMemo
-    Left = 384
-    Height = 268
-    Top = 240
-    Width = 456
+    AnchorSideLeft.Control = Name1
+    AnchorSideTop.Control = ImShaverma
+    Left = 480
+    Height = 335
+    Top = 300
+    Width = 570
+    BorderSpacing.Left = 284
+    BorderSpacing.Top = 244
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clBlack
-    Font.Height = -16
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -12647,10 +12966,12 @@ object fPlay: TfPlay
     TabOrder = 0
   end
   object ImShaverma: TImage
-    Left = 256
-    Height = 79
-    Top = 45
-    Width = 60
+    AnchorSideLeft.Control = C12
+    AnchorSideTop.Control = C12
+    Left = 320
+    Height = 99
+    Top = 56
+    Width = 75
     Center = True
     OnDblClick = ImShavermaDblClick
     Picture.Data = {
@@ -12969,66 +13290,98 @@ object fPlay: TfPlay
     Stretch = True
   end
   object Nalog1: TShape
-    Left = 192
-    Height = 100
-    Top = 24
-    Width = 60
+    AnchorSideLeft.Control = ImCoffee
+    AnchorSideTop.Control = Back1
+    Left = 240
+    Height = 125
+    Top = 30
+    Width = 75
+    BorderSpacing.Left = 80
     Brush.Color = 7913933
   end
   object Skip: TShape
-    Left = 384
-    Height = 100
-    Top = 24
-    Width = 60
+    AnchorSideLeft.Control = C13
+    AnchorSideTop.Control = Back1
+    Left = 480
+    Height = 125
+    Top = 30
+    Width = 75
+    BorderSpacing.Left = 80
     Brush.Color = 7913933
   end
   object Lottery1: TShape
-    Left = 640
-    Height = 100
-    Top = 24
-    Width = 60
+    AnchorSideLeft.Control = C32
+    AnchorSideTop.Control = Back1
+    Left = 800
+    Height = 125
+    Top = 30
+    Width = 75
+    BorderSpacing.Left = 80
     Brush.Color = 7913933
   end
   object Lottery2: TShape
-    Left = 896
-    Height = 60
-    Top = 448
-    Width = 100
+    AnchorSideLeft.Control = C61
+    AnchorSideTop.Control = C61
+    Left = 1120
+    Height = 75
+    Top = 560
+    Width = 125
+    BorderSpacing.Top = 80
     Brush.Color = 7913933
   end
   object Nalog2: TShape
-    Left = 768
-    Height = 100
-    Top = 576
-    Width = 60
+    AnchorSideTop.Control = Back4
+    AnchorSideRight.Control = C71
+    Left = 960
+    Height = 125
+    Top = 720
+    Width = 75
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 5
     Brush.Color = 7913933
   end
   object GoBack: TShape
-    Left = 576
-    Height = 100
-    Top = 576
-    Width = 60
+    AnchorSideTop.Control = Back4
+    AnchorSideRight.Control = C73
+    Left = 720
+    Height = 125
+    Top = 720
+    Width = 75
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 5
     Brush.Color = 7913933
   end
   object Lottery3: TShape
-    Left = 320
-    Height = 100
-    Top = 576
-    Width = 60
+    AnchorSideTop.Control = Back4
+    AnchorSideRight.Control = C82
+    Left = 400
+    Height = 125
+    Top = 720
+    Width = 75
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 5
     Brush.Color = 7913933
   end
   object Nalog3: TShape
-    Left = 24
-    Height = 60
-    Top = 192
-    Width = 100
+    AnchorSideLeft.Control = Back3
+    AnchorSideBottom.Control = C111
+    Left = 30
+    Height = 75
+    Top = 240
+    Width = 125
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Bottom = 5
     Brush.Color = 7913933
   end
   object Mon1_1: TImage
-    Left = 135
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImCoffee
+    AnchorSideTop.Control = ImCoffee
+    Left = 169
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 9
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13047,10 +13400,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon1_2: TImage
-    Left = 147
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImCoffee
+    AnchorSideTop.Control = ImCoffee
+    Left = 184
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 24
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13069,10 +13426,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon1_3: TImage
-    Left = 159
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImCoffee
+    AnchorSideTop.Control = ImCoffee
+    Left = 199
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 39
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13091,10 +13452,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon1_4: TImage
-    Left = 171
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImCoffee
+    AnchorSideTop.Control = ImCoffee
+    Left = 214
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 54
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13113,10 +13478,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon1_5: TImage
-    Left = 263
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImShaverma
+    AnchorSideTop.Control = ImCoffee
+    Left = 329
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 9
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13135,10 +13504,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon1_6: TImage
-    Left = 275
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImShaverma
+    AnchorSideTop.Control = ImCoffee
+    Left = 344
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 24
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13157,10 +13530,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon1_7: TImage
-    Left = 287
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImShaverma
+    AnchorSideTop.Control = ImCoffee
+    Left = 359
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 39
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13179,10 +13556,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon1_8: TImage
-    Left = 299
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImShaverma
+    AnchorSideTop.Control = ImCoffee
+    Left = 374
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 54
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13201,10 +13582,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon1_9: TImage
-    Left = 327
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImConditer
+    AnchorSideTop.Control = ImCoffee
+    Left = 409
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 9
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13223,10 +13608,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon1_10: TImage
-    Left = 339
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImConditer
+    AnchorSideTop.Control = ImCoffee
+    Left = 424
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 24
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13245,10 +13634,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon1_11: TImage
-    Left = 351
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImConditer
+    AnchorSideTop.Control = ImCoffee
+    Left = 439
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 39
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13267,10 +13660,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon1_12: TImage
-    Left = 363
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImConditer
+    AnchorSideTop.Control = ImCoffee
+    Left = 454
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 54
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13289,10 +13686,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon2_1: TImage
-    Left = 455
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImPiter
+    AnchorSideTop.Control = ImCoffee
+    Left = 569
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 9
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13311,10 +13712,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon2_2: TImage
-    Left = 467
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImPiter
+    AnchorSideTop.Control = ImCoffee
+    Left = 584
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 24
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13333,10 +13738,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon2_3: TImage
-    Left = 479
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImPiter
+    AnchorSideTop.Control = ImCoffee
+    Left = 599
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 39
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13355,10 +13764,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon2_4: TImage
-    Left = 491
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImPiter
+    AnchorSideTop.Control = ImCoffee
+    Left = 614
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 54
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13377,10 +13790,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon3_1: TImage
-    Left = 519
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImPaint
+    AnchorSideTop.Control = ImCoffee
+    Left = 649
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 9
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13399,10 +13816,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon3_2: TImage
-    Left = 531
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImPaint
+    AnchorSideTop.Control = ImCoffee
+    Left = 664
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 24
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13421,10 +13842,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon3_3: TImage
-    Left = 543
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImPaint
+    AnchorSideTop.Control = ImCoffee
+    Left = 679
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 39
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13443,10 +13868,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon3_4: TImage
-    Left = 555
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImPaint
+    AnchorSideTop.Control = ImCoffee
+    Left = 694
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 54
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13465,10 +13894,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon3_5: TImage
-    Left = 583
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImBilliards
+    AnchorSideTop.Control = ImCoffee
+    Left = 729
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 9
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13487,10 +13920,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon3_6: TImage
-    Left = 595
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImBilliards
+    AnchorSideTop.Control = ImCoffee
+    Left = 744
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 24
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13509,10 +13946,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon3_7: TImage
-    Left = 607
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImBilliards
+    AnchorSideTop.Control = ImCoffee
+    Left = 759
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 39
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13531,10 +13972,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon3_8: TImage
-    Left = 619
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImBilliards
+    AnchorSideTop.Control = ImCoffee
+    Left = 774
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 54
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13553,10 +13998,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon3_9: TImage
-    Left = 711
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImCar
+    AnchorSideTop.Control = ImCoffee
+    Left = 889
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 9
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13575,10 +14024,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon3_10: TImage
-    Left = 723
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImCar
+    AnchorSideTop.Control = ImCoffee
+    Left = 904
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 24
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13597,10 +14050,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon3_11: TImage
-    Left = 735
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImCar
+    AnchorSideTop.Control = ImCoffee
+    Left = 919
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 39
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13619,10 +14076,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon3_12: TImage
-    Left = 747
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImCar
+    AnchorSideTop.Control = ImCoffee
+    Left = 934
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 54
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13641,10 +14102,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon4_1: TImage
-    Left = 775
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImZoo
+    AnchorSideTop.Control = ImCoffee
+    Left = 969
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 9
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13663,10 +14128,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon4_2: TImage
-    Left = 787
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImZoo
+    AnchorSideTop.Control = ImCoffee
+    Left = 984
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 24
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13685,10 +14154,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon4_3: TImage
-    Left = 799
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImZoo
+    AnchorSideTop.Control = ImCoffee
+    Left = 999
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 39
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13707,10 +14180,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon4_4: TImage
-    Left = 811
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImZoo
+    AnchorSideTop.Control = ImCoffee
+    Left = 1014
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 54
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13729,10 +14206,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold42: TImage
-    Left = 853
-    Height = 15
-    Top = 126
-    Width = 18
+    AnchorSideLeft.Control = ImCircus
+    AnchorSideTop.Control = ImCoffee
+    Left = 1066
+    Height = 19
+    Top = 158
+    Width = 22
+    BorderSpacing.Left = 26
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963A504000089504E47
       0D0A1A0A0000000D49484452000000120000000F0806000000E9869F12000000
@@ -13779,10 +14260,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon4_5: TImage
-    Left = 839
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImCircus
+    AnchorSideTop.Control = ImCoffee
+    Left = 1049
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 9
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13801,10 +14286,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon4_6: TImage
-    Left = 851
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImCircus
+    AnchorSideTop.Control = ImCoffee
+    Left = 1064
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 24
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13823,10 +14312,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon4_7: TImage
-    Left = 863
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImCircus
+    AnchorSideTop.Control = ImCoffee
+    Left = 1079
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 39
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13845,10 +14338,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon4_8: TImage
-    Left = 875
-    Height = 9
-    Top = 126
-    Width = 10
+    AnchorSideLeft.Control = ImCircus
+    AnchorSideTop.Control = ImCoffee
+    Left = 1094
+    Height = 11
+    Top = 158
+    Width = 12
+    BorderSpacing.Left = 54
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632701000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -13867,10 +14364,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold41: TImage
-    Left = 789
-    Height = 15
-    Top = 126
-    Width = 18
+    AnchorSideLeft.Control = ImZoo
+    AnchorSideTop.Control = ImCoffee
+    Left = 986
+    Height = 19
+    Top = 158
+    Width = 22
+    BorderSpacing.Left = 26
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963A504000089504E47
       0D0A1A0A0000000D49484452000000120000000F0806000000E9869F12000000
@@ -13917,10 +14418,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold11: TImage
-    Left = 149
-    Height = 15
-    Top = 126
-    Width = 18
+    AnchorSideLeft.Control = ImCoffee
+    AnchorSideTop.Control = ImCoffee
+    Left = 186
+    Height = 19
+    Top = 158
+    Width = 22
+    BorderSpacing.Left = 26
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963A504000089504E47
       0D0A1A0A0000000D49484452000000120000000F0806000000E9869F12000000
@@ -13967,10 +14472,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold12: TImage
-    Left = 277
-    Height = 15
-    Top = 126
-    Width = 18
+    AnchorSideLeft.Control = ImShaverma
+    AnchorSideTop.Control = ImCoffee
+    Left = 346
+    Height = 19
+    Top = 158
+    Width = 22
+    BorderSpacing.Left = 26
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963A504000089504E47
       0D0A1A0A0000000D49484452000000120000000F0806000000E9869F12000000
@@ -14017,10 +14526,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold13: TImage
-    Left = 341
-    Height = 15
-    Top = 126
-    Width = 18
+    AnchorSideLeft.Control = ImConditer
+    AnchorSideTop.Control = ImCoffee
+    Left = 426
+    Height = 19
+    Top = 158
+    Width = 22
+    BorderSpacing.Left = 26
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963A504000089504E47
       0D0A1A0A0000000D49484452000000120000000F0806000000E9869F12000000
@@ -14067,10 +14580,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold21: TImage
-    Left = 469
-    Height = 15
-    Top = 126
-    Width = 18
+    AnchorSideLeft.Control = ImPiter
+    AnchorSideTop.Control = ImCoffee
+    Left = 586
+    Height = 19
+    Top = 158
+    Width = 22
+    BorderSpacing.Left = 26
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963A504000089504E47
       0D0A1A0A0000000D49484452000000120000000F0806000000E9869F12000000
@@ -14117,10 +14634,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold31: TImage
-    Left = 533
-    Height = 15
-    Top = 126
-    Width = 18
+    AnchorSideLeft.Control = ImPaint
+    AnchorSideTop.Control = ImCoffee
+    Left = 666
+    Height = 19
+    Top = 158
+    Width = 22
+    BorderSpacing.Left = 26
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963A504000089504E47
       0D0A1A0A0000000D49484452000000120000000F0806000000E9869F12000000
@@ -14167,10 +14688,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold32: TImage
-    Left = 597
-    Height = 15
-    Top = 126
-    Width = 18
+    AnchorSideLeft.Control = ImBilliards
+    AnchorSideTop.Control = ImCoffee
+    Left = 746
+    Height = 19
+    Top = 158
+    Width = 22
+    BorderSpacing.Left = 26
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963A504000089504E47
       0D0A1A0A0000000D49484452000000120000000F0806000000E9869F12000000
@@ -14217,10 +14742,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold33: TImage
-    Left = 725
-    Height = 15
-    Top = 126
-    Width = 18
+    AnchorSideLeft.Control = ImCar
+    AnchorSideTop.Control = ImCoffee
+    Left = 906
+    Height = 19
+    Top = 158
+    Width = 22
+    BorderSpacing.Left = 26
+    BorderSpacing.Top = 102
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963A504000089504E47
       0D0A1A0A0000000D49484452000000120000000F0806000000E9869F12000000
@@ -14267,10 +14796,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon5_1: TImage
-    Left = 885
-    Height = 10
-    Top = 135
-    Width = 9
+    AnchorSideTop.Control = ImBus
+    AnchorSideRight.Control = ImBus
+    Left = 1106
+    Height = 12
+    Top = 169
+    Width = 11
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 9
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637001000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -14291,10 +14825,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon5_2: TImage
-    Left = 885
-    Height = 10
-    Top = 147
-    Width = 9
+    AnchorSideTop.Control = ImBus
+    AnchorSideRight.Control = ImBus
+    Left = 1106
+    Height = 12
+    Top = 184
+    Width = 11
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 24
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637001000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -14315,10 +14854,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon5_3: TImage
-    Left = 885
-    Height = 10
-    Top = 159
-    Width = 9
+    AnchorSideTop.Control = ImBus
+    AnchorSideRight.Control = ImBus
+    Left = 1106
+    Height = 12
+    Top = 199
+    Width = 11
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 39
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637001000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -14339,10 +14883,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon5_4: TImage
-    Left = 885
-    Height = 10
-    Top = 171
-    Width = 9
+    AnchorSideTop.Control = ImBus
+    AnchorSideRight.Control = ImBus
+    Left = 1106
+    Height = 12
+    Top = 214
+    Width = 11
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 54
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637001000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -14363,10 +14912,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon5_5: TImage
-    Left = 885
-    Height = 10
-    Top = 199
-    Width = 9
+    AnchorSideTop.Control = ImTaxi
+    AnchorSideRight.Control = ImBus
+    Left = 1106
+    Height = 12
+    Top = 249
+    Width = 11
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 9
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637001000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -14387,10 +14941,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon5_6: TImage
-    Left = 885
-    Height = 10
-    Top = 211
-    Width = 9
+    AnchorSideTop.Control = ImTaxi
+    AnchorSideRight.Control = ImBus
+    Left = 1106
+    Height = 12
+    Top = 264
+    Width = 11
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 24
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637001000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -14411,10 +14970,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon5_7: TImage
-    Left = 885
-    Height = 10
-    Top = 223
-    Width = 9
+    AnchorSideTop.Control = ImTaxi
+    AnchorSideRight.Control = ImBus
+    Left = 1106
+    Height = 12
+    Top = 279
+    Width = 11
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 39
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637001000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -14435,10 +14999,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon5_8: TImage
-    Left = 885
-    Height = 10
-    Top = 235
-    Width = 9
+    AnchorSideTop.Control = ImTaxi
+    AnchorSideRight.Control = ImBus
+    Left = 1106
+    Height = 12
+    Top = 294
+    Width = 11
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 54
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637001000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -14459,10 +15028,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon5_9: TImage
-    Left = 885
-    Height = 10
-    Top = 263
-    Width = 9
+    AnchorSideTop.Control = ImCarsharing
+    AnchorSideRight.Control = ImBus
+    Left = 1106
+    Height = 12
+    Top = 329
+    Width = 11
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 9
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637001000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -14483,10 +15057,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon5_10: TImage
-    Left = 885
-    Height = 10
-    Top = 275
-    Width = 9
+    AnchorSideTop.Control = ImCarsharing
+    AnchorSideRight.Control = ImBus
+    Left = 1106
+    Height = 12
+    Top = 344
+    Width = 11
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 24
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637001000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -14507,10 +15086,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon5_11: TImage
-    Left = 885
-    Height = 10
-    Top = 287
-    Width = 9
+    AnchorSideTop.Control = ImCarsharing
+    AnchorSideRight.Control = ImBus
+    Left = 1106
+    Height = 12
+    Top = 359
+    Width = 11
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 39
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637001000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -14531,10 +15115,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon5_12: TImage
-    Left = 885
-    Height = 10
-    Top = 299
-    Width = 9
+    AnchorSideTop.Control = ImCarsharing
+    AnchorSideRight.Control = ImBus
+    Left = 1106
+    Height = 12
+    Top = 374
+    Width = 11
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 54
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637001000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -14555,10 +15144,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon2_5: TImage
-    Left = 885
-    Height = 10
-    Top = 327
-    Width = 9
+    AnchorSideTop.Control = ImTokyo
+    AnchorSideRight.Control = ImBus
+    Left = 1106
+    Height = 12
+    Top = 409
+    Width = 11
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 9
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637001000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -14579,10 +15173,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon2_6: TImage
-    Left = 885
-    Height = 10
-    Top = 339
-    Width = 9
+    AnchorSideTop.Control = ImTokyo
+    AnchorSideRight.Control = ImBus
+    Left = 1106
+    Height = 12
+    Top = 424
+    Width = 11
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 24
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637001000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -14603,10 +15202,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon2_7: TImage
-    Left = 885
-    Height = 10
-    Top = 351
-    Width = 9
+    AnchorSideTop.Control = ImTokyo
+    AnchorSideRight.Control = ImBus
+    Left = 1106
+    Height = 12
+    Top = 439
+    Width = 11
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 39
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637001000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -14627,10 +15231,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon2_8: TImage
-    Left = 885
-    Height = 10
-    Top = 363
-    Width = 9
+    AnchorSideTop.Control = ImTokyo
+    AnchorSideRight.Control = ImBus
+    Left = 1106
+    Height = 12
+    Top = 454
+    Width = 11
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 54
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637001000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -14651,10 +15260,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon6_1: TImage
-    Left = 885
-    Height = 10
-    Top = 391
-    Width = 9
+    AnchorSideTop.Control = ImCinema
+    AnchorSideRight.Control = ImBus
+    Left = 1106
+    Height = 12
+    Top = 489
+    Width = 11
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 9
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637001000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -14675,10 +15289,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon6_2: TImage
-    Left = 885
-    Height = 10
-    Top = 403
-    Width = 9
+    AnchorSideTop.Control = ImCinema
+    AnchorSideRight.Control = ImBus
+    Left = 1106
+    Height = 12
+    Top = 504
+    Width = 11
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 24
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637001000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -14699,10 +15318,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon6_3: TImage
-    Left = 885
-    Height = 10
-    Top = 415
-    Width = 9
+    AnchorSideTop.Control = ImCinema
+    AnchorSideRight.Control = ImBus
+    Left = 1106
+    Height = 12
+    Top = 519
+    Width = 11
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 39
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637001000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -14723,10 +15347,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon6_4: TImage
-    Left = 885
-    Height = 10
-    Top = 427
-    Width = 9
+    AnchorSideTop.Control = ImCinema
+    AnchorSideRight.Control = ImBus
+    Left = 1106
+    Height = 12
+    Top = 534
+    Width = 11
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 54
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637001000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -14747,10 +15376,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon6_5: TImage
-    Left = 885
-    Height = 10
-    Top = 519
-    Width = 9
+    AnchorSideTop.Control = ImGame
+    AnchorSideRight.Control = ImBus
+    Left = 1106
+    Height = 12
+    Top = 649
+    Width = 11
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 9
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637001000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -14771,10 +15405,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon6_6: TImage
-    Left = 885
-    Height = 10
-    Top = 531
-    Width = 9
+    AnchorSideTop.Control = ImGame
+    AnchorSideRight.Control = ImBus
+    Left = 1106
+    Height = 12
+    Top = 664
+    Width = 11
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 24
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637001000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -14795,10 +15434,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon6_7: TImage
-    Left = 885
-    Height = 10
-    Top = 543
-    Width = 9
+    AnchorSideTop.Control = ImGame
+    AnchorSideRight.Control = ImBus
+    Left = 1106
+    Height = 12
+    Top = 679
+    Width = 11
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 39
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637001000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -14819,10 +15463,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon6_8: TImage
-    Left = 885
-    Height = 10
-    Top = 555
-    Width = 9
+    AnchorSideTop.Control = ImGame
+    AnchorSideRight.Control = ImBus
+    Left = 1106
+    Height = 12
+    Top = 694
+    Width = 11
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 54
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637001000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -14843,10 +15492,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold51: TImage
-    Left = 879
-    Height = 18
-    Top = 149
-    Width = 15
+    AnchorSideTop.Control = ImBus
+    AnchorSideRight.Control = ImBus
+    Left = 1098
+    Height = 22
+    Top = 186
+    Width = 19
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 26
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963C604000089504E47
       0D0A1A0A0000000D494844520000000F000000120806000000849E840F000000
@@ -14894,10 +15548,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold52: TImage
-    Left = 879
-    Height = 18
-    Top = 213
-    Width = 15
+    AnchorSideTop.Control = ImTaxi
+    AnchorSideRight.Control = ImBus
+    Left = 1098
+    Height = 22
+    Top = 266
+    Width = 19
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 26
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963C604000089504E47
       0D0A1A0A0000000D494844520000000F000000120806000000849E840F000000
@@ -14945,10 +15604,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold53: TImage
-    Left = 879
-    Height = 18
-    Top = 277
-    Width = 15
+    AnchorSideTop.Control = ImCarsharing
+    AnchorSideRight.Control = ImBus
+    Left = 1098
+    Height = 22
+    Top = 346
+    Width = 19
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 26
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963C604000089504E47
       0D0A1A0A0000000D494844520000000F000000120806000000849E840F000000
@@ -14996,10 +15660,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold22: TImage
-    Left = 879
-    Height = 18
-    Top = 341
-    Width = 15
+    AnchorSideTop.Control = ImTokyo
+    AnchorSideRight.Control = ImBus
+    Left = 1098
+    Height = 22
+    Top = 426
+    Width = 19
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 26
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963C604000089504E47
       0D0A1A0A0000000D494844520000000F000000120806000000849E840F000000
@@ -15047,10 +15716,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold61: TImage
-    Left = 879
-    Height = 18
-    Top = 405
-    Width = 15
+    AnchorSideTop.Control = ImCinema
+    AnchorSideRight.Control = ImBus
+    Left = 1098
+    Height = 22
+    Top = 506
+    Width = 19
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 26
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963C604000089504E47
       0D0A1A0A0000000D494844520000000F000000120806000000849E840F000000
@@ -15098,10 +15772,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold62: TImage
-    Left = 879
-    Height = 18
-    Top = 533
-    Width = 15
+    AnchorSideTop.Control = ImGame
+    AnchorSideRight.Control = ImBus
+    Left = 1098
+    Height = 22
+    Top = 666
+    Width = 19
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 26
+    BorderSpacing.Right = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963C604000089504E47
       0D0A1A0A0000000D494844520000000F000000120806000000849E840F000000
@@ -15149,10 +15828,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon7_1: TImage
-    Left = 839
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImChemistry
+    AnchorSideBottom.Control = ImChemistry
+    Left = 1049
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 9
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15171,10 +15855,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon7_2: TImage
-    Left = 851
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImChemistry
+    AnchorSideBottom.Control = ImChemistry
+    Left = 1064
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 24
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15193,10 +15882,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon7_3: TImage
-    Left = 863
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImChemistry
+    AnchorSideBottom.Control = ImChemistry
+    Left = 1079
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 39
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15215,10 +15909,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon7_4: TImage
-    Left = 875
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImChemistry
+    AnchorSideBottom.Control = ImChemistry
+    Left = 1094
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 54
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15237,10 +15936,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon7_5: TImage
-    Left = 711
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImMedicine
+    AnchorSideBottom.Control = ImChemistry
+    Left = 889
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 9
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15259,10 +15963,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon7_6: TImage
-    Left = 723
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImMedicine
+    AnchorSideBottom.Control = ImChemistry
+    Left = 904
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 24
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15281,10 +15990,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon7_7: TImage
-    Left = 735
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImMedicine
+    AnchorSideBottom.Control = ImChemistry
+    Left = 919
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 39
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15303,10 +16017,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon7_8: TImage
-    Left = 747
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImMedicine
+    AnchorSideBottom.Control = ImChemistry
+    Left = 934
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 54
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15325,10 +16044,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon7_9: TImage
-    Left = 647
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImBiology
+    AnchorSideBottom.Control = ImChemistry
+    Left = 809
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 9
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15347,10 +16071,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon7_10: TImage
-    Left = 659
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImBiology
+    AnchorSideBottom.Control = ImChemistry
+    Left = 824
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 24
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15369,10 +16098,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon7_11: TImage
-    Left = 671
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImBiology
+    AnchorSideBottom.Control = ImChemistry
+    Left = 839
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 39
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15391,10 +16125,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon7_12: TImage
-    Left = 683
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImBiology
+    AnchorSideBottom.Control = ImChemistry
+    Left = 854
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 54
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15413,10 +16152,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon2_9: TImage
-    Left = 519
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImDubai
+    AnchorSideBottom.Control = ImChemistry
+    Left = 649
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 9
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15435,10 +16179,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon2_10: TImage
-    Left = 531
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImDubai
+    AnchorSideBottom.Control = ImChemistry
+    Left = 664
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 24
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15457,10 +16206,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon2_11: TImage
-    Left = 543
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImDubai
+    AnchorSideBottom.Control = ImChemistry
+    Left = 679
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 39
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15479,10 +16233,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon2_12: TImage
-    Left = 555
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImDubai
+    AnchorSideBottom.Control = ImChemistry
+    Left = 694
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 54
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15501,10 +16260,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon8_1: TImage
-    Left = 455
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImMetallurgy
+    AnchorSideBottom.Control = ImChemistry
+    Left = 569
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 9
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15523,10 +16287,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon8_2: TImage
-    Left = 467
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImMetallurgy
+    AnchorSideBottom.Control = ImChemistry
+    Left = 584
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 24
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15545,10 +16314,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon8_3: TImage
-    Left = 479
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImMetallurgy
+    AnchorSideBottom.Control = ImChemistry
+    Left = 599
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 39
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15567,10 +16341,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon8_4: TImage
-    Left = 491
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImMetallurgy
+    AnchorSideBottom.Control = ImChemistry
+    Left = 614
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 54
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15589,10 +16368,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon8_5: TImage
-    Left = 391
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImCarFactory
+    AnchorSideBottom.Control = ImChemistry
+    Left = 489
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 9
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15611,10 +16395,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon8_6: TImage
-    Left = 403
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImCarFactory
+    AnchorSideBottom.Control = ImChemistry
+    Left = 504
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 24
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15633,10 +16422,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon8_7: TImage
-    Left = 415
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImCarFactory
+    AnchorSideBottom.Control = ImChemistry
+    Left = 519
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 39
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15655,10 +16449,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon8_8: TImage
-    Left = 427
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImCarFactory
+    AnchorSideBottom.Control = ImChemistry
+    Left = 534
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 54
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15677,10 +16476,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon8_9: TImage
-    Left = 263
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImWeapon
+    AnchorSideBottom.Control = ImChemistry
+    Left = 329
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 9
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15699,10 +16503,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon8_10: TImage
-    Left = 275
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImWeapon
+    AnchorSideBottom.Control = ImChemistry
+    Left = 344
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 24
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15721,10 +16530,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon8_11: TImage
-    Left = 287
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImWeapon
+    AnchorSideBottom.Control = ImChemistry
+    Left = 359
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 39
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15743,10 +16557,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon8_12: TImage
-    Left = 299
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImWeapon
+    AnchorSideBottom.Control = ImChemistry
+    Left = 374
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 54
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15765,10 +16584,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon9_1: TImage
-    Left = 199
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImSearch
+    AnchorSideBottom.Control = ImChemistry
+    Left = 249
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 9
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15787,10 +16611,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon9_2: TImage
-    Left = 211
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImSearch
+    AnchorSideBottom.Control = ImChemistry
+    Left = 264
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 24
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15809,10 +16638,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon9_3: TImage
-    Left = 223
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImSearch
+    AnchorSideBottom.Control = ImChemistry
+    Left = 279
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 39
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15831,10 +16665,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon9_4: TImage
-    Left = 235
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImSearch
+    AnchorSideBottom.Control = ImChemistry
+    Left = 294
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 54
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15853,10 +16692,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon9_5: TImage
-    Left = 135
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImSocial
+    AnchorSideBottom.Control = ImChemistry
+    Left = 169
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 9
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15875,10 +16719,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon9_6: TImage
-    Left = 147
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImSocial
+    AnchorSideBottom.Control = ImChemistry
+    Left = 184
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 24
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15897,10 +16746,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon9_7: TImage
-    Left = 159
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImSocial
+    AnchorSideBottom.Control = ImChemistry
+    Left = 199
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 39
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15919,10 +16773,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon9_8: TImage
-    Left = 171
-    Height = 9
-    Top = 565
-    Width = 10
+    AnchorSideLeft.Control = ImSocial
+    AnchorSideBottom.Control = ImChemistry
+    Left = 214
+    Height = 11
+    Top = 706
+    Width = 12
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 54
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869632F01000089504E47
       0D0A1A0A0000000D494844520000001600000015080600000042201E95000000
@@ -15941,10 +16800,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold71: TImage
-    Left = 853
-    Height = 15
-    Top = 559
-    Width = 18
+    AnchorSideLeft.Control = ImChemistry
+    AnchorSideBottom.Control = ImChemistry
+    Left = 1066
+    Height = 19
+    Top = 698
+    Width = 22
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 26
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869639D04000089504E47
       0D0A1A0A0000000D49484452000000120000000F0806000000E9869F12000000
@@ -15990,10 +16854,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold72: TImage
-    Left = 725
-    Height = 15
-    Top = 559
-    Width = 18
+    AnchorSideLeft.Control = ImMedicine
+    AnchorSideBottom.Control = ImChemistry
+    Left = 906
+    Height = 19
+    Top = 698
+    Width = 22
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 26
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869639D04000089504E47
       0D0A1A0A0000000D49484452000000120000000F0806000000E9869F12000000
@@ -16039,10 +16908,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold73: TImage
-    Left = 661
-    Height = 15
-    Top = 559
-    Width = 18
+    AnchorSideLeft.Control = ImBiology
+    AnchorSideBottom.Control = ImChemistry
+    Left = 826
+    Height = 19
+    Top = 698
+    Width = 22
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 26
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869639D04000089504E47
       0D0A1A0A0000000D49484452000000120000000F0806000000E9869F12000000
@@ -16088,10 +16962,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold23: TImage
-    Left = 533
-    Height = 15
-    Top = 559
-    Width = 18
+    AnchorSideLeft.Control = ImDubai
+    AnchorSideBottom.Control = ImChemistry
+    Left = 666
+    Height = 19
+    Top = 698
+    Width = 22
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 26
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869639D04000089504E47
       0D0A1A0A0000000D49484452000000120000000F0806000000E9869F12000000
@@ -16137,10 +17016,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold81: TImage
-    Left = 469
-    Height = 15
-    Top = 559
-    Width = 18
+    AnchorSideLeft.Control = ImMetallurgy
+    AnchorSideBottom.Control = ImChemistry
+    Left = 586
+    Height = 19
+    Top = 698
+    Width = 22
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 26
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869639D04000089504E47
       0D0A1A0A0000000D49484452000000120000000F0806000000E9869F12000000
@@ -16186,10 +17070,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold82: TImage
-    Left = 405
-    Height = 15
-    Top = 559
-    Width = 18
+    AnchorSideLeft.Control = ImCarFactory
+    AnchorSideBottom.Control = ImChemistry
+    Left = 506
+    Height = 19
+    Top = 698
+    Width = 22
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 26
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869639D04000089504E47
       0D0A1A0A0000000D49484452000000120000000F0806000000E9869F12000000
@@ -16235,10 +17124,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold83: TImage
-    Left = 277
-    Height = 15
-    Top = 559
-    Width = 18
+    AnchorSideLeft.Control = ImWeapon
+    AnchorSideBottom.Control = ImChemistry
+    Left = 346
+    Height = 19
+    Top = 698
+    Width = 22
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 26
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869639D04000089504E47
       0D0A1A0A0000000D49484452000000120000000F0806000000E9869F12000000
@@ -16284,10 +17178,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold91: TImage
-    Left = 213
-    Height = 15
-    Top = 559
-    Width = 18
+    AnchorSideLeft.Control = ImSearch
+    AnchorSideBottom.Control = ImChemistry
+    Left = 266
+    Height = 19
+    Top = 698
+    Width = 22
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 26
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869639D04000089504E47
       0D0A1A0A0000000D49484452000000120000000F0806000000E9869F12000000
@@ -16333,10 +17232,15 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold92: TImage
-    Left = 149
-    Height = 15
-    Top = 559
-    Width = 18
+    AnchorSideLeft.Control = ImSocial
+    AnchorSideBottom.Control = ImChemistry
+    Left = 186
+    Height = 19
+    Top = 698
+    Width = 22
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 26
+    BorderSpacing.Bottom = 3
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869639D04000089504E47
       0D0A1A0A0000000D49484452000000120000000F0806000000E9869F12000000
@@ -16382,10 +17286,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon10_1: TImage
-    Left = 126
-    Height = 10
-    Top = 519
-    Width = 9
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImTenerife
+    Left = 158
+    Height = 12
+    Top = 649
+    Width = 11
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 9
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D01000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -16406,10 +17314,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon10_2: TImage
-    Left = 126
-    Height = 10
-    Top = 531
-    Width = 9
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImTenerife
+    Left = 158
+    Height = 12
+    Top = 664
+    Width = 11
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 24
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D01000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -16430,10 +17342,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon10_3: TImage
-    Left = 126
-    Height = 10
-    Top = 543
-    Width = 9
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImTenerife
+    Left = 158
+    Height = 12
+    Top = 679
+    Width = 11
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 39
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D01000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -16454,10 +17370,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon10_4: TImage
-    Left = 126
-    Height = 10
-    Top = 555
-    Width = 9
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImTenerife
+    Left = 158
+    Height = 12
+    Top = 694
+    Width = 11
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 54
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D01000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -16478,10 +17398,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon10_5: TImage
-    Left = 126
-    Height = 10
-    Top = 455
-    Width = 9
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImSeychelles
+    Left = 158
+    Height = 12
+    Top = 569
+    Width = 11
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 9
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D01000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -16502,10 +17426,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon10_6: TImage
-    Left = 126
-    Height = 10
-    Top = 467
-    Width = 9
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImSeychelles
+    Left = 158
+    Height = 12
+    Top = 584
+    Width = 11
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 24
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D01000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -16526,10 +17454,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon10_7: TImage
-    Left = 126
-    Height = 10
-    Top = 479
-    Width = 9
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImSeychelles
+    Left = 158
+    Height = 12
+    Top = 599
+    Width = 11
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 39
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D01000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -16550,10 +17482,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon10_8: TImage
-    Left = 126
-    Height = 10
-    Top = 491
-    Width = 9
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImSeychelles
+    Left = 158
+    Height = 12
+    Top = 614
+    Width = 11
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 54
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D01000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -16574,10 +17510,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon10_9: TImage
-    Left = 126
-    Height = 10
-    Top = 391
-    Width = 9
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImMaldives
+    Left = 158
+    Height = 12
+    Top = 489
+    Width = 11
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 9
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D01000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -16598,10 +17538,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon10_10: TImage
-    Left = 126
-    Height = 10
-    Top = 403
-    Width = 9
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImMaldives
+    Left = 158
+    Height = 12
+    Top = 504
+    Width = 11
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 24
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D01000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -16622,10 +17566,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon10_11: TImage
-    Left = 126
-    Height = 10
-    Top = 415
-    Width = 9
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImMaldives
+    Left = 158
+    Height = 12
+    Top = 519
+    Width = 11
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 39
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D01000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -16646,10 +17594,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon10_12: TImage
-    Left = 126
-    Height = 10
-    Top = 427
-    Width = 9
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImMaldives
+    Left = 158
+    Height = 12
+    Top = 534
+    Width = 11
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 54
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D01000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -16670,10 +17622,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon2_13: TImage
-    Left = 126
-    Height = 10
-    Top = 327
-    Width = 9
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImNewYork
+    Left = 158
+    Height = 12
+    Top = 409
+    Width = 11
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 9
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D01000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -16694,10 +17650,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon2_14: TImage
-    Left = 126
-    Height = 10
-    Top = 339
-    Width = 9
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImNewYork
+    Left = 158
+    Height = 12
+    Top = 424
+    Width = 11
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 24
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D01000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -16718,10 +17678,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon2_15: TImage
-    Left = 126
-    Height = 10
-    Top = 351
-    Width = 9
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImNewYork
+    Left = 158
+    Height = 12
+    Top = 439
+    Width = 11
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 39
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D01000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -16742,10 +17706,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon2_16: TImage
-    Left = 126
-    Height = 10
-    Top = 363
-    Width = 9
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImNewYork
+    Left = 158
+    Height = 12
+    Top = 454
+    Width = 11
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 54
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D01000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -16766,10 +17734,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon11_1: TImage
-    Left = 126
-    Height = 10
-    Top = 263
-    Width = 9
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImNeiro
+    Left = 158
+    Height = 12
+    Top = 329
+    Width = 11
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 9
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D01000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -16790,10 +17762,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon11_2: TImage
-    Left = 126
-    Height = 10
-    Top = 275
-    Width = 9
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImNeiro
+    Left = 158
+    Height = 12
+    Top = 344
+    Width = 11
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 24
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D01000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -16814,10 +17790,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon11_3: TImage
-    Left = 126
-    Height = 10
-    Top = 287
-    Width = 9
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImNeiro
+    Left = 158
+    Height = 12
+    Top = 359
+    Width = 11
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 39
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D01000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -16838,10 +17818,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon11_4: TImage
-    Left = 126
-    Height = 10
-    Top = 299
-    Width = 9
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImNeiro
+    Left = 158
+    Height = 12
+    Top = 374
+    Width = 11
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 54
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D01000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -16862,10 +17846,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon11_5: TImage
-    Left = 126
-    Height = 10
-    Top = 135
-    Width = 9
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImCrypto
+    Left = 158
+    Height = 12
+    Top = 169
+    Width = 11
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 9
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D01000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -16886,10 +17874,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon11_6: TImage
-    Left = 126
-    Height = 10
-    Top = 147
-    Width = 9
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImCrypto
+    Left = 158
+    Height = 12
+    Top = 184
+    Width = 11
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 24
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D01000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -16910,10 +17902,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon11_7: TImage
-    Left = 126
-    Height = 10
-    Top = 159
-    Width = 9
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImCrypto
+    Left = 158
+    Height = 12
+    Top = 199
+    Width = 11
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 39
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D01000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -16934,10 +17930,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Mon11_8: TImage
-    Left = 126
-    Height = 10
-    Top = 171
-    Width = 9
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImCrypto
+    Left = 158
+    Height = 12
+    Top = 214
+    Width = 11
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 54
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636D01000089504E47
       0D0A1A0A0000000D49484452000000150000001608060000002F83D738000000
@@ -16958,10 +17958,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold101: TImage
-    Left = 126
-    Height = 18
-    Top = 533
-    Width = 15
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImTenerife
+    Left = 158
+    Height = 22
+    Top = 666
+    Width = 19
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 26
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963B704000089504E47
       0D0A1A0A0000000D494844520000000F000000120806000000849E840F000000
@@ -17008,10 +18012,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold102: TImage
-    Left = 126
-    Height = 18
-    Top = 469
-    Width = 15
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImSeychelles
+    Left = 158
+    Height = 22
+    Top = 586
+    Width = 19
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 26
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963B704000089504E47
       0D0A1A0A0000000D494844520000000F000000120806000000849E840F000000
@@ -17058,10 +18066,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold103: TImage
-    Left = 126
-    Height = 18
-    Top = 405
-    Width = 15
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImMaldives
+    Left = 158
+    Height = 22
+    Top = 506
+    Width = 19
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 26
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963B704000089504E47
       0D0A1A0A0000000D494844520000000F000000120806000000849E840F000000
@@ -17108,10 +18120,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold24: TImage
-    Left = 126
-    Height = 18
-    Top = 341
-    Width = 15
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImNewYork
+    Left = 158
+    Height = 22
+    Top = 426
+    Width = 19
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 26
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963B704000089504E47
       0D0A1A0A0000000D494844520000000F000000120806000000849E840F000000
@@ -17158,10 +18174,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold111: TImage
-    Left = 126
-    Height = 18
-    Top = 277
-    Width = 15
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImNeiro
+    Left = 158
+    Height = 22
+    Top = 346
+    Width = 19
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 26
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963B704000089504E47
       0D0A1A0A0000000D494844520000000F000000120806000000849E840F000000
@@ -17208,10 +18228,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object Gold112: TImage
-    Left = 126
-    Height = 18
-    Top = 149
-    Width = 15
+    AnchorSideLeft.Control = ImTenerife
+    AnchorSideTop.Control = ImCrypto
+    Left = 158
+    Height = 22
+    Top = 186
+    Width = 19
+    BorderSpacing.Left = 102
+    BorderSpacing.Top = 26
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963B704000089504E47
       0D0A1A0A0000000D494844520000000F000000120806000000849E840F000000
@@ -17258,14 +18282,18 @@ object fPlay: TfPlay
     Visible = False
   end
   object Label1: TLabel
-    Left = 46
-    Height = 21
-    Top = 211
-    Width = 55
+    AnchorSideLeft.Control = Nalog3
+    AnchorSideTop.Control = Nalog3
+    Left = 58
+    Height = 28
+    Top = 264
+    Width = 68
+    BorderSpacing.Left = 28
+    BorderSpacing.Top = 24
     Caption = 'НАЛОГ'
     Font.CharSet = ANSI_CHARSET
     Font.Color = clBlack
-    Font.Height = -16
+    Font.Height = -20
     Font.Name = 'Segoe UI Semibold'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -17274,14 +18302,18 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Label2: TLabel
-    Left = 912
-    Height = 21
-    Top = 466
-    Width = 66
+    AnchorSideLeft.Control = Lottery2
+    AnchorSideTop.Control = Lottery2
+    Left = 1140
+    Height = 28
+    Top = 582
+    Width = 83
+    BorderSpacing.Left = 20
+    BorderSpacing.Top = 22
     Caption = 'ЛОТЕРЕЯ'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clBlack
-    Font.Height = -16
+    Font.Height = -20
     Font.Name = 'Segoe UI Semibold'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -17290,14 +18322,18 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Label3: TLabel
-    Left = 199
-    Height = 17
-    Top = 64
-    Width = 45
+    AnchorSideLeft.Control = Nalog1
+    AnchorSideTop.Control = Nalog1
+    Left = 249
+    Height = 21
+    Top = 80
+    Width = 56
+    BorderSpacing.Left = 9
+    BorderSpacing.Top = 50
     Caption = 'НАЛОГ'
     Font.CharSet = ANSI_CHARSET
     Font.Color = clBlack
-    Font.Height = -13
+    Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -17306,14 +18342,18 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Label4: TLabel
-    Left = 387
-    Height = 13
-    Top = 68
-    Width = 52
+    AnchorSideLeft.Control = Skip
+    AnchorSideTop.Control = Skip
+    Left = 484
+    Height = 19
+    Top = 85
+    Width = 69
+    BorderSpacing.Left = 4
+    BorderSpacing.Top = 55
     Caption = 'ПРОПУСК'
     Font.CharSet = ANSI_CHARSET
     Font.Color = clBlack
-    Font.Height = -11
+    Font.Height = -14
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -17322,14 +18362,18 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Label5: TLabel
-    Left = 646
-    Height = 13
-    Top = 68
-    Width = 48
+    AnchorSideLeft.Control = Lottery1
+    AnchorSideTop.Control = Lottery1
+    Left = 808
+    Height = 19
+    Top = 85
+    Width = 60
+    BorderSpacing.Left = 8
+    BorderSpacing.Top = 55
     Caption = 'ЛОТЕРЕЯ'
     Font.CharSet = ANSI_CHARSET
     Font.Color = clBlack
-    Font.Height = -11
+    Font.Height = -14
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -17338,14 +18382,18 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Label6: TLabel
-    Left = 775
-    Height = 17
-    Top = 616
-    Width = 45
+    AnchorSideLeft.Control = Nalog2
+    AnchorSideTop.Control = Nalog2
+    Left = 969
+    Height = 21
+    Top = 770
+    Width = 56
+    BorderSpacing.Left = 9
+    BorderSpacing.Top = 50
     Caption = 'НАЛОГ'
     Font.CharSet = ANSI_CHARSET
     Font.Color = clBlack
-    Font.Height = -13
+    Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -17354,14 +18402,18 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Label7: TLabel
-    Left = 325
-    Height = 13
-    Top = 620
-    Width = 48
+    AnchorSideLeft.Control = Lottery3
+    AnchorSideTop.Control = Lottery3
+    Left = 406
+    Height = 19
+    Top = 775
+    Width = 60
+    BorderSpacing.Left = 6
+    BorderSpacing.Top = 55
     Caption = 'ЛОТЕРЕЯ'
     Font.CharSet = ANSI_CHARSET
     Font.Color = clBlack
-    Font.Height = -11
+    Font.Height = -14
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -17370,14 +18422,18 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Label8: TLabel
-    Left = 583
-    Height = 17
-    Top = 616
-    Width = 45
+    AnchorSideLeft.Control = GoBack
+    AnchorSideTop.Control = GoBack
+    Left = 729
+    Height = 21
+    Top = 770
+    Width = 56
+    BorderSpacing.Left = 9
+    BorderSpacing.Top = 50
     Caption = 'НАЗАД'
     Font.CharSet = ANSI_CHARSET
     Font.Color = clBlack
-    Font.Height = -13
+    Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -17386,73 +18442,94 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object ImFalse1: TImage
-    Left = 192
-    Height = 100
-    Top = 24
-    Width = 60
+    AnchorSideLeft.Control = ImCoffee
+    AnchorSideTop.Control = Nalog1
+    Left = 240
+    Height = 125
+    Top = 30
+    Width = 75
+    BorderSpacing.Left = 80
     OnDblClick = ImFalse1DblClick
   end
   object ImFalse2: TImage
-    Left = 384
-    Height = 100
-    Top = 24
-    Width = 60
+    AnchorSideLeft.Control = Skip
+    AnchorSideTop.Control = Skip
+    Left = 480
+    Height = 125
+    Top = 30
+    Width = 75
     OnDblClick = ImFalse2DblClick
   end
   object ImFalse3: TImage
-    Left = 640
-    Height = 100
-    Top = 24
-    Width = 60
+    AnchorSideLeft.Control = Lottery1
+    AnchorSideTop.Control = Lottery1
+    Left = 800
+    Height = 125
+    Top = 30
+    Width = 75
     OnDblClick = ImFalse3DblClick
   end
   object ImFalse4: TImage
-    Left = 320
-    Height = 100
-    Top = 576
-    Width = 60
+    AnchorSideLeft.Control = Lottery3
+    AnchorSideTop.Control = Lottery3
+    Left = 400
+    Height = 125
+    Top = 720
+    Width = 75
     OnDblClick = ImFalse4DblClick
   end
   object ImFalse5: TImage
-    Left = 576
-    Height = 100
-    Top = 576
-    Width = 60
+    AnchorSideLeft.Control = GoBack
+    AnchorSideTop.Control = GoBack
+    Left = 720
+    Height = 125
+    Top = 720
+    Width = 75
     OnDblClick = ImFalse5DblClick
   end
   object ImFalse6: TImage
-    Left = 768
-    Height = 100
-    Top = 576
-    Width = 60
+    AnchorSideLeft.Control = Nalog2
+    AnchorSideTop.Control = Nalog2
+    Left = 960
+    Height = 125
+    Top = 720
+    Width = 75
     OnDblClick = ImFalse6DblClick
   end
   object ImFalse7: TImage
-    Left = 24
-    Height = 60
-    Top = 192
-    Width = 100
+    AnchorSideLeft.Control = Nalog3
+    AnchorSideTop.Control = Nalog3
+    Left = 30
+    Height = 75
+    Top = 240
+    Width = 125
     OnDblClick = ImFalse7DblClick
   end
   object ImFalse8: TImage
-    Left = 896
-    Height = 60
-    Top = 448
-    Width = 100
+    AnchorSideLeft.Control = Lottery2
+    AnchorSideTop.Control = Lottery2
+    Left = 1120
+    Height = 75
+    Top = 560
+    Width = 125
     OnDblClick = ImFalse8DblClick
   end
   object Name1: TLabel
-    Left = 157
-    Height = 17
-    Top = 159
-    Width = 216
+    AnchorSideLeft.Control = ImCrypto
+    AnchorSideTop.Control = ImCoffee
+    Left = 196
+    Height = 21
+    Top = 199
+    Width = 270
     Alignment = taCenter
     AutoSize = False
+    BorderSpacing.Left = 140
+    BorderSpacing.Top = 143
     Caption = 'Игрок 1'
     Color = clWhite
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clBlack
-    Font.Height = -13
+    Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -17462,17 +18539,21 @@ object fPlay: TfPlay
     Transparent = False
   end
   object Name2: TLabel
-    Left = 157
-    Height = 17
-    Top = 239
-    Width = 216
+    AnchorSideLeft.Control = ImCrypto
+    AnchorSideTop.Control = Name1
+    Left = 196
+    Height = 21
+    Top = 299
+    Width = 270
     Alignment = taCenter
     AutoSize = False
+    BorderSpacing.Left = 140
+    BorderSpacing.Top = 100
     Caption = 'Игрок 2'
     Color = clWhite
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clBlack
-    Font.Height = -13
+    Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -17482,17 +18563,21 @@ object fPlay: TfPlay
     Transparent = False
   end
   object Name3: TLabel
-    Left = 157
-    Height = 17
-    Top = 314
-    Width = 216
+    AnchorSideLeft.Control = ImCrypto
+    AnchorSideTop.Control = Name2
+    Left = 196
+    Height = 21
+    Top = 392
+    Width = 270
     Alignment = taCenter
     AutoSize = False
+    BorderSpacing.Left = 140
+    BorderSpacing.Top = 93
     Caption = 'Игрок 3'
     Color = clWhite
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clBlack
-    Font.Height = -13
+    Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -17502,17 +18587,21 @@ object fPlay: TfPlay
     Transparent = False
   end
   object Name4: TLabel
-    Left = 157
-    Height = 17
-    Top = 389
-    Width = 216
+    AnchorSideLeft.Control = ImCrypto
+    AnchorSideTop.Control = Name3
+    Left = 196
+    Height = 21
+    Top = 486
+    Width = 270
     Alignment = taCenter
     AutoSize = False
+    BorderSpacing.Left = 140
+    BorderSpacing.Top = 94
     Caption = 'Игрок 4'
     Color = clWhite
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clBlack
-    Font.Height = -13
+    Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -17522,17 +18611,21 @@ object fPlay: TfPlay
     Transparent = False
   end
   object Name5: TLabel
-    Left = 157
-    Height = 17
-    Top = 464
-    Width = 216
+    AnchorSideLeft.Control = ImCrypto
+    AnchorSideTop.Control = Name4
+    Left = 196
+    Height = 21
+    Top = 580
+    Width = 270
     Alignment = taCenter
     AutoSize = False
+    BorderSpacing.Left = 140
+    BorderSpacing.Top = 94
     Caption = 'Игрок 5'
     Color = clWhite
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clBlack
-    Font.Height = -13
+    Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -17542,14 +18635,18 @@ object fPlay: TfPlay
     Transparent = False
   end
   object House1: TLabel
-    Left = 192
-    Height = 21
-    Top = 210
-    Width = 21
+    AnchorSideLeft.Control = ImCrypto
+    AnchorSideTop.Control = Name1
+    Left = 240
+    Height = 28
+    Top = 262
+    Width = 28
+    BorderSpacing.Left = 184
+    BorderSpacing.Top = 63
     Caption = '🏠'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
-    Font.Height = -16
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -17558,14 +18655,18 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Dollar1: TLabel
-    Left = 196
-    Height = 21
-    Top = 184
-    Width = 14
+    AnchorSideLeft.Control = ImCrypto
+    AnchorSideTop.Control = Name1
+    Left = 245
+    Height = 28
+    Top = 230
+    Width = 28
+    BorderSpacing.Left = 189
+    BorderSpacing.Top = 31
     Caption = '💲'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
-    Font.Height = -16
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -17574,38 +18675,49 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Cash1: TLabel
-    Left = 211
-    Height = 15
-    Top = 184
-    Width = 134
+    AnchorSideLeft.Control = Dollar1
+    AnchorSideTop.Control = Dollar1
+    Left = 264
+    Height = 19
+    Top = 230
+    Width = 168
     Alignment = taRightJustify
     AutoSize = False
+    BorderSpacing.Left = 19
     Caption = '1234'
     Font.Color = clWhite
     ParentColor = False
     ParentFont = False
   end
   object Capital1: TLabel
-    Left = 211
-    Height = 15
-    Top = 212
-    Width = 134
+    AnchorSideLeft.Control = House1
+    AnchorSideTop.Control = House1
+    Left = 264
+    Height = 19
+    Top = 265
+    Width = 168
     Alignment = taRightJustify
     AutoSize = False
+    BorderSpacing.Left = 24
+    BorderSpacing.Top = 3
     Caption = '1234'
     Font.Color = clWhite
     ParentColor = False
     ParentFont = False
   end
   object House2: TLabel
-    Left = 192
-    Height = 21
-    Top = 290
-    Width = 21
+    AnchorSideLeft.Control = ImCrypto
+    AnchorSideTop.Control = Name2
+    Left = 240
+    Height = 28
+    Top = 362
+    Width = 28
+    BorderSpacing.Left = 184
+    BorderSpacing.Top = 63
     Caption = '🏠'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
-    Font.Height = -16
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -17614,14 +18726,18 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Dollar2: TLabel
-    Left = 196
-    Height = 21
-    Top = 264
-    Width = 14
+    AnchorSideLeft.Control = ImCrypto
+    AnchorSideTop.Control = Name2
+    Left = 245
+    Height = 28
+    Top = 330
+    Width = 28
+    BorderSpacing.Left = 189
+    BorderSpacing.Top = 31
     Caption = '💲'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
-    Font.Height = -16
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -17630,38 +18746,49 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Cash2: TLabel
-    Left = 211
-    Height = 15
-    Top = 264
-    Width = 134
+    AnchorSideLeft.Control = Dollar1
+    AnchorSideTop.Control = Dollar2
+    Left = 264
+    Height = 19
+    Top = 330
+    Width = 168
     Alignment = taRightJustify
     AutoSize = False
+    BorderSpacing.Left = 19
     Caption = '1234'
     Font.Color = clWhite
     ParentColor = False
     ParentFont = False
   end
   object Capital2: TLabel
-    Left = 211
-    Height = 15
-    Top = 292
-    Width = 134
+    AnchorSideLeft.Control = House1
+    AnchorSideTop.Control = House2
+    Left = 264
+    Height = 19
+    Top = 365
+    Width = 168
     Alignment = taRightJustify
     AutoSize = False
+    BorderSpacing.Left = 24
+    BorderSpacing.Top = 3
     Caption = '1234'
     Font.Color = clWhite
     ParentColor = False
     ParentFont = False
   end
   object Dollar3: TLabel
-    Left = 196
-    Height = 21
-    Top = 338
-    Width = 14
+    AnchorSideLeft.Control = ImCrypto
+    AnchorSideTop.Control = Name3
+    Left = 245
+    Height = 28
+    Top = 422
+    Width = 28
+    BorderSpacing.Left = 189
+    BorderSpacing.Top = 30
     Caption = '💲'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
-    Font.Height = -16
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -17670,14 +18797,18 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object House3: TLabel
-    Left = 192
-    Height = 21
-    Top = 364
-    Width = 21
+    AnchorSideLeft.Control = ImCrypto
+    AnchorSideTop.Control = Name3
+    Left = 240
+    Height = 28
+    Top = 455
+    Width = 28
+    BorderSpacing.Left = 184
+    BorderSpacing.Top = 63
     Caption = '🏠'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
-    Font.Height = -16
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -17686,38 +18817,49 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Cash3: TLabel
-    Left = 211
-    Height = 15
-    Top = 338
-    Width = 134
+    AnchorSideLeft.Control = Dollar1
+    AnchorSideTop.Control = Dollar3
+    Left = 264
+    Height = 19
+    Top = 422
+    Width = 168
     Alignment = taRightJustify
     AutoSize = False
+    BorderSpacing.Left = 19
     Caption = '1234'
     Font.Color = clWhite
     ParentColor = False
     ParentFont = False
   end
   object Capital3: TLabel
-    Left = 211
-    Height = 15
-    Top = 366
-    Width = 134
+    AnchorSideLeft.Control = House1
+    AnchorSideTop.Control = House3
+    Left = 264
+    Height = 19
+    Top = 458
+    Width = 168
     Alignment = taRightJustify
     AutoSize = False
+    BorderSpacing.Left = 24
+    BorderSpacing.Top = 3
     Caption = '1234'
     Font.Color = clWhite
     ParentColor = False
     ParentFont = False
   end
   object Dollar4: TLabel
-    Left = 196
-    Height = 21
-    Top = 413
-    Width = 14
+    AnchorSideLeft.Control = ImCrypto
+    AnchorSideTop.Control = Name4
+    Left = 245
+    Height = 28
+    Top = 516
+    Width = 28
+    BorderSpacing.Left = 189
+    BorderSpacing.Top = 30
     Caption = '💲'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
-    Font.Height = -16
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -17726,14 +18868,18 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object House4: TLabel
-    Left = 192
-    Height = 21
-    Top = 439
-    Width = 21
+    AnchorSideLeft.Control = ImCrypto
+    AnchorSideTop.Control = Name4
+    Left = 240
+    Height = 28
+    Top = 549
+    Width = 28
+    BorderSpacing.Left = 184
+    BorderSpacing.Top = 63
     Caption = '🏠'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
-    Font.Height = -16
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -17742,38 +18888,49 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Cash4: TLabel
-    Left = 211
-    Height = 15
-    Top = 413
-    Width = 134
+    AnchorSideLeft.Control = Dollar1
+    AnchorSideTop.Control = Dollar4
+    Left = 264
+    Height = 19
+    Top = 516
+    Width = 168
     Alignment = taRightJustify
     AutoSize = False
+    BorderSpacing.Left = 19
     Caption = '1234'
     Font.Color = clWhite
     ParentColor = False
     ParentFont = False
   end
   object Capital4: TLabel
-    Left = 211
-    Height = 15
-    Top = 441
-    Width = 134
+    AnchorSideLeft.Control = House1
+    AnchorSideTop.Control = House4
+    Left = 264
+    Height = 19
+    Top = 552
+    Width = 168
     Alignment = taRightJustify
     AutoSize = False
+    BorderSpacing.Left = 24
+    BorderSpacing.Top = 3
     Caption = '1234'
     Font.Color = clWhite
     ParentColor = False
     ParentFont = False
   end
   object Dollar5: TLabel
-    Left = 196
-    Height = 21
-    Top = 487
-    Width = 14
+    AnchorSideLeft.Control = ImCrypto
+    AnchorSideTop.Control = Name5
+    Left = 245
+    Height = 28
+    Top = 609
+    Width = 28
+    BorderSpacing.Left = 189
+    BorderSpacing.Top = 29
     Caption = '💲'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
-    Font.Height = -16
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -17782,14 +18939,18 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object House5: TLabel
-    Left = 192
-    Height = 21
-    Top = 513
-    Width = 21
+    AnchorSideLeft.Control = ImCrypto
+    AnchorSideTop.Control = Name5
+    Left = 240
+    Height = 28
+    Top = 641
+    Width = 28
+    BorderSpacing.Left = 184
+    BorderSpacing.Top = 61
     Caption = '🏠'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
-    Font.Height = -16
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -17798,47 +18959,61 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Cash5: TLabel
-    Left = 211
-    Height = 15
-    Top = 487
-    Width = 134
+    AnchorSideLeft.Control = Dollar1
+    AnchorSideTop.Control = Dollar5
+    Left = 264
+    Height = 19
+    Top = 609
+    Width = 168
     Alignment = taRightJustify
     AutoSize = False
+    BorderSpacing.Left = 19
     Caption = '1234'
     Font.Color = clWhite
     ParentColor = False
     ParentFont = False
   end
   object Capital5: TLabel
-    Left = 211
-    Height = 15
-    Top = 515
-    Width = 134
+    AnchorSideLeft.Control = House1
+    AnchorSideTop.Control = House5
+    Left = 264
+    Height = 19
+    Top = 644
+    Width = 168
     Alignment = taRightJustify
     AutoSize = False
+    BorderSpacing.Left = 24
+    BorderSpacing.Top = 3
     Caption = '1234'
     Font.Color = clWhite
     ParentColor = False
     ParentFont = False
   end
   object Token1: TShape
-    Left = 73
-    Height = 25
-    Top = 90
-    Width = 25
+    AnchorSideLeft.Control = Back1
+    AnchorSideTop.Control = Back1
+    Left = 91
+    Height = 31
+    Top = 112
+    Width = 31
+    BorderSpacing.Left = 61
+    BorderSpacing.Top = 82
     Brush.Color = clFuchsia
     Pen.Width = 0
     Shape = stCircle
   end
   object Label10: TLabel
-    Left = 384
-    Height = 17
-    Top = 520
-    Width = 26
+    AnchorSideLeft.Control = Info
+    AnchorSideTop.Control = Info
+    Left = 480
+    Height = 21
+    Top = 650
+    Width = 30
+    BorderSpacing.Top = 350
     Caption = 'Ход:'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
-    Font.Height = -13
+    Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -17846,16 +19021,19 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Step: TLabel
-    Left = 416
-    Height = 17
-    Top = 520
-    Width = 48
+    AnchorSideLeft.Control = Label10
+    AnchorSideTop.Control = Label10
+    Left = 520
+    Height = 21
+    Top = 650
+    Width = 60
     Alignment = taRightJustify
     AutoSize = False
+    BorderSpacing.Left = 40
     Caption = '0'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clWhite
-    Font.Height = -13
+    Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -17863,10 +19041,15 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object ImButton1: TImage
-    Left = 392
-    Height = 27
-    Top = 176
-    Width = 120
+    AnchorSideLeft.Control = Info
+    AnchorSideBottom.Control = ImButton8
+    Left = 490
+    Height = 34
+    Top = 221
+    Width = 150
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 10
+    BorderSpacing.Bottom = 6
     OnClick = ButtonText1Click
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963310F000089504E47
@@ -17996,14 +19179,18 @@ object fPlay: TfPlay
     Stretch = True
   end
   object ButtonText1: TLabel
-    Left = 402
-    Height = 17
-    Top = 179
-    Width = 100
+    AnchorSideLeft.Control = ImButton1
+    AnchorSideTop.Control = ImButton1
+    Left = 502
+    Height = 21
+    Top = 225
+    Width = 125
+    BorderSpacing.Left = 12
+    BorderSpacing.Top = 4
     Caption = 'Бросить кубики'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = 5759
-    Font.Height = -13
+    Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -18013,10 +19200,15 @@ object fPlay: TfPlay
     OnClick = ButtonText1Click
   end
   object ImButton2: TImage
-    Left = 520
-    Height = 27
-    Top = 176
-    Width = 72
+    AnchorSideLeft.Control = ImButton1
+    AnchorSideBottom.Control = ImButton8
+    Left = 650
+    Height = 34
+    Top = 221
+    Width = 90
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 160
+    BorderSpacing.Bottom = 6
     Enabled = False
     OnClick = ButtonText2Click
     Picture.Data = {
@@ -18148,15 +19340,19 @@ object fPlay: TfPlay
     Transparent = True
   end
   object ButtonText2: TLabel
-    Left = 533
-    Height = 17
-    Top = 180
-    Width = 44
+    AnchorSideLeft.Control = ImButton2
+    AnchorSideTop.Control = ImButton2
+    Left = 666
+    Height = 21
+    Top = 226
+    Width = 54
+    BorderSpacing.Left = 16
+    BorderSpacing.Top = 5
     Caption = 'Купить'
     Enabled = False
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = 5759
-    Font.Height = -13
+    Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -18166,10 +19362,15 @@ object fPlay: TfPlay
     OnClick = ButtonText2Click
   end
   object ImButton3: TImage
-    Left = 598
-    Height = 27
-    Top = 176
-    Width = 60
+    AnchorSideLeft.Control = ImButton2
+    AnchorSideBottom.Control = ImButton8
+    Left = 748
+    Height = 34
+    Top = 221
+    Width = 75
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 98
+    BorderSpacing.Bottom = 6
     Enabled = False
     OnClick = ButtonText3Click
     Picture.Data = {
@@ -18301,15 +19502,19 @@ object fPlay: TfPlay
     Transparent = True
   end
   object ButtonText3: TLabel
-    Left = 610
-    Height = 17
-    Top = 180
-    Width = 36
+    AnchorSideLeft.Control = ImButton3
+    AnchorSideTop.Control = ImButton3
+    Left = 762
+    Height = 21
+    Top = 226
+    Width = 45
+    BorderSpacing.Left = 14
+    BorderSpacing.Top = 5
     Caption = 'Отказ'
     Enabled = False
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = 5759
-    Font.Height = -13
+    Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -18319,10 +19524,15 @@ object fPlay: TfPlay
     OnClick = ButtonText3Click
   end
   object ImButton4: TImage
-    Left = 662
-    Height = 27
-    Top = 176
-    Width = 75
+    AnchorSideLeft.Control = ImButton3
+    AnchorSideBottom.Control = ImButton8
+    Left = 828
+    Height = 34
+    Top = 221
+    Width = 94
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 80
+    BorderSpacing.Bottom = 6
     Enabled = False
     OnClick = ButtonText4Click
     Picture.Data = {
@@ -18454,15 +19664,19 @@ object fPlay: TfPlay
     Transparent = True
   end
   object ButtonText4: TLabel
-    Left = 669
-    Height = 17
-    Top = 180
-    Width = 62
+    AnchorSideLeft.Control = ImButton4
+    AnchorSideTop.Control = ImButton4
+    Left = 836
+    Height = 21
+    Top = 226
+    Width = 78
+    BorderSpacing.Left = 8
+    BorderSpacing.Top = 5
     Caption = 'Заложить'
     Enabled = False
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = 5759
-    Font.Height = -13
+    Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -18472,10 +19686,16 @@ object fPlay: TfPlay
     OnClick = ButtonText4Click
   end
   object ImButton5: TImage
-    Left = 472
-    Height = 27
-    Top = 208
-    Width = 72
+    AnchorSideLeft.Control = ImButton8
+    AnchorSideBottom.Control = Info
+    AnchorSideBottom.Side = asrBottom
+    Left = 590
+    Height = 34
+    Top = 261
+    Width = 90
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 100
+    BorderSpacing.Bottom = 340
     Enabled = False
     OnClick = ButtonText5Click
     Picture.Data = {
@@ -18607,15 +19827,19 @@ object fPlay: TfPlay
     Transparent = True
   end
   object ButtonText5: TLabel
-    Left = 480
-    Height = 17
-    Top = 211
-    Width = 51
+    AnchorSideLeft.Control = ImButton5
+    AnchorSideTop.Control = ImButton5
+    Left = 600
+    Height = 21
+    Top = 265
+    Width = 63
+    BorderSpacing.Left = 10
+    BorderSpacing.Top = 4
     Caption = 'Строить'
     Enabled = False
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = 5759
-    Font.Height = -13
+    Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -18625,10 +19849,15 @@ object fPlay: TfPlay
     OnClick = ButtonText5Click
   end
   object ImButton6: TImage
-    Left = 742
-    Height = 27
-    Top = 176
-    Width = 75
+    AnchorSideLeft.Control = ImButton4
+    AnchorSideBottom.Control = ImButton8
+    Left = 928
+    Height = 34
+    Top = 221
+    Width = 94
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 100
+    BorderSpacing.Bottom = 6
     Enabled = False
     OnClick = ButtonText6Click
     Picture.Data = {
@@ -18760,15 +19989,19 @@ object fPlay: TfPlay
     Transparent = True
   end
   object ButtonText6: TLabel
-    Left = 749
-    Height = 17
-    Top = 180
-    Width = 62
+    AnchorSideLeft.Control = ImButton6
+    AnchorSideTop.Control = ImButton6
+    Left = 936
+    Height = 21
+    Top = 226
+    Width = 77
+    BorderSpacing.Left = 8
+    BorderSpacing.Top = 5
     Caption = 'Выкупить'
     Enabled = False
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = 5759
-    Font.Height = -13
+    Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -18778,10 +20011,16 @@ object fPlay: TfPlay
     OnClick = ButtonText6Click
   end
   object ImButton7: TImage
-    Left = 549
-    Height = 27
-    Top = 208
-    Width = 75
+    AnchorSideLeft.Control = ImButton5
+    AnchorSideBottom.Control = Info
+    AnchorSideBottom.Side = asrBottom
+    Left = 686
+    Height = 34
+    Top = 261
+    Width = 94
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 96
+    BorderSpacing.Bottom = 340
     Enabled = False
     OnClick = ButtonText7Click
     Picture.Data = {
@@ -18913,15 +20152,19 @@ object fPlay: TfPlay
     Transparent = True
   end
   object ButtonText7: TLabel
-    Left = 558
-    Height = 17
-    Top = 212
-    Width = 54
+    AnchorSideLeft.Control = ImButton7
+    AnchorSideTop.Control = ImButton7
+    Left = 698
+    Height = 21
+    Top = 266
+    Width = 67
+    BorderSpacing.Left = 12
+    BorderSpacing.Top = 5
     Caption = 'Продать'
     Enabled = False
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = 5759
-    Font.Height = -13
+    Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -18931,10 +20174,16 @@ object fPlay: TfPlay
     OnClick = ButtonText7Click
   end
   object ImButton8: TImage
-    Left = 392
-    Height = 27
-    Top = 208
-    Width = 75
+    AnchorSideLeft.Control = Info
+    AnchorSideBottom.Control = Info
+    AnchorSideBottom.Side = asrBottom
+    Left = 490
+    Height = 34
+    Top = 261
+    Width = 94
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 10
+    BorderSpacing.Bottom = 340
     Enabled = False
     OnClick = ButtonText8Click
     Picture.Data = {
@@ -19066,15 +20315,19 @@ object fPlay: TfPlay
     Transparent = True
   end
   object ButtonText8: TLabel
-    Left = 399
-    Height = 17
-    Top = 212
-    Width = 60
+    AnchorSideLeft.Control = ImButton8
+    AnchorSideTop.Control = ImButton8
+    Left = 499
+    Height = 21
+    Top = 266
+    Width = 74
+    BorderSpacing.Left = 9
+    BorderSpacing.Top = 5
     Caption = 'Оплатить'
     Enabled = False
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = 5759
-    Font.Height = -13
+    Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -19084,10 +20337,16 @@ object fPlay: TfPlay
     OnClick = ButtonText8Click
   end
   object ImButton11: TImage
-    Left = 747
-    Height = 27
-    Top = 519
-    Width = 69
+    AnchorSideTop.Control = Info
+    AnchorSideRight.Control = ImBus
+    AnchorSideBottom.Control = Info
+    Left = 934
+    Height = 34
+    Top = 648
+    Width = 86
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 348
+    BorderSpacing.Right = 100
     Enabled = False
     OnClick = ButtonText11Click
     Picture.Data = {
@@ -19219,15 +20478,19 @@ object fPlay: TfPlay
     Transparent = True
   end
   object ButtonText11: TLabel
-    Left = 757
-    Height = 17
-    Top = 522
-    Width = 49
+    AnchorSideLeft.Control = ImButton11
+    AnchorSideTop.Control = ImButton11
+    Left = 946
+    Height = 21
+    Top = 651
+    Width = 62
+    BorderSpacing.Left = 12
+    BorderSpacing.Top = 3
     Caption = 'Сдаться'
     Enabled = False
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = 5759
-    Font.Height = -13
+    Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -19237,52 +20500,76 @@ object fPlay: TfPlay
     OnClick = ButtonText11Click
   end
   object Token2: TShape
-    Left = 73
-    Height = 25
-    Top = 80
-    Width = 25
+    AnchorSideLeft.Control = Back1
+    AnchorSideTop.Control = Back1
+    Left = 91
+    Height = 31
+    Top = 100
+    Width = 31
+    BorderSpacing.Left = 61
+    BorderSpacing.Top = 70
     Brush.Color = clFuchsia
     Shape = stCircle
   end
   object Token3: TShape
-    Left = 73
-    Height = 25
-    Top = 68
-    Width = 25
+    AnchorSideLeft.Control = Back1
+    AnchorSideTop.Control = Back1
+    Left = 91
+    Height = 31
+    Top = 85
+    Width = 31
+    BorderSpacing.Left = 61
+    BorderSpacing.Top = 55
     Brush.Color = clFuchsia
     Shape = stCircle
   end
   object Token4: TShape
-    Left = 73
-    Height = 25
-    Top = 56
-    Width = 25
+    AnchorSideLeft.Control = Back1
+    AnchorSideTop.Control = Back1
+    Left = 91
+    Height = 31
+    Top = 70
+    Width = 31
+    BorderSpacing.Left = 61
+    BorderSpacing.Top = 40
     Brush.Color = clFuchsia
     Shape = stCircle
   end
   object Token5: TShape
-    Left = 73
-    Height = 25
-    Top = 45
-    Width = 25
+    AnchorSideLeft.Control = Back1
+    AnchorSideTop.Control = Back1
+    Left = 91
+    Height = 31
+    Top = 56
+    Width = 31
+    BorderSpacing.Left = 61
+    BorderSpacing.Top = 26
     Brush.Color = clFuchsia
     Shape = stCircle
   end
   object Cube1: TShape
-    Left = 508
-    Height = 32
-    Top = 518
-    Width = 33
+    AnchorSideLeft.Control = Step
+    AnchorSideTop.Control = Info
+    Left = 635
+    Height = 40
+    Top = 648
+    Width = 41
+    BorderSpacing.Left = 115
+    BorderSpacing.Top = 348
   end
   object CubeValue1: TLabel
-    Left = 519
-    Height = 21
-    Top = 522
-    Width = 9
+    AnchorSideLeft.Control = Cube1
+    AnchorSideTop.Control = Cube1
+    Left = 649
+    Height = 28
+    Top = 652
+    Width = 12
+    BorderSpacing.Left = 14
+    BorderSpacing.Top = 4
     Caption = '1'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clBlack
-    Font.Height = -16
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -19291,20 +20578,26 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object Cube2: TShape
-    Left = 544
-    Height = 32
-    Top = 518
-    Width = 33
+    AnchorSideLeft.Control = Cube1
+    AnchorSideTop.Control = Cube1
+    Left = 680
+    Height = 40
+    Top = 648
+    Width = 41
+    BorderSpacing.Left = 45
   end
   object CubeValue2: TLabel
-    Left = 555
-    Height = 21
-    Top = 522
-    Width = 9
+    AnchorSideLeft.Control = Cube2
+    AnchorSideTop.Control = CubeValue1
+    Left = 694
+    Height = 28
+    Top = 652
+    Width = 12
+    BorderSpacing.Left = 14
     Caption = '1'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clBlack
-    Font.Height = -16
+    Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -19313,10 +20606,14 @@ object fPlay: TfPlay
     ParentFont = False
   end
   object ImFon1: TImage
-    Left = 208
-    Height = 44
-    Top = 187
-    Width = 120
+    AnchorSideLeft.Control = ImCrypto
+    AnchorSideTop.Control = Name1
+    Left = 260
+    Height = 55
+    Top = 234
+    Width = 150
+    BorderSpacing.Left = 204
+    BorderSpacing.Top = 35
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963310F000089504E47
       0D0A1A0A0000000D49484452000000B6000000370806000000A11CB079000001
@@ -19446,10 +20743,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object ImBankrot1: TImage
-    Left = 224
-    Height = 26
-    Top = 197
-    Width = 90
+    AnchorSideLeft.Control = ImFon1
+    AnchorSideTop.Control = ImFon1
+    Left = 280
+    Height = 32
+    Top = 246
+    Width = 112
+    BorderSpacing.Left = 20
+    BorderSpacing.Top = 12
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963FD0E000089504E47
       0D0A1A0A0000000D49484452000000B90000002A0806000000EF5FFAB1000000
@@ -19578,10 +20879,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object ImFon2: TImage
-    Left = 208
-    Height = 44
-    Top = 263
-    Width = 120
+    AnchorSideLeft.Control = ImCrypto
+    AnchorSideTop.Control = Name2
+    Left = 260
+    Height = 55
+    Top = 329
+    Width = 150
+    BorderSpacing.Left = 204
+    BorderSpacing.Top = 30
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963310F000089504E47
       0D0A1A0A0000000D49484452000000B6000000370806000000A11CB079000001
@@ -19711,10 +21016,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object ImBankrot2: TImage
-    Left = 224
-    Height = 26
-    Top = 273
-    Width = 90
+    AnchorSideLeft.Control = ImFon1
+    AnchorSideTop.Control = ImFon2
+    Left = 280
+    Height = 32
+    Top = 341
+    Width = 112
+    BorderSpacing.Left = 20
+    BorderSpacing.Top = 12
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963FD0E000089504E47
       0D0A1A0A0000000D49484452000000B90000002A0806000000EF5FFAB1000000
@@ -19843,10 +21152,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object ImFon3: TImage
-    Left = 208
-    Height = 44
-    Top = 339
-    Width = 120
+    AnchorSideLeft.Control = ImCrypto
+    AnchorSideTop.Control = Name3
+    Left = 260
+    Height = 55
+    Top = 424
+    Width = 150
+    BorderSpacing.Left = 204
+    BorderSpacing.Top = 32
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963310F000089504E47
       0D0A1A0A0000000D49484452000000B6000000370806000000A11CB079000001
@@ -19976,10 +21289,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object ImBankrot3: TImage
-    Left = 224
-    Height = 26
-    Top = 349
-    Width = 90
+    AnchorSideLeft.Control = ImFon1
+    AnchorSideTop.Control = ImFon3
+    Left = 280
+    Height = 32
+    Top = 436
+    Width = 112
+    BorderSpacing.Left = 20
+    BorderSpacing.Top = 12
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963FD0E000089504E47
       0D0A1A0A0000000D49484452000000B90000002A0806000000EF5FFAB1000000
@@ -20108,10 +21425,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object ImFon4: TImage
-    Left = 208
-    Height = 44
-    Top = 415
-    Width = 120
+    AnchorSideLeft.Control = ImCrypto
+    AnchorSideTop.Control = Name4
+    Left = 260
+    Height = 55
+    Top = 519
+    Width = 150
+    BorderSpacing.Left = 204
+    BorderSpacing.Top = 33
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963310F000089504E47
       0D0A1A0A0000000D49484452000000B6000000370806000000A11CB079000001
@@ -20241,10 +21562,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object ImBankrot4: TImage
-    Left = 224
-    Height = 26
-    Top = 425
-    Width = 90
+    AnchorSideLeft.Control = ImFon1
+    AnchorSideTop.Control = ImFon4
+    Left = 280
+    Height = 32
+    Top = 531
+    Width = 112
+    BorderSpacing.Left = 20
+    BorderSpacing.Top = 12
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963FD0E000089504E47
       0D0A1A0A0000000D49484452000000B90000002A0806000000EF5FFAB1000000
@@ -20373,10 +21698,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object ImFon5: TImage
-    Left = 208
-    Height = 44
-    Top = 490
-    Width = 120
+    AnchorSideLeft.Control = ImCrypto
+    AnchorSideTop.Control = Name5
+    Left = 260
+    Height = 55
+    Top = 612
+    Width = 150
+    BorderSpacing.Left = 204
+    BorderSpacing.Top = 32
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963310F000089504E47
       0D0A1A0A0000000D49484452000000B6000000370806000000A11CB079000001
@@ -20506,10 +21835,14 @@ object fPlay: TfPlay
     Visible = False
   end
   object ImBankrot5: TImage
-    Left = 224
-    Height = 26
-    Top = 500
-    Width = 90
+    AnchorSideLeft.Control = ImFon1
+    AnchorSideTop.Control = ImFon5
+    Left = 280
+    Height = 32
+    Top = 624
+    Width = 112
+    BorderSpacing.Left = 20
+    BorderSpacing.Top = 12
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963FD0E000089504E47
       0D0A1A0A0000000D49484452000000B90000002A0806000000EF5FFAB1000000
@@ -20641,7 +21974,7 @@ object fPlay: TfPlay
     Enabled = False
     Interval = 50
     OnTimer = RollDiceTimer
-    Left = 664
-    Top = 520
+    Left = 830
+    Top = 650
   end
 end

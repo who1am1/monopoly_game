@@ -2211,8 +2211,8 @@ begin
   if changecube>20 then RollDice.Enabled:=False
   else
   begin
-    CubeValue1.Caption:=inttostr(random(1)+1);
-    CubeValue2.Caption:=inttostr(random(1)+1);
+    CubeValue1.Caption:=inttostr(random(6)+1);
+    CubeValue2.Caption:=inttostr(random(6)+1);
     if changecube=20 then
     begin
       b:=true;
@@ -2239,10 +2239,10 @@ begin
           else
             b:=False;
         end;
-
+        RollDice.Enabled:=False;
         buttonchange;
         exit;
-        RollDice.Enabled:=False;
+
       end;
       next_player:=now_player;
       if player[now_player].jail then // если игрок в тюрьме

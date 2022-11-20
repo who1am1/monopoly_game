@@ -2,7 +2,7 @@
 <CONFIG>
   <ProjectSession>
     <PathDelim Value="\"/>
-    <Version Value="11"/>
+    <Version Value="12"/>
     <BuildModes Active="Default"/>
     <Units Count="19">
       <Unit0>
@@ -59,8 +59,8 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="2201"/>
-        <CursorPos X="42" Y="2215"/>
+        <TopLine Value="2186"/>
+        <CursorPos X="38" Y="2209"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -88,7 +88,7 @@
         <UnitName Value="NameError"/>
         <EditorIndex Value="9"/>
         <CursorPos X="9" Y="37"/>
-        <UsageCount Value="156"/>
+        <UsageCount Value="161"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit6>
@@ -102,7 +102,7 @@
         <EditorIndex Value="6"/>
         <TopLine Value="22"/>
         <CursorPos X="9" Y="37"/>
-        <UsageCount Value="131"/>
+        <UsageCount Value="136"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit7>
@@ -115,7 +115,7 @@
         <EditorIndex Value="5"/>
         <TopLine Value="160"/>
         <CursorPos Y="83"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="83"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit8>
@@ -128,7 +128,7 @@
         <EditorIndex Value="4"/>
         <TopLine Value="898"/>
         <CursorPos X="17" Y="905"/>
-        <UsageCount Value="62"/>
+        <UsageCount Value="67"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit9>
@@ -141,7 +141,7 @@
         <EditorIndex Value="3"/>
         <TopLine Value="29"/>
         <CursorPos X="9" Y="44"/>
-        <UsageCount Value="37"/>
+        <UsageCount Value="42"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit10>
@@ -203,7 +203,7 @@
         <UsageCount Value="10"/>
       </Unit18>
     </Units>
-    <JumpHistory Count="21" HistoryIndex="20">
+    <JumpHistory Count="22" HistoryIndex="21">
       <Position1>
         <Filename Value="play.pas"/>
         <Caret Line="2228" TopLine="2218"/>
@@ -288,20 +288,24 @@
         <Filename Value="play.pas"/>
         <Caret Line="2508" TopLine="2499"/>
       </Position21>
+      <Position22>
+        <Filename Value="play.pas"/>
+        <Caret Line="2215" Column="38" TopLine="2207"/>
+      </Position22>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
-      <Modes Count="0" ActiveMode=""/>
+      <Modes ActiveMode=""/>
     </RunParams>
   </ProjectSession>
   <Debugging>
-    <Watches Count="2">
-      <Item1>
+    <Watches>
+      <Item>
         <Expression Value="dice1"/>
-      </Item1>
-      <Item2>
+      </Item>
+      <Item>
         <Expression Value="dice2"/>
-      </Item2>
+      </Item>
     </Watches>
   </Debugging>
 </CONFIG>
