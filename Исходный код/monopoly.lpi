@@ -32,7 +32,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="11">
+    <Units Count="15">
       <Unit0>
         <Filename Value="monopoly.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -110,6 +110,26 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit10>
+      <Unit11>
+        <Filename Value="..\..\testcase1.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="TestCase1"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="..\Тестирование\testcase2.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="TestCase2"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="testcase3.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="TestCase3"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="regtests.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="RegTests"/>
+      </Unit14>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -120,6 +140,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
+      <OtherUnitFiles Value="..\..;..\Тестирование"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>

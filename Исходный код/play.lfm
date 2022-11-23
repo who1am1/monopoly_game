@@ -5,13 +5,14 @@ object fPlay: TfPlay
   Width = 1295
   BorderStyle = bsDialog
   Caption = 'Монополия'
-  ClientHeight = 0
-  ClientWidth = 0
+  ClientHeight = 866
+  ClientWidth = 1295
   DesignTimePPI = 120
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poDesktopCenter
+  ShowInTaskBar = stAlways
   LCLVersion = '2.2.2.0'
   object ImBackground: TImage
     Left = 0

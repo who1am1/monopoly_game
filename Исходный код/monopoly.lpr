@@ -8,7 +8,7 @@ uses
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, main, settings, players, play, InfoFirm, NameError, NoMoney, buildings,
-  filials, winneris
+  filials, winneris, TestCase1, TestCase2, TestCase3, RegTests
   { you can add units after this };
 
 {$R *.res}
